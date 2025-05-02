@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>ABC</title>
+    <url>/2025/05/01/ABC/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title>代码001</title>
     <url>/2025/04/10/hdh/</url>
     <content><![CDATA[<h2 id="TO"><a href="#TO" class="headerlink" title="TO"></a>TO</h2><h5 id="fgf"><a href="#fgf" class="headerlink" title="fgf"></a>fgf</h5><h2 id="fsfs"><a href="#fsfs" class="headerlink" title="fsfs"></a>fsfs</h2><h3 id="fgd"><a href="#fgd" class="headerlink" title="fgd"></a>fgd</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">z</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Hello&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>other</category>
       </categories>
-  </entry>
-  <entry>
-    <title>ABC</title>
-    <url>/2025/05/01/ABC/</url>
-    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>Hello world</title>
@@ -215,25 +215,7 @@
       </tags>
   </entry>
   <entry>
-    <title>Hello world2</title>
-    <url>/2025/04/19/text/</url>
-    <content><![CDATA[<h3 id="text"><a href="#text" class="headerlink" title="text"></a>text</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/Rplot05.png"></p>
-]]></content>
-      <categories>
-        <category>other</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>LOK</title>
-    <url>/2025/04/11/%E5%9B%BE%E7%89%87%E5%90%8D%E5%AD%97/%E5%9B%BE%E7%89%87%E5%90%8D%E5%AD%972/</url>
-    <content><![CDATA[<p><img src="https://picsum.photos/id/627/200/300" alt="图片名称八个字"></p>
-]]></content>
-      <categories>
-        <category>other</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>proj1</title>
+    <title>proj2</title>
     <url>/2025/05/01/nand2tetris-proj2-final/</url>
     <content><![CDATA[<h3 id="2-1-Binary-Numbers"><a href="#2-1-Binary-Numbers" class="headerlink" title="2.1 Binary Numbers"></a>2.1 Binary Numbers</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250405164423371.png" alt="image-20250405164423371"></p>
 <p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250405163338004.png" alt="image-20250405163338004"></p>
@@ -329,5 +311,144 @@
       <tags>
         <tag>nand2tetris</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>proj3</title>
+    <url>/2025/05/02/nand2tetris-proj3-final-2/</url>
+    <content><![CDATA[<h3 id="3-1-Sequential-Logic（逻辑时序）"><a href="#3-1-Sequential-Logic（逻辑时序）" class="headerlink" title="3.1 Sequential Logic（逻辑时序）"></a>3.1 Sequential Logic（逻辑时序）</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407103408721.png" alt="image-20250407103408721"></p>
+<h4 id="The-Clock"><a href="#The-Clock" class="headerlink" title="The Clock"></a>The Clock</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407103559711.png" alt="image-20250407103559711"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407103651219.png" alt="image-20250407103651219"></p>
+<p>⭐</p>
+<h4 id="Combinatorial-Logic-vs-Sequential-Logic"><a href="#Combinatorial-Logic-vs-Sequential-Logic" class="headerlink" title="Combinatorial Logic vs. Sequential Logic"></a>Combinatorial Logic vs. Sequential Logic</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407104103457.png" alt="image-20250407104103457"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407104118222.png" alt="image-20250407104118222"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407104217914.png" alt="image-20250407104217914"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407104323702.png" alt="image-20250407104323702"></p>
+<h3 id="3-2-Flip-Flops-触发器"><a href="#3-2-Flip-Flops-触发器" class="headerlink" title="3.2 Flip Flops 触发器"></a>3.2 Flip Flops 触发器</h3><p>制作：允许上一步操作的芯片</p>
+<p>⭐</p>
+<h4 id="D-触发器"><a href="#D-触发器" class="headerlink" title="D 触发器"></a><strong>D 触发器</strong></h4><p><strong>换句话说，DFF 简单地将前一个时间周期的输入值作为当前周期的输出。𝑜𝑢𝑡(𝑡)&#x3D;𝑖𝑛(𝑡−1)</strong></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407131732664.png" alt="image-20250407131732664"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407125650242.png" alt="image-20250407125650242"></p>
+<h4 id="时序逻辑的原理"><a href="#时序逻辑的原理" class="headerlink" title="时序逻辑的原理"></a><strong>时序逻辑的原理</strong></h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407130044516.png" alt="image-20250407130044516"></p>
+<h4 id="寄存器-Bit"><a href="#寄存器-Bit" class="headerlink" title="寄存器 Bit"></a>寄存器 Bit</h4><p>【寄存器（也）是一种常用的时序逻辑电路】</p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407130252903.png" alt="image-20250407130252903"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407130512040.png" alt="image-20250407130512040"></p>
+<h4 id="implement"><a href="#implement" class="headerlink" title="implement"></a>implement</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407130642446.png" alt="image-20250407130642446"></p>
+<h4 id="show"><a href="#show" class="headerlink" title="show"></a>show</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407131134475.png" alt="image-20250407131134475"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407131141487.png" alt="image-20250407131141487"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407131153974.png" alt="image-20250407131153974"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407131219341.png" alt="image-20250407131219341"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407131249812.png" alt="image-20250407131249812"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407131306313.png" alt="image-20250407131306313"></p>
+<h3 id="3-3-Memory-Units"><a href="#3-3-Memory-Units" class="headerlink" title="3.3 Memory Units"></a>3.3 Memory Units</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407162440343.png" alt="image-20250407162440343"></p>
+<h4 id="Memory"><a href="#Memory" class="headerlink" title="Memory"></a>Memory</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407162636276.png" alt="image-20250407162636276"></p>
+<h4 id="The-most-basic-memory-element-Register"><a href="#The-most-basic-memory-element-Register" class="headerlink" title="The most basic memory element: Register"></a>The most basic memory element: Register</h4><p><img src="C:\Users\99512\AppData\Roaming\Typora\typora-user-images\image-20250407162706895.png" alt="image-20250407162706895"></p>
+<p>⭐ （并着排列的）</p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407162832550.png" alt="image-20250407162832550"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407163056209.png" alt="image-20250407163056209"></p>
+<h4 id="RAM-unit"><a href="#RAM-unit" class="headerlink" title="RAM unit"></a>RAM unit</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407163925696.png" alt="image-20250407163925696"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407164114314.png" alt="image-20250407164114314"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407164124566.png" alt="image-20250407164124566"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407164321731.png" alt="image-20250407164321731"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407164328029.png" alt="image-20250407164328029"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407164336551.png" alt="image-20250407164336551"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407164355607.png" alt="image-20250407164355607"></p>
+<p>（逻辑时序的芯片）</p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407164409494.png" alt="image-20250407164409494"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407164444136.png" alt="image-20250407164444136"></p>
+<h4 id="RAM-Read-Logic"><a href="#RAM-Read-Logic" class="headerlink" title="RAM &#x2F; Read Logic"></a>RAM &#x2F; Read Logic</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407164613906.png" alt="image-20250407164613906"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407164723446.png" alt="image-20250407164723446"></p>
+<h4 id="RAM-Write-Logic"><a href="#RAM-Write-Logic" class="headerlink" title="RAM &#x2F; Write Logic"></a>RAM &#x2F; Write Logic</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407164822467.png" alt="image-20250407164822467"></p>
+<h4 id="A-family-of-16-bit-RAM-chips"><a href="#A-family-of-16-bit-RAM-chips" class="headerlink" title="A family of 16-bit RAM chips"></a>A family of 16-bit RAM chips</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407165748845.png" alt="image-20250407165748845"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407165903504.png" alt="image-20250407165903504"></p>
+<h3 id="3-4-Counters"><a href="#3-4-Counters" class="headerlink" title="3.4  Counters"></a>3.4  Counters</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407183128147.png" alt="image-20250407183128147"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407183216165.png" alt="image-20250407183216165"></p>
+<p>(Inc 代表增量[+1])</p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407183416972.png" alt="image-20250407183416972"></p>
+<h3 id="3-5-code"><a href="#3-5-code" class="headerlink" title="3.5 code"></a>3.5 code</h3><h4 id="preview：DFF"><a href="#preview：DFF" class="headerlink" title="preview：DFF"></a>preview：DFF</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250415121843294.png" alt="image-20250415121843294"></p>
+<hr>
+<h4 id="1-bit-register-芯片"><a href="#1-bit-register-芯片" class="headerlink" title="1-bit register 芯片"></a>1-bit register 芯片</h4><ul>
+<li>输入一个1-bit的数。如果load&#x3D;1，下一秒输入该数，如果load&#x3D;0，下一秒保持原来的数值。</li>
+<li>register 中文：<strong>寄存器</strong></li>
+</ul>
+<img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250415122014364.png" alt="image-20250415122014364" style="zoom:80%;" />
+
+<img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250415122027636.png" style="zoom:67%;" />
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CHIP Bit &#123;</span><br><span class="line">    IN in, load;</span><br><span class="line">    OUT out;</span><br><span class="line"></span><br><span class="line">    PARTS:</span><br><span class="line">    Mux(a=out2 , b=in , sel=load , out=w1 );</span><br><span class="line">    DFF(in=w1 , out=out,out=out2 );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="16-bit-register-芯片"><a href="#16-bit-register-芯片" class="headerlink" title="16-bit register 芯片"></a>16-bit register 芯片</h4><ul>
+<li>输入一个16-bit的数。根据load，下一秒输出该数，或者下一秒保持上一秒的值。</li>
+<li>1个load决定16个输出。16个1-bit register芯片并排。</li>
+<li>对每一位进行load运算</li>
+<li>最终的输入&#x2F;输出 都是 <strong>一个</strong> 16-bit的数</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/OIP-C%20(1).jpg"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/OIP-C%20(3).jpg"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 16-bit 寄存器! </span><br><span class="line">CHIP Register &#123;</span><br><span class="line">    IN in[16], load;</span><br><span class="line">    OUT out[16];</span><br><span class="line"></span><br><span class="line">    PARTS:</span><br><span class="line">    //对16bit的每一位进行load，当load为1的时候给 对应位 储存值</span><br><span class="line">    Bit(in=in[15] , load=load , out=out[15] );</span><br><span class="line">    Bit(in=in[14] , load=load , out=out[14] );</span><br><span class="line">    Bit(in=in[13] , load=load , out=out[13] );</span><br><span class="line">    Bit(in=in[12] , load=load , out=out[12] );</span><br><span class="line">    Bit(in=in[11] , load=load , out=out[11] );</span><br><span class="line">    Bit(in=in[10] , load=load , out=out[10] );</span><br><span class="line">    Bit(in=in[9] , load=load , out=out[9] );</span><br><span class="line">    Bit(in=in[8] , load=load , out=out[8] );</span><br><span class="line">    Bit(in=in[7] , load=load , out=out[7] );</span><br><span class="line">    Bit(in=in[6] , load=load , out=out[6] );</span><br><span class="line">    Bit(in=in[5] , load=load , out=out[5] );</span><br><span class="line">    Bit(in=in[4] , load=load , out=out[4] );</span><br><span class="line">    Bit(in=in[3] , load=load , out=out[3] );</span><br><span class="line">    Bit(in=in[2] , load=load , out=out[2] );</span><br><span class="line">    Bit(in=in[1] , load=load , out=out[1] );</span><br><span class="line">    Bit(in=in[0] , load=load , out=out[0] );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="RAM8"><a href="#RAM8" class="headerlink" title="RAM8"></a>RAM8</h4><ul>
+<li>8个 16-bit寄存器，并排放在RAM8里。</li>
+<li>输入：<strong>一个</strong>16-bit 的数。输出为 <strong>一个</strong> 16-bit 的数  （<strong>数最大 16-bit</strong>，可小点）</li>
+<li>⭐根据三位数地址address决定给    哪<strong>一个</strong>   register储存值。</li>
+<li>对应的被调到的寄存器的load会被打开，load&#x3D;1。</li>
+</ul>
+<img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy82Njg0OTktNzY0NDYzZDgxYjExYWI4Mi5qcGc.png" style="zoom: 33%;" />
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CHIP RAM8 &#123;</span><br><span class="line">    IN in[16], load, address[3];  // address有3位，能解码成 2的三次方= 8个 不一样的 三位数</span><br><span class="line">    OUT out[16];</span><br><span class="line"></span><br><span class="line">    PARTS:</span><br><span class="line">    //假设address为000，load为 1。DMux8Way会把load信号分配到输出端口a，</span><br><span class="line">    //也就是第一个寄存器的load端口会接收到值为 1 的信号，而其余寄存器的load端口会接收到值为 0 的信号（即不改变自身的值）</span><br><span class="line">    DMux8Way(in = load,sel = address,a = a,b = b,c = c,d = d,e = e,f = f,g = g,h = h);</span><br><span class="line"></span><br><span class="line">    Register(in=in , load=a , out=outa );</span><br><span class="line">    Register(in=in , load=b , out=outb );</span><br><span class="line">    Register(in=in , load=c , out=outc );</span><br><span class="line">    Register(in=in , load=d , out=outd );</span><br><span class="line">    Register(in=in , load=e , out=oute );</span><br><span class="line">    Register(in=in , load=f , out=outf );</span><br><span class="line">    Register(in=in , load=g , out=outg );</span><br><span class="line">    Register(in=in , load=h , out=outh );</span><br><span class="line"></span><br><span class="line">    Mux8Way16(a=outa , b=outb , c=outc , d=outd , e=oute , f=outf , g=outg , h=outh , sel=address , out=out);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="RAM64"><a href="#RAM64" class="headerlink" title="RAM64"></a>RAM64</h4><ul>
+<li><strong>原理同RAM8：一个最大16-bit的输入，根据address（解码后）决定把改 一位数值 保存在哪个地方（该地方的load会打开）</strong></li>
+<li>（结构由 8个RAM8 并排拼一起，解码端口变多了点，当然了address也长了点）</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"> CHIP RAM64 &#123;</span><br><span class="line">    IN in[16], load, address[6];</span><br><span class="line">    OUT out[16];</span><br><span class="line"></span><br><span class="line">    PARTS:</span><br><span class="line">    DMux8Way(in = load,sel = address[3..5],a = a,b = b,c = c,d = d,e = e,f = f,g = g,h = h);</span><br><span class="line">    //两层解码：第一层，用前3位区分开8个不一样的RAM8</span><br><span class="line"></span><br><span class="line">	// 第二层，用后三位，区分开来每个RAM8的8个不同的寄存器。（这样子就区分开来了8*8=64个寄存器）</span><br><span class="line">    RAM8(in=in , load=a , address=address[0..2] , out=outa );</span><br><span class="line">    RAM8(in=in , load=b , address=address[0..2] , out=outb );</span><br><span class="line">    RAM8(in=in , load=c , address=address[0..2] , out=outc );</span><br><span class="line">    RAM8(in=in , load=d , address=address[0..2] , out=outd );</span><br><span class="line">    RAM8(in=in , load=e , address=address[0..2] , out=oute );</span><br><span class="line">    RAM8(in=in , load=f , address=address[0..2] , out=outf );</span><br><span class="line">    RAM8(in=in , load=g , address=address[0..2] , out=outg );</span><br><span class="line">    RAM8(in=in , load=h , address=address[0..2] , out=outh );</span><br><span class="line"></span><br><span class="line">    Mux8Way16(a=outa , b=outb , c=outc , d=outd , e=oute , f=outf , g=outg , h=outh , sel=address[3..5] , out=out);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="RAM512"><a href="#RAM512" class="headerlink" title="RAM512"></a>RAM512</h4><ul>
+<li>原理同上，就是积木从小拼到大（8个RAM64）</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CHIP RAM512 &#123;</span><br><span class="line">    IN in[16], load, address[9];</span><br><span class="line">    OUT out[16];</span><br><span class="line"></span><br><span class="line">    PARTS:</span><br><span class="line">    DMux8Way(in = load,sel = address[6..8],a = a,b = b,c = c,d = d,e = e,f = f,g = g,h = h);</span><br><span class="line"></span><br><span class="line">    RAM64(in=in , load=a , address=address[0..5] , out=outa );</span><br><span class="line">    RAM64(in=in , load=b , address=address[0..5] , out=outb );</span><br><span class="line">    RAM64(in=in , load=c , address=address[0..5] , out=outc );</span><br><span class="line">    RAM64(in=in , load=d , address=address[0..5] , out=outd );</span><br><span class="line">    RAM64(in=in , load=e , address=address[0..5] , out=oute );</span><br><span class="line">    RAM64(in=in , load=f , address=address[0..5] , out=outf );</span><br><span class="line">    RAM64(in=in , load=g , address=address[0..5] , out=outg );</span><br><span class="line">    RAM64(in=in , load=h , address=address[0..5] , out=outh );</span><br><span class="line"></span><br><span class="line">    Mux8Way16(a=outa , b=outb , c=outc , d=outd , e=oute , f=outf , g=outg , h=outh , sel=address[6..8] , out=out);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="RAM4K"><a href="#RAM4K" class="headerlink" title="RAM4K"></a>RAM4K</h4><ul>
+<li>8个RAM512</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"> CHIP RAM4K &#123;</span><br><span class="line">    IN in[16], load, address[12];</span><br><span class="line">    OUT out[16];</span><br><span class="line"></span><br><span class="line">    PARTS:</span><br><span class="line">    DMux8Way(in = load,sel = address[9..11],a = a,b = b,c = c,d = d,e = e,f = f,g = g,h = h);</span><br><span class="line">    //假设address为000，load为 1。DMux8Way会把load信号分配到输出端口a。</span><br><span class="line"></span><br><span class="line">    RAM512(in=in , load=a , address=address[0..8] , out=outa );</span><br><span class="line">    RAM512(in=in , load=b , address=address[0..8] , out=outb );</span><br><span class="line">    RAM512(in=in , load=c , address=address[0..8] , out=outc );</span><br><span class="line">    RAM512(in=in , load=d , address=address[0..8] , out=outd );</span><br><span class="line">    RAM512(in=in , load=e , address=address[0..8] , out=oute );</span><br><span class="line">    RAM512(in=in , load=f , address=address[0..8] , out=outf );</span><br><span class="line">    RAM512(in=in , load=g , address=address[0..8] , out=outg );</span><br><span class="line">    RAM512(in=in , load=h , address=address[0..8] , out=outh );</span><br><span class="line"></span><br><span class="line">    Mux8Way16(a=outa , b=outb , c=outc , d=outd , e=oute , f=outf , g=outg , h=outh , sel=address[9..11] , out=out);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="RAM16K"><a href="#RAM16K" class="headerlink" title="RAM16K"></a>RAM16K</h4><ul>
+<li>4个RAM4K</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"> CHIP RAM16K &#123;</span><br><span class="line">    IN in[16], load, address[14];</span><br><span class="line">    OUT out[16];</span><br><span class="line"></span><br><span class="line">    PARTS:</span><br><span class="line">    DMux4Way(in = load,sel = address[12..13],a = a,b = b,c = c,d = d);</span><br><span class="line">    // 前两位用来区分4个RAM4K，后面12位是RAM4K所需的address。 </span><br><span class="line"></span><br><span class="line">    RAM4K(in=in , load=a , address=address[0..11] , out=outa );</span><br><span class="line">    RAM4K(in=in , load=b , address=address[0..11] , out=outb );</span><br><span class="line">    RAM4K(in=in , load=c , address=address[0..11] , out=outc );</span><br><span class="line">    RAM4K(in=in , load=d , address=address[0..11] , out=outd );</span><br><span class="line">    </span><br><span class="line">    Mux4Way16(a=outa , b=outb , c=outc , d=outd , sel=address[12..13] , out=out);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250415131408114.png" alt="image-20250415131408114" style="zoom:50%;" />
+
+
+
+<h4 id="CHIP-PC"><a href="#CHIP-PC" class="headerlink" title="CHIP PC"></a>CHIP PC</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/747e5d538c8e16996b67320f42e7e77.jpg" alt="747e5d538c8e16996b67320f42e7e77"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/**</span><br><span class="line"> * A 16-bit counter. 计数器吧？？？</span><br><span class="line"> * if      reset(t): out(t+1) = 0</span><br><span class="line"> * else if load(t):  out(t+1) = in(t)</span><br><span class="line"> * else if inc(t):   out(t+1) = out(t) + 1</span><br><span class="line"> * else              out(t+1) = out(t)</span><br><span class="line"> */</span><br><span class="line"> </span><br><span class="line">CHIP PC &#123;</span><br><span class="line">    IN in[16], reset, load, inc;</span><br><span class="line">    OUT out[16];</span><br><span class="line">    </span><br><span class="line">    PARTS:</span><br><span class="line"></span><br><span class="line">    Inc16(in = feedback,out = incout);</span><br><span class="line">    Mux16(a = feedback,b = incout,sel = inc,out = out1);</span><br><span class="line">    Mux16(a = out1,b = in,sel = load,out = out2);</span><br><span class="line">    Mux16(a = out2,b = false,sel = reset,out = out3);</span><br><span class="line"></span><br><span class="line">    Register(in = out3,load = true,out = out,out = feedback);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>code</category>
+      </categories>
+      <tags>
+        <tag>nand2tetris</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello world2</title>
+    <url>/2025/04/19/text/</url>
+    <content><![CDATA[<h3 id="text"><a href="#text" class="headerlink" title="text"></a>text</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/Rplot05.png"></p>
+]]></content>
+      <categories>
+        <category>other</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>LOK</title>
+    <url>/2025/04/11/%E5%9B%BE%E7%89%87%E5%90%8D%E5%AD%97/%E5%9B%BE%E7%89%87%E5%90%8D%E5%AD%972/</url>
+    <content><![CDATA[<p><img src="https://picsum.photos/id/627/200/300" alt="图片名称八个字"></p>
+]]></content>
+      <categories>
+        <category>other</category>
+      </categories>
   </entry>
 </search>
