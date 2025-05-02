@@ -313,6 +313,15 @@
       </tags>
   </entry>
   <entry>
+    <title>Hello world2</title>
+    <url>/2025/04/19/text/</url>
+    <content><![CDATA[<h3 id="text"><a href="#text" class="headerlink" title="text"></a>text</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/Rplot05.png"></p>
+]]></content>
+      <categories>
+        <category>other</category>
+      </categories>
+  </entry>
+  <entry>
     <title>proj3</title>
     <url>/2025/05/02/nand2tetris-proj3-final-2/</url>
     <content><![CDATA[<h3 id="3-1-Sequential-Logic（逻辑时序）"><a href="#3-1-Sequential-Logic（逻辑时序）" class="headerlink" title="3.1 Sequential Logic（逻辑时序）"></a>3.1 Sequential Logic（逻辑时序）</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407103408721.png" alt="image-20250407103408721"></p>
@@ -432,15 +441,6 @@
       <tags>
         <tag>nand2tetris</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Hello world2</title>
-    <url>/2025/04/19/text/</url>
-    <content><![CDATA[<h3 id="text"><a href="#text" class="headerlink" title="text"></a>text</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/Rplot05.png"></p>
-]]></content>
-      <categories>
-        <category>other</category>
-      </categories>
   </entry>
   <entry>
     <title>LOK</title>
