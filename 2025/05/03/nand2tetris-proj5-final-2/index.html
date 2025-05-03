@@ -1,0 +1,530 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>proj5 | LKK の blog</title><meta name="author" content="KKL"><meta name="copyright" content="KKL"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="5.1  Elements Infomation Flows Element + 三条总线  （大概看看，具体的看后面）    The Arithmetic Logic Unit data接入ALU，得到输出 输出值返回数据总线 我觉得是输出out或者回去内存？    control总线 告诉ALU进行何种操作 ALU 返回告诉 Control 系统其他部分进行什么操作 当 CPU 从程序内存中获">
+<meta property="og:type" content="article">
+<meta property="og:title" content="proj5">
+<meta property="og:url" content="http://example.com/2025/05/03/nand2tetris-proj5-final-2/index.html">
+<meta property="og:site_name" content="LKK の blog">
+<meta property="og:description" content="5.1  Elements Infomation Flows Element + 三条总线  （大概看看，具体的看后面）    The Arithmetic Logic Unit data接入ALU，得到输出 输出值返回数据总线 我觉得是输出out或者回去内存？    control总线 告诉ALU进行何种操作 ALU 返回告诉 Control 系统其他部分进行什么操作 当 CPU 从程序内存中获">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png">
+<meta property="article:published_time" content="2025-05-03T08:02:05.821Z">
+<meta property="article:modified_time" content="2025-05-03T08:02:32.459Z">
+<meta property="article:author" content="KKL">
+<meta property="article:tag" content="nand2tetris">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "proj5",
+  "url": "http://example.com/2025/05/03/nand2tetris-proj5-final-2/",
+  "image": "https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png",
+  "datePublished": "2025-05-03T08:02:05.821Z",
+  "dateModified": "2025-05-03T08:02:32.459Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "KKL",
+      "url": "http://example.com/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2025/05/03/nand2tetris-proj5-final-2/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!true && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?61208d72ee755d3d238bfecf1e0a2afe";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+btf.addGlobalFn('pjaxComplete', () => {
+  _hmt.push(['_trackPageview',window.location.pathname])
+}, 'baidu_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":true,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":150,"languages":{"author":"作者: KKL","link":"链接: ","source":"来源: LKK の blog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'true',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: true,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'proj5',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/css/main.css"><meta name="generator" content="Hexo 7.3.0"></head><body><div id="web_bg" style="background-image: url(./img/2.jpg);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/./img/001.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">10</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">1</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/movies/"><i class="fa-fw fas fa-film"></i><span> Movie</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://picsum.photos/id/627/200/116);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">LKK の blog</span></a><a class="nav-page-title" href="/"><span class="site-name">proj5</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/movies/"><i class="fa-fw fas fa-film"></i><span> Movie</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">proj5</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-05-03T08:02:05.821Z" title="发表于 2025-05-03 16:02:05">2025-05-03</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-05-03T08:02:32.459Z" title="更新于 2025-05-03 16:02:32">2025-05-03</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/code/">code</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="5-1"><a href="#5-1" class="headerlink" title="5.1"></a>5.1</h1><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414103254600.png" alt="image-20250414103254600"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414103339640.png" alt="image-20250414103339640"></p>
+<h2 id="Elements"><a href="#Elements" class="headerlink" title="Elements"></a>Elements</h2><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414103410299.png" alt="image-20250414103410299"></p>
+<h2 id="Infomation-Flows"><a href="#Infomation-Flows" class="headerlink" title="Infomation Flows"></a>Infomation Flows</h2><ul>
+<li><p><strong>Element + 三条总线</strong></p>
+</li>
+<li><p>（大概看看，具体的看后面）</p>
+</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414103512260.png" alt="image-20250414103512260"></p>
+<h3 id="The-Arithmetic-Logic-Unit"><a href="#The-Arithmetic-Logic-Unit" class="headerlink" title="The Arithmetic Logic Unit"></a>The Arithmetic Logic Unit</h3><ul>
+<li>data接入ALU，得到输出</li>
+<li>输出值返回数据总线</li>
+<li>我觉得是输出out或者回去内存？</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414103725776.png" alt="image-20250414103725776"></p>
+<ul>
+<li>control总线 告诉ALU进行何种操作</li>
+<li>ALU 返回告诉 Control 系统其他部分进行什么操作</li>
+<li>当 CPU 从程序内存中获取到指令后，会对指令进行解析。对于指令中的控制信息，通过控制总线传出去（让算术逻辑单元、寄存器、内存等部件按要求操作，比如让算术逻辑单元进行加法运算等）<ul>
+<li>例如如果ALU发现某个数字大于零，他将告诉Control下一个指令的跳转以及下一个指令是什么</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414103745983.png" alt="image-20250414103745983"></p>
+<h3 id="Address-Register"><a href="#Address-Register" class="headerlink" title="Address Register"></a>Address Register</h3><ul>
+<li>寄存器储存中间结果。所以数据总线接到Register里</li>
+<li>有的寄存器还用作地址储存器，所以register要接入地址总线<ul>
+<li>（将数字，也就是地址放入寄存器中，然后它就指定了我们想要访问的位置。）</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414104302989.png" alt="image-20250414104302989"></p>
+<h2 id="Memory"><a href="#Memory" class="headerlink" title="Memory"></a>Memory</h2><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414104324563.png" alt="image-20250414104324563"></p>
+<h3 id="Data-Memory"><a href="#Data-Memory" class="headerlink" title="Data Memory"></a>Data Memory</h3><ul>
+<li>Data Memory需要连接数据总线：因为输入和输出（这没问题）</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414104458851.png" alt="image-20250414104458851"></p>
+<h3 id="Program-Memory"><a href="#Program-Memory" class="headerlink" title="Program Memory"></a>Program Memory</h3><ul>
+<li>程序内存</li>
+<li>需要从PM取出CPU所需要的程序指令，所以连接地址总线<ul>
+<li>例如，<strong>（程序指令是 CPU 找内存要的）</strong>，CPU 要从程序内存里拿指令时，得先把<strong>下一条</strong>指令的地址发出去（通过地址总线），程序内存收到地址后，按地址找到指令再传给 CPU（通过数据总线）。</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414104556795.png" alt="image-20250414104556795"></p>
+<h2 id="Next"><a href="#Next" class="headerlink" title="Next"></a>Next</h2><p><strong>我们在下一单元要做的，是更仔细地研究最内层的循环</strong>，也就是我们的硬件应该执行的基本操作：即从内存，程序内存中取出一条指令，并恰当地使用系统的其他部分来执行它。这被称为取指 - 执行周期，这将是下一单元的内容。<strong>（一条一条执行程序指令）</strong></p>
+<hr>
+<h1 id="5-2-The-Fetch-Execute-Cycle"><a href="#5-2-The-Fetch-Execute-Cycle" class="headerlink" title="5.2 The Fetch-Execute Cycle"></a>5.2 The Fetch-Execute Cycle</h1><h2 id="The-basic-CPU-loop"><a href="#The-basic-CPU-loop" class="headerlink" title="The basic CPU loop"></a>The basic CPU loop</h2><p><strong>一条条 获取-执行 程序指令</strong></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414105855817.png" alt="image-20250414105855817"></p>
+<h3 id="获取指令"><a href="#获取指令" class="headerlink" title="获取指令"></a>获取指令</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414121331533.png" alt="image-20250414121331533"></p>
+<p>but下一条指令在哪里找呢？</p>
+<ul>
+<li><p>在内存里</p>
+</li>
+<li><p>在程序内存里</p>
+</li>
+<li><p>在程序计数器（program counter）里面（某个寄存器）</p>
+<ul>
+<li>它会根据指令的执行情况自动递增或根据跳转指令等进行修改，以指向下一条要取的指令<strong>地址</strong>。</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414121446414.png" alt="image-20250414121446414"></p>
+<h3 id="执行指令"><a href="#执行指令" class="headerlink" title="执行指令"></a>执行指令</h3><ul>
+<li><p>有了Instruction，我们需要执行它。</p>
+</li>
+<li><p>指令代码包含了很多信息（不同位有不同信息）</p>
+</li>
+<li><p>把取出的指令通过 控制总线 输出到CPU</p>
+<ul>
+<li>控制总线 告诉ALU计算什么指令，告诉数据来自哪个寄存器还是哪个数据存储器。</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414121636482.png" alt="image-20250414121636482"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414121725006.png" alt="image-20250414121725006"></p>
+<h3 id="获取-执行-冲突Clash"><a href="#获取-执行-冲突Clash" class="headerlink" title="获取-执行 冲突Clash"></a>获取-执行 冲突Clash</h3><ul>
+<li>简单来说，就是因为内存地址输入在同一时刻的唯一性，而取指令和执行指令时都需要使用内存地址来获取不同的内容（指令和数据），从而导致了冲突。</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414121913298.png" alt="image-20250414121913298"></p>
+<ul>
+<li>解决方法：一个一个做。通过一个Mux解决（sel：a Fetch&#x2F;Execute Bit)</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414122048850.png" alt="image-20250414122048850"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414122147788.png" alt="image-20250414122147788"></p>
+<ul>
+<li>更简单的解决方法：把内存分为两个部分，一个部分作为数据存储器，另一个办法作为程序存储器。</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414122213402.png" alt="image-20250414122213402"></p>
+<h2 id="Next-1"><a href="#Next-1" class="headerlink" title="Next"></a>Next</h2><ul>
+<li>这一节，我们讨论了计算机的一般架构</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414122314197.png" alt="image-20250414122314197"></p>
+<ul>
+<li>下一节，我们讨论我们的HACK计算机</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414122324359.png" alt="image-20250414122324359"></p>
+<hr>
+<h1 id="5-3-Central-Processing-Unit"><a href="#5-3-Central-Processing-Unit" class="headerlink" title="5.3 Central Processing Unit"></a>5.3 Central Processing Unit</h1><h2 id="CPU-interface-and-implementation"><a href="#CPU-interface-and-implementation" class="headerlink" title="CPU: interface and implementation"></a>CPU: interface and implementation</h2><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414122436406.png" alt="image-20250414122436406"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414122636301.png" alt="image-20250414122636301"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414122807022.png" alt="image-20250414122807022"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414122921132.png" alt="image-20250414122921132"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414123504372.png" alt="image-20250414123504372"></p>
+<h2 id="CPU-Instruction-handling"><a href="#CPU-Instruction-handling" class="headerlink" title="CPU: Instruction handling"></a>CPU: Instruction handling</h2><h3 id="handle-A-instruction"><a href="#handle-A-instruction" class="headerlink" title="handle  A-instruction"></a>handle  A-instruction</h3><ul>
+<li><p><strong>地址寄存器</strong></p>
+</li>
+<li><p>解码：分离操作码（最前面<strong>一位</strong>，就是instruction[15] ）和其他字段（15位的地址或是值）</p>
+</li>
+<li><p>确定是A指令后，取出后15位值，把它放入A寄存器中。</p>
+</li>
+<li><p>CPU 同时做的另一件事：取出A寄存器的输出（后15位，ins[0..14] )，并通过我们称之为“M地址”的输出将其输出到CPU外部。</p>
+</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414124010589.png" alt="image-20250414124010589"></p>
+<h3 id="handle-C-instruction"><a href="#handle-C-instruction" class="headerlink" title="handle  C-instruction"></a>handle  C-instruction</h3><ul>
+<li>解码：分离操作码和其他三个字段</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414124307951.png" alt="image-20250414124307951"></p>
+<h3 id="A-regester-–-again"><a href="#A-regester-–-again" class="headerlink" title="A regester – again"></a>A regester – again</h3><ul>
+<li>我们发现：A寄存器也可以由 ALU的输出 提供数据，而不一定是来自指令输入。（是不是有时候ALU发现该跳转了，所以输出指令给A regester？）</li>
+<li>在某些情况下是操作码为0的A指令，在这种情况下，我们希望输入来自指令。</li>
+<li>在其他情况下是操作码为1的C指令，在这种情况下，我们希望以某种方式路由A寄存器的输入，使得输入来自ALU。<ul>
+<li>例如，如果 C 指令是要计算某个数值与 A 寄存器当前值的和，那么 ALU 会从 D 寄存器（或其他数据源）和 A 寄存器获取操作数进行加法运算，<strong>运算结果可能需要再存回 A 寄存器</strong>，所以就需要将 ALU 的输出路由到 A 寄存器作为其输入。（就不用inM了）</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414124347934.png" alt="image-20250414124347934"></p>
+<h2 id="CPU-ALU-operation"><a href="#CPU-ALU-operation" class="headerlink" title="CPU: ALU operation"></a>CPU: ALU operation</h2><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414124511512.png" alt="image-20250414124511512"></p>
+<h3 id="ALU-operation-inputs"><a href="#ALU-operation-inputs" class="headerlink" title="ALU operation: inputs"></a>ALU operation: inputs</h3><ul>
+<li>remember：C指令由不同的位字段组成，每个字段都有不同的含义。</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414124645511.png" alt="image-20250414124645511"></p>
+<ul>
+<li>ALU 有两个输入源 , 最终输入depend on 控制位c和011111(now)</li>
+<li>Control bit <strong>from the instruction</strong></li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414124841120.png" alt="image-20250414124841120"></p>
+<h3 id="ALU-operation-outputs"><a href="#ALU-operation-outputs" class="headerlink" title="ALU operation: outputs"></a>ALU operation: outputs</h3><ul>
+<li>ALU 的 输出被送到三个地方。</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414125122759.png" alt="image-20250414125122759"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414125129007.png" alt="image-20250414125129007"><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414125141052.png" alt="image-20250414125141052"></p>
+<ul>
+<li>我们有三个目的地的位bit，这些bit决定是否打开D寄存器、A寄存器和数据存储器来接受ALU的输出。（即有选择性地接收）</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414125230737.png" alt="image-20250414125230737"></p>
+<p>Control bit c’s?</p>
+<ul>
+<li>这两个控制位用于记录ALU的输出是负还是零。</li>
+<li>important for what follows.</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414125405175.png" alt="image-20250414125405175"></p>
+<h2 id="CPU：Control-（logic"><a href="#CPU：Control-（logic" class="headerlink" title="CPU：Control （logic"></a>CPU：Control （logic</h2><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414125438604.png" alt="image-20250414125438604"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414130006833.png" alt="image-20250414130006833"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414130112941.png" alt="image-20250414130112941"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414130130355.png" alt="image-20250414130130355"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414130157260.png" alt="image-20250414130157260"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414130224262.png" alt="image-20250414130224262"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414130255057.png" alt="image-20250414130255057"></p>
+<ul>
+<li>if 程序员已经事先将想要跳转到的地址存入了A寄存器。如果我们执行PC等于A，程序计数器将输出接下来必须执行的下一条指令的地址。</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414130323024.png" alt="image-20250414130323024"></p>
+<ul>
+<li>如果我们有一个条件跳转，我们必须查看ALU的输出，并决定这个跳转是否应该实际发生。<ul>
+<li>例如，假设我们有一个条件跳转指令是 “如果寄存器 A 中的值大于寄存器 B 中的值，则跳转到地址 X”。在执行这条指令之前，会先让 ALU 进行 A - B 的运算，然后根据 ALU 的输出结果（如果结果大于 0，表示 A 大于 B）来决定是否跳转到地址 X。</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414130403294.png" alt="image-20250414130403294"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414193356928.png" alt="image-20250414193356928"></p>
+<h2 id="Last-：we-finish-CPU"><a href="#Last-：we-finish-CPU" class="headerlink" title="Last ：we finish CPU"></a>Last ：we finish CPU</h2><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414193427312.png" alt="image-20250414193427312"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414130853170.png" alt="image-20250414130853170"></p>
+<p>next</p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414130905093.png" alt="image-20250414130905093"></p>
+<hr>
+<h1 id="5-4-The-Hack-Computer"><a href="#5-4-The-Hack-Computer" class="headerlink" title="5.4 The Hack Computer"></a>5.4 The Hack Computer</h1><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414131123663.png" alt="image-20250414131123663"></p>
+<h2 id="Hack-CPU-Operation"><a href="#Hack-CPU-Operation" class="headerlink" title="Hack CPU Operation"></a>Hack CPU Operation</h2><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414131334263.png" alt="image-20250414131334263"></p>
+<ul>
+<li>如果指令中提到了助记符“D”和“A”，CPU就会操作位于CPU内部的相应的<strong>D寄存器</strong>和<strong>A寄存器</strong>。</li>
+<li>如果指令是一条A指令，在这种情况下，CPU会取出数据值，即这条指令中所谓的15位的“x”，然后将其放入A寄存器中。</li>
+<li>如果指令的右侧(xxx&#x3D;M)包含 “M”，这个值将从 “inM” 读取。</li>
+<li>如果指令的左侧(M&#x3D;xxx)包含 “M”，那么 ALU 的输出将通过 “outM” 输出，并且 “writeM” 位会→1。</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414131522436.png" alt="image-20250414131522436"></p>
+<ul>
+<li>看看CPU如何处理跳转指令</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414131732348.png" alt="image-20250414131732348"></p>
+<h2 id="Memory-1"><a href="#Memory-1" class="headerlink" title="Memory"></a>Memory</h2><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414131810280.png" alt="image-20250414131810280"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414131908596.png" alt="image-20250414131908596"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414131927630.png" alt="image-20250414131927630"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414132122759.png" alt="image-20250414132122759"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414132409978.png" alt="image-20250414132409978"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414132553181.png" alt="image-20250414132553181"></p>
+<ul>
+<li><p>指令存储器 Instruction Memory  (ROM：Read - Only Memory）</p>
+</li>
+<li><p>在计算机运行之前，需要将<strong>编写好的 Hack 程序数据固化到 ROM32K 芯片中</strong>。</p>
+</li>
+<li><p>程序中的每一条指令都按照一定的顺序和格式存储在 ROM 的不同存储单元中，每个存储单元都有唯一对应的地址。</p>
+</li>
+<li><p><strong>在 Hack 计算机运行时，程序计数器（PC）会不断地向 ROM 的地址端口提供地址，ROM 根据这些地址输出相应的指令，然后 CPU 从 ROM 的输出中获取指令并执行，从而实现整个程序的运行。</strong></p>
+<ul>
+<li>例如，当 PC 输出地址为 0 时，ROM 会从地址为 0 的存储单元中取出对应的 Hack 指令，传递给 CPU 去执行，然后 PC 再递增，指向下一个地址，ROM 又输出下一条指令，如此循环，使得程序能够按顺序执行。</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414132654354.png" alt="image-20250414132654354"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414132729661.png" alt="image-20250414132729661"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414132829344.png" alt="image-20250414132829344"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414132836410.png" alt="image-20250414132836410"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414133500747.png" alt="image-20250414133500747"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414133505468.png" alt="image-20250414133505468"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414133540257.png" alt="image-20250414133540257"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414133545883.png" alt="image-20250414133545883"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414133551712.png" alt="image-20250414133551712"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414133828858.png" alt="image-20250414133828858"></p>
+<hr>
+<h1 id="5-5-code"><a href="#5-5-code" class="headerlink" title="5.5 code"></a>5.5 code</h1><h2 id="RAM16K，Screen，Keyboard"><a href="#RAM16K，Screen，Keyboard" class="headerlink" title="RAM16K，Screen，Keyboard"></a>RAM16K，Screen，Keyboard</h2><blockquote>
+<p>background</p>
+</blockquote>
+<ul>
+<li><p><strong>8K &#x3D; 2的13次方。16K &#x3D; 2的14次方。</strong></p>
+</li>
+<li><p><strong>address[15] 表示 address 是一个 16 位的信号。</strong>address[15] 是第 1 位，<strong>address[0] 就是第 16 位。</strong></p>
+</li>
+<li><p><strong>RAM16K 的地址范围</strong>:**(16K)**（0到16383)需要 14 位地址来唯一标识每个存储单元，即 address[0..13] 这 14 位地址。</p>
+</li>
+<li><p><strong>Screen 的地址范围</strong>：**(8K)**（16384-24575）需要使用 13 位地址（address[0..12]）就可以满足其寻址需求。</p>
+</li>
+<li><p>可以明显看出，一个地址如果在0-16383内，它就属于 RAM16K 的地址空间；如果在16384-24575内，它就属于 Screen 的地址空间。所以<strong>它们的地址是分开的，没有重合。</strong></p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">CHIP RAM16K &#123;</span><br><span class="line">    IN in[16], load, address[14];</span><br><span class="line">    OUT out[16];</span><br><span class="line">    // RAM16K是一个存储器，由16千个16-bit寄存器组成。</span><br><span class="line">    // 每次输入一个16位的数，RAM16K会根据其address决定将其存储到哪个位置。</span><br><span class="line">    // 具体的地址决定方法是：根据address的高2位（address[12..13]）选择一个4K的存储块，</span><br><span class="line">    // 然后根据低12位（address[0..11]）在所选的4K块内确定具体的存储位置。（以此类推，找到the only one）</span><br><span class="line"></span><br><span class="line">    PARTS:</span><br><span class="line">    DMux4Way(in = load,sel = address[12..13],a = a,b = b,c = c,d = d);</span><br><span class="line">  </span><br><span class="line">    RAM4K(in=in , load=a , address=address[0..11] , out=outa );</span><br><span class="line">    RAM4K(in=in , load=b , address=address[0..11] , out=outb );</span><br><span class="line">    RAM4K(in=in , load=c , address=address[0..11] , out=outc );</span><br><span class="line">    RAM4K(in=in , load=d , address=address[0..11] , out=outd );</span><br><span class="line">    </span><br><span class="line">    Mux4Way16(a=outa , b=outb , c=outc , d=outd , sel=address[12..13] , out=out);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">CHIP Screen &#123;</span><br><span class="line"></span><br><span class="line">    IN  in[16],    // what to write</span><br><span class="line">    load,          // write-enable bit</span><br><span class="line">    address[13];   // where to read/write</span><br><span class="line">    OUT out[16];   // Screen value at the given address</span><br><span class="line"></span><br><span class="line">    BUILTIN Screen;</span><br><span class="line">    CLOCKED in, load;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">CHIP Keyboard&#123;</span><br><span class="line">    OUT out[16];</span><br><span class="line">    BUILTIN keyboard;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Memory-2"><a href="#Memory-2" class="headerlink" title="Memory"></a>Memory</h2><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20250415180524.jpg"  />
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">CHIP Memory &#123;</span><br><span class="line">    IN in[16], load, address[15];</span><br><span class="line">    OUT out[16];</span><br><span class="line"></span><br><span class="line">    PARTS:</span><br><span class="line">    DMux4Way(in=load, sel=address[13..14], a=ram1, b=ram2, c=scrn, d=keybd); // 1314？？</span><br><span class="line">    Or(a=ram1 , b=ram2, out=ram3);</span><br><span class="line">    RAM16K(in=in, load=ram3, address=address[0..13], out=ram );</span><br><span class="line">    Screen(in=in, load=scrn, address=address[0..12], out=sc);</span><br><span class="line">    Keyboard(out=kbd);</span><br><span class="line">    Mux4Way16(a=ram, b=ram, c=sc, d=kbd, sel=address[13..14], out=out);</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="CPU"><a href="#CPU" class="headerlink" title="CPU"></a>CPU</h2><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414122921132.png" alt="image-20250414122921132"  />
+
+<img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414123504372.png" alt="image-20250414123504372"  />
+
+
+
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408152923618.png" alt="image-20250408152923618"  /><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250406111659071.png" alt="image-20250406111659071" style="zoom: 80%;" /></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">CHIP CPU &#123;</span><br><span class="line"></span><br><span class="line">    IN  inM[16],         // M value input  (M = contents of RAM[A])</span><br><span class="line">        instruction[16], // Instruction for execution</span><br><span class="line">        reset;           // Signals whether to re-start the current</span><br><span class="line">                         // program (reset==1) or continue executing</span><br><span class="line">                         // the current program (reset==0).</span><br><span class="line"></span><br><span class="line">    OUT outM[16],        // M value output</span><br><span class="line">        writeM,          // Write to M? </span><br><span class="line">        addressM[15],    // Address in data memory (of M)</span><br><span class="line">        pc[15];          // address of next instruction</span><br><span class="line"></span><br><span class="line">    PARTS:</span><br><span class="line">	// A-register 可能执行 A/C 指令（但是c指令只能从alu_out处而来，其实alu本身就能接收指令的，所以第一关下部不给c进只能a进是有原因的）</span><br><span class="line">    // A instruction</span><br><span class="line">    // @3001</span><br><span class="line">    // [0]000101110111001</span><br><span class="line">     </span><br><span class="line">     // 用途一：将常数输入计算机</span><br><span class="line">     // 用途二：为 C - 指令提供目标数据内存单元的地址（放入 A 寄存器）</span><br><span class="line">     // 用途三：为跳转指令提供目的地址</span><br><span class="line">    </span><br><span class="line">    Not(in=instruction[15] , out=notop ); </span><br><span class="line">    Mux16(a=aluOut, b=instruction , sel=notop , out=q1 ); 	 </span><br><span class="line">    Or(a=instruction[5] , b=notop , out=intoA );  </span><br><span class="line">    ARegister(in=q1, load=intoA, out=A,out[0..14]=addressM); // 同时储存并输出addressM </span><br><span class="line">    		</span><br><span class="line">    And(a=instruction[15] , b=instruction[12] , out=AMSwitch ); </span><br><span class="line">    Mux16(a=A , b=inM , sel=AMSwitch , out=AM );</span><br><span class="line">    </span><br><span class="line">  </span><br><span class="line">    // C instruction</span><br><span class="line">    // i  _  _  a  c1 c2 c3 c4 c5 c6 d1 d2 d3 j1 j2 j3</span><br><span class="line">    // 15 14 13 12 11 10 09 08 07 06 05 04 03 02 01 00</span><br><span class="line">    // ins[5]是C指令中的dest指令(=1表示去A寄存器)</span><br><span class="line">    // ins[12]是a=0/1，用于在 C指令中 决定是使用 A寄存器的值（A）还是内存的值（inM）（A指令时直接用inM了，有sel a通过不了，inM可以）</span><br><span class="line">    </span><br><span class="line">    And(a=instruction[15] , b=instruction[4] , out=intoD );</span><br><span class="line">    DRegister(in=aluOut , load=intoD , out=D ); // D 寄存器：for数据暂存</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20250415200024.jpg"></p>
+<img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408153509769.png" alt="image-20250408153509769"  />
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"> // ALU</span><br><span class="line">    // ALU takes input from DRegister and from ARegister or inM</span><br><span class="line">    // addressM 是用来确定从哪里读取数据，而 inM 是实际读取到的数据。</span><br><span class="line">    // ALU的zx,nx,zy,ny,f,no这些控制信号是由操作码 c1 - c6 经过一定逻辑转换得到的，所以C指令进不去A寄存器，但是ALU也是能获得其操作码进行操作的。⭐</span><br><span class="line">    ALU(x=D, y=AM, out=aluOut, out=outM,</span><br><span class="line">        zx=instruction[11],</span><br><span class="line">        nx=instruction[10],</span><br><span class="line">        zy=instruction[9],</span><br><span class="line">        ny=instruction[8],</span><br><span class="line">        f=instruction[7],</span><br><span class="line">        no=instruction[6],</span><br><span class="line">        zr=zrOut,</span><br><span class="line">        ng=ngOut</span><br><span class="line">    );</span><br><span class="line"></span><br><span class="line">    // writeM</span><br><span class="line">    And(a=instruction[15] , b=instruction[3] , out=writeM );</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// PC </span><br><span class="line">    // PC 的 load设置⭐</span><br><span class="line">    Not(in=ngOut , out=pos );</span><br><span class="line">    Not(in=zrOut , out=nzr );</span><br><span class="line"></span><br><span class="line">    // 处理JGT条件(&gt;0 jump)</span><br><span class="line">    And(a=instruction[15] , b=instruction[0] , out=jgt );</span><br><span class="line">    And(a=pos , b=nzr , out=posnzr );</span><br><span class="line">    And(a=jgt , b=posnzr , out=ld1 ); </span><br><span class="line"></span><br><span class="line">    // 处理JEQ条件(=0 jump)</span><br><span class="line">    And(a=instruction[15] , b=instruction[1] , out=jeq );</span><br><span class="line">    And(a=jeq , b=zrOut , out=ld2 ); </span><br><span class="line"></span><br><span class="line">    // 处理JLT条件(&lt;0 jump)</span><br><span class="line">    And(a=instruction[15] , b=instruction[2] , out=jlt );</span><br><span class="line">    And(a=jlt , b=ngOut , out=ld3 );</span><br><span class="line"></span><br><span class="line">    //合并跳转条件，生成最终的load</span><br><span class="line">    Or(a=ld1 , b=ld2 , out=ldt ); </span><br><span class="line">    Or(a=ld3 , b=ldt , out=loadd );</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    PC(in=A , load=loadd , inc=true , reset=reset , out[0..14]=pc);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 内存根据 PC 提供的地址，将对应地址处的指令输出为 instruction。</span><br><span class="line">// 但这并不是 PC 输出后被写入 RAM ，而是 PC 提供一个地址索引，内存根据这个索引将存储在该地址的指令数据输出。</span><br></pre></td></tr></table></figure>
+
+<img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414193356928.png" alt="image-20250414193356928"  />
+
+<img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414130853170.png" alt="image-20250414130853170"  />
+
+<h2 id="Computer"><a href="#Computer" class="headerlink" title="Computer"></a>Computer</h2><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414133828858.png" alt="image-20250414133828858"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">CHIP Computer &#123;</span><br><span class="line"></span><br><span class="line">    IN reset;</span><br><span class="line"></span><br><span class="line">    PARTS:</span><br><span class="line">    ROM32K(address=pc , out=instruction );</span><br><span class="line">    CPU(inM=inM, instruction=instruction , reset=reset , outM=outM , writeM=writeM , addressM=addressM , pc=pc );</span><br><span class="line">    Memory(in=outM , load=writeM , address=addressM , out=inM );</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/nand2tetris/">nand2tetris</a></div><div class="post-share"><div class="social-share" data-image="https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/2025/05/03/nand2tetris-proj4-final/" title="proj4"><img class="cover" src="https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">proj4</div></div><div class="info-2"><div class="info-item-1">Machine Language4.1 Machine Languages  : Overview 内部： 内存包括：程序内存和数据内存  硬件是固定的，软件可更改  软件变化，故计算机可做不同的事情（计算机的universality）    let us see how hardware can do many things:  by硬件逐个执行指令，把整个指令序列执行完放在一起，就得到了整个程序的功能。   ⭐3-Question       machine language ← assembly language 我们写程序用的是高级语言，但电脑真正理解和执行的是机器语言 （其实里面的编译器是分两部的，第一步是高级语言→汇编语言，第二步是汇编语言→机器语言，now看的是part1）     第一种解释  第二种解释    next    4.2  Machine Languages  : ElementsMachine Language   Memory Hierarchy    Registers （in...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2025/04/19/nand2tetris-proj1-final/" title="proj1"><img class="cover" src="https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-04-19</div><div class="info-item-2">proj1</div></div><div class="info-2"><div class="info-item-1">Proj11.1 Boolean Logic ⭐Some useful equations  →Boolean Algebra  can be 化简   （Two way : ①equations,②write down the truth table) 1.2 Boolean Function001： 理论上，任何布尔函数都可以用NotAndOr等表示出来（通过真值表选取f&#x3D;1的情况）（做芯片有用）    002： （or可以通过And和Not表示）   003： 而Nand可以表示出AndNot芯片（根本的根本）    1.3 Logic Gates上一节是抽象的逻辑运算，这一节是实际的芯片&#x2F;逻辑门     一个接口，可以有不同的实现   1.4 Hardware Description Language一种硬件描述语言（做硬件&#x2F;芯片用的）  芯片接口 和 芯片实现 ⭐实现：用真值表看1，写出布尔函数化简，画出逻辑图      1.5 Hardware Simulation for 模拟芯片测试 way：在给定的硬件模拟器中 +...</div></div></div></a><a class="pagination-related" href="/2025/05/01/nand2tetris-proj2-final/" title="proj2"><img class="cover" src="https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-05-01</div><div class="info-item-2">proj2</div></div><div class="info-2"><div class="info-item-1">2.1 Binary Numbers           2.2 Binary Addtion             2.3 Negative NumbersExpression of negative numbersway1  way2： 前一半的二进制数字（0-7）用来表示正数，后一半的二进制数字（8-15）留作表示负数（eg 表示-3，16-3&#x3D;13）   Addtion in 2’s Complement   -2+(-3)&#x3D;-5,-5的补码就是11（1011） Computing -x Eg算-4的二进制表达：4&#x3D;100，1111-0100（1111怎么来的，令n&#x3D;4(意味着用4位二进制数来表示值）） 取反码：1111-0100&#x3D;1011，求补码：1011+1&#x3D;1100 1100&#x3D;12，就是4的补码（16-4&#x3D;2）   Eg  具体步骤：      2.4 ALU  The Hack ALU    The Hack ALU operation  example   zr,ng(other...</div></div></div></a><a class="pagination-related" href="/2025/05/02/nand2tetris-proj3-final-2/" title="proj3"><img class="cover" src="https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-05-02</div><div class="info-item-2">proj3</div></div><div class="info-2"><div class="info-item-1">3.1 Sequential Logic（逻辑时序） The Clock  ⭐ Combinatorial Logic vs. Sequential Logic    3.2 Flip Flops 触发器制作：允许上一步操作的芯片 ⭐ D 触发器换句话说，DFF 简单地将前一个时间周期的输入值作为当前周期的输出。𝑜𝑢𝑡(𝑡)&#x3D;𝑖𝑛(𝑡−1)   时序逻辑的原理 寄存器 Bit【寄存器（也）是一种常用的时序逻辑电路】   implement show      3.3 Memory Units Memory The most basic memory element: Register ⭐ （并着排列的）   RAM unit       （逻辑时序的芯片）   RAM &#x2F; Read Logic  RAM &#x2F; Write Logic A family of 16-bit RAM chips  3.4  Counters  (Inc 代表增量[+1])  3.5 codepreview：DFF  1-bit register...</div></div></div></a><a class="pagination-related" href="/2025/05/03/nand2tetris-proj4-final/" title="proj4"><img class="cover" src="https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-05-03</div><div class="info-item-2">proj4</div></div><div class="info-2"><div class="info-item-1">Machine Language4.1 Machine Languages  : Overview 内部： 内存包括：程序内存和数据内存  硬件是固定的，软件可更改  软件变化，故计算机可做不同的事情（计算机的universality）    let us see how hardware can do many things:  by硬件逐个执行指令，把整个指令序列执行完放在一起，就得到了整个程序的功能。   ⭐3-Question       machine language ← assembly language 我们写程序用的是高级语言，但电脑真正理解和执行的是机器语言 （其实里面的编译器是分两部的，第一步是高级语言→汇编语言，第二步是汇编语言→机器语言，now看的是part1）     第一种解释  第二种解释    next    4.2  Machine Languages  : ElementsMachine Language   Memory Hierarchy    Registers （in...</div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="lv-container" data-id="city" data-uid="MTAyMC82MDU3Mi8zNzA0Mw=="></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#5-1"><span class="toc-text">5.1</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Elements"><span class="toc-text">Elements</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Infomation-Flows"><span class="toc-text">Infomation Flows</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#The-Arithmetic-Logic-Unit"><span class="toc-text">The Arithmetic Logic Unit</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Address-Register"><span class="toc-text">Address Register</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Memory"><span class="toc-text">Memory</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Data-Memory"><span class="toc-text">Data Memory</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Program-Memory"><span class="toc-text">Program Memory</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Next"><span class="toc-text">Next</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-2-The-Fetch-Execute-Cycle"><span class="toc-text">5.2 The Fetch-Execute Cycle</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-basic-CPU-loop"><span class="toc-text">The basic CPU loop</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%8C%87%E4%BB%A4"><span class="toc-text">获取指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%A7%E8%A1%8C%E6%8C%87%E4%BB%A4"><span class="toc-text">执行指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96-%E6%89%A7%E8%A1%8C-%E5%86%B2%E7%AA%81Clash"><span class="toc-text">获取-执行 冲突Clash</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Next-1"><span class="toc-text">Next</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-3-Central-Processing-Unit"><span class="toc-text">5.3 Central Processing Unit</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#CPU-interface-and-implementation"><span class="toc-text">CPU: interface and implementation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CPU-Instruction-handling"><span class="toc-text">CPU: Instruction handling</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#handle-A-instruction"><span class="toc-text">handle  A-instruction</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#handle-C-instruction"><span class="toc-text">handle  C-instruction</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#A-regester-%E2%80%93-again"><span class="toc-text">A regester – again</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CPU-ALU-operation"><span class="toc-text">CPU: ALU operation</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ALU-operation-inputs"><span class="toc-text">ALU operation: inputs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ALU-operation-outputs"><span class="toc-text">ALU operation: outputs</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CPU%EF%BC%9AControl-%EF%BC%88logic"><span class="toc-text">CPU：Control （logic</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Last-%EF%BC%9Awe-finish-CPU"><span class="toc-text">Last ：we finish CPU</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-4-The-Hack-Computer"><span class="toc-text">5.4 The Hack Computer</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Hack-CPU-Operation"><span class="toc-text">Hack CPU Operation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Memory-1"><span class="toc-text">Memory</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-5-code"><span class="toc-text">5.5 code</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#RAM16K%EF%BC%8CScreen%EF%BC%8CKeyboard"><span class="toc-text">RAM16K，Screen，Keyboard</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Memory-2"><span class="toc-text">Memory</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CPU"><span class="toc-text">CPU</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Computer"><span class="toc-text">Computer</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer" style="background: transparent;"><div id="footer-wrap"><div class="copyright">&copy;2025 By KKL</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.5</a></div><div class="footer_custom_text">Nice to meet you ! 😜</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+
+  const loadLivere = (el, path) => {
+    window.livereOptions = {
+      refer: path || location.pathname
+    }
+
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyLivere = () => {
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+
+    if (typeof LivereTower === 'object') window.LivereTower.init()
+    else {
+      (function(d, s) {
+          var j, e = d.getElementsByTagName(s)[0];
+          if (typeof LivereTower === 'function') { return; }
+          j = d.createElement(s);
+          j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+          j.async = true;
+          e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    }
+  }
+
+  if (isShuoshuo) {
+    'Livere' === 'Livere'
+      ? window.shuoshuoComment = { loadComment: loadLivere }
+      : window.loadOtherComment = loadLivere
+    return
+  }
+
+  if ('Livere' === 'Livere' || !false) {
+    if (false) btf.loadComment(document.getElementById('lv-container'), loadLivere)
+    else loadLivere()
+  } else {
+    window.loadOtherComment = loadLivere
+  }
+})()</script></div><script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script><script src="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>(() => {
+  const pjaxSelectors = ["meta[property=\"og:image\"]","meta[property=\"og:title\"]","meta[property=\"og:url\"]","meta[property=\"og:description\"]","link[rel=\"canonical\"]","head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+  window.pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  const triggerPjaxFn = (val) => {
+    if (!val) return
+    Object.values(val).forEach(fn => fn())
+  }
+
+  document.addEventListener('pjax:send', () => {
+    // removeEventListener
+    btf.removeGlobalFnEvent('pjaxSendOnce')
+    btf.removeGlobalFnEvent('themeChange')
+
+    // reset readmode
+    const $bodyClassList = document.body.classList
+    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
+
+    triggerPjaxFn(window.globalFn.pjaxSend)
+  })
+
+  document.addEventListener('pjax:complete', () => {
+    btf.removeGlobalFnEvent('pjaxCompleteOnce')
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+
+    triggerPjaxFn(window.globalFn.pjaxComplete)
+  })
+
+  document.addEventListener('pjax:error', e => {
+    if (e.request.status === 404) {
+      const usePjax = true
+      true 
+        ? (usePjax ? pjax.loadUrl('/404.html') : window.location.href = '/404.html')
+        : window.location.href = e.request.responseURL
+    }
+  })
+})()</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

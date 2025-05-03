@@ -434,15 +434,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Hello world2</title>
-    <url>/2025/04/19/text/</url>
-    <content><![CDATA[<h3 id="text"><a href="#text" class="headerlink" title="text"></a>text</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/Rplot05.png"></p>
-]]></content>
-      <categories>
-        <category>other</category>
-      </categories>
-  </entry>
-  <entry>
     <title>proj4</title>
     <url>/2025/05/03/nand2tetris-proj4-final/</url>
     <content><![CDATA[<h2 id="Machine-Language"><a href="#Machine-Language" class="headerlink" title="Machine Language"></a>Machine Language</h2><h3 id="4-1-Machine-Languages-Overview"><a href="#4-1-Machine-Languages-Overview" class="headerlink" title="4.1 Machine Languages  : Overview"></a>4.1 Machine Languages  : Overview</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250502141034037.png" alt="image-20250502141034037"></p>
@@ -779,6 +770,292 @@
 <img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250409090618399.png" alt="image-20250409090618399" style="zoom: 50%;" />
 
 <p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250409090019914.png" alt="image-20250409090019914"></p>
+]]></content>
+      <categories>
+        <category>code</category>
+      </categories>
+      <tags>
+        <tag>nand2tetris</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello world2</title>
+    <url>/2025/04/19/text/</url>
+    <content><![CDATA[<h3 id="text"><a href="#text" class="headerlink" title="text"></a>text</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/Rplot05.png"></p>
+]]></content>
+      <categories>
+        <category>other</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>proj5</title>
+    <url>/2025/05/03/nand2tetris-proj5-final-2/</url>
+    <content><![CDATA[<h1 id="5-1"><a href="#5-1" class="headerlink" title="5.1"></a>5.1</h1><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414103254600.png" alt="image-20250414103254600"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414103339640.png" alt="image-20250414103339640"></p>
+<h2 id="Elements"><a href="#Elements" class="headerlink" title="Elements"></a>Elements</h2><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414103410299.png" alt="image-20250414103410299"></p>
+<h2 id="Infomation-Flows"><a href="#Infomation-Flows" class="headerlink" title="Infomation Flows"></a>Infomation Flows</h2><ul>
+<li><p><strong>Element + 三条总线</strong></p>
+</li>
+<li><p>（大概看看，具体的看后面）</p>
+</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414103512260.png" alt="image-20250414103512260"></p>
+<h3 id="The-Arithmetic-Logic-Unit"><a href="#The-Arithmetic-Logic-Unit" class="headerlink" title="The Arithmetic Logic Unit"></a>The Arithmetic Logic Unit</h3><ul>
+<li>data接入ALU，得到输出</li>
+<li>输出值返回数据总线</li>
+<li>我觉得是输出out或者回去内存？</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414103725776.png" alt="image-20250414103725776"></p>
+<ul>
+<li>control总线 告诉ALU进行何种操作</li>
+<li>ALU 返回告诉 Control 系统其他部分进行什么操作</li>
+<li>当 CPU 从程序内存中获取到指令后，会对指令进行解析。对于指令中的控制信息，通过控制总线传出去（让算术逻辑单元、寄存器、内存等部件按要求操作，比如让算术逻辑单元进行加法运算等）<ul>
+<li>例如如果ALU发现某个数字大于零，他将告诉Control下一个指令的跳转以及下一个指令是什么</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414103745983.png" alt="image-20250414103745983"></p>
+<h3 id="Address-Register"><a href="#Address-Register" class="headerlink" title="Address Register"></a>Address Register</h3><ul>
+<li>寄存器储存中间结果。所以数据总线接到Register里</li>
+<li>有的寄存器还用作地址储存器，所以register要接入地址总线<ul>
+<li>（将数字，也就是地址放入寄存器中，然后它就指定了我们想要访问的位置。）</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414104302989.png" alt="image-20250414104302989"></p>
+<h2 id="Memory"><a href="#Memory" class="headerlink" title="Memory"></a>Memory</h2><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414104324563.png" alt="image-20250414104324563"></p>
+<h3 id="Data-Memory"><a href="#Data-Memory" class="headerlink" title="Data Memory"></a>Data Memory</h3><ul>
+<li>Data Memory需要连接数据总线：因为输入和输出（这没问题）</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414104458851.png" alt="image-20250414104458851"></p>
+<h3 id="Program-Memory"><a href="#Program-Memory" class="headerlink" title="Program Memory"></a>Program Memory</h3><ul>
+<li>程序内存</li>
+<li>需要从PM取出CPU所需要的程序指令，所以连接地址总线<ul>
+<li>例如，<strong>（程序指令是 CPU 找内存要的）</strong>，CPU 要从程序内存里拿指令时，得先把<strong>下一条</strong>指令的地址发出去（通过地址总线），程序内存收到地址后，按地址找到指令再传给 CPU（通过数据总线）。</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414104556795.png" alt="image-20250414104556795"></p>
+<h2 id="Next"><a href="#Next" class="headerlink" title="Next"></a>Next</h2><p><strong>我们在下一单元要做的，是更仔细地研究最内层的循环</strong>，也就是我们的硬件应该执行的基本操作：即从内存，程序内存中取出一条指令，并恰当地使用系统的其他部分来执行它。这被称为取指 - 执行周期，这将是下一单元的内容。<strong>（一条一条执行程序指令）</strong></p>
+<hr>
+<h1 id="5-2-The-Fetch-Execute-Cycle"><a href="#5-2-The-Fetch-Execute-Cycle" class="headerlink" title="5.2 The Fetch-Execute Cycle"></a>5.2 The Fetch-Execute Cycle</h1><h2 id="The-basic-CPU-loop"><a href="#The-basic-CPU-loop" class="headerlink" title="The basic CPU loop"></a>The basic CPU loop</h2><p><strong>一条条 获取-执行 程序指令</strong></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414105855817.png" alt="image-20250414105855817"></p>
+<h3 id="获取指令"><a href="#获取指令" class="headerlink" title="获取指令"></a>获取指令</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414121331533.png" alt="image-20250414121331533"></p>
+<p>but下一条指令在哪里找呢？</p>
+<ul>
+<li><p>在内存里</p>
+</li>
+<li><p>在程序内存里</p>
+</li>
+<li><p>在程序计数器（program counter）里面（某个寄存器）</p>
+<ul>
+<li>它会根据指令的执行情况自动递增或根据跳转指令等进行修改，以指向下一条要取的指令<strong>地址</strong>。</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414121446414.png" alt="image-20250414121446414"></p>
+<h3 id="执行指令"><a href="#执行指令" class="headerlink" title="执行指令"></a>执行指令</h3><ul>
+<li><p>有了Instruction，我们需要执行它。</p>
+</li>
+<li><p>指令代码包含了很多信息（不同位有不同信息）</p>
+</li>
+<li><p>把取出的指令通过 控制总线 输出到CPU</p>
+<ul>
+<li>控制总线 告诉ALU计算什么指令，告诉数据来自哪个寄存器还是哪个数据存储器。</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414121636482.png" alt="image-20250414121636482"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414121725006.png" alt="image-20250414121725006"></p>
+<h3 id="获取-执行-冲突Clash"><a href="#获取-执行-冲突Clash" class="headerlink" title="获取-执行 冲突Clash"></a>获取-执行 冲突Clash</h3><ul>
+<li>简单来说，就是因为内存地址输入在同一时刻的唯一性，而取指令和执行指令时都需要使用内存地址来获取不同的内容（指令和数据），从而导致了冲突。</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414121913298.png" alt="image-20250414121913298"></p>
+<ul>
+<li>解决方法：一个一个做。通过一个Mux解决（sel：a Fetch&#x2F;Execute Bit)</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414122048850.png" alt="image-20250414122048850"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414122147788.png" alt="image-20250414122147788"></p>
+<ul>
+<li>更简单的解决方法：把内存分为两个部分，一个部分作为数据存储器，另一个办法作为程序存储器。</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414122213402.png" alt="image-20250414122213402"></p>
+<h2 id="Next-1"><a href="#Next-1" class="headerlink" title="Next"></a>Next</h2><ul>
+<li>这一节，我们讨论了计算机的一般架构</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414122314197.png" alt="image-20250414122314197"></p>
+<ul>
+<li>下一节，我们讨论我们的HACK计算机</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414122324359.png" alt="image-20250414122324359"></p>
+<hr>
+<h1 id="5-3-Central-Processing-Unit"><a href="#5-3-Central-Processing-Unit" class="headerlink" title="5.3 Central Processing Unit"></a>5.3 Central Processing Unit</h1><h2 id="CPU-interface-and-implementation"><a href="#CPU-interface-and-implementation" class="headerlink" title="CPU: interface and implementation"></a>CPU: interface and implementation</h2><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414122436406.png" alt="image-20250414122436406"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414122636301.png" alt="image-20250414122636301"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414122807022.png" alt="image-20250414122807022"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414122921132.png" alt="image-20250414122921132"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414123504372.png" alt="image-20250414123504372"></p>
+<h2 id="CPU-Instruction-handling"><a href="#CPU-Instruction-handling" class="headerlink" title="CPU: Instruction handling"></a>CPU: Instruction handling</h2><h3 id="handle-A-instruction"><a href="#handle-A-instruction" class="headerlink" title="handle  A-instruction"></a>handle  A-instruction</h3><ul>
+<li><p><strong>地址寄存器</strong></p>
+</li>
+<li><p>解码：分离操作码（最前面<strong>一位</strong>，就是instruction[15] ）和其他字段（15位的地址或是值）</p>
+</li>
+<li><p>确定是A指令后，取出后15位值，把它放入A寄存器中。</p>
+</li>
+<li><p>CPU 同时做的另一件事：取出A寄存器的输出（后15位，ins[0..14] )，并通过我们称之为“M地址”的输出将其输出到CPU外部。</p>
+</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414124010589.png" alt="image-20250414124010589"></p>
+<h3 id="handle-C-instruction"><a href="#handle-C-instruction" class="headerlink" title="handle  C-instruction"></a>handle  C-instruction</h3><ul>
+<li>解码：分离操作码和其他三个字段</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414124307951.png" alt="image-20250414124307951"></p>
+<h3 id="A-regester-–-again"><a href="#A-regester-–-again" class="headerlink" title="A regester – again"></a>A regester – again</h3><ul>
+<li>我们发现：A寄存器也可以由 ALU的输出 提供数据，而不一定是来自指令输入。（是不是有时候ALU发现该跳转了，所以输出指令给A regester？）</li>
+<li>在某些情况下是操作码为0的A指令，在这种情况下，我们希望输入来自指令。</li>
+<li>在其他情况下是操作码为1的C指令，在这种情况下，我们希望以某种方式路由A寄存器的输入，使得输入来自ALU。<ul>
+<li>例如，如果 C 指令是要计算某个数值与 A 寄存器当前值的和，那么 ALU 会从 D 寄存器（或其他数据源）和 A 寄存器获取操作数进行加法运算，<strong>运算结果可能需要再存回 A 寄存器</strong>，所以就需要将 ALU 的输出路由到 A 寄存器作为其输入。（就不用inM了）</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414124347934.png" alt="image-20250414124347934"></p>
+<h2 id="CPU-ALU-operation"><a href="#CPU-ALU-operation" class="headerlink" title="CPU: ALU operation"></a>CPU: ALU operation</h2><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414124511512.png" alt="image-20250414124511512"></p>
+<h3 id="ALU-operation-inputs"><a href="#ALU-operation-inputs" class="headerlink" title="ALU operation: inputs"></a>ALU operation: inputs</h3><ul>
+<li>remember：C指令由不同的位字段组成，每个字段都有不同的含义。</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414124645511.png" alt="image-20250414124645511"></p>
+<ul>
+<li>ALU 有两个输入源 , 最终输入depend on 控制位c和011111(now)</li>
+<li>Control bit <strong>from the instruction</strong></li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414124841120.png" alt="image-20250414124841120"></p>
+<h3 id="ALU-operation-outputs"><a href="#ALU-operation-outputs" class="headerlink" title="ALU operation: outputs"></a>ALU operation: outputs</h3><ul>
+<li>ALU 的 输出被送到三个地方。</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414125122759.png" alt="image-20250414125122759"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414125129007.png" alt="image-20250414125129007"><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414125141052.png" alt="image-20250414125141052"></p>
+<ul>
+<li>我们有三个目的地的位bit，这些bit决定是否打开D寄存器、A寄存器和数据存储器来接受ALU的输出。（即有选择性地接收）</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414125230737.png" alt="image-20250414125230737"></p>
+<p>Control bit c’s?</p>
+<ul>
+<li>这两个控制位用于记录ALU的输出是负还是零。</li>
+<li>important for what follows.</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414125405175.png" alt="image-20250414125405175"></p>
+<h2 id="CPU：Control-（logic"><a href="#CPU：Control-（logic" class="headerlink" title="CPU：Control （logic"></a>CPU：Control （logic</h2><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414125438604.png" alt="image-20250414125438604"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414130006833.png" alt="image-20250414130006833"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414130112941.png" alt="image-20250414130112941"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414130130355.png" alt="image-20250414130130355"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414130157260.png" alt="image-20250414130157260"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414130224262.png" alt="image-20250414130224262"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414130255057.png" alt="image-20250414130255057"></p>
+<ul>
+<li>if 程序员已经事先将想要跳转到的地址存入了A寄存器。如果我们执行PC等于A，程序计数器将输出接下来必须执行的下一条指令的地址。</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414130323024.png" alt="image-20250414130323024"></p>
+<ul>
+<li>如果我们有一个条件跳转，我们必须查看ALU的输出，并决定这个跳转是否应该实际发生。<ul>
+<li>例如，假设我们有一个条件跳转指令是 “如果寄存器 A 中的值大于寄存器 B 中的值，则跳转到地址 X”。在执行这条指令之前，会先让 ALU 进行 A - B 的运算，然后根据 ALU 的输出结果（如果结果大于 0，表示 A 大于 B）来决定是否跳转到地址 X。</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414130403294.png" alt="image-20250414130403294"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414193356928.png" alt="image-20250414193356928"></p>
+<h2 id="Last-：we-finish-CPU"><a href="#Last-：we-finish-CPU" class="headerlink" title="Last ：we finish CPU"></a>Last ：we finish CPU</h2><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414193427312.png" alt="image-20250414193427312"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414130853170.png" alt="image-20250414130853170"></p>
+<p>next</p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414130905093.png" alt="image-20250414130905093"></p>
+<hr>
+<h1 id="5-4-The-Hack-Computer"><a href="#5-4-The-Hack-Computer" class="headerlink" title="5.4 The Hack Computer"></a>5.4 The Hack Computer</h1><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414131123663.png" alt="image-20250414131123663"></p>
+<h2 id="Hack-CPU-Operation"><a href="#Hack-CPU-Operation" class="headerlink" title="Hack CPU Operation"></a>Hack CPU Operation</h2><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414131334263.png" alt="image-20250414131334263"></p>
+<ul>
+<li>如果指令中提到了助记符“D”和“A”，CPU就会操作位于CPU内部的相应的<strong>D寄存器</strong>和<strong>A寄存器</strong>。</li>
+<li>如果指令是一条A指令，在这种情况下，CPU会取出数据值，即这条指令中所谓的15位的“x”，然后将其放入A寄存器中。</li>
+<li>如果指令的右侧(xxx&#x3D;M)包含 “M”，这个值将从 “inM” 读取。</li>
+<li>如果指令的左侧(M&#x3D;xxx)包含 “M”，那么 ALU 的输出将通过 “outM” 输出，并且 “writeM” 位会→1。</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414131522436.png" alt="image-20250414131522436"></p>
+<ul>
+<li>看看CPU如何处理跳转指令</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414131732348.png" alt="image-20250414131732348"></p>
+<h2 id="Memory-1"><a href="#Memory-1" class="headerlink" title="Memory"></a>Memory</h2><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414131810280.png" alt="image-20250414131810280"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414131908596.png" alt="image-20250414131908596"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414131927630.png" alt="image-20250414131927630"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414132122759.png" alt="image-20250414132122759"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414132409978.png" alt="image-20250414132409978"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414132553181.png" alt="image-20250414132553181"></p>
+<ul>
+<li><p>指令存储器 Instruction Memory  (ROM：Read - Only Memory）</p>
+</li>
+<li><p>在计算机运行之前，需要将<strong>编写好的 Hack 程序数据固化到 ROM32K 芯片中</strong>。</p>
+</li>
+<li><p>程序中的每一条指令都按照一定的顺序和格式存储在 ROM 的不同存储单元中，每个存储单元都有唯一对应的地址。</p>
+</li>
+<li><p><strong>在 Hack 计算机运行时，程序计数器（PC）会不断地向 ROM 的地址端口提供地址，ROM 根据这些地址输出相应的指令，然后 CPU 从 ROM 的输出中获取指令并执行，从而实现整个程序的运行。</strong></p>
+<ul>
+<li>例如，当 PC 输出地址为 0 时，ROM 会从地址为 0 的存储单元中取出对应的 Hack 指令，传递给 CPU 去执行，然后 PC 再递增，指向下一个地址，ROM 又输出下一条指令，如此循环，使得程序能够按顺序执行。</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414132654354.png" alt="image-20250414132654354"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414132729661.png" alt="image-20250414132729661"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414132829344.png" alt="image-20250414132829344"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414132836410.png" alt="image-20250414132836410"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414133500747.png" alt="image-20250414133500747"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414133505468.png" alt="image-20250414133505468"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414133540257.png" alt="image-20250414133540257"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414133545883.png" alt="image-20250414133545883"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414133551712.png" alt="image-20250414133551712"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414133828858.png" alt="image-20250414133828858"></p>
+<hr>
+<h1 id="5-5-code"><a href="#5-5-code" class="headerlink" title="5.5 code"></a>5.5 code</h1><h2 id="RAM16K，Screen，Keyboard"><a href="#RAM16K，Screen，Keyboard" class="headerlink" title="RAM16K，Screen，Keyboard"></a>RAM16K，Screen，Keyboard</h2><blockquote>
+<p>background</p>
+</blockquote>
+<ul>
+<li><p><strong>8K &#x3D; 2的13次方。16K &#x3D; 2的14次方。</strong></p>
+</li>
+<li><p><strong>address[15] 表示 address 是一个 16 位的信号。</strong>address[15] 是第 1 位，<strong>address[0] 就是第 16 位。</strong></p>
+</li>
+<li><p><strong>RAM16K 的地址范围</strong>:**(16K)**（0到16383)需要 14 位地址来唯一标识每个存储单元，即 address[0..13] 这 14 位地址。</p>
+</li>
+<li><p><strong>Screen 的地址范围</strong>：**(8K)**（16384-24575）需要使用 13 位地址（address[0..12]）就可以满足其寻址需求。</p>
+</li>
+<li><p>可以明显看出，一个地址如果在0-16383内，它就属于 RAM16K 的地址空间；如果在16384-24575内，它就属于 Screen 的地址空间。所以<strong>它们的地址是分开的，没有重合。</strong></p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CHIP RAM16K &#123;</span><br><span class="line">    IN in[16], load, address[14];</span><br><span class="line">    OUT out[16];</span><br><span class="line">    // RAM16K是一个存储器，由16千个16-bit寄存器组成。</span><br><span class="line">    // 每次输入一个16位的数，RAM16K会根据其address决定将其存储到哪个位置。</span><br><span class="line">    // 具体的地址决定方法是：根据address的高2位（address[12..13]）选择一个4K的存储块，</span><br><span class="line">    // 然后根据低12位（address[0..11]）在所选的4K块内确定具体的存储位置。（以此类推，找到the only one）</span><br><span class="line"></span><br><span class="line">    PARTS:</span><br><span class="line">    DMux4Way(in = load,sel = address[12..13],a = a,b = b,c = c,d = d);</span><br><span class="line">  </span><br><span class="line">    RAM4K(in=in , load=a , address=address[0..11] , out=outa );</span><br><span class="line">    RAM4K(in=in , load=b , address=address[0..11] , out=outb );</span><br><span class="line">    RAM4K(in=in , load=c , address=address[0..11] , out=outc );</span><br><span class="line">    RAM4K(in=in , load=d , address=address[0..11] , out=outd );</span><br><span class="line">    </span><br><span class="line">    Mux4Way16(a=outa , b=outb , c=outc , d=outd , sel=address[12..13] , out=out);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CHIP Screen &#123;</span><br><span class="line"></span><br><span class="line">    IN  in[16],    // what to write</span><br><span class="line">    load,          // write-enable bit</span><br><span class="line">    address[13];   // where to read/write</span><br><span class="line">    OUT out[16];   // Screen value at the given address</span><br><span class="line"></span><br><span class="line">    BUILTIN Screen;</span><br><span class="line">    CLOCKED in, load;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CHIP Keyboard&#123;</span><br><span class="line">    OUT out[16];</span><br><span class="line">    BUILTIN keyboard;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Memory-2"><a href="#Memory-2" class="headerlink" title="Memory"></a>Memory</h2><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20250415180524.jpg"  />
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CHIP Memory &#123;</span><br><span class="line">    IN in[16], load, address[15];</span><br><span class="line">    OUT out[16];</span><br><span class="line"></span><br><span class="line">    PARTS:</span><br><span class="line">    DMux4Way(in=load, sel=address[13..14], a=ram1, b=ram2, c=scrn, d=keybd); // 1314？？</span><br><span class="line">    Or(a=ram1 , b=ram2, out=ram3);</span><br><span class="line">    RAM16K(in=in, load=ram3, address=address[0..13], out=ram );</span><br><span class="line">    Screen(in=in, load=scrn, address=address[0..12], out=sc);</span><br><span class="line">    Keyboard(out=kbd);</span><br><span class="line">    Mux4Way16(a=ram, b=ram, c=sc, d=kbd, sel=address[13..14], out=out);</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="CPU"><a href="#CPU" class="headerlink" title="CPU"></a>CPU</h2><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414122921132.png" alt="image-20250414122921132"  />
+
+<img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414123504372.png" alt="image-20250414123504372"  />
+
+
+
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408152923618.png" alt="image-20250408152923618"  /><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250406111659071.png" alt="image-20250406111659071" style="zoom: 80%;" /></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CHIP CPU &#123;</span><br><span class="line"></span><br><span class="line">    IN  inM[16],         // M value input  (M = contents of RAM[A])</span><br><span class="line">        instruction[16], // Instruction for execution</span><br><span class="line">        reset;           // Signals whether to re-start the current</span><br><span class="line">                         // program (reset==1) or continue executing</span><br><span class="line">                         // the current program (reset==0).</span><br><span class="line"></span><br><span class="line">    OUT outM[16],        // M value output</span><br><span class="line">        writeM,          // Write to M? </span><br><span class="line">        addressM[15],    // Address in data memory (of M)</span><br><span class="line">        pc[15];          // address of next instruction</span><br><span class="line"></span><br><span class="line">    PARTS:</span><br><span class="line">	// A-register 可能执行 A/C 指令（但是c指令只能从alu_out处而来，其实alu本身就能接收指令的，所以第一关下部不给c进只能a进是有原因的）</span><br><span class="line">    // A instruction</span><br><span class="line">    // @3001</span><br><span class="line">    // [0]000101110111001</span><br><span class="line">     </span><br><span class="line">     // 用途一：将常数输入计算机</span><br><span class="line">     // 用途二：为 C - 指令提供目标数据内存单元的地址（放入 A 寄存器）</span><br><span class="line">     // 用途三：为跳转指令提供目的地址</span><br><span class="line">    </span><br><span class="line">    Not(in=instruction[15] , out=notop ); </span><br><span class="line">    Mux16(a=aluOut, b=instruction , sel=notop , out=q1 ); 	 </span><br><span class="line">    Or(a=instruction[5] , b=notop , out=intoA );  </span><br><span class="line">    ARegister(in=q1, load=intoA, out=A,out[0..14]=addressM); // 同时储存并输出addressM </span><br><span class="line">    		</span><br><span class="line">    And(a=instruction[15] , b=instruction[12] , out=AMSwitch ); </span><br><span class="line">    Mux16(a=A , b=inM , sel=AMSwitch , out=AM );</span><br><span class="line">    </span><br><span class="line">  </span><br><span class="line">    // C instruction</span><br><span class="line">    // i  _  _  a  c1 c2 c3 c4 c5 c6 d1 d2 d3 j1 j2 j3</span><br><span class="line">    // 15 14 13 12 11 10 09 08 07 06 05 04 03 02 01 00</span><br><span class="line">    // ins[5]是C指令中的dest指令(=1表示去A寄存器)</span><br><span class="line">    // ins[12]是a=0/1，用于在 C指令中 决定是使用 A寄存器的值（A）还是内存的值（inM）（A指令时直接用inM了，有sel a通过不了，inM可以）</span><br><span class="line">    </span><br><span class="line">    And(a=instruction[15] , b=instruction[4] , out=intoD );</span><br><span class="line">    DRegister(in=aluOut , load=intoD , out=D ); // D 寄存器：for数据暂存</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20250415200024.jpg"></p>
+<img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408153509769.png" alt="image-20250408153509769"  />
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"> // ALU</span><br><span class="line">    // ALU takes input from DRegister and from ARegister or inM</span><br><span class="line">    // addressM 是用来确定从哪里读取数据，而 inM 是实际读取到的数据。</span><br><span class="line">    // ALU的zx,nx,zy,ny,f,no这些控制信号是由操作码 c1 - c6 经过一定逻辑转换得到的，所以C指令进不去A寄存器，但是ALU也是能获得其操作码进行操作的。⭐</span><br><span class="line">    ALU(x=D, y=AM, out=aluOut, out=outM,</span><br><span class="line">        zx=instruction[11],</span><br><span class="line">        nx=instruction[10],</span><br><span class="line">        zy=instruction[9],</span><br><span class="line">        ny=instruction[8],</span><br><span class="line">        f=instruction[7],</span><br><span class="line">        no=instruction[6],</span><br><span class="line">        zr=zrOut,</span><br><span class="line">        ng=ngOut</span><br><span class="line">    );</span><br><span class="line"></span><br><span class="line">    // writeM</span><br><span class="line">    And(a=instruction[15] , b=instruction[3] , out=writeM );</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// PC </span><br><span class="line">    // PC 的 load设置⭐</span><br><span class="line">    Not(in=ngOut , out=pos );</span><br><span class="line">    Not(in=zrOut , out=nzr );</span><br><span class="line"></span><br><span class="line">    // 处理JGT条件(&gt;0 jump)</span><br><span class="line">    And(a=instruction[15] , b=instruction[0] , out=jgt );</span><br><span class="line">    And(a=pos , b=nzr , out=posnzr );</span><br><span class="line">    And(a=jgt , b=posnzr , out=ld1 ); </span><br><span class="line"></span><br><span class="line">    // 处理JEQ条件(=0 jump)</span><br><span class="line">    And(a=instruction[15] , b=instruction[1] , out=jeq );</span><br><span class="line">    And(a=jeq , b=zrOut , out=ld2 ); </span><br><span class="line"></span><br><span class="line">    // 处理JLT条件(&lt;0 jump)</span><br><span class="line">    And(a=instruction[15] , b=instruction[2] , out=jlt );</span><br><span class="line">    And(a=jlt , b=ngOut , out=ld3 );</span><br><span class="line"></span><br><span class="line">    //合并跳转条件，生成最终的load</span><br><span class="line">    Or(a=ld1 , b=ld2 , out=ldt ); </span><br><span class="line">    Or(a=ld3 , b=ldt , out=loadd );</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    PC(in=A , load=loadd , inc=true , reset=reset , out[0..14]=pc);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 内存根据 PC 提供的地址，将对应地址处的指令输出为 instruction。</span><br><span class="line">// 但这并不是 PC 输出后被写入 RAM ，而是 PC 提供一个地址索引，内存根据这个索引将存储在该地址的指令数据输出。</span><br></pre></td></tr></table></figure>
+
+<img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414193356928.png" alt="image-20250414193356928"  />
+
+<img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414130853170.png" alt="image-20250414130853170"  />
+
+<h2 id="Computer"><a href="#Computer" class="headerlink" title="Computer"></a>Computer</h2><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414133828858.png" alt="image-20250414133828858"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CHIP Computer &#123;</span><br><span class="line"></span><br><span class="line">    IN reset;</span><br><span class="line"></span><br><span class="line">    PARTS:</span><br><span class="line">    ROM32K(address=pc , out=instruction );</span><br><span class="line">    CPU(inM=inM, instruction=instruction , reset=reset , outM=outM , writeM=writeM , addressM=addressM , pc=pc );</span><br><span class="line">    Memory(in=outM , load=writeM , address=addressM , out=inM );</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
         <category>code</category>
