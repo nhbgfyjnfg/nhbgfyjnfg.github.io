@@ -1,0 +1,598 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>proj4 | LKK の blog</title><meta name="author" content="KKL"><meta name="copyright" content="KKL"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="Machine Language4.1 Machine Languages  : Overview 内部： 内存包括：程序内存和数据内存  硬件是固定的，软件可更改  软件变化，故计算机可做不同的事情（计算机的universality）    let us see how hardware can do many things:  by硬件逐个执行指令，把整个指令序列执行完放在一起，就得到了整个程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="proj4">
+<meta property="og:url" content="http://example.com/2025/05/03/nand2tetris-proj4-final/index.html">
+<meta property="og:site_name" content="LKK の blog">
+<meta property="og:description" content="Machine Language4.1 Machine Languages  : Overview 内部： 内存包括：程序内存和数据内存  硬件是固定的，软件可更改  软件变化，故计算机可做不同的事情（计算机的universality）    let us see how hardware can do many things:  by硬件逐个执行指令，把整个指令序列执行完放在一起，就得到了整个程">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png">
+<meta property="article:published_time" content="2025-05-03T06:09:31.942Z">
+<meta property="article:modified_time" content="2025-05-03T06:10:22.195Z">
+<meta property="article:author" content="KKL">
+<meta property="article:tag" content="nand2tetris">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "proj4",
+  "url": "http://example.com/2025/05/03/nand2tetris-proj4-final/",
+  "image": "https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png",
+  "datePublished": "2025-05-03T06:09:31.942Z",
+  "dateModified": "2025-05-03T06:10:22.195Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "KKL",
+      "url": "http://example.com/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2025/05/03/nand2tetris-proj4-final/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!true && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?61208d72ee755d3d238bfecf1e0a2afe";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+btf.addGlobalFn('pjaxComplete', () => {
+  _hmt.push(['_trackPageview',window.location.pathname])
+}, 'baidu_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":true,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":150,"languages":{"author":"作者: KKL","link":"链接: ","source":"来源: LKK の blog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'true',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: true,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'proj4',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/css/main.css"><meta name="generator" content="Hexo 7.3.0"></head><body><div id="web_bg" style="background-image: url(./img/2.jpg);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/./img/001.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">1</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/movies/"><i class="fa-fw fas fa-film"></i><span> Movie</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://picsum.photos/id/627/200/669);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">LKK の blog</span></a><a class="nav-page-title" href="/"><span class="site-name">proj4</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/movies/"><i class="fa-fw fas fa-film"></i><span> Movie</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">proj4</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-05-03T06:09:31.942Z" title="发表于 2025-05-03 14:09:31">2025-05-03</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-05-03T06:10:22.195Z" title="更新于 2025-05-03 14:10:22">2025-05-03</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/code/">code</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h2 id="Machine-Language"><a href="#Machine-Language" class="headerlink" title="Machine Language"></a>Machine Language</h2><h3 id="4-1-Machine-Languages-Overview"><a href="#4-1-Machine-Languages-Overview" class="headerlink" title="4.1 Machine Languages  : Overview"></a>4.1 Machine Languages  : Overview</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250502141034037.png" alt="image-20250502141034037"></p>
+<h4 id="内部："><a href="#内部：" class="headerlink" title="内部："></a>内部：</h4><ul>
+<li><p>内存包括：程序内存和数据内存</p>
+</li>
+<li><p>硬件是固定的，软件可更改</p>
+</li>
+<li><p>软件变化，<strong>故计算机可做不同的事情</strong>（计算机的universality）</p>
+</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408125639911.png" alt="image-20250408125639911"></p>
+<p>let us see how hardware can do many things:</p>
+<ul>
+<li>by硬件逐个执行指令，把整个指令序列执行完放在一起，就得到了整个程序的功能。</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408125753379.png" alt="image-20250408125753379"></p>
+<h4 id="⭐3-Question"><a href="#⭐3-Question" class="headerlink" title="⭐3-Question"></a>⭐3-Question</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408125900431.png" alt="image-20250408125900431"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408125917903.png" alt="image-20250408125917903"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408125923522.png" alt="image-20250408125923522"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408125934885.png" alt="image-20250408125934885"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250502141034037.png"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408130008095.png" alt="image-20250408130008095"><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408130013135.png" alt="image-20250408130013135"></p>
+<hr>
+<h4 id="machine-language-←-assembly-language"><a href="#machine-language-←-assembly-language" class="headerlink" title="machine language ← assembly language"></a>machine language ← assembly language</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408130111212.png" alt="image-20250408130111212"></p>
+<p>我们写程序用的是高级语言，但电脑真正理解和执行的是机器语言</p>
+<p>（其实里面的编译器是分两部的，第一步是高级语言→汇编语言，第二步是汇编语言→机器语言，now看的是part1）</p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408130331472.png" alt="image-20250408130331472"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408130344599.png" alt="image-20250408130344599"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408130425028.png" alt="image-20250408130425028"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408130503603.png" alt="image-20250408130503603"></p>
+<p>第一种解释</p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408130536998.png" alt="image-20250408130536998"></p>
+<p>第二种解释</p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408130616234.png" alt="image-20250408130616234"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408131151981.png" alt="image-20250408131151981"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408131707478.png" alt="image-20250408131707478"></p>
+<p>next </p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408131747616.png" alt="image-20250408131747616"></p>
+<hr>
+<h3 id="4-2-Machine-Languages-Elements"><a href="#4-2-Machine-Languages-Elements" class="headerlink" title="4.2  Machine Languages  : Elements"></a>4.2  Machine Languages  : Elements</h3><h4 id="Machine-Language-1"><a href="#Machine-Language-1" class="headerlink" title="Machine Language"></a>Machine Language</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408132050542.png" alt="image-20250408132050542"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408132302481.png" alt="image-20250408132302481"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408132600568.png" alt="image-20250408132600568"></p>
+<h4 id="Memory-Hierarchy"><a href="#Memory-Hierarchy" class="headerlink" title="Memory Hierarchy"></a>Memory Hierarchy</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408132620787.png" alt="image-20250408132620787"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408132737232.png" alt="image-20250408132737232"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250502144445704.png" alt="image-20250502144445704"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408132934690.png" alt="image-20250408132934690"></p>
+<h4 id="Registers-（in-CPU）（Q1Q3）"><a href="#Registers-（in-CPU）（Q1Q3）" class="headerlink" title="Registers （in CPU）（Q1Q3）"></a>Registers （in CPU）（Q1Q3）</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408133025180.png" alt="image-20250408133025180"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408133054897.png" alt="image-20250408133054897"></p>
+<p><strong>用法&#x2F;类型①</strong></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250502144901245.png" alt="image-20250502144901245"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250502144827311.png" alt="image-20250502144827311"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408133256967.png" alt="image-20250408133256967"></p>
+<p><strong>用法&#x2F;类型②</strong></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250502144926736.png" alt="image-20250502144926736"></p>
+<p>so that we can</p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250502145149469.png" alt="image-20250502145149469"></p>
+<p>eg</p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250502145219880.png" alt="image-20250502145219880"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408133356395.png" alt="image-20250408133356395"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408133409201.png" alt="image-20250408133409201"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408133424956.png" alt="image-20250408133424956"></p>
+<h4 id="Addressing-Modes"><a href="#Addressing-Modes" class="headerlink" title="Addressing Modes"></a>Addressing Modes</h4><ul>
+<li>现在回到最初的问题：</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408133452806.png" alt="image-20250408133452806"></p>
+<ul>
+<li>假设是一个简单的操作：那么它应该在什么上面操作？<ul>
+<li>以下是四种类型的操作：</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408133504911.png" alt="image-20250408133504911"></p>
+<h4 id="Intput-Output"><a href="#Intput-Output" class="headerlink" title="Intput &#x2F; Output"></a>Intput &#x2F; Output</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408133742680.png" alt="image-20250408133742680"></p>
+<h4 id="Flow-Control（Q2）"><a href="#Flow-Control（Q2）" class="headerlink" title="Flow Control（Q2）"></a>Flow Control（Q2）</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408133830358.png" alt="image-20250408133830358"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408133842300.png" alt="image-20250408133842300"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408133918049.png" alt="image-20250408133918049"></p>
+<ul>
+<li>我们可以把102位置命名为loop</li>
+<li>实际上，用机器语言的位写它时，表示的是一样的</li>
+<li>只是 loop 对人类来说更容易看</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408134216292.png" alt="image-20250408134216292"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408134345222.png" alt="image-20250408134345222"></p>
+<hr>
+<h2 id="HACK-Language"><a href="#HACK-Language" class="headerlink" title="HACK Language"></a>HACK Language</h2><h3 id="4-3-HACK-Computer-and-Language-Overview"><a href="#4-3-HACK-Computer-and-Language-Overview" class="headerlink" title="4.3 HACK Computer and Language (Overview)"></a>4.3 HACK Computer and Language (Overview)</h3><h4 id="hardware"><a href="#hardware" class="headerlink" title="hardware"></a>hardware</h4><ul>
+<li>以下是下周要搭建的计算机（hardware）的概述：</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408144525868.png" alt="image-20250408144525868"></p>
+<h4 id="software"><a href="#software" class="headerlink" title="software"></a>software</h4><ul>
+<li>control the computer</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408144707993.png" alt="image-20250408144707993"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408144727327.png" alt="image-20250408144727327"></p>
+<h4 id="reset-bottom"><a href="#reset-bottom" class="headerlink" title="reset bottom"></a>reset bottom</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408144804152.png" alt="image-20250408144804152"></p>
+<h4 id="registers"><a href="#registers" class="headerlink" title="registers"></a>registers</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408145050542.png" alt="image-20250408145050542"></p>
+<ul>
+<li>（M 表示 A 寻址的 16 位 RAM 寄存器）</li>
+<li>无论内存里有多少寄存器，每次被选择的只有一个，为M寄存器。</li>
+</ul>
+<h4 id="The-A-instruction"><a href="#The-A-instruction" class="headerlink" title="The A-instruction"></a>The A-instruction</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408145242790.png" alt="image-20250408145242790"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408145318144.png" alt="image-20250408145318144"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408145335059.png" alt="image-20250408145335059"></p>
+<h4 id="The-C-instruction"><a href="#The-C-instruction" class="headerlink" title="The C-instruction"></a>The C-instruction</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408145347021.png" alt="image-20250408145347021"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408145445185.png" alt="image-20250408145445185"></p>
+<ul>
+<li><p>dest目的地，comp计算，jump跳转</p>
+</li>
+<li><p>看到A的时候，也可以用M替代</p>
+</li>
+<li><p>eg</p>
+</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408145651883.png" alt="image-20250408145651883"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408145713384.png" alt="image-20250408145713384"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408145750031.png" alt="image-20250408145750031"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408145851786.png" alt="image-20250408145851786"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408150017420.png" alt="image-20250408150017420"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408150027153.png" alt="image-20250408150027153"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408150142297.png" alt="image-20250408150142297"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408150531444.png" alt="image-20250408150531444"></p>
+<p>由于寄存器 A 的值为 1，第二行指令<code>M=A - 1</code>执行后，<code>A - 1 = 0</code>，这个 0 会被存储到<code>RAM[1]</code>中（因为 M 指向<code>RAM[1]</code> ）</p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408150819756.png" alt="image-20250408150819756"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408150831390.png" alt="image-20250408150831390"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408150843125.png" alt="image-20250408150843125"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408150854396.png" alt="image-20250408150854396"></p>
+<hr>
+<h3 id="4-4-Hack-Language-plus"><a href="#4-4-Hack-Language-plus" class="headerlink" title="4.4 Hack Language plus"></a>4.4 Hack Language plus</h3><h4 id="Use-Binary-to-write"><a href="#Use-Binary-to-write" class="headerlink" title="Use Binary to write"></a>Use Binary to write</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408152040771.png" alt="image-20250408152040771"></p>
+<ul>
+<li>用机器语言（0和1构成）写的话，就不需要汇编器了。电脑直接读懂。</li>
+<li>介绍这一节，也是为了更加了解机器语言和汇编语言的联系，为之后写汇编器做铺垫</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408152117325.png" alt="image-20250408152117325"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408152332506.png" alt="image-20250408152332506"></p>
+<h4 id="C-ins"><a href="#C-ins" class="headerlink" title="C-ins"></a>C-ins</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408152519706.png" alt="image-20250408152519706"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408152600779.png" alt="image-20250408152600779"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408152758307.png" alt="image-20250408152758307"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408152841602.png" alt="image-20250408152841602"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408152923618.png" alt="image-20250408152923618"></p>
+<h4 id="Eg"><a href="#Eg" class="headerlink" title="Eg"></a>Eg</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250502154554223.png" alt="image-20250502154554223"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250502154613246.png" alt="image-20250502154613246"></p>
+<p>next</p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408153534999.png" alt="image-20250408153534999"></p>
+<hr>
+<h3 id="4-5-Input-Ouput"><a href="#4-5-Input-Ouput" class="headerlink" title="4.5 Input &#x2F; Ouput"></a>4.5 Input &#x2F; Ouput</h3><ul>
+<li>本节讨论：如何通过使用机器语言 来控制和操作 这些I&#x2F;O设备</li>
+</ul>
+<h4 id="Hack-computer-platform"><a href="#Hack-computer-platform" class="headerlink" title="Hack computer platform"></a>Hack computer platform</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408154943693.png" alt="image-20250408154943693"></p>
+<p>实现：</p>
+<ul>
+<li>以后的软件部分，会用到高级语言的库来实现high-level</li>
+<li>但是现在，只能用bit来实现low-level</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408155051269.png" alt="image-20250408155051269"></p>
+<h4 id="OutPut"><a href="#OutPut" class="headerlink" title="OutPut"></a>OutPut</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408155241432.png" alt="image-20250408155241432"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250502155831854.png" alt="image-20250502155831854"></p>
+<h4 id="Screen-memory-map"><a href="#Screen-memory-map" class="headerlink" title="Screen memory map"></a>Screen memory map</h4><ul>
+<li>make a deep study in …</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250502160036115.png" alt="image-20250502160036115"></p>
+<ul>
+<li><p>每行每列的交叉点，都有所谓的像素。</p>
+</li>
+<li><p>how do we control it?</p>
+</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408155514485.png" alt="image-20250408155514485"></p>
+<ul>
+<li><p>这些值的每一个有时被称为一个单词</p>
+</li>
+<li><p>所以有8k，每一个都是16bit的单词</p>
+</li>
+<li><p>像素怎么算：8k*16≈130,000</p>
+</li>
+<li><p>一个像素就是一个bit，一个bit就是一个像素</p>
+</li>
+<li><p>那么怎么对应呢？哪个bit位于哪个像素？</p>
+</li>
+<li><p>512&#x2F;16&#x3D;32，一行32个单词。</p>
+</li>
+<li><p>例如图片左上的4个黑点就是第一个单词的前四位bit（row0，col0-4）</p>
+</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408155820456.png" alt="image-20250408155820456"></p>
+<ul>
+<li>这里的除法是整除</li>
+<li>作为内存的一部分，更准确的地址是第二个</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408160355257.png" alt="image-20250408160355257"></p>
+<ul>
+<li>如果我们想操作单词里面特定的某一位，how？</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250502162053196.png"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408160452787.png" alt="image-20250408160452787"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408160937267.png" alt="image-20250408160937267"></p>
+<h4 id="Keyboard-memory-map"><a href="#Keyboard-memory-map" class="headerlink" title="Keyboard memory map"></a>Keyboard memory map</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408161538288.png" alt="image-20250408161538288"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408161600439.png" alt="image-20250408161600439"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408161645079.png" alt="image-20250408161645079"><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408161745467.png" alt="image-20250408161745467"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408161911388.png" alt="image-20250408161911388"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408162004740.png" alt="image-20250408162004740"></p>
+<hr>
+<h3 id="4-6-HackProgramming-Part-1"><a href="#4-6-HackProgramming-Part-1" class="headerlink" title="4.6 HackProgramming  Part 1"></a>4.6 HackProgramming  Part 1</h3><h4 id="使用Hack机器语言进行编程"><a href="#使用Hack机器语言进行编程" class="headerlink" title="使用Hack机器语言进行编程"></a>使用Hack机器语言进行编程</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408170651825.png" alt="image-20250408170651825"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408170710787.png" alt="image-20250408170710787"></p>
+<h5 id="Way1：by汇编器→机器语言→执行程序（将在proj6编写汇编器）"><a href="#Way1：by汇编器→机器语言→执行程序（将在proj6编写汇编器）" class="headerlink" title="Way1：by汇编器→机器语言→执行程序（将在proj6编写汇编器）"></a>Way1：by汇编器→机器语言→执行程序（将在proj6编写汇编器）</h5><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408170815973.png" alt="image-20250408170815973"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408170841654.png" alt="image-20250408170841654"></p>
+<h5 id="Way2-把机器语言输入到-CPU-Emulator（仿真器），执行程序（我们现在的选择）"><a href="#Way2-把机器语言输入到-CPU-Emulator（仿真器），执行程序（我们现在的选择）" class="headerlink" title="Way2 : 把机器语言输入到 CPU Emulator（仿真器），执行程序（我们现在的选择）"></a>Way2 : 把机器语言输入到 CPU Emulator（仿真器），执行程序（我们现在的选择）</h5><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408170949958.png" alt="image-20250408170949958"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408171006210.png" alt="image-20250408171006210"></p>
+<h4 id="4-6-4-7-4-8-讨论的内容："><a href="#4-6-4-7-4-8-讨论的内容：" class="headerlink" title="4.6 4.7 4.8 讨论的内容："></a><strong>4.6 4.7 4.8 讨论的内容：</strong></h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408171140334.png" alt="image-20250408171140334"></p>
+<h4 id="寄存器和内存"><a href="#寄存器和内存" class="headerlink" title="寄存器和内存"></a>寄存器和内存</h4><h5 id="寄存器：D-A-M"><a href="#寄存器：D-A-M" class="headerlink" title="寄存器：D A M"></a>寄存器：D A M</h5><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408171208123.png" alt="image-20250408171208123"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408171221797.png" alt="image-20250408171221797"><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408171240428.png" alt="image-20250408171240428"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408171249595.png" alt="image-20250408171249595"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408171300916.png" alt="image-20250408171300916"><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408171306564.png" alt="image-20250408171306564"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408171321352.png" alt="image-20250408171321352"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408171545734.png" alt="image-20250408171545734"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408171835773.png" alt="image-20250408171835773"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408171859789.png" alt="image-20250408171859789"></p>
+<h5 id="如何终结程序"><a href="#如何终结程序" class="headerlink" title="如何终结程序"></a>如何终结程序</h5><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408172553897.png" alt="image-20250408172553897"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408172808706.png" alt="image-20250408172808706"></p>
+<h5 id="可读性（Hack机器语言的规范）"><a href="#可读性（Hack机器语言的规范）" class="headerlink" title="可读性（Hack机器语言的规范）"></a>可读性（Hack机器语言的规范）</h5><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408172907182.png" alt="image-20250408172907182"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408172956750.png" alt="image-20250408172956750"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408173136744.png" alt="image-20250408173136744"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408173149349.png" alt="image-20250408173149349"></p>
+<h5 id="Hack语言的内置符号"><a href="#Hack语言的内置符号" class="headerlink" title="Hack语言的内置符号"></a>Hack语言的内置符号</h5><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408173355650.png" alt="image-20250408173355650"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408173407233.png" alt="image-20250408173407233"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408175526572.png" alt="image-20250408175526572"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408173419671.png" alt="image-20250408173419671"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408173433439.png" alt="image-20250408173433439"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408173511898.png" alt="image-20250408173511898"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408173530087.png"></p>
+<hr>
+<h3 id="4-7-HackProgramming-Part-2"><a href="#4-7-HackProgramming-Part-2" class="headerlink" title="4.7 HackProgramming  Part 2"></a>4.7 HackProgramming  Part 2</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408175652006.png" alt="image-20250408175652006"></p>
+<h4 id="Branching"><a href="#Branching" class="headerlink" title="Branching"></a>Branching</h4><ul>
+<li>评估布尔表达式或布尔条件，根据这个值决定是否跳跃（go to)</li>
+</ul>
+<h5 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h5><p>可以看到一开始@后面是数字</p>
+<p>(这里的8是第8有效行，从0开始)</p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408175934716.png" alt="image-20250408175934716"></p>
+<h5 id="符号引用"><a href="#符号引用" class="headerlink" title="符号引用"></a>符号引用</h5><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408180345936.png" alt="image-20250408180345936"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408180437096.png" alt="image-20250408180437096"></p>
+<p><strong>label ：有括号（）的叫 label ，可以被引用（如下图）</strong></p>
+<p><strong>引用的符号是 @</strong></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408180508403.png" alt="image-20250408180508403"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408185937593.png" alt="image-20250408185937593"></p>
+<p>（上图小字）</p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408180613605.png" alt="image-20250408180613605"></p>
+<ul>
+<li><p>标签声明不会被翻译（不是有效行）</p>
+</li>
+<li><p>引用了标签，就跳转到标签声明的下一行（执行）</p>
+</li>
+<li><p>标签怎么被引用呢，当触发了条件时</p>
+</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408180736935.png" alt="image-20250408180736935"></p>
+<p>标签的意义：自己做的标签不会被编译，但是比数字更加可读，更清楚地知道什么时候进行分支分叉。</p>
+<hr>
+<h4 id="Variables"><a href="#Variables" class="headerlink" title="Variables"></a>Variables</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408181502003.png" alt="image-20250408181502003"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408181507772.png" alt="image-20250408181507772"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408181516292.png" alt="image-20250408181516292"></p>
+<h5 id="Example-1"><a href="#Example-1" class="headerlink" title="Example"></a>Example</h5><p><strong>变量的声明</strong></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408181712643.png" alt="image-20250408181712643"></p>
+<h5 id="标签-变量-的区别"><a href="#标签-变量-的区别" class="headerlink" title="标签 变量 的区别"></a><strong>标签 变量 的区别</strong></h5><blockquote>
+<p>**变量的引用  **  没有()</p>
+</blockquote>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408181819165.png" alt="image-20250408181819165"></p>
+<h5 id="第一个观察"><a href="#第一个观察" class="headerlink" title="第一个观察"></a>第一个观察</h5><blockquote>
+<p><strong>引用的变量 或者 label都是不被编译的，但是有对应的数字被编译</strong></p>
+</blockquote>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408181922547.png" alt="image-20250408181922547"></p>
+<h5 id="第二个观察"><a href="#第二个观察" class="headerlink" title="第二个观察"></a>第二个观察</h5><blockquote>
+<p>变量从地址16开始分配RAM，后面的以此类推。</p>
+</blockquote>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408182159346.png" alt="image-20250408182159346"></p>
+<h5 id="第三个观察"><a href="#第三个观察" class="headerlink" title="第三个观察"></a>第三个观察</h5><blockquote>
+<p>easy to read and debug（可重定位代码） <strong>？？？</strong></p>
+</blockquote>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408182323581.png" alt="image-20250408182323581"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408182346704.png" alt="image-20250408182346704"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408182351776.png" alt="image-20250408182351776"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408182400615.png" alt="image-20250408182400615"></p>
+<h4 id="Iterable"><a href="#Iterable" class="headerlink" title="Iterable"></a>Iterable</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408182556754.png" alt="image-20250408182556754"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408182619170.png" alt="image-20250408182619170"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408182712743.png" alt="image-20250408182712743"></p>
+<p>通用步骤（编写汇编语言的程序）：</p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408183553976.png" alt="image-20250408183553976"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408183605081.png" alt="image-20250408183605081"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408183616168.png" alt="image-20250408183616168"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408183654849.png" alt="image-20250408183654849"></p>
+<hr>
+<h3 id="4-8HackProgramming-Part-3"><a href="#4-8HackProgramming-Part-3" class="headerlink" title="4.8HackProgramming  Part 3"></a>4.8HackProgramming  Part 3</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408193159878.png" alt="image-20250408193159878"></p>
+<h4 id="Pointers"><a href="#Pointers" class="headerlink" title="Pointers"></a>Pointers</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408193340051.png" alt="image-20250408193340051"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408193454956.png" alt="image-20250408193454956"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408193503108.png" alt="image-20250408193503108"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408193614636.png" alt="image-20250408193614636"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408194303828.png" alt="image-20250408194303828"></p>
+<h4 id="Input-Output"><a href="#Input-Output" class="headerlink" title="Input &#x2F; Output"></a>Input &#x2F; Output</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408194624386.png" alt="image-20250408194624386"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408194713298.png" alt="image-20250408194713298"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408194740498.png" alt="image-20250408194740498"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408195434479.png" alt="image-20250408195434479"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408195506221.png" alt="image-20250408195506221"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250409085602507.png" alt="image-20250409085602507"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250409090013332.png" alt="image-20250409090013332"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250409090019914.png" alt="image-20250409090019914"></p>
+<p>-1的二进制就是1111 1111 1111 1111 ,在图像上就是一行黑线。</p>
+<p>然后画下一行，将地址+32就是下一行了（一行32个点，每个点都是16bit的二进制数字）</p>
+<p>（16*32&#x3D;512	一行512像素）</p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250409085922633.png" alt="image-20250409085922633"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250409090618399.png" alt="image-20250409090618399"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250409090704474.png" alt="image-20250409090704474"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250409090843101.png" alt="image-20250409090843101"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250409090851821.png" alt="image-20250409090851821"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250409090858509.png" alt="image-20250409090858509"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250409091019503.png" alt="image-20250409091019503"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250409091145770.png" alt="image-20250409091145770"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250409091237626.png" alt="image-20250409091237626"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250409091410869.png" alt="image-20250409091410869"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250409091513788.png" alt="image-20250409091513788"></p>
+<hr>
+<h2 id="Proj4"><a href="#Proj4" class="headerlink" title="Proj4"></a>Proj4</h2><h3 id="4-9-Project-4-Overview"><a href="#4-9-Project-4-Overview" class="headerlink" title="4.9 Project 4 Overview"></a>4.9 Project 4 Overview</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250409091626333.png" alt="image-20250409091626333"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250409091812658.png" alt="image-20250409091812658"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250409092150938.png" alt="image-20250409092150938"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250409092627420.png" alt="image-20250409092627420"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250409093508008.png" alt="image-20250409093508008"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250409093530565.png" alt="image-20250409093530565"></p>
+<hr>
+<h3 id="4-10-Project-4"><a href="#4-10-Project-4" class="headerlink" title="4.10 Project 4"></a>4.10 Project 4</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250413153708189.png" alt="image-20250413153708189"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">@R0</span><br><span class="line">D=M</span><br><span class="line">@a</span><br><span class="line">M=D // a=R0</span><br><span class="line"></span><br><span class="line">@R1</span><br><span class="line">D=M</span><br><span class="line">@b</span><br><span class="line">M=D // b=R1</span><br><span class="line"></span><br><span class="line">@0 	 		//	   </span><br><span class="line">D = A 		//</span><br><span class="line">@R2</span><br><span class="line">M=D // R2=0</span><br><span class="line"></span><br><span class="line">(LOOP)  	//</span><br><span class="line">    @a</span><br><span class="line">    D=M</span><br><span class="line">    @STOP</span><br><span class="line">    D;JLE  // while (a&gt;0),continue,or goto &#x27;stop&#x27;</span><br><span class="line"></span><br><span class="line">    @b</span><br><span class="line">    D=M</span><br><span class="line">    @R2</span><br><span class="line">    M=M+D // R2=R2+b</span><br><span class="line">	</span><br><span class="line">    @a</span><br><span class="line">    M=M-1 //a=a-1</span><br><span class="line"></span><br><span class="line">    @LOOP  		//			</span><br><span class="line">    0;JMP  		//</span><br><span class="line"></span><br><span class="line">(STOP) 		//</span><br><span class="line">    @stop</span><br><span class="line">    0;JMP</span><br><span class="line"></span><br><span class="line">// 大部分自己写出来了！小部分不到位。</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250413164147760.png" alt="image-20250413164147760"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250413163504053.png" alt="image-20250413163504053"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">@KBD // define KBD</span><br><span class="line">D=M </span><br><span class="line"></span><br><span class="line">@i</span><br><span class="line">M=0 // define i</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">(BLACK)</span><br><span class="line">	@KBD</span><br><span class="line">	D=M</span><br><span class="line">	@WHITE</span><br><span class="line">	D;JLE</span><br><span class="line">	</span><br><span class="line">	@i 		//</span><br><span class="line">	A=M		//</span><br><span class="line">	M=-1 // RAM[addr] = -1</span><br><span class="line">	</span><br><span class="line">	@i</span><br><span class="line">	M=M+1 // i++</span><br><span class="line">	</span><br><span class="line">	@BLACK</span><br><span class="line">	0;JMP</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">(WHITE)</span><br><span class="line">	@i</span><br><span class="line">	A=M		//</span><br><span class="line">	M=0 	//</span><br><span class="line">	@i		//</span><br><span class="line">	M=M+1	//</span><br><span class="line">	</span><br><span class="line">	@WHITE</span><br><span class="line">    0;JMP</span><br><span class="line">    </span><br><span class="line">// 大概逻辑写出来了，就是细节不到位。</span><br></pre></td></tr></table></figure>
+
+<p>（参考）</p>
+<img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250409090618399.png" alt="image-20250409090618399" style="zoom: 50%;" />
+
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250409090019914.png" alt="image-20250409090019914"></p>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/nand2tetris/">nand2tetris</a></div><div class="post-share"><div class="social-share" data-image="https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/2025/05/02/nand2tetris-proj3-final-2/" title="proj3"><img class="cover" src="https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">proj3</div></div><div class="info-2"><div class="info-item-1">3.1 Sequential Logic（逻辑时序） The Clock  ⭐ Combinatorial Logic vs. Sequential Logic    3.2 Flip Flops 触发器制作：允许上一步操作的芯片 ⭐ D 触发器换句话说，DFF 简单地将前一个时间周期的输入值作为当前周期的输出。𝑜𝑢𝑡(𝑡)&#x3D;𝑖𝑛(𝑡−1)   时序逻辑的原理 寄存器 Bit【寄存器（也）是一种常用的时序逻辑电路】   implement show      3.3 Memory Units Memory The most basic memory element: Register ⭐ （并着排列的）   RAM unit       （逻辑时序的芯片）   RAM &#x2F; Read Logic  RAM &#x2F; Write Logic A family of 16-bit RAM chips  3.4  Counters  (Inc 代表增量[+1])  3.5 codepreview：DFF  1-bit register...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2025/04/19/nand2tetris-proj1-final/" title="proj1"><img class="cover" src="https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-04-19</div><div class="info-item-2">proj1</div></div><div class="info-2"><div class="info-item-1">Proj11.1 Boolean Logic ⭐Some useful equations  →Boolean Algebra  can be 化简   （Two way : ①equations,②write down the truth table) 1.2 Boolean Function001： 理论上，任何布尔函数都可以用NotAndOr等表示出来（通过真值表选取f&#x3D;1的情况）（做芯片有用）    002： （or可以通过And和Not表示）   003： 而Nand可以表示出AndNot芯片（根本的根本）    1.3 Logic Gates上一节是抽象的逻辑运算，这一节是实际的芯片&#x2F;逻辑门     一个接口，可以有不同的实现   1.4 Hardware Description Language一种硬件描述语言（做硬件&#x2F;芯片用的）  芯片接口 和 芯片实现 ⭐实现：用真值表看1，写出布尔函数化简，画出逻辑图      1.5 Hardware Simulation for 模拟芯片测试 way：在给定的硬件模拟器中 +...</div></div></div></a><a class="pagination-related" href="/2025/05/01/nand2tetris-proj2-final/" title="proj2"><img class="cover" src="https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-05-01</div><div class="info-item-2">proj2</div></div><div class="info-2"><div class="info-item-1">2.1 Binary Numbers           2.2 Binary Addtion             2.3 Negative NumbersExpression of negative numbersway1  way2： 前一半的二进制数字（0-7）用来表示正数，后一半的二进制数字（8-15）留作表示负数（eg 表示-3，16-3&#x3D;13）   Addtion in 2’s Complement   -2+(-3)&#x3D;-5,-5的补码就是11（1011） Computing -x Eg算-4的二进制表达：4&#x3D;100，1111-0100（1111怎么来的，令n&#x3D;4(意味着用4位二进制数来表示值）） 取反码：1111-0100&#x3D;1011，求补码：1011+1&#x3D;1100 1100&#x3D;12，就是4的补码（16-4&#x3D;2）   Eg  具体步骤：      2.4 ALU  The Hack ALU    The Hack ALU operation  example   zr,ng(other...</div></div></div></a><a class="pagination-related" href="/2025/05/02/nand2tetris-proj3-final-2/" title="proj3"><img class="cover" src="https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-05-02</div><div class="info-item-2">proj3</div></div><div class="info-2"><div class="info-item-1">3.1 Sequential Logic（逻辑时序） The Clock  ⭐ Combinatorial Logic vs. Sequential Logic    3.2 Flip Flops 触发器制作：允许上一步操作的芯片 ⭐ D 触发器换句话说，DFF 简单地将前一个时间周期的输入值作为当前周期的输出。𝑜𝑢𝑡(𝑡)&#x3D;𝑖𝑛(𝑡−1)   时序逻辑的原理 寄存器 Bit【寄存器（也）是一种常用的时序逻辑电路】   implement show      3.3 Memory Units Memory The most basic memory element: Register ⭐ （并着排列的）   RAM unit       （逻辑时序的芯片）   RAM &#x2F; Read Logic  RAM &#x2F; Write Logic A family of 16-bit RAM chips  3.4  Counters  (Inc 代表增量[+1])  3.5 codepreview：DFF  1-bit register...</div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="lv-container" data-id="city" data-uid="MTAyMC82MDU3Mi8zNzA0Mw=="></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Machine-Language"><span class="toc-text">Machine Language</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-Machine-Languages-Overview"><span class="toc-text">4.1 Machine Languages  : Overview</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%85%E9%83%A8%EF%BC%9A"><span class="toc-text">内部：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E2%AD%903-Question"><span class="toc-text">⭐3-Question</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#machine-language-%E2%86%90-assembly-language"><span class="toc-text">machine language ← assembly language</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-Machine-Languages-Elements"><span class="toc-text">4.2  Machine Languages  : Elements</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Machine-Language-1"><span class="toc-text">Machine Language</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Memory-Hierarchy"><span class="toc-text">Memory Hierarchy</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Registers-%EF%BC%88in-CPU%EF%BC%89%EF%BC%88Q1Q3%EF%BC%89"><span class="toc-text">Registers （in CPU）（Q1Q3）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Addressing-Modes"><span class="toc-text">Addressing Modes</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Intput-Output"><span class="toc-text">Intput &#x2F; Output</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Flow-Control%EF%BC%88Q2%EF%BC%89"><span class="toc-text">Flow Control（Q2）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HACK-Language"><span class="toc-text">HACK Language</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-HACK-Computer-and-Language-Overview"><span class="toc-text">4.3 HACK Computer and Language (Overview)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#hardware"><span class="toc-text">hardware</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#software"><span class="toc-text">software</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#reset-bottom"><span class="toc-text">reset bottom</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#registers"><span class="toc-text">registers</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#The-A-instruction"><span class="toc-text">The A-instruction</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#The-C-instruction"><span class="toc-text">The C-instruction</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-Hack-Language-plus"><span class="toc-text">4.4 Hack Language plus</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Use-Binary-to-write"><span class="toc-text">Use Binary to write</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#C-ins"><span class="toc-text">C-ins</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Eg"><span class="toc-text">Eg</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-5-Input-Ouput"><span class="toc-text">4.5 Input &#x2F; Ouput</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Hack-computer-platform"><span class="toc-text">Hack computer platform</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#OutPut"><span class="toc-text">OutPut</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Screen-memory-map"><span class="toc-text">Screen memory map</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Keyboard-memory-map"><span class="toc-text">Keyboard memory map</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-6-HackProgramming-Part-1"><span class="toc-text">4.6 HackProgramming  Part 1</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8Hack%E6%9C%BA%E5%99%A8%E8%AF%AD%E8%A8%80%E8%BF%9B%E8%A1%8C%E7%BC%96%E7%A8%8B"><span class="toc-text">使用Hack机器语言进行编程</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Way1%EF%BC%9Aby%E6%B1%87%E7%BC%96%E5%99%A8%E2%86%92%E6%9C%BA%E5%99%A8%E8%AF%AD%E8%A8%80%E2%86%92%E6%89%A7%E8%A1%8C%E7%A8%8B%E5%BA%8F%EF%BC%88%E5%B0%86%E5%9C%A8proj6%E7%BC%96%E5%86%99%E6%B1%87%E7%BC%96%E5%99%A8%EF%BC%89"><span class="toc-text">Way1：by汇编器→机器语言→执行程序（将在proj6编写汇编器）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Way2-%E6%8A%8A%E6%9C%BA%E5%99%A8%E8%AF%AD%E8%A8%80%E8%BE%93%E5%85%A5%E5%88%B0-CPU-Emulator%EF%BC%88%E4%BB%BF%E7%9C%9F%E5%99%A8%EF%BC%89%EF%BC%8C%E6%89%A7%E8%A1%8C%E7%A8%8B%E5%BA%8F%EF%BC%88%E6%88%91%E4%BB%AC%E7%8E%B0%E5%9C%A8%E7%9A%84%E9%80%89%E6%8B%A9%EF%BC%89"><span class="toc-text">Way2 : 把机器语言输入到 CPU Emulator（仿真器），执行程序（我们现在的选择）</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-6-4-7-4-8-%E8%AE%A8%E8%AE%BA%E7%9A%84%E5%86%85%E5%AE%B9%EF%BC%9A"><span class="toc-text">4.6 4.7 4.8 讨论的内容：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AF%84%E5%AD%98%E5%99%A8%E5%92%8C%E5%86%85%E5%AD%98"><span class="toc-text">寄存器和内存</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AF%84%E5%AD%98%E5%99%A8%EF%BC%9AD-A-M"><span class="toc-text">寄存器：D A M</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E7%BB%88%E7%BB%93%E7%A8%8B%E5%BA%8F"><span class="toc-text">如何终结程序</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8F%AF%E8%AF%BB%E6%80%A7%EF%BC%88Hack%E6%9C%BA%E5%99%A8%E8%AF%AD%E8%A8%80%E7%9A%84%E8%A7%84%E8%8C%83%EF%BC%89"><span class="toc-text">可读性（Hack机器语言的规范）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Hack%E8%AF%AD%E8%A8%80%E7%9A%84%E5%86%85%E7%BD%AE%E7%AC%A6%E5%8F%B7"><span class="toc-text">Hack语言的内置符号</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-7-HackProgramming-Part-2"><span class="toc-text">4.7 HackProgramming  Part 2</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Branching"><span class="toc-text">Branching</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Example"><span class="toc-text">Example</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%AC%A6%E5%8F%B7%E5%BC%95%E7%94%A8"><span class="toc-text">符号引用</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Variables"><span class="toc-text">Variables</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Example-1"><span class="toc-text">Example</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A0%87%E7%AD%BE-%E5%8F%98%E9%87%8F-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">标签 变量 的区别</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E4%B8%AA%E8%A7%82%E5%AF%9F"><span class="toc-text">第一个观察</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E4%B8%AA%E8%A7%82%E5%AF%9F"><span class="toc-text">第二个观察</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E4%B8%AA%E8%A7%82%E5%AF%9F"><span class="toc-text">第三个观察</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Iterable"><span class="toc-text">Iterable</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-8HackProgramming-Part-3"><span class="toc-text">4.8HackProgramming  Part 3</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Pointers"><span class="toc-text">Pointers</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Input-Output"><span class="toc-text">Input &#x2F; Output</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Proj4"><span class="toc-text">Proj4</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-9-Project-4-Overview"><span class="toc-text">4.9 Project 4 Overview</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-10-Project-4"><span class="toc-text">4.10 Project 4</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer" style="background: transparent;"><div id="footer-wrap"><div class="copyright">&copy;2025 By KKL</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.5</a></div><div class="footer_custom_text">Nice to meet you ! 😜</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+
+  const loadLivere = (el, path) => {
+    window.livereOptions = {
+      refer: path || location.pathname
+    }
+
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyLivere = () => {
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+
+    if (typeof LivereTower === 'object') window.LivereTower.init()
+    else {
+      (function(d, s) {
+          var j, e = d.getElementsByTagName(s)[0];
+          if (typeof LivereTower === 'function') { return; }
+          j = d.createElement(s);
+          j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+          j.async = true;
+          e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    }
+  }
+
+  if (isShuoshuo) {
+    'Livere' === 'Livere'
+      ? window.shuoshuoComment = { loadComment: loadLivere }
+      : window.loadOtherComment = loadLivere
+    return
+  }
+
+  if ('Livere' === 'Livere' || !false) {
+    if (false) btf.loadComment(document.getElementById('lv-container'), loadLivere)
+    else loadLivere()
+  } else {
+    window.loadOtherComment = loadLivere
+  }
+})()</script></div><script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script><script src="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>(() => {
+  const pjaxSelectors = ["meta[property=\"og:image\"]","meta[property=\"og:title\"]","meta[property=\"og:url\"]","meta[property=\"og:description\"]","link[rel=\"canonical\"]","head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+  window.pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  const triggerPjaxFn = (val) => {
+    if (!val) return
+    Object.values(val).forEach(fn => fn())
+  }
+
+  document.addEventListener('pjax:send', () => {
+    // removeEventListener
+    btf.removeGlobalFnEvent('pjaxSendOnce')
+    btf.removeGlobalFnEvent('themeChange')
+
+    // reset readmode
+    const $bodyClassList = document.body.classList
+    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
+
+    triggerPjaxFn(window.globalFn.pjaxSend)
+  })
+
+  document.addEventListener('pjax:complete', () => {
+    btf.removeGlobalFnEvent('pjaxCompleteOnce')
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+
+    triggerPjaxFn(window.globalFn.pjaxComplete)
+  })
+
+  document.addEventListener('pjax:error', e => {
+    if (e.request.status === 404) {
+      const usePjax = true
+      true 
+        ? (usePjax ? pjax.loadUrl('/404.html') : window.location.href = '/404.html')
+        : window.location.href = e.request.responseURL
+    }
+  })
+})()</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
