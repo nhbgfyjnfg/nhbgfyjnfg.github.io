@@ -1,0 +1,515 @@
+<!DOCTYPE html><html class="hide-aside" lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>proj7 | LKK の blog</title><meta name="author" content="KKL"><meta name="copyright" content="KKL"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="1.0 The Road Ahead some question we want to handle     JACK        our journey     1.1 Program Compilation Preview  Java has two layers of compilation instead of one!    Jack too!     Module 1     1.2">
+<meta property="og:type" content="article">
+<meta property="og:title" content="proj7">
+<meta property="og:url" content="http://example.com/2025/05/10/nand2tetris/nand2tetris-proj7-final/index.html">
+<meta property="og:site_name" content="LKK の blog">
+<meta property="og:description" content="1.0 The Road Ahead some question we want to handle     JACK        our journey     1.1 Program Compilation Preview  Java has two layers of compilation instead of one!    Jack too!     Module 1     1.2">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png">
+<meta property="article:published_time" content="2025-05-10T10:48:43.816Z">
+<meta property="article:modified_time" content="2025-05-10T10:49:01.491Z">
+<meta property="article:author" content="KKL">
+<meta property="article:tag" content="nand2tetris">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "proj7",
+  "url": "http://example.com/2025/05/10/nand2tetris/nand2tetris-proj7-final/",
+  "image": "https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png",
+  "datePublished": "2025-05-10T10:48:43.816Z",
+  "dateModified": "2025-05-10T10:49:01.491Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "KKL",
+      "url": "http://example.com/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2025/05/10/nand2tetris/nand2tetris-proj7-final/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!true && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?61208d72ee755d3d238bfecf1e0a2afe";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+btf.addGlobalFn('pjaxComplete', () => {
+  _hmt.push(['_trackPageview',window.location.pathname])
+}, 'baidu_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":true,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":150,"languages":{"author":"作者: KKL","link":"链接: ","source":"来源: LKK の blog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: true,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'proj7',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/css/main.css"><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/./img/001.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">8</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">1</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/movies/"><i class="fa-fw fas fa-film"></i><span> Movie</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://picsum.photos/200/300);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">LKK の blog</span></a><a class="nav-page-title" href="/"><span class="site-name">proj7</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/movies/"><i class="fa-fw fas fa-film"></i><span> Movie</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">proj7</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-05-10T10:48:43.816Z" title="发表于 2025-05-10 18:48:43">2025-05-10</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-05-10T10:49:01.491Z" title="更新于 2025-05-10 18:49:01">2025-05-10</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/code/">code</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h2 id="1-0-The-Road-Ahead"><a href="#1-0-The-Road-Ahead" class="headerlink" title="1.0 The Road Ahead"></a>1.0 The Road Ahead</h2><ul>
+<li>some question we want to handle</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250507120458835.png" alt="image-20250507120458835"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250507120639196.png" alt="image-20250507120639196"></p>
+<ul>
+<li>JACK</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250507121111584.png"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250507121310585.png" alt="image-20250507121310585"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250507121358133.png" alt="image-20250507121358133"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250507121419629.png" alt="image-20250507121419629"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250507121521915.png" alt="image-20250507121521915"></p>
+<ul>
+<li>our journey</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250507121738951.png" alt="image-20250507121738951"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250507121931839.png" alt="image-20250507121931839"></p>
+<hr>
+<h2 id="1-1-Program-Compilation-Preview"><a href="#1-1-Program-Compilation-Preview" class="headerlink" title="1.1 Program Compilation Preview"></a>1.1 Program Compilation Preview</h2><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250507122552279.png"></p>
+<ul>
+<li><strong>Java has two layers of compilation instead of one!</strong></li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250507122857753.png" alt="image-20250507122857753"></p>
+<ul>
+<li><strong>Jack too!</strong></li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250507123153139.png" alt="image-20250507123153139"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250507123231561.png" alt="image-20250507123231561"></p>
+<ul>
+<li><strong>Module 1</strong></li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250507123454128.png" alt="image-20250507123454128"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250507123554156.png" alt="image-20250507123554156"></p>
+<hr>
+<h2 id="1-2-VM-Abstraction-the-Stack"><a href="#1-2-VM-Abstraction-the-Stack" class="headerlink" title="1.2  VM Abstraction: the Stack"></a>1.2  VM Abstraction: the Stack</h2><ul>
+<li><p><strong>a balance distance</strong> (for VM code ) between high-level program and mechine language is important.</p>
+</li>
+<li><p>the solution is use <strong>Stack</strong></p>
+</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250507123858868.png" alt="image-20250507123858868"></p>
+<ul>
+<li><strong>Stack</strong></li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250507124117308.png" alt="image-20250507124117308"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250507124300000.png" alt="image-20250507124300000"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250507124324906.png" alt="image-20250507124324906"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250507124552424.png" alt="image-20250507124552424"></p>
+<p>⭐</p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250507124610500.png" alt="image-20250507124610500"></p>
+<ul>
+<li>Arithmetic &#x2F; logical commends</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250507124726010.png" alt="image-20250507124726010"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250507124812029.png" alt="image-20250507124812029"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250507124906644.png" alt="image-20250507124906644"></p>
+<ul>
+<li>next</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250507125006777.png" alt="image-20250507125006777"></p>
+<hr>
+<h2 id="1-3-VM-Abstraction-Memory-Segments"><a href="#1-3-VM-Abstraction-Memory-Segments" class="headerlink" title="1.3  VM Abstraction: Memory Segments"></a>1.3  VM Abstraction: Memory Segments</h2><ul>
+<li>we need a way to express different variable.</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250507142839318.png" alt="image-20250507142839318"></p>
+<ul>
+<li><p><strong>memory seagments</strong></p>
+</li>
+<li><p>Way: (JVM)没有符号变量，但是有符号内存段（memory seagments）</p>
+</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250507143104544.png" alt="image-20250507143104544"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250507143143394.png" alt="image-20250507143143394"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250507143509800.png" alt="image-20250507143509800"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250507143717030.png" alt="image-20250507143717030"></p>
+<ul>
+<li>quiz</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250507144147261.png" alt="image-20250507144147261"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250507143947290.png" alt="image-20250507143947290"></p>
+<hr>
+<h2 id="1-4-VM-Implementation-the-Stack"><a href="#1-4-VM-Implementation-the-Stack" class="headerlink" title="1.4  VM Implementation: the Stack"></a>1.4  VM Implementation: the Stack</h2><ul>
+<li>我们需要建立指令和内存之间的映射map</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250507144654589.png" alt="image-20250507144654589"></p>
+<ul>
+<li><p><strong>001 Pointer</strong> <strong>manipulation</strong></p>
+</li>
+<li><p>p &#x3D; 257</p>
+</li>
+<li><p>*p &#x3D; 23  (&#x3D;RAM[257])</p>
+</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250507145214516.png" alt="image-20250507145214516"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250507145638134.png" alt="image-20250507145638134"></p>
+<ul>
+<li>quiz</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250507145857852.png" alt="image-20250507145857852"></p>
+<ul>
+<li><p><strong>002 Stack machine</strong></p>
+</li>
+<li><p>show: how these two static are going to map in the physical memory</p>
+</li>
+<li><p>Two important assumptions:</p>
+<ul>
+<li>两个堆栈指针储存在RAM[0]中</li>
+<li>堆栈将从地址256开始</li>
+</ul>
+</li>
+</ul>
+<p>（指针会递增因为要指向下一个可用的位置）</p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250507150734556.png" alt="image-20250507150734556"></p>
+<ul>
+<li>把上面的命令变成汇编语言（用JACK）</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250507150921718.png" alt="image-20250507150921718"></p>
+<ul>
+<li>quiz</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250507151149604.png" alt="image-20250507151149604"></p>
+<ul>
+<li><p>we will do later （VM Tr）</p>
+</li>
+<li><p>知己知彼嘛</p>
+</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250507151419180.png" alt="image-20250507151419180"></p>
+<hr>
+<h2 id="1-5-VM-Implementation-Memory-Seagments"><a href="#1-5-VM-Implementation-Memory-Seagments" class="headerlink" title="1.5  VM Implementation: Memory Seagments"></a>1.5  VM Implementation: Memory Seagments</h2><ul>
+<li>总的</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250507143717030.png" alt="image-20250507143717030"></p>
+<p><strong>Implement</strong> <strong>local</strong></p>
+<ul>
+<li>两个指针</li>
+<li>堆栈指针指向堆栈的下一个位置</li>
+<li>LCL指针指向本地seagments的基址</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250508110055854.png" alt="image-20250508110055854"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250508110408646.png" alt="image-20250508110408646"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250508110633432.png" alt="image-20250508110633432"></p>
+<ul>
+<li>local，argument，this，that</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250508110903593.png" alt="image-20250508110903593"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250508111127060.png" alt="image-20250508111127060"></p>
+<ul>
+<li>constant</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250508111331874.png" alt="image-20250508111331874"></p>
+<ul>
+<li>static</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250508111523364.png" alt="image-20250508111523364"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250508112008830.png" alt="image-20250508112008830"></p>
+<ul>
+<li>temp</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250508112705307.png" alt="image-20250508112705307"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250508112814981.png" alt="image-20250508112814981"></p>
+<ul>
+<li>pointer</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250508113200381.png" alt="image-20250508113200381"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250508113300074.png" alt="image-20250508113300074"></p>
+<ul>
+<li>next</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250508113503918.png" alt="image-20250508113503918"></p>
+<hr>
+<h2 id="1-6-the-VM-Emulator"><a href="#1-6-the-VM-Emulator" class="headerlink" title="1.6  the VM Emulator"></a>1.6  the VM Emulator</h2><ul>
+<li>the VM Emulator</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250508122130925.png" alt="image-20250508122130925"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250508122318176.png" alt="image-20250508122318176"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250508122420878.png" alt="image-20250508122420878"></p>
+<ul>
+<li>Test script</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250508122833430.png" alt="image-20250508122833430"></p>
+<ul>
+<li>还没初始化（第八单元会讲），暂时先用test script</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250508123036113.png" alt="image-20250508123036113"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250508124403205.png" alt="image-20250508124403205"></p>
+<hr>
+<h2 id="1-7-VM-Implementation-on-the-Hack-Plaform"><a href="#1-7-VM-Implementation-on-the-Hack-Plaform" class="headerlink" title="1.7  VM Implementation on the Hack Plaform"></a>1.7  VM Implementation on the Hack Plaform</h2><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250508175740870.png" alt="image-20250508175740870"></p>
+<ul>
+<li>这个单元的proj关注于左边两个的实现</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250508175843039.png" alt="image-20250508175843039"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250508180012128.png" alt="image-20250508180012128"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250508180220370.png" alt="image-20250508180220370"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250508180536863.png" alt="image-20250508180536863"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250508180558782.png" alt="image-20250508180558782"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250508181108492.png" alt="image-20250508181108492"></p>
+<hr>
+<h2 id="1-8-Proj-Preview"><a href="#1-8-Proj-Preview" class="headerlink" title="1.8  Proj Preview"></a>1.8  Proj Preview</h2><ul>
+<li>usage</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250508181523528.png" alt="image-20250508181523528"></p>
+<ul>
+<li><strong>Implementation</strong></li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250508181811311.png" alt="image-20250508181811311"></p>
+<ul>
+<li><strong>API</strong></li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250508182242809.png" alt="image-20250508182242809"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250508182413157.png" alt="image-20250508182413157"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250508182558180.png" alt="image-20250508182558180"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250508182716776.png" alt="image-20250508182716776"></p>
+<hr>
+<h2 id="1-9-Project-7：-Building-theVM-Traslator"><a href="#1-9-Project-7：-Building-theVM-Traslator" class="headerlink" title="1.9  Project 7： Building theVM Traslator"></a>1.9  Project 7： Building theVM Traslator</h2><ul>
+<li><strong>big</strong> <strong>picture</strong></li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250508182848428.png" alt="image-20250508182848428"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250508182946839.png" alt="image-20250508182946839"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250508183047325.png" alt="image-20250508183047325"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250508183137056.png" alt="image-20250508183137056"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250508183233765.png" alt="image-20250508183233765"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250508183325627.png" alt="image-20250508183325627"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250508183629583.png" alt="image-20250508183629583"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250508183911557.png" alt="image-20250508183911557"></p>
+<ul>
+<li>tool</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250508184019980.png" alt="image-20250508184019980"></p>
+<ul>
+<li>chagllenge</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250508184155238.png" alt="image-20250508184155238"></p>
+<hr>
+<h2 id="1-10-code"><a href="#1-10-code" class="headerlink" title="1.10 code"></a>1.10 code</h2><h3 id="Parser"><a href="#Parser" class="headerlink" title="Parser"></a>Parser</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250508182242809.png" alt="image-20250508182242809"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.FileReader;</span><br><span class="line"><span class="keyword">import</span> java.io.BufferedReader;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Parser</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> BufferedReader reader;</span><br><span class="line">    <span class="keyword">private</span> String currentLine;</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Parser</span><span class="params">(String filePath)</span> &#123;</span><br><span class="line">        reader = <span class="keyword">new</span> <span class="title class_">BufferedReader</span>(<span class="keyword">new</span> <span class="title class_">FileReader</span>(filePath));</span><br><span class="line">        advance();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">hasMoreLines</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> currentLine != <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">advance</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">do</span> &#123;</span><br><span class="line">    		currentLine = reader.readLine();</span><br><span class="line">        &#125; <span class="keyword">while</span> (currentLine != <span class="literal">null</span> &amp;&amp; <span class="comment">// &amp;&amp;==AND，||==OR 。如果xxx，继续循环</span></span><br><span class="line">                (currentLine.isEmpty() || currentLine.startsWith(<span class="string">&quot;//&quot;</span>)));</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (currentLine != <span class="literal">null</span>) &#123; </span><br><span class="line">            <span class="comment">// 清除注释</span></span><br><span class="line">            <span class="type">int</span> <span class="variable">slashIndex</span> <span class="operator">=</span> currentLine.indexOf(<span class="string">&quot;/&quot;</span>); </span><br><span class="line">            <span class="keyword">if</span> (slashIndex != -<span class="number">1</span>) &#123; <span class="comment">//找到 不返回-1</span></span><br><span class="line">                currentLine = currentLine.substring(<span class="number">0</span>, slashIndex);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 清理空白字符</span></span><br><span class="line">            currentLine = currentLine.trim(); </span><br><span class="line">            </span><br><span class="line">            System.out.println(currentLine);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">commandType</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (currentLine == <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;C_UNKNOWN&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (currentLine.startsWith(<span class="string">&quot;//&quot;</span>)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;C_COMMENT&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (currentLine.startsWith(<span class="string">&quot;push&quot;</span>)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;C_PUSH&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (currentLine.startsWith(<span class="string">&quot;pop&quot;</span>)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;C_POP&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (currentLine.startsWith(<span class="string">&quot;label&quot;</span>)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;C_LABEL&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (currentLine.startsWith(<span class="string">&quot;goto&quot;</span>)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;C_GOTO&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (currentLine.startsWith(<span class="string">&quot;if-goto&quot;</span>)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;C_IF&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (currentLine.startsWith(<span class="string">&quot;function&quot;</span>)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;C_FUNCTION&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (currentLine.startsWith(<span class="string">&quot;return&quot;</span>)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;C_RETURN&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (currentLine.startsWith(<span class="string">&quot;call&quot;</span>)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;C_CALL&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (currentLine.startsWith(<span class="string">&quot;add&quot;</span>) || </span><br><span class="line">                currentLine.startsWith(<span class="string">&quot;sub&quot;</span>) ||</span><br><span class="line">                currentLine.startsWith(<span class="string">&quot;neg&quot;</span>) ||</span><br><span class="line">                currentLine.startsWith(<span class="string">&quot;and&quot;</span>) ||</span><br><span class="line">                currentLine.startsWith(<span class="string">&quot;not&quot;</span>) ||</span><br><span class="line">                currentLine.startsWith(<span class="string">&quot;or&quot;</span>) ||</span><br><span class="line">                currentLine.startsWith(<span class="string">&quot;eq&quot;</span>) ||</span><br><span class="line">                currentLine.startsWith(<span class="string">&quot;gt&quot;</span>) ||</span><br><span class="line">                currentLine.startsWith(<span class="string">&quot;lt&quot;</span>)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;C_ARITHMETIC&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;C_UNKNOWN&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">command</span><span class="params">()</span> &#123;</span><br><span class="line">        String[] tokens = currentLine.split(<span class="string">&quot; &quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> tokens[<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">arg1</span><span class="params">()</span>&#123;</span><br><span class="line">        String[] tokens = currentLine.split(<span class="string">&quot; &quot;</span>);</span><br><span class="line">        <span class="keyword">if</span> (commandType().equals(<span class="string">&quot;C_ARITHMETIC&quot;</span>)) &#123;</span><br><span class="line">            <span class="keyword">return</span> tokens[<span class="number">0</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123; </span><br><span class="line">            <span class="keyword">return</span> tokens[<span class="number">1</span>];</span><br><span class="line">             &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">arg2</span><span class="params">()</span>&#123;</span><br><span class="line">        String[] tokens = currentLine.split(<span class="string">&quot; &quot;</span>);</span><br><span class="line">        <span class="type">String</span> <span class="variable">type</span> <span class="operator">=</span> commandType();</span><br><span class="line">        <span class="keyword">if</span> (type.equals(<span class="string">&quot;C_PUSH&quot;</span>)     || type.equals(<span class="string">&quot;C_POP&quot;</span>)   || type.equals(<span class="string">&quot;C_FUNCTION&quot;</span>) || type.equals(<span class="string">&quot;C_CALL&quot;</span>)) &#123;</span><br><span class="line">            <span class="keyword">return</span> Integer.parseInt(tokens[<span class="number">2</span>]); </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">close</span><span class="params">()</span> &#123;</span><br><span class="line">        reader.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250508182413157.png" alt="![](https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250508182413157.png)"></p>
+<hr>
+<h3 id="CodeWriter"><a href="#CodeWriter" class="headerlink" title="CodeWriter"></a>CodeWriter</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250508182558180.png" alt="image-20250508182558180"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250507150921718.png" alt="image-20250507150921718"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250508181108492.png" alt="image-20250508181108492"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.BufferedWriter; <span class="comment">// 文件写入器</span></span><br><span class="line"><span class="keyword">import</span> java.io.FileWriter;</span><br><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">CodeWriter</span>&#123;</span><br><span class="line">    <span class="keyword">private</span> BufferefWriter writer;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> uniqueLabels;</span><br><span class="line">    <span class="keyword">private</span> String fileName;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">CodeWriter</span><span class="params">(String fileName)</span>&#123;</span><br><span class="line">        writer = <span class="keyword">new</span> <span class="title class_">BufferedWriter</span>(<span class="keyword">new</span> <span class="title class_">FileWriter</span>(fileName));</span><br><span class="line">        uniqueLabels = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">this</span>.fileName = fileName;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 将 VM 内存段映射到 Hack 平台的物理地址或指针。</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> HashMap&lt;String,String&gt; segmentMap = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">    <span class="keyword">static</span>&#123;</span><br><span class="line">        segmentMap.put(<span class="string">&quot;local&quot;</span>, <span class="string">&quot;LCL&quot;</span>);    <span class="comment">// 局部变量段映射到LCL指针</span></span><br><span class="line">        segmentMap.put(<span class="string">&quot;argument&quot;</span>, <span class="string">&quot;ARG&quot;</span>); <span class="comment">// 参数段映射到ARG指针</span></span><br><span class="line">        segmentMap.put(<span class="string">&quot;this&quot;</span>, <span class="string">&quot;THIS&quot;</span>);    <span class="comment">// this段映射到THIS指针</span></span><br><span class="line">        segmentMap.put(<span class="string">&quot;that&quot;</span>, <span class="string">&quot;THAT&quot;</span>);    <span class="comment">// that段映射到THAT指针</span></span><br><span class="line">        segmentMap.put(<span class="string">&quot;temp&quot;</span>, <span class="string">&quot;TEMP&quot;</span>);    <span class="comment">// 临时段映射到固定地址5-12</span></span><br><span class="line">        segmentMap.put(<span class="string">&quot;pointer&quot;</span>, <span class="string">&quot;SP&quot;</span>);   <span class="comment">// 指针段映射到栈指针(实际处理特殊)</span></span><br><span class="line">        segmentMap.put(<span class="string">&quot;constant&quot;</span>, <span class="string">&quot;&quot;</span>);    <span class="comment">// 常数段(无实际内存映射)</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 元素弹出栈，运算后再推入栈</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">pushFromRegister</span><span class="params">(String register)</span> &#123;</span><br><span class="line">        <span class="comment">// 从寄存器压入栈顶</span></span><br><span class="line">        writeLine(<span class="string">&quot;// Push the value in the register &quot;</span> + register + <span class="string">&quot; onto the stack:&quot;</span>);</span><br><span class="line">        writeLine(<span class="string">&quot;@SP&quot;</span>);       <span class="comment">// 加载栈指针</span></span><br><span class="line">        writeLine(<span class="string">&quot;A=M&quot;</span>);       <span class="comment">// 地址指向栈顶</span></span><br><span class="line">        writeLine(<span class="string">&quot;M=&quot;</span> + register); <span class="comment">// 将xxx寄存器值存入栈顶</span></span><br><span class="line">        writeLine(<span class="string">&quot;@SP&quot;</span>);       <span class="comment">// 重新加载栈指针</span></span><br><span class="line">        writeLine(<span class="string">&quot;M=M+1&quot;</span>);     <span class="comment">// 栈指针加1</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">popIntoRegister</span><span class="params">(String register)</span> &#123;</span><br><span class="line">        <span class="comment">// 从栈顶弹出到寄存器</span></span><br><span class="line">        writeLine(<span class="string">&quot;// Pop the top value from the stack into register &quot;</span> + register + <span class="string">&quot;:&quot;</span>);</span><br><span class="line">        writeLine(<span class="string">&quot;@SP&quot;</span>);</span><br><span class="line">        writeLine(<span class="string">&quot;M=M-1&quot;</span>);  </span><br><span class="line">        writeLine(<span class="string">&quot;A=M&quot;</span>);       </span><br><span class="line">        writeLine(register + <span class="string">&quot;=M&quot;</span>);  <span class="comment">// eg：D=M</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">writeArithmetic</span><span class="params">(String command)</span>&#123;</span><br><span class="line">        <span class="comment">// 001 处理二元运算(and/sub/and/or)</span></span><br><span class="line">        <span class="keyword">if</span>(command.equals(<span class="string">&quot;add&quot;</span>)||command.equals(<span class="string">&quot;sub&quot;</span>)||</span><br><span class="line">           command.equals(<span class="string">&quot;and&quot;</span>)||command.equals(<span class="string">&quot;or&quot;</span>))&#123;</span><br><span class="line">            </span><br><span class="line">            popIntoRegister(<span class="string">&quot;D&quot;</span>); <span class="comment">// 弹出最上面的操作数到 D寄存器（作为右边）</span></span><br><span class="line">            <span class="comment">// 弹出第二上面的操作数并运算（作为左边）</span></span><br><span class="line">            writeLine(<span class="string">&quot;@SP&quot;</span>);</span><br><span class="line">            writeLine(<span class="string">&quot;M=M-1&quot;</span>);</span><br><span class="line">            writeLine(<span class="string">&quot;A=M&quot;</span>); </span><br><span class="line">            </span><br><span class="line">            <span class="comment">// 根据不同命令执行不同运算</span></span><br><span class="line">            <span class="keyword">switch</span> (command) &#123;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">&quot;add&quot;</span>: writeLine(<span class="string">&quot;D=D+M&quot;</span>); <span class="keyword">break</span>; <span class="comment">// 加法</span></span><br><span class="line">                <span class="keyword">case</span> <span class="string">&quot;sub&quot;</span>: writeLine(<span class="string">&quot;D=M-D&quot;</span>); <span class="keyword">break</span>; <span class="comment">// 减法</span></span><br><span class="line">                <span class="keyword">case</span> <span class="string">&quot;and&quot;</span>: writeLine(<span class="string">&quot;D=D&amp;M&quot;</span>); <span class="keyword">break</span>; <span class="comment">// 与运算</span></span><br><span class="line">                <span class="keyword">case</span> <span class="string">&quot;or&quot;</span>:  writeLine(<span class="string">&quot;D=D|M&quot;</span>); <span class="keyword">break</span>; <span class="comment">// 或运算</span></span><br><span class="line">            &#125;</span><br><span class="line">            pushFromRegister(<span class="string">&quot;D&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 002 处理一元运算(neg/not)</span></span><br><span class="line">        <span class="keyword">if</span> (command.equals(<span class="string">&quot;neg&quot;</span>)||command.equals(<span class="string">&quot;not&quot;</span>))&#123;</span><br><span class="line">            popIntoRegister(<span class="string">&quot;D&quot;</span>); <span class="comment">// 弹出操作数到D</span></span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span> (command.equals(<span class="string">&quot;neg&quot;</span>)) &#123;</span><br><span class="line">                writeLine(<span class="string">&quot;D=-D&quot;</span>);  </span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                writeLine(<span class="string">&quot;D=!D&quot;</span>);  </span><br><span class="line">            &#125;</span><br><span class="line">            pushFromRegister(<span class="string">&quot;D&quot;</span>); </span><br><span class="line">        	&#125;</span><br><span class="line">    	&#125;</span><br><span class="line">    </span><br><span class="line">        <span class="comment">// 003 处理比较运算(eq/gt/lt)</span></span><br><span class="line">        <span class="keyword">if</span> (command.equals(<span class="string">&quot;eq&quot;</span>) || command.equals(<span class="string">&quot;gt&quot;</span>) || command.equals(<span class="string">&quot;lt&quot;</span>)) &#123;</span><br><span class="line">            popIntoRegister(<span class="string">&quot;D&quot;</span>);  <span class="comment">// 弹出右操作数到D</span></span><br><span class="line">            writeLine(<span class="string">&quot;@SP&quot;</span>);</span><br><span class="line">            writeLine(<span class="string">&quot;M=M-1&quot;</span>);</span><br><span class="line">            writeLine(<span class="string">&quot;A=M&quot;</span>);</span><br><span class="line">            writeLine(<span class="string">&quot;D=M-D&quot;</span>); <span class="comment">// 计算差值</span></span><br><span class="line">            <span class="comment">//（为什么不用两个popInto...提取两个数，因为D寄存器就一个，只能保存一个数，与另外一个来运算。</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">// 生成了 唯一标签</span></span><br><span class="line">            <span class="type">String</span> <span class="variable">trueLabel</span> <span class="operator">=</span> <span class="string">&quot;TRUE_&quot;</span> + uniqueLabels;</span><br><span class="line">            <span class="type">String</span> <span class="variable">endLabel</span> <span class="operator">=</span> <span class="string">&quot;END_&quot;</span> + uniqueLabels;</span><br><span class="line">            uniqueLabels++;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 根据比较类型生成跳转指令</span></span><br><span class="line">            <span class="keyword">switch</span> (command) &#123;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">&quot;eq&quot;</span>: writeLine(<span class="string">&quot;D;JEQ&quot;</span>); <span class="keyword">break</span>; <span class="comment">// 等于跳转</span></span><br><span class="line">                <span class="keyword">case</span> <span class="string">&quot;gt&quot;</span>: writeLine(<span class="string">&quot;D;JGT&quot;</span>); <span class="keyword">break</span>; <span class="comment">// 大于跳转</span></span><br><span class="line">                <span class="keyword">case</span> <span class="string">&quot;lt&quot;</span>: writeLine(<span class="string">&quot;D;JLT&quot;</span>); <span class="keyword">break</span>; <span class="comment">// 小于跳转</span></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// （与上面的两块式子结合看容易理解）</span></span><br><span class="line">            <span class="comment">// 如果比较条件不成立（如 eq 不相等），代码就无法跳过这一步。</span></span><br><span class="line">            <span class="comment">// 则执行这一步，设置 D=0（False），跳转到结束标签，避免执行 True 分支。（看下图理解）</span></span><br><span class="line">            writeLine(<span class="string">&quot;D=0&quot;</span>);</span><br><span class="line">            writeLine(<span class="string">&quot;@&quot;</span> + endLabel);</span><br><span class="line">            writeLine(<span class="string">&quot;0;JMP&quot;</span>); <span class="comment">// 跳过 TRUE 分支</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">// 满足条件时返回True(-1)</span></span><br><span class="line">            writeLine(<span class="string">&quot;(&quot;</span> + trueLabel + <span class="string">&quot;)&quot;</span>);</span><br><span class="line">            writeLine(<span class="string">&quot;D=-1&quot;</span>); <span class="comment">// (Hack 平台用 -1 表示 True)</span></span><br><span class="line">            writeLine(<span class="string">&quot;(&quot;</span> + endLabel + <span class="string">&quot;)&quot;</span>);</span><br><span class="line">            pushFromRegister(<span class="string">&quot;D&quot;</span>);  <span class="comment">// 最终把比较结果（D 的值）压回栈顶，供后续 VM 指令使用。</span></span><br><span class="line">            <span class="comment">// D寄存器里面的值不用影响下一次使用，因为下一次使用like：D=M</span></span><br><span class="line">        &#125;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 内存访问  </span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">writePushPop</span><span class="params">(String command,String seagment,<span class="type">int</span> index)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(command.equals(<span class="string">&quot;push&quot;</span>))&#123;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span> (segment.equals(<span class="string">&quot;constant&quot;</span>)) &#123;</span><br><span class="line">                writeLine(<span class="string">&quot;// Push a constant into D:&quot;</span>);</span><br><span class="line">                writeLine(<span class="string">&quot;@&quot;</span>+ index);</span><br><span class="line">                writeLine(<span class="string">&quot;D=A&quot;</span>);</span><br><span class="line">        	&#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(segment.equals(<span class="string">&quot;temp&quot;</span>))&#123;</span><br><span class="line">                writeLine(<span class="string">&quot;// Push from temp segment into D:&quot;</span>);</span><br><span class="line">                writeLine(<span class="string">&quot;@&quot;</span> + (<span class="number">5</span> + index));</span><br><span class="line">                writeLine(<span class="string">&quot;D=M&quot;</span>));</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (segment.equals(<span class="string">&quot;pointer&quot;</span>)) &#123;</span><br><span class="line">                writeLine(<span class="string">&quot;// Push from pointer segment (THIS/THAT) into D:&quot;</span>);</span><br><span class="line">                writeLine(<span class="string">&quot;@&quot;</span>+ index == <span class="number">0</span> ? <span class="string">&quot;THIS&quot;</span>:<span class="string">&quot;THAT&quot;</span>);</span><br><span class="line">                writeLine(<span class="string">&quot;D=M&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (segment.equals(<span class="string">&quot;static&quot;</span>)) &#123;</span><br><span class="line">                writeLine(<span class="string">&quot;// Prepare to push from the static segment into D:&quot;</span>);</span><br><span class="line">                writeLine(<span class="string">&quot;@&quot;</span> + fileName + <span class="string">&quot;.&quot;</span> + index); <span class="comment">//</span></span><br><span class="line">                writeLine(<span class="string">&quot;D=M&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">             <span class="keyword">else</span> &#123;<span class="comment">// 处理其他内存段（local, argument, this, that）</span></span><br><span class="line">                writeLine(<span class="string">&quot;// Prepare to push from &quot;</span> + segment + <span class="string">&quot; segment into D:&quot;</span>);</span><br><span class="line">                writeLine(<span class="string">&quot;@&quot;</span> + segmentMap.get(segment)); <span class="comment">// 例如 @LCL（local 段）</span></span><br><span class="line">                writeLine(<span class="string">&quot;D=M&quot;</span>); <span class="comment">// 获取段基址</span></span><br><span class="line">                writeLine(<span class="string">&quot;@&quot;</span> + index); <span class="comment">// 加载偏移量（如 push local 2 → @2）</span></span><br><span class="line">                writeLine(<span class="string">&quot;A=D+A&quot;</span>); <span class="comment">// 计算实际地址 = 基址 + 偏移量</span></span><br><span class="line">                writeLine(<span class="string">&quot;D=M&quot;</span>); <span class="comment">// 读取目标内存的值到 D</span></span><br><span class="line">                <span class="comment">/*Eg</span></span><br><span class="line"><span class="comment">                @LCL      // 1. 加载 local 段的基址指针</span></span><br><span class="line"><span class="comment">                D=M       // 2. D = LCL 的值（基址）</span></span><br><span class="line"><span class="comment">                @1        // 3. 加载偏移量 1</span></span><br><span class="line"><span class="comment">                A=D+A     // 4. A = LCL + 1（实际地址）</span></span><br><span class="line"><span class="comment">                D=M       // 5. D = RAM[LCL + 1]（读取值）</span></span><br><span class="line"><span class="comment">                // 后续会压入栈顶</span></span><br><span class="line"><span class="comment">                */</span></span><br><span class="line">            &#125;</span><br><span class="line">            pushFromRegister(<span class="string">&quot;D&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (command.equals(<span class="string">&quot;pop&quot;</span>))&#123;</span><br><span class="line">            <span class="comment">// 计算目标地址并暂存到 R13。</span></span><br><span class="line">            writeLine(<span class="string">&quot;// Store address of &quot;</span> + segment + <span class="string">&quot; &quot;</span> + index + <span class="string">&quot; in register 13:&quot;</span>);</span><br><span class="line">            </span><br><span class="line">            <span class="comment">// (1) 计算目标地址</span></span><br><span class="line">            <span class="keyword">if</span> (segment.equals(<span class="string">&quot;temp&quot;</span>)) &#123;</span><br><span class="line">                writeLine(<span class="string">&quot;@&quot;</span> + (<span class="number">5</span> + index));  <span class="comment">// temp 段固定地址范围 5-12</span></span><br><span class="line">                writeLine(<span class="string">&quot;D=A&quot;</span>);              <span class="comment">// D = 地址（5 + index）</span></span><br><span class="line">            &#125; </span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (segment.equals(<span class="string">&quot;pointer&quot;</span>)) &#123;</span><br><span class="line">                writeLine(<span class="string">&quot;@&quot;</span> + (index == <span class="number">0</span> ? <span class="string">&quot;THIS&quot;</span> : <span class="string">&quot;THAT&quot;</span>)); <span class="comment">// pointer 0 → THIS，1 → THAT</span></span><br><span class="line">                writeLine(<span class="string">&quot;D=A&quot;</span>);              <span class="comment">// D = THIS/THAT 的地址</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (segment.equals(<span class="string">&quot;static&quot;</span>)) &#123;</span><br><span class="line">                writeLine(<span class="string">&quot;@&quot;</span> + fileName + <span class="string">&quot;.&quot;</span> + index); <span class="comment">// 静态变量符号地址（如 Foo.3）</span></span><br><span class="line">                writeLine(<span class="string">&quot;D=A&quot;</span>);              <span class="comment">// D = 静态变量地址</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="comment">// 处理 local/argument/this/that 段（基址 + 偏移量）</span></span><br><span class="line">                writeLine(<span class="string">&quot;@&quot;</span> + segmentMap.get(segment)); <span class="comment">// 加载基址指针（如 @LCL）</span></span><br><span class="line">                writeLine(<span class="string">&quot;D=M&quot;</span>);              <span class="comment">// D = 基址值</span></span><br><span class="line">                writeLine(<span class="string">&quot;@&quot;</span> + index);        <span class="comment">// 加载偏移量</span></span><br><span class="line">                writeLine(<span class="string">&quot;D=D+A&quot;</span>);            <span class="comment">// D = 基址 + 偏移量</span></span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            <span class="comment">// (2) 暂存地址到 R13</span></span><br><span class="line">            writeLine(<span class="string">&quot;@13&quot;</span>);</span><br><span class="line">            writeLine(<span class="string">&quot;M=D&quot;</span>);  <span class="comment">// R13 = 目标地址</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">// (3) 弹出栈顶值到 D</span></span><br><span class="line">            popIntoRegister(<span class="string">&quot;D&quot;</span>);  <span class="comment">// 相当于：@SP; M=M-1; A=M; D=M</span></span><br><span class="line">            </span><br><span class="line">            <span class="comment">// (4) 将值存入目标地址</span></span><br><span class="line">            writeLine(<span class="string">&quot;@13&quot;</span>);</span><br><span class="line">            writeLine(<span class="string">&quot;A=M&quot;</span>);      <span class="comment">// A = R13（目标地址）</span></span><br><span class="line">            writeLine(<span class="string">&quot;M=D&quot;</span>);      <span class="comment">// RAM[R13] = D（栈顶值）</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">writeFinalInfiniteLoop</span><span class="params">()</span> &#123;</span><br><span class="line">        writeLine(<span class="string">&quot;// End the program with an infinite loop:&quot;</span>);</span><br><span class="line">        writeLine(<span class="string">&quot;(END)&quot;</span>);</span><br><span class="line">        writeLine(<span class="string">&quot;@END&quot;</span>);</span><br><span class="line">        writeLine(<span class="string">&quot;0;JMP&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">close</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="keyword">if</span> (writer != <span class="literal">null</span>) &#123;</span><br><span class="line">            writer.close();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">writeLine</span><span class="params">(String line)</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            writer.write(line + <span class="string">&quot;\n&quot;</span>);</span><br><span class="line">        &#125; </span><br><span class="line">        <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            <span class="comment">// 完全忽略异常</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250510174914815.png" alt="image-20250510174914815" style="zoom: 50%;" /><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250510175346070.png" alt="image-20250510175346070" style="zoom:50%;" /></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250510183625416.png" alt="image-20250510183625416" style="zoom: 33%;" /><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250510183643455.png" alt="image-20250510183643455" style="zoom: 33%;" /></p>
+<h3 id="VM-Translater"><a href="#VM-Translater" class="headerlink" title="VM  Translater"></a>VM  Translater</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">VMTranslator</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        <span class="comment">// (1) 参数处理</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">source</span> <span class="operator">=</span> args[<span class="number">0</span>];  <span class="comment">// 获取输入文件路径（如 &quot;SimpleAdd.vm&quot;）</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">dotIndex</span> <span class="operator">=</span> source.indexOf(<span class="string">&quot;.&quot;</span>);</span><br><span class="line">        <span class="type">String</span> <span class="variable">filename</span> <span class="operator">=</span> source.substring(<span class="number">0</span>, dotIndex);  <span class="comment">// 提取文件名（如 &quot;SimpleAdd&quot;）</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">target</span> <span class="operator">=</span> filename + <span class="string">&quot;.asm&quot;</span>;  <span class="comment">// 输出文件路径（如 &quot;SimpleAdd.asm&quot;）</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">// (2) 初始化解析器和代码生成器</span></span><br><span class="line">        <span class="type">Parser</span> <span class="variable">parser</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Parser</span>(source);      <span class="comment">// 初始化 VM 解析器</span></span><br><span class="line">        <span class="type">CodeWriter</span> <span class="variable">codeWriter</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">CodeWriter</span>(target);  <span class="comment">// 初始化汇编代码生成器</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// (3) 主翻译循环</span></span><br><span class="line">        <span class="keyword">while</span> (parser.hasMoreLines()) &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">commandType</span> <span class="operator">=</span> parser.commandType();  </span><br><span class="line"></span><br><span class="line">        <span class="comment">// 根据指令类型调用不同的翻译方法</span></span><br><span class="line">        <span class="keyword">if</span> (commandType.equals(<span class="string">&quot;C_ARITHMETIC&quot;</span>)) &#123;</span><br><span class="line">            codeWriter.writeArithmetic(parser.arg1());  <span class="comment">// 处理算术指令（add/sub/eq等）</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (commandType.equals(<span class="string">&quot;C_PUSH&quot;</span>) || commandType.equals(<span class="string">&quot;C_POP&quot;</span>)) &#123;</span><br><span class="line">            <span class="comment">// 处理 push/pop 指令</span></span><br><span class="line">            codeWriter.writePushPop(parser.command(), parser.arg1(), parser.arg2());</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        parser.advance();  <span class="comment">// 移动到下一条指令</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">        parser.close();</span><br><span class="line">        codeWriter.writeFinalInfiniteLoop();</span><br><span class="line">        codeWriter.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;   </span><br></pre></td></tr></table></figure>
+
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/nand2tetris/">nand2tetris</a></div><div class="post-share"><div class="social-share" data-image="https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2025/04/19/nand2tetris/nand2tetris-proj1-final/" title="proj1"><img class="cover" src="https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-04-19</div><div class="info-item-2">proj1</div></div><div class="info-2"><div class="info-item-1">Proj11.1 Boolean Logic ⭐Some useful equations  →Boolean Algebra  can be 化简   （Two way : ①equations,②write down the truth table) 1.2 Boolean Function001： 理论上，任何布尔函数都可以用NotAndOr等表示出来（通过真值表选取f&#x3D;1的情况）（做芯片有用）    002： （or可以通过And和Not表示）   003： 而Nand可以表示出AndNot芯片（根本的根本）    1.3 Logic Gates上一节是抽象的逻辑运算，这一节是实际的芯片&#x2F;逻辑门     一个接口，可以有不同的实现   1.4 Hardware Description Language一种硬件描述语言（做硬件&#x2F;芯片用的）  芯片接口 和 芯片实现 ⭐实现：用真值表看1，写出布尔函数化简，画出逻辑图      1.5 Hardware Simulation for 模拟芯片测试 way：在给定的硬件模拟器中 +...</div></div></div></a><a class="pagination-related" href="/2025/05/01/nand2tetris/nand2tetris-proj2-final/" title="proj2"><img class="cover" src="https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-05-01</div><div class="info-item-2">proj2</div></div><div class="info-2"><div class="info-item-1">2.1 Binary Numbers           2.2 Binary Addtion             2.3 Negative NumbersExpression of negative numbersway1  way2： 前一半的二进制数字（0-7）用来表示正数，后一半的二进制数字（8-15）留作表示负数（eg 表示-3，16-3&#x3D;13）   Addtion in 2’s Complement   -2+(-3)&#x3D;-5,-5的补码就是11（1011） Computing -x Eg算-4的二进制表达：4&#x3D;100，1111-0100（1111怎么来的，令n&#x3D;4(意味着用4位二进制数来表示值）） 取反码：1111-0100&#x3D;1011，求补码：1011+1&#x3D;1100 1100&#x3D;12，就是4的补码（16-4&#x3D;2）   Eg  具体步骤：      2.4 ALU  The Hack ALU    The Hack ALU operation  example   zr,ng(other...</div></div></div></a><a class="pagination-related" href="/2025/05/03/nand2tetris/nand2tetris-proj4-final/" title="proj4"><img class="cover" src="https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-05-03</div><div class="info-item-2">proj4</div></div><div class="info-2"><div class="info-item-1">Machine Language4.1 Machine Languages  : Overview 内部： 内存包括：程序内存和数据内存  硬件是固定的，软件可更改  软件变化，故计算机可做不同的事情（计算机的universality）    let us see how hardware can do many things:  by硬件逐个执行指令，把整个指令序列执行完放在一起，就得到了整个程序的功能。   ⭐3-Question       machine language ← assembly language 我们写程序用的是高级语言，但电脑真正理解和执行的是机器语言 （其实里面的编译器是分两部的，第一步是高级语言→汇编语言，第二步是汇编语言→机器语言，now看的是part1）     第一种解释  第二种解释    next    4.2  Machine Languages  : ElementsMachine Language   Memory Hierarchy    Registers （in...</div></div></div></a><a class="pagination-related" href="/2025/05/02/nand2tetris/nand2tetris-proj3-final-2/" title="proj3"><img class="cover" src="https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-05-02</div><div class="info-item-2">proj3</div></div><div class="info-2"><div class="info-item-1">3.1 Sequential Logic（逻辑时序） The Clock  ⭐ Combinatorial Logic vs. Sequential Logic    3.2 Flip Flops 触发器制作：允许上一步操作的芯片 ⭐ D 触发器换句话说，DFF 简单地将前一个时间周期的输入值作为当前周期的输出。𝑜𝑢𝑡(𝑡)&#x3D;𝑖𝑛(𝑡−1)   时序逻辑的原理 寄存器 Bit【寄存器（也）是一种常用的时序逻辑电路】   implement show      3.3 Memory Units Memory The most basic memory element: Register ⭐ （并着排列的）   RAM unit       （逻辑时序的芯片）   RAM &#x2F; Read Logic  RAM &#x2F; Write Logic A family of 16-bit RAM chips  3.4  Counters  (Inc 代表增量[+1])  3.5 codepreview：DFF  1-bit register...</div></div></div></a><a class="pagination-related" href="/2025/05/03/nand2tetris/nand2tetris-proj5-final-2/" title="proj5"><img class="cover" src="https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-05-03</div><div class="info-item-2">proj5</div></div><div class="info-2"><div class="info-item-1">5.1  Elements Infomation Flows Element + 三条总线  （大概看看，具体的看后面）    The Arithmetic Logic Unit data接入ALU，得到输出 输出值返回数据总线 我觉得是输出out或者回去内存？    control总线 告诉ALU进行何种操作 ALU 返回告诉 Control 系统其他部分进行什么操作 当 CPU 从程序内存中获取到指令后，会对指令进行解析。对于指令中的控制信息，通过控制总线传出去（让算术逻辑单元、寄存器、内存等部件按要求操作，比如让算术逻辑单元进行加法运算等） 例如如果ALU发现某个数字大于零，他将告诉Control下一个指令的跳转以及下一个指令是什么     Address Register 寄存器储存中间结果。所以数据总线接到Register里 有的寄存器还用作地址储存器，所以register要接入地址总线 （将数字，也就是地址放入寄存器中，然后它就指定了我们想要访问的位置。）     Memory Data Memory Data...</div></div></div></a><a class="pagination-related" href="/2025/05/04/nand2tetris/nand2tetris-proj6-final/" title="proj6"><img class="cover" src="https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-05-04</div><div class="info-item-2">proj6</div></div><div class="info-2"><div class="info-item-1">6.1 AssemblerP5 review  What we need: an Assembler 汇编器：把汇编语言，转化成机器语言的一个sofe ware（the first sofeware layer above the hard ware)   A fun way to look at Assembler We already have our first computer. It is difficult to write machine language. So we can bulid our second computer(is acutally a sofeware haha), which is called Assembler ( can translate assembly language to machine language）   Basic Assembler Logicbasic      other We have something to deal with - the Symbols. We have two kinds of...</div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="lv-container" data-id="city" data-uid="MTAyMC82MDU3Mi8zNzA0Mw=="></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-0-The-Road-Ahead"><span class="toc-text">1.0 The Road Ahead</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-Program-Compilation-Preview"><span class="toc-text">1.1 Program Compilation Preview</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-VM-Abstraction-the-Stack"><span class="toc-text">1.2  VM Abstraction: the Stack</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-VM-Abstraction-Memory-Segments"><span class="toc-text">1.3  VM Abstraction: Memory Segments</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-VM-Implementation-the-Stack"><span class="toc-text">1.4  VM Implementation: the Stack</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-5-VM-Implementation-Memory-Seagments"><span class="toc-text">1.5  VM Implementation: Memory Seagments</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-6-the-VM-Emulator"><span class="toc-text">1.6  the VM Emulator</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-7-VM-Implementation-on-the-Hack-Plaform"><span class="toc-text">1.7  VM Implementation on the Hack Plaform</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-8-Proj-Preview"><span class="toc-text">1.8  Proj Preview</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-9-Project-7%EF%BC%9A-Building-theVM-Traslator"><span class="toc-text">1.9  Project 7： Building theVM Traslator</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-10-code"><span class="toc-text">1.10 code</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Parser"><span class="toc-text">Parser</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CodeWriter"><span class="toc-text">CodeWriter</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#VM-Translater"><span class="toc-text">VM  Translater</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer" style="background: white;"><div id="footer-wrap"><div class="copyright">&copy;2025 By KKL</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.5</a></div><div class="footer_custom_text">Nice to meet you ! 😜</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/true" type="module"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+
+  const loadLivere = (el, path) => {
+    window.livereOptions = {
+      refer: path || location.pathname
+    }
+
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyLivere = () => {
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+
+    if (typeof LivereTower === 'object') window.LivereTower.init()
+    else {
+      (function(d, s) {
+          var j, e = d.getElementsByTagName(s)[0];
+          if (typeof LivereTower === 'function') { return; }
+          j = d.createElement(s);
+          j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+          j.async = true;
+          e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    }
+  }
+
+  if (isShuoshuo) {
+    'Livere' === 'Livere'
+      ? window.shuoshuoComment = { loadComment: loadLivere }
+      : window.loadOtherComment = loadLivere
+    return
+  }
+
+  if ('Livere' === 'Livere' || !false) {
+    if (false) btf.loadComment(document.getElementById('lv-container'), loadLivere)
+    else loadLivere()
+  } else {
+    window.loadOtherComment = loadLivere
+  }
+})()</script></div><script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script><script src="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>(() => {
+  const pjaxSelectors = ["meta[property=\"og:image\"]","meta[property=\"og:title\"]","meta[property=\"og:url\"]","meta[property=\"og:description\"]","link[rel=\"canonical\"]","head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+  window.pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  const triggerPjaxFn = (val) => {
+    if (!val) return
+    Object.values(val).forEach(fn => fn())
+  }
+
+  document.addEventListener('pjax:send', () => {
+    // removeEventListener
+    btf.removeGlobalFnEvent('pjaxSendOnce')
+    btf.removeGlobalFnEvent('themeChange')
+
+    // reset readmode
+    const $bodyClassList = document.body.classList
+    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
+
+    triggerPjaxFn(window.globalFn.pjaxSend)
+  })
+
+  document.addEventListener('pjax:complete', () => {
+    btf.removeGlobalFnEvent('pjaxCompleteOnce')
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+
+    triggerPjaxFn(window.globalFn.pjaxComplete)
+  })
+
+  document.addEventListener('pjax:error', e => {
+    if (e.request.status === 404) {
+      const usePjax = true
+      true 
+        ? (usePjax ? pjax.loadUrl('/404.html') : window.location.href = '/404.html')
+        : window.location.href = e.request.responseURL
+    }
+  })
+})()</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
