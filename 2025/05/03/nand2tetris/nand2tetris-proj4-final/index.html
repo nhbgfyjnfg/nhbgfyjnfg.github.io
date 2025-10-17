@@ -567,7 +567,7 @@ btf.addGlobalFn('pjaxComplete', () => {
   const pjaxSelectors = ["meta[property=\"og:image\"]","meta[property=\"og:title\"]","meta[property=\"og:url\"]","meta[property=\"og:description\"]","link[rel=\"canonical\"]","head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
 
   window.pjax = new Pjax({
-    elements: 'a:not([target="_blank"])',
+    elements: 'a:not([target="_blank"]):not([href="/movies/"]):not([href="/about/"]):not([href="/link/"]):not([href="/categories/"]):not([href="/tags/"]):not([href="/archives/"])',
     selectors: pjaxSelectors,
     cacheBust: false,
     analytics: false,
