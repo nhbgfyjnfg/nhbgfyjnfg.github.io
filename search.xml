@@ -303,472 +303,6 @@
       </tags>
   </entry>
   <entry>
-    <title>proj4</title>
-    <url>/2025/05/03/nand2tetris/nand2tetris-proj4-final/</url>
-    <content><![CDATA[<h2 id="Machine-Language"><a href="#Machine-Language" class="headerlink" title="Machine Language"></a>Machine Language</h2><h3 id="4-1-Machine-Languages-Overview"><a href="#4-1-Machine-Languages-Overview" class="headerlink" title="4.1 Machine Languages  : Overview"></a>4.1 Machine Languages  : Overview</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250502141034037.png" alt="image-20250502141034037"></p>
-<h4 id="内部："><a href="#内部：" class="headerlink" title="内部："></a>内部：</h4><ul>
-<li><p>内存包括：程序内存和数据内存</p>
-</li>
-<li><p>硬件是固定的，软件可更改</p>
-</li>
-<li><p>软件变化，<strong>故计算机可做不同的事情</strong>（计算机的universality）</p>
-</li>
-</ul>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408125639911.png" alt="image-20250408125639911"></p>
-<p>let us see how hardware can do many things:</p>
-<ul>
-<li>by硬件逐个执行指令，把整个指令序列执行完放在一起，就得到了整个程序的功能。</li>
-</ul>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408125753379.png" alt="image-20250408125753379"></p>
-<h4 id="⭐3-Question"><a href="#⭐3-Question" class="headerlink" title="⭐3-Question"></a>⭐3-Question</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408125900431.png" alt="image-20250408125900431"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408125917903.png" alt="image-20250408125917903"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408125923522.png" alt="image-20250408125923522"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408125934885.png" alt="image-20250408125934885"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250502141034037.png"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408130008095.png" alt="image-20250408130008095"><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408130013135.png" alt="image-20250408130013135"></p>
-<hr>
-<h4 id="machine-language-←-assembly-language"><a href="#machine-language-←-assembly-language" class="headerlink" title="machine language ← assembly language"></a>machine language ← assembly language</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408130111212.png" alt="image-20250408130111212"></p>
-<p>我们写程序用的是高级语言，但电脑真正理解和执行的是机器语言</p>
-<p>（其实里面的编译器是分两部的，第一步是高级语言→汇编语言，第二步是汇编语言→机器语言，now看的是part1）</p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408130331472.png" alt="image-20250408130331472"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408130344599.png" alt="image-20250408130344599"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408130425028.png" alt="image-20250408130425028"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408130503603.png" alt="image-20250408130503603"></p>
-<p>第一种解释</p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408130536998.png" alt="image-20250408130536998"></p>
-<p>第二种解释</p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408130616234.png" alt="image-20250408130616234"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408131151981.png" alt="image-20250408131151981"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408131707478.png" alt="image-20250408131707478"></p>
-<p>next </p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408131747616.png" alt="image-20250408131747616"></p>
-<hr>
-<h3 id="4-2-Machine-Languages-Elements"><a href="#4-2-Machine-Languages-Elements" class="headerlink" title="4.2  Machine Languages  : Elements"></a>4.2  Machine Languages  : Elements</h3><h4 id="Machine-Language-1"><a href="#Machine-Language-1" class="headerlink" title="Machine Language"></a>Machine Language</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408132050542.png" alt="image-20250408132050542"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408132302481.png" alt="image-20250408132302481"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408132600568.png" alt="image-20250408132600568"></p>
-<h4 id="Memory-Hierarchy"><a href="#Memory-Hierarchy" class="headerlink" title="Memory Hierarchy"></a>Memory Hierarchy</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408132620787.png" alt="image-20250408132620787"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408132737232.png" alt="image-20250408132737232"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250502144445704.png" alt="image-20250502144445704"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408132934690.png" alt="image-20250408132934690"></p>
-<h4 id="Registers-（in-CPU）（Q1Q3）"><a href="#Registers-（in-CPU）（Q1Q3）" class="headerlink" title="Registers （in CPU）（Q1Q3）"></a>Registers （in CPU）（Q1Q3）</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408133025180.png" alt="image-20250408133025180"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408133054897.png" alt="image-20250408133054897"></p>
-<p><strong>用法&#x2F;类型①</strong></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250502144901245.png" alt="image-20250502144901245"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250502144827311.png" alt="image-20250502144827311"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408133256967.png" alt="image-20250408133256967"></p>
-<p><strong>用法&#x2F;类型②</strong></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250502144926736.png" alt="image-20250502144926736"></p>
-<p>so that we can</p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250502145149469.png" alt="image-20250502145149469"></p>
-<p>eg</p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250502145219880.png" alt="image-20250502145219880"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408133356395.png" alt="image-20250408133356395"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408133409201.png" alt="image-20250408133409201"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408133424956.png" alt="image-20250408133424956"></p>
-<h4 id="Addressing-Modes"><a href="#Addressing-Modes" class="headerlink" title="Addressing Modes"></a>Addressing Modes</h4><ul>
-<li>现在回到最初的问题：</li>
-</ul>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408133452806.png" alt="image-20250408133452806"></p>
-<ul>
-<li>假设是一个简单的操作：那么它应该在什么上面操作？<ul>
-<li>以下是四种类型的操作：</li>
-</ul>
-</li>
-</ul>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408133504911.png" alt="image-20250408133504911"></p>
-<h4 id="Intput-Output"><a href="#Intput-Output" class="headerlink" title="Intput &#x2F; Output"></a>Intput &#x2F; Output</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408133742680.png" alt="image-20250408133742680"></p>
-<h4 id="Flow-Control（Q2）"><a href="#Flow-Control（Q2）" class="headerlink" title="Flow Control（Q2）"></a>Flow Control（Q2）</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408133830358.png" alt="image-20250408133830358"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408133842300.png" alt="image-20250408133842300"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408133918049.png" alt="image-20250408133918049"></p>
-<ul>
-<li>我们可以把102位置命名为loop</li>
-<li>实际上，用机器语言的位写它时，表示的是一样的</li>
-<li>只是 loop 对人类来说更容易看</li>
-</ul>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408134216292.png" alt="image-20250408134216292"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408134345222.png" alt="image-20250408134345222"></p>
-<hr>
-<h2 id="HACK-Language"><a href="#HACK-Language" class="headerlink" title="HACK Language"></a>HACK Language</h2><h3 id="4-3-HACK-Computer-and-Language-Overview"><a href="#4-3-HACK-Computer-and-Language-Overview" class="headerlink" title="4.3 HACK Computer and Language (Overview)"></a>4.3 HACK Computer and Language (Overview)</h3><h4 id="hardware"><a href="#hardware" class="headerlink" title="hardware"></a>hardware</h4><ul>
-<li>以下是下周要搭建的计算机（hardware）的概述：</li>
-</ul>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408144525868.png" alt="image-20250408144525868"></p>
-<h4 id="software"><a href="#software" class="headerlink" title="software"></a>software</h4><ul>
-<li>control the computer</li>
-</ul>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408144707993.png" alt="image-20250408144707993"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408144727327.png" alt="image-20250408144727327"></p>
-<h4 id="reset-bottom"><a href="#reset-bottom" class="headerlink" title="reset bottom"></a>reset bottom</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408144804152.png" alt="image-20250408144804152"></p>
-<h4 id="registers"><a href="#registers" class="headerlink" title="registers"></a>registers</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408145050542.png" alt="image-20250408145050542"></p>
-<ul>
-<li>（M 表示 A 寻址的 16 位 RAM 寄存器）</li>
-<li>无论内存里有多少寄存器，每次被选择的只有一个，为M寄存器。</li>
-</ul>
-<h4 id="The-A-instruction"><a href="#The-A-instruction" class="headerlink" title="The A-instruction"></a>The A-instruction</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408145242790.png" alt="image-20250408145242790"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408145318144.png" alt="image-20250408145318144"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408145335059.png" alt="image-20250408145335059"></p>
-<h4 id="The-C-instruction"><a href="#The-C-instruction" class="headerlink" title="The C-instruction"></a>The C-instruction</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408145347021.png" alt="image-20250408145347021"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408145445185.png" alt="image-20250408145445185"></p>
-<ul>
-<li><p>dest目的地，comp计算，jump跳转</p>
-</li>
-<li><p>看到A的时候，也可以用M替代</p>
-</li>
-<li><p>eg</p>
-</li>
-</ul>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408145651883.png" alt="image-20250408145651883"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408145713384.png" alt="image-20250408145713384"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408145750031.png" alt="image-20250408145750031"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408145851786.png" alt="image-20250408145851786"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408150017420.png" alt="image-20250408150017420"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408150027153.png" alt="image-20250408150027153"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408150142297.png" alt="image-20250408150142297"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408150531444.png" alt="image-20250408150531444"></p>
-<p>由于寄存器 A 的值为 1，第二行指令<code>M=A - 1</code>执行后，<code>A - 1 = 0</code>，这个 0 会被存储到<code>RAM[1]</code>中（因为 M 指向<code>RAM[1]</code> ）</p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408150819756.png" alt="image-20250408150819756"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408150831390.png" alt="image-20250408150831390"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408150843125.png" alt="image-20250408150843125"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408150854396.png" alt="image-20250408150854396"></p>
-<hr>
-<h3 id="4-4-Hack-Language-plus"><a href="#4-4-Hack-Language-plus" class="headerlink" title="4.4 Hack Language plus"></a>4.4 Hack Language plus</h3><h4 id="Use-Binary-to-write"><a href="#Use-Binary-to-write" class="headerlink" title="Use Binary to write"></a>Use Binary to write</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408152040771.png" alt="image-20250408152040771"></p>
-<ul>
-<li>用机器语言（0和1构成）写的话，就不需要汇编器了。电脑直接读懂。</li>
-<li>介绍这一节，也是为了更加了解机器语言和汇编语言的联系，为之后写汇编器做铺垫</li>
-</ul>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408152117325.png" alt="image-20250408152117325"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408152332506.png" alt="image-20250408152332506"></p>
-<h4 id="C-ins"><a href="#C-ins" class="headerlink" title="C-ins"></a>C-ins</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408152519706.png" alt="image-20250408152519706"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408152600779.png" alt="image-20250408152600779"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408152758307.png" alt="image-20250408152758307"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408152841602.png" alt="image-20250408152841602"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408152923618.png" alt="image-20250408152923618"></p>
-<h4 id="Eg"><a href="#Eg" class="headerlink" title="Eg"></a>Eg</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250502154554223.png" alt="image-20250502154554223"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250502154613246.png" alt="image-20250502154613246"></p>
-<p>next</p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408153534999.png" alt="image-20250408153534999"></p>
-<hr>
-<h3 id="4-5-Input-Ouput"><a href="#4-5-Input-Ouput" class="headerlink" title="4.5 Input &#x2F; Ouput"></a>4.5 Input &#x2F; Ouput</h3><ul>
-<li>本节讨论：如何通过使用机器语言 来控制和操作 这些I&#x2F;O设备</li>
-</ul>
-<h4 id="Hack-computer-platform"><a href="#Hack-computer-platform" class="headerlink" title="Hack computer platform"></a>Hack computer platform</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408154943693.png" alt="image-20250408154943693"></p>
-<p>实现：</p>
-<ul>
-<li>以后的软件部分，会用到高级语言的库来实现high-level</li>
-<li>但是现在，只能用bit来实现low-level</li>
-</ul>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408155051269.png" alt="image-20250408155051269"></p>
-<h4 id="OutPut"><a href="#OutPut" class="headerlink" title="OutPut"></a>OutPut</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408155241432.png" alt="image-20250408155241432"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250502155831854.png" alt="image-20250502155831854"></p>
-<h4 id="Screen-memory-map"><a href="#Screen-memory-map" class="headerlink" title="Screen memory map"></a>Screen memory map</h4><ul>
-<li>make a deep study in …</li>
-</ul>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250502160036115.png" alt="image-20250502160036115"></p>
-<ul>
-<li><p>每行每列的交叉点，都有所谓的像素。</p>
-</li>
-<li><p>how do we control it?</p>
-</li>
-</ul>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408155514485.png" alt="image-20250408155514485"></p>
-<ul>
-<li><p>这些值的每一个有时被称为一个单词</p>
-</li>
-<li><p>所以有8k，每一个都是16bit的单词</p>
-</li>
-<li><p>像素怎么算：8k*16≈130,000</p>
-</li>
-<li><p>一个像素就是一个bit，一个bit就是一个像素</p>
-</li>
-<li><p>那么怎么对应呢？哪个bit位于哪个像素？</p>
-</li>
-<li><p>512&#x2F;16&#x3D;32，一行32个单词。</p>
-</li>
-<li><p>例如图片左上的4个黑点就是第一个单词的前四位bit（row0，col0-4）</p>
-</li>
-</ul>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408155820456.png" alt="image-20250408155820456"></p>
-<ul>
-<li>这里的除法是整除</li>
-<li>作为内存的一部分，更准确的地址是第二个</li>
-</ul>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408160355257.png" alt="image-20250408160355257"></p>
-<ul>
-<li>如果我们想操作单词里面特定的某一位，how？</li>
-</ul>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250502162053196.png"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408160452787.png" alt="image-20250408160452787"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408160937267.png" alt="image-20250408160937267"></p>
-<h4 id="Keyboard-memory-map"><a href="#Keyboard-memory-map" class="headerlink" title="Keyboard memory map"></a>Keyboard memory map</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408161538288.png" alt="image-20250408161538288"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408161600439.png" alt="image-20250408161600439"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408161645079.png" alt="image-20250408161645079"><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408161745467.png" alt="image-20250408161745467"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408161911388.png" alt="image-20250408161911388"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408162004740.png" alt="image-20250408162004740"></p>
-<hr>
-<h3 id="4-6-HackProgramming-Part-1"><a href="#4-6-HackProgramming-Part-1" class="headerlink" title="4.6 HackProgramming  Part 1"></a>4.6 HackProgramming  Part 1</h3><h4 id="使用Hack机器语言进行编程"><a href="#使用Hack机器语言进行编程" class="headerlink" title="使用Hack机器语言进行编程"></a>使用Hack机器语言进行编程</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408170651825.png" alt="image-20250408170651825"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408170710787.png" alt="image-20250408170710787"></p>
-<h5 id="Way1：by汇编器→机器语言→执行程序（将在proj6编写汇编器）"><a href="#Way1：by汇编器→机器语言→执行程序（将在proj6编写汇编器）" class="headerlink" title="Way1：by汇编器→机器语言→执行程序（将在proj6编写汇编器）"></a>Way1：by汇编器→机器语言→执行程序（将在proj6编写汇编器）</h5><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408170815973.png" alt="image-20250408170815973"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408170841654.png" alt="image-20250408170841654"></p>
-<h5 id="Way2-把机器语言输入到-CPU-Emulator（仿真器），执行程序（我们现在的选择）"><a href="#Way2-把机器语言输入到-CPU-Emulator（仿真器），执行程序（我们现在的选择）" class="headerlink" title="Way2 : 把机器语言输入到 CPU Emulator（仿真器），执行程序（我们现在的选择）"></a>Way2 : 把机器语言输入到 CPU Emulator（仿真器），执行程序（我们现在的选择）</h5><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408170949958.png" alt="image-20250408170949958"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408171006210.png" alt="image-20250408171006210"></p>
-<h4 id="4-6-4-7-4-8-讨论的内容："><a href="#4-6-4-7-4-8-讨论的内容：" class="headerlink" title="4.6 4.7 4.8 讨论的内容："></a><strong>4.6 4.7 4.8 讨论的内容：</strong></h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408171140334.png" alt="image-20250408171140334"></p>
-<h4 id="寄存器和内存"><a href="#寄存器和内存" class="headerlink" title="寄存器和内存"></a>寄存器和内存</h4><h5 id="寄存器：D-A-M"><a href="#寄存器：D-A-M" class="headerlink" title="寄存器：D A M"></a>寄存器：D A M</h5><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408171208123.png" alt="image-20250408171208123"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408171221797.png" alt="image-20250408171221797"><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408171240428.png" alt="image-20250408171240428"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408171249595.png" alt="image-20250408171249595"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408171300916.png" alt="image-20250408171300916"><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408171306564.png" alt="image-20250408171306564"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408171321352.png" alt="image-20250408171321352"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408171545734.png" alt="image-20250408171545734"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408171835773.png" alt="image-20250408171835773"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408171859789.png" alt="image-20250408171859789"></p>
-<h5 id="如何终结程序"><a href="#如何终结程序" class="headerlink" title="如何终结程序"></a>如何终结程序</h5><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408172553897.png" alt="image-20250408172553897"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408172808706.png" alt="image-20250408172808706"></p>
-<h5 id="可读性（Hack机器语言的规范）"><a href="#可读性（Hack机器语言的规范）" class="headerlink" title="可读性（Hack机器语言的规范）"></a>可读性（Hack机器语言的规范）</h5><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408172907182.png" alt="image-20250408172907182"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408172956750.png" alt="image-20250408172956750"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408173136744.png" alt="image-20250408173136744"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408173149349.png" alt="image-20250408173149349"></p>
-<h5 id="Hack语言的内置符号"><a href="#Hack语言的内置符号" class="headerlink" title="Hack语言的内置符号"></a>Hack语言的内置符号</h5><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408173355650.png" alt="image-20250408173355650"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408173407233.png" alt="image-20250408173407233"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408175526572.png" alt="image-20250408175526572"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408173419671.png" alt="image-20250408173419671"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408173433439.png" alt="image-20250408173433439"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408173511898.png" alt="image-20250408173511898"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408173530087.png"></p>
-<hr>
-<h3 id="4-7-HackProgramming-Part-2"><a href="#4-7-HackProgramming-Part-2" class="headerlink" title="4.7 HackProgramming  Part 2"></a>4.7 HackProgramming  Part 2</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408175652006.png" alt="image-20250408175652006"></p>
-<h4 id="Branching"><a href="#Branching" class="headerlink" title="Branching"></a>Branching</h4><ul>
-<li>评估布尔表达式或布尔条件，根据这个值决定是否跳跃（go to)</li>
-</ul>
-<h5 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h5><p>可以看到一开始@后面是数字</p>
-<p>(这里的8是第8有效行，从0开始)</p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408175934716.png" alt="image-20250408175934716"></p>
-<h5 id="符号引用"><a href="#符号引用" class="headerlink" title="符号引用"></a>符号引用</h5><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408180345936.png" alt="image-20250408180345936"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408180437096.png" alt="image-20250408180437096"></p>
-<p><strong>label ：有括号（）的叫 label ，可以被引用（如下图）</strong></p>
-<p><strong>引用的符号是 @</strong></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408180508403.png" alt="image-20250408180508403"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408185937593.png" alt="image-20250408185937593"></p>
-<p>（上图小字）</p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408180613605.png" alt="image-20250408180613605"></p>
-<ul>
-<li><p>标签声明不会被翻译（不是有效行）</p>
-</li>
-<li><p>引用了标签，就跳转到标签声明的下一行（执行）</p>
-</li>
-<li><p>标签怎么被引用呢，当触发了条件时</p>
-</li>
-</ul>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408180736935.png" alt="image-20250408180736935"></p>
-<p>标签的意义：自己做的标签不会被编译，但是比数字更加可读，更清楚地知道什么时候进行分支分叉。</p>
-<hr>
-<h4 id="Variables"><a href="#Variables" class="headerlink" title="Variables"></a>Variables</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408181502003.png" alt="image-20250408181502003"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408181507772.png" alt="image-20250408181507772"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408181516292.png" alt="image-20250408181516292"></p>
-<h5 id="Example-1"><a href="#Example-1" class="headerlink" title="Example"></a>Example</h5><p><strong>变量的声明</strong></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408181712643.png" alt="image-20250408181712643"></p>
-<h5 id="标签-变量-的区别"><a href="#标签-变量-的区别" class="headerlink" title="标签 变量 的区别"></a><strong>标签 变量 的区别</strong></h5><blockquote>
-<p>**变量的引用  **  没有()</p>
-</blockquote>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408181819165.png" alt="image-20250408181819165"></p>
-<h5 id="第一个观察"><a href="#第一个观察" class="headerlink" title="第一个观察"></a>第一个观察</h5><blockquote>
-<p><strong>引用的变量 或者 label都是不被编译的，但是有对应的数字被编译</strong></p>
-</blockquote>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408181922547.png" alt="image-20250408181922547"></p>
-<h5 id="第二个观察"><a href="#第二个观察" class="headerlink" title="第二个观察"></a>第二个观察</h5><blockquote>
-<p>变量从地址16开始分配RAM，后面的以此类推。</p>
-</blockquote>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408182159346.png" alt="image-20250408182159346"></p>
-<h5 id="第三个观察"><a href="#第三个观察" class="headerlink" title="第三个观察"></a>第三个观察</h5><blockquote>
-<p>easy to read and debug（可重定位代码） <strong>？？？</strong></p>
-</blockquote>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408182323581.png" alt="image-20250408182323581"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408182346704.png" alt="image-20250408182346704"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408182351776.png" alt="image-20250408182351776"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408182400615.png" alt="image-20250408182400615"></p>
-<h4 id="Iterable"><a href="#Iterable" class="headerlink" title="Iterable"></a>Iterable</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408182556754.png" alt="image-20250408182556754"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408182619170.png" alt="image-20250408182619170"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408182712743.png" alt="image-20250408182712743"></p>
-<p>通用步骤（编写汇编语言的程序）：</p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408183553976.png" alt="image-20250408183553976"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408183605081.png" alt="image-20250408183605081"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408183616168.png" alt="image-20250408183616168"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408183654849.png" alt="image-20250408183654849"></p>
-<hr>
-<h3 id="4-8HackProgramming-Part-3"><a href="#4-8HackProgramming-Part-3" class="headerlink" title="4.8HackProgramming  Part 3"></a>4.8HackProgramming  Part 3</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408193159878.png" alt="image-20250408193159878"></p>
-<h4 id="Pointers"><a href="#Pointers" class="headerlink" title="Pointers"></a>Pointers</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408193340051.png" alt="image-20250408193340051"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408193454956.png" alt="image-20250408193454956"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408193503108.png" alt="image-20250408193503108"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408193614636.png" alt="image-20250408193614636"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408194303828.png" alt="image-20250408194303828"></p>
-<h4 id="Input-Output"><a href="#Input-Output" class="headerlink" title="Input &#x2F; Output"></a>Input &#x2F; Output</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408194624386.png" alt="image-20250408194624386"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408194713298.png" alt="image-20250408194713298"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408194740498.png" alt="image-20250408194740498"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408195434479.png" alt="image-20250408195434479"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408195506221.png" alt="image-20250408195506221"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250409085602507.png" alt="image-20250409085602507"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250409090013332.png" alt="image-20250409090013332"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250409090019914.png" alt="image-20250409090019914"></p>
-<p>-1的二进制就是1111 1111 1111 1111 ,在图像上就是一行黑线。</p>
-<p>然后画下一行，将地址+32就是下一行了（一行32个点，每个点都是16bit的二进制数字）</p>
-<p>（16*32&#x3D;512	一行512像素）</p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250409085922633.png" alt="image-20250409085922633"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250409090618399.png" alt="image-20250409090618399"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250409090704474.png" alt="image-20250409090704474"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250409090843101.png" alt="image-20250409090843101"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250409090851821.png" alt="image-20250409090851821"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250409090858509.png" alt="image-20250409090858509"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250409091019503.png" alt="image-20250409091019503"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250409091145770.png" alt="image-20250409091145770"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250409091237626.png" alt="image-20250409091237626"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250409091410869.png" alt="image-20250409091410869"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250409091513788.png" alt="image-20250409091513788"></p>
-<hr>
-<h2 id="Proj4"><a href="#Proj4" class="headerlink" title="Proj4"></a>Proj4</h2><h3 id="4-9-Project-4-Overview"><a href="#4-9-Project-4-Overview" class="headerlink" title="4.9 Project 4 Overview"></a>4.9 Project 4 Overview</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250409091626333.png" alt="image-20250409091626333"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250409091812658.png" alt="image-20250409091812658"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250409092150938.png" alt="image-20250409092150938"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250409092627420.png" alt="image-20250409092627420"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250409093508008.png" alt="image-20250409093508008"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250409093530565.png" alt="image-20250409093530565"></p>
-<hr>
-<h3 id="4-10-Project-4"><a href="#4-10-Project-4" class="headerlink" title="4.10 Project 4"></a>4.10 Project 4</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250413153708189.png" alt="image-20250413153708189"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@R0</span><br><span class="line">D=M</span><br><span class="line">@a</span><br><span class="line">M=D // a=R0</span><br><span class="line"></span><br><span class="line">@R1</span><br><span class="line">D=M</span><br><span class="line">@b</span><br><span class="line">M=D // b=R1</span><br><span class="line"></span><br><span class="line">@0 	 		//	   </span><br><span class="line">D = A 		//</span><br><span class="line">@R2</span><br><span class="line">M=D // R2=0</span><br><span class="line"></span><br><span class="line">(LOOP)  	//</span><br><span class="line">    @a</span><br><span class="line">    D=M</span><br><span class="line">    @STOP</span><br><span class="line">    D;JLE  // while (a&gt;0),continue,or goto &#x27;stop&#x27;</span><br><span class="line"></span><br><span class="line">    @b</span><br><span class="line">    D=M</span><br><span class="line">    @R2</span><br><span class="line">    M=M+D // R2=R2+b</span><br><span class="line">	</span><br><span class="line">    @a</span><br><span class="line">    M=M-1 //a=a-1</span><br><span class="line"></span><br><span class="line">    @LOOP  		//			</span><br><span class="line">    0;JMP  		//</span><br><span class="line"></span><br><span class="line">(STOP) 		//</span><br><span class="line">    @stop</span><br><span class="line">    0;JMP</span><br><span class="line"></span><br><span class="line">// 大部分自己写出来了！小部分不到位。</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250413164147760.png" alt="image-20250413164147760"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250413163504053.png" alt="image-20250413163504053"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">@KBD // define KBD</span><br><span class="line">D=M </span><br><span class="line"></span><br><span class="line">@i</span><br><span class="line">M=0 // define i</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">(BLACK)</span><br><span class="line">	@KBD</span><br><span class="line">	D=M</span><br><span class="line">	@WHITE</span><br><span class="line">	D;JLE</span><br><span class="line">	</span><br><span class="line">	@i 		//</span><br><span class="line">	A=M		//</span><br><span class="line">	M=-1 // RAM[addr] = -1</span><br><span class="line">	</span><br><span class="line">	@i</span><br><span class="line">	M=M+1 // i++</span><br><span class="line">	</span><br><span class="line">	@BLACK</span><br><span class="line">	0;JMP</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">(WHITE)</span><br><span class="line">	@i</span><br><span class="line">	A=M		//</span><br><span class="line">	M=0 	//</span><br><span class="line">	@i		//</span><br><span class="line">	M=M+1	//</span><br><span class="line">	</span><br><span class="line">	@WHITE</span><br><span class="line">    0;JMP</span><br><span class="line">    </span><br><span class="line">// 大概逻辑写出来了，就是细节不到位。</span><br></pre></td></tr></table></figure>
-
-<p>（参考）</p>
-<img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250409090618399.png" alt="image-20250409090618399" style="zoom: 50%;" />
-
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250409090019914.png" alt="image-20250409090019914"></p>
-]]></content>
-      <categories>
-        <category>code</category>
-      </categories>
-      <tags>
-        <tag>nand2tetris</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>proj3</title>
-    <url>/2025/05/02/nand2tetris/nand2tetris-proj3-final-2/</url>
-    <content><![CDATA[<h3 id="3-1-Sequential-Logic（逻辑时序）"><a href="#3-1-Sequential-Logic（逻辑时序）" class="headerlink" title="3.1 Sequential Logic（逻辑时序）"></a>3.1 Sequential Logic（逻辑时序）</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407103408721.png" alt="image-20250407103408721"></p>
-<h4 id="The-Clock"><a href="#The-Clock" class="headerlink" title="The Clock"></a>The Clock</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407103559711.png" alt="image-20250407103559711"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407103651219.png" alt="image-20250407103651219"></p>
-<p>⭐</p>
-<h4 id="Combinatorial-Logic-vs-Sequential-Logic"><a href="#Combinatorial-Logic-vs-Sequential-Logic" class="headerlink" title="Combinatorial Logic vs. Sequential Logic"></a>Combinatorial Logic vs. Sequential Logic</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407104103457.png" alt="image-20250407104103457"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407104118222.png" alt="image-20250407104118222"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407104217914.png" alt="image-20250407104217914"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407104323702.png" alt="image-20250407104323702"></p>
-<h3 id="3-2-Flip-Flops-触发器"><a href="#3-2-Flip-Flops-触发器" class="headerlink" title="3.2 Flip Flops 触发器"></a>3.2 Flip Flops 触发器</h3><p>制作：允许上一步操作的芯片</p>
-<p>⭐</p>
-<h4 id="D-触发器"><a href="#D-触发器" class="headerlink" title="D 触发器"></a><strong>D 触发器</strong></h4><p><strong>换句话说，DFF 简单地将前一个时间周期的输入值作为当前周期的输出。𝑜𝑢𝑡(𝑡)&#x3D;𝑖𝑛(𝑡−1)</strong></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407131732664.png" alt="image-20250407131732664"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407125650242.png" alt="image-20250407125650242"></p>
-<h4 id="时序逻辑的原理"><a href="#时序逻辑的原理" class="headerlink" title="时序逻辑的原理"></a><strong>时序逻辑的原理</strong></h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407130044516.png" alt="image-20250407130044516"></p>
-<h4 id="寄存器-Bit"><a href="#寄存器-Bit" class="headerlink" title="寄存器 Bit"></a>寄存器 Bit</h4><p>【寄存器（也）是一种常用的时序逻辑电路】</p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407130252903.png" alt="image-20250407130252903"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407130512040.png" alt="image-20250407130512040"></p>
-<h4 id="implement"><a href="#implement" class="headerlink" title="implement"></a>implement</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407130642446.png" alt="image-20250407130642446"></p>
-<h4 id="show"><a href="#show" class="headerlink" title="show"></a>show</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407131134475.png" alt="image-20250407131134475"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407131141487.png" alt="image-20250407131141487"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407131153974.png" alt="image-20250407131153974"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407131219341.png" alt="image-20250407131219341"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407131249812.png" alt="image-20250407131249812"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407131306313.png" alt="image-20250407131306313"></p>
-<h3 id="3-3-Memory-Units"><a href="#3-3-Memory-Units" class="headerlink" title="3.3 Memory Units"></a>3.3 Memory Units</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407162440343.png" alt="image-20250407162440343"></p>
-<h4 id="Memory"><a href="#Memory" class="headerlink" title="Memory"></a>Memory</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407162636276.png" alt="image-20250407162636276"></p>
-<h4 id="The-most-basic-memory-element-Register"><a href="#The-most-basic-memory-element-Register" class="headerlink" title="The most basic memory element: Register"></a>The most basic memory element: Register</h4><p><img src="C:\Users\99512\AppData\Roaming\Typora\typora-user-images\image-20250407162706895.png" alt="image-20250407162706895"></p>
-<p>⭐ （并着排列的）</p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407162832550.png" alt="image-20250407162832550"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407163056209.png" alt="image-20250407163056209"></p>
-<h4 id="RAM-unit"><a href="#RAM-unit" class="headerlink" title="RAM unit"></a>RAM unit</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407163925696.png" alt="image-20250407163925696"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407164114314.png" alt="image-20250407164114314"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407164124566.png" alt="image-20250407164124566"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407164321731.png" alt="image-20250407164321731"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407164328029.png" alt="image-20250407164328029"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407164336551.png" alt="image-20250407164336551"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407164355607.png" alt="image-20250407164355607"></p>
-<p>（逻辑时序的芯片）</p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407164409494.png" alt="image-20250407164409494"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407164444136.png" alt="image-20250407164444136"></p>
-<h4 id="RAM-Read-Logic"><a href="#RAM-Read-Logic" class="headerlink" title="RAM &#x2F; Read Logic"></a>RAM &#x2F; Read Logic</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407164613906.png" alt="image-20250407164613906"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407164723446.png" alt="image-20250407164723446"></p>
-<h4 id="RAM-Write-Logic"><a href="#RAM-Write-Logic" class="headerlink" title="RAM &#x2F; Write Logic"></a>RAM &#x2F; Write Logic</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407164822467.png" alt="image-20250407164822467"></p>
-<h4 id="A-family-of-16-bit-RAM-chips"><a href="#A-family-of-16-bit-RAM-chips" class="headerlink" title="A family of 16-bit RAM chips"></a>A family of 16-bit RAM chips</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407165748845.png" alt="image-20250407165748845"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407165903504.png" alt="image-20250407165903504"></p>
-<h3 id="3-4-Counters"><a href="#3-4-Counters" class="headerlink" title="3.4  Counters"></a>3.4  Counters</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407183128147.png" alt="image-20250407183128147"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407183216165.png" alt="image-20250407183216165"></p>
-<p>(Inc 代表增量[+1])</p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407183416972.png" alt="image-20250407183416972"></p>
-<h3 id="3-5-code"><a href="#3-5-code" class="headerlink" title="3.5 code"></a>3.5 code</h3><h4 id="preview：DFF"><a href="#preview：DFF" class="headerlink" title="preview：DFF"></a>preview：DFF</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250415121843294.png" alt="image-20250415121843294"></p>
-<hr>
-<h4 id="1-bit-register-芯片"><a href="#1-bit-register-芯片" class="headerlink" title="1-bit register 芯片"></a>1-bit register 芯片</h4><ul>
-<li>输入一个1-bit的数。如果load&#x3D;1，下一秒输入该数，如果load&#x3D;0，下一秒保持原来的数值。</li>
-<li>register 中文：<strong>寄存器</strong></li>
-</ul>
-<img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250415122014364.png" alt="image-20250415122014364" style="zoom:80%;" />
-
-<img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250415122027636.png" style="zoom:67%;" />
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CHIP Bit &#123;</span><br><span class="line">    IN in, load;</span><br><span class="line">    OUT out;</span><br><span class="line"></span><br><span class="line">    PARTS:</span><br><span class="line">    Mux(a=out2 , b=in , sel=load , out=w1 );</span><br><span class="line">    DFF(in=w1 , out=out,out=out2 );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h4 id="16-bit-register-芯片"><a href="#16-bit-register-芯片" class="headerlink" title="16-bit register 芯片"></a>16-bit register 芯片</h4><ul>
-<li>输入一个16-bit的数。根据load，下一秒输出该数，或者下一秒保持上一秒的值。</li>
-<li>1个load决定16个输出。16个1-bit register芯片并排。</li>
-<li>对每一位进行load运算</li>
-<li>最终的输入&#x2F;输出 都是 <strong>一个</strong> 16-bit的数</li>
-</ul>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/OIP-C%20(1).jpg"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/OIP-C%20(3).jpg"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 16-bit 寄存器! </span><br><span class="line">CHIP Register &#123;</span><br><span class="line">    IN in[16], load;</span><br><span class="line">    OUT out[16];</span><br><span class="line"></span><br><span class="line">    PARTS:</span><br><span class="line">    //对16bit的每一位进行load，当load为1的时候给 对应位 储存值</span><br><span class="line">    Bit(in=in[15] , load=load , out=out[15] );</span><br><span class="line">    Bit(in=in[14] , load=load , out=out[14] );</span><br><span class="line">    Bit(in=in[13] , load=load , out=out[13] );</span><br><span class="line">    Bit(in=in[12] , load=load , out=out[12] );</span><br><span class="line">    Bit(in=in[11] , load=load , out=out[11] );</span><br><span class="line">    Bit(in=in[10] , load=load , out=out[10] );</span><br><span class="line">    Bit(in=in[9] , load=load , out=out[9] );</span><br><span class="line">    Bit(in=in[8] , load=load , out=out[8] );</span><br><span class="line">    Bit(in=in[7] , load=load , out=out[7] );</span><br><span class="line">    Bit(in=in[6] , load=load , out=out[6] );</span><br><span class="line">    Bit(in=in[5] , load=load , out=out[5] );</span><br><span class="line">    Bit(in=in[4] , load=load , out=out[4] );</span><br><span class="line">    Bit(in=in[3] , load=load , out=out[3] );</span><br><span class="line">    Bit(in=in[2] , load=load , out=out[2] );</span><br><span class="line">    Bit(in=in[1] , load=load , out=out[1] );</span><br><span class="line">    Bit(in=in[0] , load=load , out=out[0] );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="RAM8"><a href="#RAM8" class="headerlink" title="RAM8"></a>RAM8</h4><ul>
-<li>8个 16-bit寄存器，并排放在RAM8里。</li>
-<li>输入：<strong>一个</strong>16-bit 的数。输出为 <strong>一个</strong> 16-bit 的数  （<strong>数最大 16-bit</strong>，可小点）</li>
-<li>⭐根据三位数地址address决定给    哪<strong>一个</strong>   register储存值。</li>
-<li>对应的被调到的寄存器的load会被打开，load&#x3D;1。</li>
-</ul>
-<img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy82Njg0OTktNzY0NDYzZDgxYjExYWI4Mi5qcGc.png" style="zoom: 33%;" />
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CHIP RAM8 &#123;</span><br><span class="line">    IN in[16], load, address[3];  // address有3位，能解码成 2的三次方= 8个 不一样的 三位数</span><br><span class="line">    OUT out[16];</span><br><span class="line"></span><br><span class="line">    PARTS:</span><br><span class="line">    //假设address为000，load为 1。DMux8Way会把load信号分配到输出端口a，</span><br><span class="line">    //也就是第一个寄存器的load端口会接收到值为 1 的信号，而其余寄存器的load端口会接收到值为 0 的信号（即不改变自身的值）</span><br><span class="line">    DMux8Way(in = load,sel = address,a = a,b = b,c = c,d = d,e = e,f = f,g = g,h = h);</span><br><span class="line"></span><br><span class="line">    Register(in=in , load=a , out=outa );</span><br><span class="line">    Register(in=in , load=b , out=outb );</span><br><span class="line">    Register(in=in , load=c , out=outc );</span><br><span class="line">    Register(in=in , load=d , out=outd );</span><br><span class="line">    Register(in=in , load=e , out=oute );</span><br><span class="line">    Register(in=in , load=f , out=outf );</span><br><span class="line">    Register(in=in , load=g , out=outg );</span><br><span class="line">    Register(in=in , load=h , out=outh );</span><br><span class="line"></span><br><span class="line">    Mux8Way16(a=outa , b=outb , c=outc , d=outd , e=oute , f=outf , g=outg , h=outh , sel=address , out=out);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="RAM64"><a href="#RAM64" class="headerlink" title="RAM64"></a>RAM64</h4><ul>
-<li><strong>原理同RAM8：一个最大16-bit的输入，根据address（解码后）决定把改 一位数值 保存在哪个地方（该地方的load会打开）</strong></li>
-<li>（结构由 8个RAM8 并排拼一起，解码端口变多了点，当然了address也长了点）</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"> CHIP RAM64 &#123;</span><br><span class="line">    IN in[16], load, address[6];</span><br><span class="line">    OUT out[16];</span><br><span class="line"></span><br><span class="line">    PARTS:</span><br><span class="line">    DMux8Way(in = load,sel = address[3..5],a = a,b = b,c = c,d = d,e = e,f = f,g = g,h = h);</span><br><span class="line">    //两层解码：第一层，用前3位区分开8个不一样的RAM8</span><br><span class="line"></span><br><span class="line">	// 第二层，用后三位，区分开来每个RAM8的8个不同的寄存器。（这样子就区分开来了8*8=64个寄存器）</span><br><span class="line">    RAM8(in=in , load=a , address=address[0..2] , out=outa );</span><br><span class="line">    RAM8(in=in , load=b , address=address[0..2] , out=outb );</span><br><span class="line">    RAM8(in=in , load=c , address=address[0..2] , out=outc );</span><br><span class="line">    RAM8(in=in , load=d , address=address[0..2] , out=outd );</span><br><span class="line">    RAM8(in=in , load=e , address=address[0..2] , out=oute );</span><br><span class="line">    RAM8(in=in , load=f , address=address[0..2] , out=outf );</span><br><span class="line">    RAM8(in=in , load=g , address=address[0..2] , out=outg );</span><br><span class="line">    RAM8(in=in , load=h , address=address[0..2] , out=outh );</span><br><span class="line"></span><br><span class="line">    Mux8Way16(a=outa , b=outb , c=outc , d=outd , e=oute , f=outf , g=outg , h=outh , sel=address[3..5] , out=out);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="RAM512"><a href="#RAM512" class="headerlink" title="RAM512"></a>RAM512</h4><ul>
-<li>原理同上，就是积木从小拼到大（8个RAM64）</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CHIP RAM512 &#123;</span><br><span class="line">    IN in[16], load, address[9];</span><br><span class="line">    OUT out[16];</span><br><span class="line"></span><br><span class="line">    PARTS:</span><br><span class="line">    DMux8Way(in = load,sel = address[6..8],a = a,b = b,c = c,d = d,e = e,f = f,g = g,h = h);</span><br><span class="line"></span><br><span class="line">    RAM64(in=in , load=a , address=address[0..5] , out=outa );</span><br><span class="line">    RAM64(in=in , load=b , address=address[0..5] , out=outb );</span><br><span class="line">    RAM64(in=in , load=c , address=address[0..5] , out=outc );</span><br><span class="line">    RAM64(in=in , load=d , address=address[0..5] , out=outd );</span><br><span class="line">    RAM64(in=in , load=e , address=address[0..5] , out=oute );</span><br><span class="line">    RAM64(in=in , load=f , address=address[0..5] , out=outf );</span><br><span class="line">    RAM64(in=in , load=g , address=address[0..5] , out=outg );</span><br><span class="line">    RAM64(in=in , load=h , address=address[0..5] , out=outh );</span><br><span class="line"></span><br><span class="line">    Mux8Way16(a=outa , b=outb , c=outc , d=outd , e=oute , f=outf , g=outg , h=outh , sel=address[6..8] , out=out);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="RAM4K"><a href="#RAM4K" class="headerlink" title="RAM4K"></a>RAM4K</h4><ul>
-<li>8个RAM512</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"> CHIP RAM4K &#123;</span><br><span class="line">    IN in[16], load, address[12];</span><br><span class="line">    OUT out[16];</span><br><span class="line"></span><br><span class="line">    PARTS:</span><br><span class="line">    DMux8Way(in = load,sel = address[9..11],a = a,b = b,c = c,d = d,e = e,f = f,g = g,h = h);</span><br><span class="line">    //假设address为000，load为 1。DMux8Way会把load信号分配到输出端口a。</span><br><span class="line"></span><br><span class="line">    RAM512(in=in , load=a , address=address[0..8] , out=outa );</span><br><span class="line">    RAM512(in=in , load=b , address=address[0..8] , out=outb );</span><br><span class="line">    RAM512(in=in , load=c , address=address[0..8] , out=outc );</span><br><span class="line">    RAM512(in=in , load=d , address=address[0..8] , out=outd );</span><br><span class="line">    RAM512(in=in , load=e , address=address[0..8] , out=oute );</span><br><span class="line">    RAM512(in=in , load=f , address=address[0..8] , out=outf );</span><br><span class="line">    RAM512(in=in , load=g , address=address[0..8] , out=outg );</span><br><span class="line">    RAM512(in=in , load=h , address=address[0..8] , out=outh );</span><br><span class="line"></span><br><span class="line">    Mux8Way16(a=outa , b=outb , c=outc , d=outd , e=oute , f=outf , g=outg , h=outh , sel=address[9..11] , out=out);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="RAM16K"><a href="#RAM16K" class="headerlink" title="RAM16K"></a>RAM16K</h4><ul>
-<li>4个RAM4K</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"> CHIP RAM16K &#123;</span><br><span class="line">    IN in[16], load, address[14];</span><br><span class="line">    OUT out[16];</span><br><span class="line"></span><br><span class="line">    PARTS:</span><br><span class="line">    DMux4Way(in = load,sel = address[12..13],a = a,b = b,c = c,d = d);</span><br><span class="line">    // 前两位用来区分4个RAM4K，后面12位是RAM4K所需的address。 </span><br><span class="line"></span><br><span class="line">    RAM4K(in=in , load=a , address=address[0..11] , out=outa );</span><br><span class="line">    RAM4K(in=in , load=b , address=address[0..11] , out=outb );</span><br><span class="line">    RAM4K(in=in , load=c , address=address[0..11] , out=outc );</span><br><span class="line">    RAM4K(in=in , load=d , address=address[0..11] , out=outd );</span><br><span class="line">    </span><br><span class="line">    Mux4Way16(a=outa , b=outb , c=outc , d=outd , sel=address[12..13] , out=out);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250415131408114.png" alt="image-20250415131408114" style="zoom:50%;" />
-
-
-
-<h4 id="CHIP-PC"><a href="#CHIP-PC" class="headerlink" title="CHIP PC"></a>CHIP PC</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/747e5d538c8e16996b67320f42e7e77.jpg" alt="747e5d538c8e16996b67320f42e7e77"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/**</span><br><span class="line"> * A 16-bit counter. 计数器吧？？？</span><br><span class="line"> * if      reset(t): out(t+1) = 0</span><br><span class="line"> * else if load(t):  out(t+1) = in(t)</span><br><span class="line"> * else if inc(t):   out(t+1) = out(t) + 1</span><br><span class="line"> * else              out(t+1) = out(t)</span><br><span class="line"> */</span><br><span class="line"> </span><br><span class="line">CHIP PC &#123;</span><br><span class="line">    IN in[16], reset, load, inc;</span><br><span class="line">    OUT out[16];</span><br><span class="line">    </span><br><span class="line">    PARTS:</span><br><span class="line"></span><br><span class="line">    Inc16(in = feedback,out = incout);</span><br><span class="line">    Mux16(a = feedback,b = incout,sel = inc,out = out1);</span><br><span class="line">    Mux16(a = out1,b = in,sel = load,out = out2);</span><br><span class="line">    Mux16(a = out2,b = false,sel = reset,out = out3);</span><br><span class="line"></span><br><span class="line">    Register(in = out3,load = true,out = out,out = feedback);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>code</category>
-      </categories>
-      <tags>
-        <tag>nand2tetris</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>proj5</title>
     <url>/2025/05/03/nand2tetris/nand2tetris-proj5-final-2/</url>
     <content><![CDATA[<h1 id="5-1"><a href="#5-1" class="headerlink" title="5.1"></a>5.1</h1><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414103254600.png" alt="image-20250414103254600"></p>
@@ -1176,6 +710,472 @@
 <hr>
 <h4 id="main"><a href="#main" class="headerlink" title="main"></a>main</h4><figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 1.导入模块</span></span><br><span class="line"><span class="keyword">import</span> argparse <span class="comment"># Python 标准库中用于处理命令行参数的模块</span></span><br><span class="line"><span class="keyword">from</span> assembler <span class="keyword">import</span> Assembler</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2.创建命令行参数解析器</span></span><br><span class="line">parser = argparse.ArgumentParser(</span><br><span class="line">	prog=<span class="string">&quot;main.py&quot;</span>,</span><br><span class="line">	description=<span class="string">&quot;Convert a .asm file into .hack assembly file&quot;</span>,</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3.添加命令行参数</span></span><br><span class="line">parser.add_argument(<span class="string">&quot;asm_path&quot;</span>, <span class="built_in">help</span>=<span class="string">&quot;Path to .asm file to convert&quot;</span>, <span class="built_in">type</span>=<span class="built_in">str</span>)</span><br><span class="line"></span><br><span class="line">parser.add_argument(</span><br><span class="line">	<span class="string">&quot;--debug&quot;</span>,</span><br><span class="line">	<span class="string">&quot;--d&quot;</span>,</span><br><span class="line">	action=<span class="string">&quot;store_true&quot;</span>,</span><br><span class="line">	default=<span class="literal">False</span>,</span><br><span class="line">	<span class="built_in">help</span>=<span class="string">&quot;Whether to print steps/timing (True) or not (False) DEFAULT: False&quot;</span>,</span><br><span class="line">	dest=<span class="string">&quot;debug&quot;</span>,</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 4.更新文档字符串</span></span><br><span class="line">__doc__ = <span class="string">&quot;\n&quot;</span> + parser.format_help()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 5.定义主函数</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line">	args = parser.parse_args()</span><br><span class="line">	a = Assembler(args.debug)</span><br><span class="line">	a.assemble(args.asm_path)</span><br><span class="line">    </span><br></pre></td></tr></table></figure>
 
+]]></content>
+      <categories>
+        <category>code</category>
+      </categories>
+      <tags>
+        <tag>nand2tetris</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>proj3</title>
+    <url>/2025/05/02/nand2tetris/nand2tetris-proj3-final-2/</url>
+    <content><![CDATA[<h3 id="3-1-Sequential-Logic（逻辑时序）"><a href="#3-1-Sequential-Logic（逻辑时序）" class="headerlink" title="3.1 Sequential Logic（逻辑时序）"></a>3.1 Sequential Logic（逻辑时序）</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407103408721.png" alt="image-20250407103408721"></p>
+<h4 id="The-Clock"><a href="#The-Clock" class="headerlink" title="The Clock"></a>The Clock</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407103559711.png" alt="image-20250407103559711"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407103651219.png" alt="image-20250407103651219"></p>
+<p>⭐</p>
+<h4 id="Combinatorial-Logic-vs-Sequential-Logic"><a href="#Combinatorial-Logic-vs-Sequential-Logic" class="headerlink" title="Combinatorial Logic vs. Sequential Logic"></a>Combinatorial Logic vs. Sequential Logic</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407104103457.png" alt="image-20250407104103457"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407104118222.png" alt="image-20250407104118222"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407104217914.png" alt="image-20250407104217914"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407104323702.png" alt="image-20250407104323702"></p>
+<h3 id="3-2-Flip-Flops-触发器"><a href="#3-2-Flip-Flops-触发器" class="headerlink" title="3.2 Flip Flops 触发器"></a>3.2 Flip Flops 触发器</h3><p>制作：允许上一步操作的芯片</p>
+<p>⭐</p>
+<h4 id="D-触发器"><a href="#D-触发器" class="headerlink" title="D 触发器"></a><strong>D 触发器</strong></h4><p><strong>换句话说，DFF 简单地将前一个时间周期的输入值作为当前周期的输出。𝑜𝑢𝑡(𝑡)&#x3D;𝑖𝑛(𝑡−1)</strong></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407131732664.png" alt="image-20250407131732664"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407125650242.png" alt="image-20250407125650242"></p>
+<h4 id="时序逻辑的原理"><a href="#时序逻辑的原理" class="headerlink" title="时序逻辑的原理"></a><strong>时序逻辑的原理</strong></h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407130044516.png" alt="image-20250407130044516"></p>
+<h4 id="寄存器-Bit"><a href="#寄存器-Bit" class="headerlink" title="寄存器 Bit"></a>寄存器 Bit</h4><p>【寄存器（也）是一种常用的时序逻辑电路】</p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407130252903.png" alt="image-20250407130252903"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407130512040.png" alt="image-20250407130512040"></p>
+<h4 id="implement"><a href="#implement" class="headerlink" title="implement"></a>implement</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407130642446.png" alt="image-20250407130642446"></p>
+<h4 id="show"><a href="#show" class="headerlink" title="show"></a>show</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407131134475.png" alt="image-20250407131134475"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407131141487.png" alt="image-20250407131141487"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407131153974.png" alt="image-20250407131153974"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407131219341.png" alt="image-20250407131219341"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407131249812.png" alt="image-20250407131249812"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407131306313.png" alt="image-20250407131306313"></p>
+<h3 id="3-3-Memory-Units"><a href="#3-3-Memory-Units" class="headerlink" title="3.3 Memory Units"></a>3.3 Memory Units</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407162440343.png" alt="image-20250407162440343"></p>
+<h4 id="Memory"><a href="#Memory" class="headerlink" title="Memory"></a>Memory</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407162636276.png" alt="image-20250407162636276"></p>
+<h4 id="The-most-basic-memory-element-Register"><a href="#The-most-basic-memory-element-Register" class="headerlink" title="The most basic memory element: Register"></a>The most basic memory element: Register</h4><p><img src="C:\Users\99512\AppData\Roaming\Typora\typora-user-images\image-20250407162706895.png" alt="image-20250407162706895"></p>
+<p>⭐ （并着排列的）</p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407162832550.png" alt="image-20250407162832550"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407163056209.png" alt="image-20250407163056209"></p>
+<h4 id="RAM-unit"><a href="#RAM-unit" class="headerlink" title="RAM unit"></a>RAM unit</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407163925696.png" alt="image-20250407163925696"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407164114314.png" alt="image-20250407164114314"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407164124566.png" alt="image-20250407164124566"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407164321731.png" alt="image-20250407164321731"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407164328029.png" alt="image-20250407164328029"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407164336551.png" alt="image-20250407164336551"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407164355607.png" alt="image-20250407164355607"></p>
+<p>（逻辑时序的芯片）</p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407164409494.png" alt="image-20250407164409494"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407164444136.png" alt="image-20250407164444136"></p>
+<h4 id="RAM-Read-Logic"><a href="#RAM-Read-Logic" class="headerlink" title="RAM &#x2F; Read Logic"></a>RAM &#x2F; Read Logic</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407164613906.png" alt="image-20250407164613906"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407164723446.png" alt="image-20250407164723446"></p>
+<h4 id="RAM-Write-Logic"><a href="#RAM-Write-Logic" class="headerlink" title="RAM &#x2F; Write Logic"></a>RAM &#x2F; Write Logic</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407164822467.png" alt="image-20250407164822467"></p>
+<h4 id="A-family-of-16-bit-RAM-chips"><a href="#A-family-of-16-bit-RAM-chips" class="headerlink" title="A family of 16-bit RAM chips"></a>A family of 16-bit RAM chips</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407165748845.png" alt="image-20250407165748845"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407165903504.png" alt="image-20250407165903504"></p>
+<h3 id="3-4-Counters"><a href="#3-4-Counters" class="headerlink" title="3.4  Counters"></a>3.4  Counters</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407183128147.png" alt="image-20250407183128147"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407183216165.png" alt="image-20250407183216165"></p>
+<p>(Inc 代表增量[+1])</p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407183416972.png" alt="image-20250407183416972"></p>
+<h3 id="3-5-code"><a href="#3-5-code" class="headerlink" title="3.5 code"></a>3.5 code</h3><h4 id="preview：DFF"><a href="#preview：DFF" class="headerlink" title="preview：DFF"></a>preview：DFF</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250415121843294.png" alt="image-20250415121843294"></p>
+<hr>
+<h4 id="1-bit-register-芯片"><a href="#1-bit-register-芯片" class="headerlink" title="1-bit register 芯片"></a>1-bit register 芯片</h4><ul>
+<li>输入一个1-bit的数。如果load&#x3D;1，下一秒输入该数，如果load&#x3D;0，下一秒保持原来的数值。</li>
+<li>register 中文：<strong>寄存器</strong></li>
+</ul>
+<img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250415122014364.png" alt="image-20250415122014364" style="zoom:80%;" />
+
+<img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250415122027636.png" style="zoom:67%;" />
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CHIP Bit &#123;</span><br><span class="line">    IN in, load;</span><br><span class="line">    OUT out;</span><br><span class="line"></span><br><span class="line">    PARTS:</span><br><span class="line">    Mux(a=out2 , b=in , sel=load , out=w1 );</span><br><span class="line">    DFF(in=w1 , out=out,out=out2 );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="16-bit-register-芯片"><a href="#16-bit-register-芯片" class="headerlink" title="16-bit register 芯片"></a>16-bit register 芯片</h4><ul>
+<li>输入一个16-bit的数。根据load，下一秒输出该数，或者下一秒保持上一秒的值。</li>
+<li>1个load决定16个输出。16个1-bit register芯片并排。</li>
+<li>对每一位进行load运算</li>
+<li>最终的输入&#x2F;输出 都是 <strong>一个</strong> 16-bit的数</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/OIP-C%20(1).jpg"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/OIP-C%20(3).jpg"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 16-bit 寄存器! </span><br><span class="line">CHIP Register &#123;</span><br><span class="line">    IN in[16], load;</span><br><span class="line">    OUT out[16];</span><br><span class="line"></span><br><span class="line">    PARTS:</span><br><span class="line">    //对16bit的每一位进行load，当load为1的时候给 对应位 储存值</span><br><span class="line">    Bit(in=in[15] , load=load , out=out[15] );</span><br><span class="line">    Bit(in=in[14] , load=load , out=out[14] );</span><br><span class="line">    Bit(in=in[13] , load=load , out=out[13] );</span><br><span class="line">    Bit(in=in[12] , load=load , out=out[12] );</span><br><span class="line">    Bit(in=in[11] , load=load , out=out[11] );</span><br><span class="line">    Bit(in=in[10] , load=load , out=out[10] );</span><br><span class="line">    Bit(in=in[9] , load=load , out=out[9] );</span><br><span class="line">    Bit(in=in[8] , load=load , out=out[8] );</span><br><span class="line">    Bit(in=in[7] , load=load , out=out[7] );</span><br><span class="line">    Bit(in=in[6] , load=load , out=out[6] );</span><br><span class="line">    Bit(in=in[5] , load=load , out=out[5] );</span><br><span class="line">    Bit(in=in[4] , load=load , out=out[4] );</span><br><span class="line">    Bit(in=in[3] , load=load , out=out[3] );</span><br><span class="line">    Bit(in=in[2] , load=load , out=out[2] );</span><br><span class="line">    Bit(in=in[1] , load=load , out=out[1] );</span><br><span class="line">    Bit(in=in[0] , load=load , out=out[0] );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="RAM8"><a href="#RAM8" class="headerlink" title="RAM8"></a>RAM8</h4><ul>
+<li>8个 16-bit寄存器，并排放在RAM8里。</li>
+<li>输入：<strong>一个</strong>16-bit 的数。输出为 <strong>一个</strong> 16-bit 的数  （<strong>数最大 16-bit</strong>，可小点）</li>
+<li>⭐根据三位数地址address决定给    哪<strong>一个</strong>   register储存值。</li>
+<li>对应的被调到的寄存器的load会被打开，load&#x3D;1。</li>
+</ul>
+<img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy82Njg0OTktNzY0NDYzZDgxYjExYWI4Mi5qcGc.png" style="zoom: 33%;" />
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CHIP RAM8 &#123;</span><br><span class="line">    IN in[16], load, address[3];  // address有3位，能解码成 2的三次方= 8个 不一样的 三位数</span><br><span class="line">    OUT out[16];</span><br><span class="line"></span><br><span class="line">    PARTS:</span><br><span class="line">    //假设address为000，load为 1。DMux8Way会把load信号分配到输出端口a，</span><br><span class="line">    //也就是第一个寄存器的load端口会接收到值为 1 的信号，而其余寄存器的load端口会接收到值为 0 的信号（即不改变自身的值）</span><br><span class="line">    DMux8Way(in = load,sel = address,a = a,b = b,c = c,d = d,e = e,f = f,g = g,h = h);</span><br><span class="line"></span><br><span class="line">    Register(in=in , load=a , out=outa );</span><br><span class="line">    Register(in=in , load=b , out=outb );</span><br><span class="line">    Register(in=in , load=c , out=outc );</span><br><span class="line">    Register(in=in , load=d , out=outd );</span><br><span class="line">    Register(in=in , load=e , out=oute );</span><br><span class="line">    Register(in=in , load=f , out=outf );</span><br><span class="line">    Register(in=in , load=g , out=outg );</span><br><span class="line">    Register(in=in , load=h , out=outh );</span><br><span class="line"></span><br><span class="line">    Mux8Way16(a=outa , b=outb , c=outc , d=outd , e=oute , f=outf , g=outg , h=outh , sel=address , out=out);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="RAM64"><a href="#RAM64" class="headerlink" title="RAM64"></a>RAM64</h4><ul>
+<li><strong>原理同RAM8：一个最大16-bit的输入，根据address（解码后）决定把改 一位数值 保存在哪个地方（该地方的load会打开）</strong></li>
+<li>（结构由 8个RAM8 并排拼一起，解码端口变多了点，当然了address也长了点）</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"> CHIP RAM64 &#123;</span><br><span class="line">    IN in[16], load, address[6];</span><br><span class="line">    OUT out[16];</span><br><span class="line"></span><br><span class="line">    PARTS:</span><br><span class="line">    DMux8Way(in = load,sel = address[3..5],a = a,b = b,c = c,d = d,e = e,f = f,g = g,h = h);</span><br><span class="line">    //两层解码：第一层，用前3位区分开8个不一样的RAM8</span><br><span class="line"></span><br><span class="line">	// 第二层，用后三位，区分开来每个RAM8的8个不同的寄存器。（这样子就区分开来了8*8=64个寄存器）</span><br><span class="line">    RAM8(in=in , load=a , address=address[0..2] , out=outa );</span><br><span class="line">    RAM8(in=in , load=b , address=address[0..2] , out=outb );</span><br><span class="line">    RAM8(in=in , load=c , address=address[0..2] , out=outc );</span><br><span class="line">    RAM8(in=in , load=d , address=address[0..2] , out=outd );</span><br><span class="line">    RAM8(in=in , load=e , address=address[0..2] , out=oute );</span><br><span class="line">    RAM8(in=in , load=f , address=address[0..2] , out=outf );</span><br><span class="line">    RAM8(in=in , load=g , address=address[0..2] , out=outg );</span><br><span class="line">    RAM8(in=in , load=h , address=address[0..2] , out=outh );</span><br><span class="line"></span><br><span class="line">    Mux8Way16(a=outa , b=outb , c=outc , d=outd , e=oute , f=outf , g=outg , h=outh , sel=address[3..5] , out=out);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="RAM512"><a href="#RAM512" class="headerlink" title="RAM512"></a>RAM512</h4><ul>
+<li>原理同上，就是积木从小拼到大（8个RAM64）</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CHIP RAM512 &#123;</span><br><span class="line">    IN in[16], load, address[9];</span><br><span class="line">    OUT out[16];</span><br><span class="line"></span><br><span class="line">    PARTS:</span><br><span class="line">    DMux8Way(in = load,sel = address[6..8],a = a,b = b,c = c,d = d,e = e,f = f,g = g,h = h);</span><br><span class="line"></span><br><span class="line">    RAM64(in=in , load=a , address=address[0..5] , out=outa );</span><br><span class="line">    RAM64(in=in , load=b , address=address[0..5] , out=outb );</span><br><span class="line">    RAM64(in=in , load=c , address=address[0..5] , out=outc );</span><br><span class="line">    RAM64(in=in , load=d , address=address[0..5] , out=outd );</span><br><span class="line">    RAM64(in=in , load=e , address=address[0..5] , out=oute );</span><br><span class="line">    RAM64(in=in , load=f , address=address[0..5] , out=outf );</span><br><span class="line">    RAM64(in=in , load=g , address=address[0..5] , out=outg );</span><br><span class="line">    RAM64(in=in , load=h , address=address[0..5] , out=outh );</span><br><span class="line"></span><br><span class="line">    Mux8Way16(a=outa , b=outb , c=outc , d=outd , e=oute , f=outf , g=outg , h=outh , sel=address[6..8] , out=out);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="RAM4K"><a href="#RAM4K" class="headerlink" title="RAM4K"></a>RAM4K</h4><ul>
+<li>8个RAM512</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"> CHIP RAM4K &#123;</span><br><span class="line">    IN in[16], load, address[12];</span><br><span class="line">    OUT out[16];</span><br><span class="line"></span><br><span class="line">    PARTS:</span><br><span class="line">    DMux8Way(in = load,sel = address[9..11],a = a,b = b,c = c,d = d,e = e,f = f,g = g,h = h);</span><br><span class="line">    //假设address为000，load为 1。DMux8Way会把load信号分配到输出端口a。</span><br><span class="line"></span><br><span class="line">    RAM512(in=in , load=a , address=address[0..8] , out=outa );</span><br><span class="line">    RAM512(in=in , load=b , address=address[0..8] , out=outb );</span><br><span class="line">    RAM512(in=in , load=c , address=address[0..8] , out=outc );</span><br><span class="line">    RAM512(in=in , load=d , address=address[0..8] , out=outd );</span><br><span class="line">    RAM512(in=in , load=e , address=address[0..8] , out=oute );</span><br><span class="line">    RAM512(in=in , load=f , address=address[0..8] , out=outf );</span><br><span class="line">    RAM512(in=in , load=g , address=address[0..8] , out=outg );</span><br><span class="line">    RAM512(in=in , load=h , address=address[0..8] , out=outh );</span><br><span class="line"></span><br><span class="line">    Mux8Way16(a=outa , b=outb , c=outc , d=outd , e=oute , f=outf , g=outg , h=outh , sel=address[9..11] , out=out);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="RAM16K"><a href="#RAM16K" class="headerlink" title="RAM16K"></a>RAM16K</h4><ul>
+<li>4个RAM4K</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"> CHIP RAM16K &#123;</span><br><span class="line">    IN in[16], load, address[14];</span><br><span class="line">    OUT out[16];</span><br><span class="line"></span><br><span class="line">    PARTS:</span><br><span class="line">    DMux4Way(in = load,sel = address[12..13],a = a,b = b,c = c,d = d);</span><br><span class="line">    // 前两位用来区分4个RAM4K，后面12位是RAM4K所需的address。 </span><br><span class="line"></span><br><span class="line">    RAM4K(in=in , load=a , address=address[0..11] , out=outa );</span><br><span class="line">    RAM4K(in=in , load=b , address=address[0..11] , out=outb );</span><br><span class="line">    RAM4K(in=in , load=c , address=address[0..11] , out=outc );</span><br><span class="line">    RAM4K(in=in , load=d , address=address[0..11] , out=outd );</span><br><span class="line">    </span><br><span class="line">    Mux4Way16(a=outa , b=outb , c=outc , d=outd , sel=address[12..13] , out=out);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250415131408114.png" alt="image-20250415131408114" style="zoom:50%;" />
+
+
+
+<h4 id="CHIP-PC"><a href="#CHIP-PC" class="headerlink" title="CHIP PC"></a>CHIP PC</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/747e5d538c8e16996b67320f42e7e77.jpg" alt="747e5d538c8e16996b67320f42e7e77"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/**</span><br><span class="line"> * A 16-bit counter. 计数器吧？？？</span><br><span class="line"> * if      reset(t): out(t+1) = 0</span><br><span class="line"> * else if load(t):  out(t+1) = in(t)</span><br><span class="line"> * else if inc(t):   out(t+1) = out(t) + 1</span><br><span class="line"> * else              out(t+1) = out(t)</span><br><span class="line"> */</span><br><span class="line"> </span><br><span class="line">CHIP PC &#123;</span><br><span class="line">    IN in[16], reset, load, inc;</span><br><span class="line">    OUT out[16];</span><br><span class="line">    </span><br><span class="line">    PARTS:</span><br><span class="line"></span><br><span class="line">    Inc16(in = feedback,out = incout);</span><br><span class="line">    Mux16(a = feedback,b = incout,sel = inc,out = out1);</span><br><span class="line">    Mux16(a = out1,b = in,sel = load,out = out2);</span><br><span class="line">    Mux16(a = out2,b = false,sel = reset,out = out3);</span><br><span class="line"></span><br><span class="line">    Register(in = out3,load = true,out = out,out = feedback);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>code</category>
+      </categories>
+      <tags>
+        <tag>nand2tetris</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>proj4</title>
+    <url>/2025/05/03/nand2tetris/nand2tetris-proj4-final/</url>
+    <content><![CDATA[<h2 id="Machine-Language"><a href="#Machine-Language" class="headerlink" title="Machine Language"></a>Machine Language</h2><h3 id="4-1-Machine-Languages-Overview"><a href="#4-1-Machine-Languages-Overview" class="headerlink" title="4.1 Machine Languages  : Overview"></a>4.1 Machine Languages  : Overview</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250502141034037.png" alt="image-20250502141034037"></p>
+<h4 id="内部："><a href="#内部：" class="headerlink" title="内部："></a>内部：</h4><ul>
+<li><p>内存包括：程序内存和数据内存</p>
+</li>
+<li><p>硬件是固定的，软件可更改</p>
+</li>
+<li><p>软件变化，<strong>故计算机可做不同的事情</strong>（计算机的universality）</p>
+</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408125639911.png" alt="image-20250408125639911"></p>
+<p>let us see how hardware can do many things:</p>
+<ul>
+<li>by硬件逐个执行指令，把整个指令序列执行完放在一起，就得到了整个程序的功能。</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408125753379.png" alt="image-20250408125753379"></p>
+<h4 id="⭐3-Question"><a href="#⭐3-Question" class="headerlink" title="⭐3-Question"></a>⭐3-Question</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408125900431.png" alt="image-20250408125900431"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408125917903.png" alt="image-20250408125917903"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408125923522.png" alt="image-20250408125923522"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408125934885.png" alt="image-20250408125934885"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250502141034037.png"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408130008095.png" alt="image-20250408130008095"><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408130013135.png" alt="image-20250408130013135"></p>
+<hr>
+<h4 id="machine-language-←-assembly-language"><a href="#machine-language-←-assembly-language" class="headerlink" title="machine language ← assembly language"></a>machine language ← assembly language</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408130111212.png" alt="image-20250408130111212"></p>
+<p>我们写程序用的是高级语言，但电脑真正理解和执行的是机器语言</p>
+<p>（其实里面的编译器是分两部的，第一步是高级语言→汇编语言，第二步是汇编语言→机器语言，now看的是part1）</p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408130331472.png" alt="image-20250408130331472"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408130344599.png" alt="image-20250408130344599"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408130425028.png" alt="image-20250408130425028"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408130503603.png" alt="image-20250408130503603"></p>
+<p>第一种解释</p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408130536998.png" alt="image-20250408130536998"></p>
+<p>第二种解释</p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408130616234.png" alt="image-20250408130616234"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408131151981.png" alt="image-20250408131151981"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408131707478.png" alt="image-20250408131707478"></p>
+<p>next </p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408131747616.png" alt="image-20250408131747616"></p>
+<hr>
+<h3 id="4-2-Machine-Languages-Elements"><a href="#4-2-Machine-Languages-Elements" class="headerlink" title="4.2  Machine Languages  : Elements"></a>4.2  Machine Languages  : Elements</h3><h4 id="Machine-Language-1"><a href="#Machine-Language-1" class="headerlink" title="Machine Language"></a>Machine Language</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408132050542.png" alt="image-20250408132050542"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408132302481.png" alt="image-20250408132302481"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408132600568.png" alt="image-20250408132600568"></p>
+<h4 id="Memory-Hierarchy"><a href="#Memory-Hierarchy" class="headerlink" title="Memory Hierarchy"></a>Memory Hierarchy</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408132620787.png" alt="image-20250408132620787"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408132737232.png" alt="image-20250408132737232"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250502144445704.png" alt="image-20250502144445704"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408132934690.png" alt="image-20250408132934690"></p>
+<h4 id="Registers-（in-CPU）（Q1Q3）"><a href="#Registers-（in-CPU）（Q1Q3）" class="headerlink" title="Registers （in CPU）（Q1Q3）"></a>Registers （in CPU）（Q1Q3）</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408133025180.png" alt="image-20250408133025180"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408133054897.png" alt="image-20250408133054897"></p>
+<p><strong>用法&#x2F;类型①</strong></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250502144901245.png" alt="image-20250502144901245"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250502144827311.png" alt="image-20250502144827311"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408133256967.png" alt="image-20250408133256967"></p>
+<p><strong>用法&#x2F;类型②</strong></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250502144926736.png" alt="image-20250502144926736"></p>
+<p>so that we can</p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250502145149469.png" alt="image-20250502145149469"></p>
+<p>eg</p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250502145219880.png" alt="image-20250502145219880"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408133356395.png" alt="image-20250408133356395"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408133409201.png" alt="image-20250408133409201"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408133424956.png" alt="image-20250408133424956"></p>
+<h4 id="Addressing-Modes"><a href="#Addressing-Modes" class="headerlink" title="Addressing Modes"></a>Addressing Modes</h4><ul>
+<li>现在回到最初的问题：</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408133452806.png" alt="image-20250408133452806"></p>
+<ul>
+<li>假设是一个简单的操作：那么它应该在什么上面操作？<ul>
+<li>以下是四种类型的操作：</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408133504911.png" alt="image-20250408133504911"></p>
+<h4 id="Intput-Output"><a href="#Intput-Output" class="headerlink" title="Intput &#x2F; Output"></a>Intput &#x2F; Output</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408133742680.png" alt="image-20250408133742680"></p>
+<h4 id="Flow-Control（Q2）"><a href="#Flow-Control（Q2）" class="headerlink" title="Flow Control（Q2）"></a>Flow Control（Q2）</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408133830358.png" alt="image-20250408133830358"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408133842300.png" alt="image-20250408133842300"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408133918049.png" alt="image-20250408133918049"></p>
+<ul>
+<li>我们可以把102位置命名为loop</li>
+<li>实际上，用机器语言的位写它时，表示的是一样的</li>
+<li>只是 loop 对人类来说更容易看</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408134216292.png" alt="image-20250408134216292"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408134345222.png" alt="image-20250408134345222"></p>
+<hr>
+<h2 id="HACK-Language"><a href="#HACK-Language" class="headerlink" title="HACK Language"></a>HACK Language</h2><h3 id="4-3-HACK-Computer-and-Language-Overview"><a href="#4-3-HACK-Computer-and-Language-Overview" class="headerlink" title="4.3 HACK Computer and Language (Overview)"></a>4.3 HACK Computer and Language (Overview)</h3><h4 id="hardware"><a href="#hardware" class="headerlink" title="hardware"></a>hardware</h4><ul>
+<li>以下是下周要搭建的计算机（hardware）的概述：</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408144525868.png" alt="image-20250408144525868"></p>
+<h4 id="software"><a href="#software" class="headerlink" title="software"></a>software</h4><ul>
+<li>control the computer</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408144707993.png" alt="image-20250408144707993"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408144727327.png" alt="image-20250408144727327"></p>
+<h4 id="reset-bottom"><a href="#reset-bottom" class="headerlink" title="reset bottom"></a>reset bottom</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408144804152.png" alt="image-20250408144804152"></p>
+<h4 id="registers"><a href="#registers" class="headerlink" title="registers"></a>registers</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408145050542.png" alt="image-20250408145050542"></p>
+<ul>
+<li>（M 表示 A 寻址的 16 位 RAM 寄存器）</li>
+<li>无论内存里有多少寄存器，每次被选择的只有一个，为M寄存器。</li>
+</ul>
+<h4 id="The-A-instruction"><a href="#The-A-instruction" class="headerlink" title="The A-instruction"></a>The A-instruction</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408145242790.png" alt="image-20250408145242790"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408145318144.png" alt="image-20250408145318144"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408145335059.png" alt="image-20250408145335059"></p>
+<h4 id="The-C-instruction"><a href="#The-C-instruction" class="headerlink" title="The C-instruction"></a>The C-instruction</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408145347021.png" alt="image-20250408145347021"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408145445185.png" alt="image-20250408145445185"></p>
+<ul>
+<li><p>dest目的地，comp计算，jump跳转</p>
+</li>
+<li><p>看到A的时候，也可以用M替代</p>
+</li>
+<li><p>eg</p>
+</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408145651883.png" alt="image-20250408145651883"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408145713384.png" alt="image-20250408145713384"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408145750031.png" alt="image-20250408145750031"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408145851786.png" alt="image-20250408145851786"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408150017420.png" alt="image-20250408150017420"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408150027153.png" alt="image-20250408150027153"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408150142297.png" alt="image-20250408150142297"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408150531444.png" alt="image-20250408150531444"></p>
+<p>由于寄存器 A 的值为 1，第二行指令<code>M=A - 1</code>执行后，<code>A - 1 = 0</code>，这个 0 会被存储到<code>RAM[1]</code>中（因为 M 指向<code>RAM[1]</code> ）</p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408150819756.png" alt="image-20250408150819756"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408150831390.png" alt="image-20250408150831390"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408150843125.png" alt="image-20250408150843125"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408150854396.png" alt="image-20250408150854396"></p>
+<hr>
+<h3 id="4-4-Hack-Language-plus"><a href="#4-4-Hack-Language-plus" class="headerlink" title="4.4 Hack Language plus"></a>4.4 Hack Language plus</h3><h4 id="Use-Binary-to-write"><a href="#Use-Binary-to-write" class="headerlink" title="Use Binary to write"></a>Use Binary to write</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408152040771.png" alt="image-20250408152040771"></p>
+<ul>
+<li>用机器语言（0和1构成）写的话，就不需要汇编器了。电脑直接读懂。</li>
+<li>介绍这一节，也是为了更加了解机器语言和汇编语言的联系，为之后写汇编器做铺垫</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408152117325.png" alt="image-20250408152117325"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408152332506.png" alt="image-20250408152332506"></p>
+<h4 id="C-ins"><a href="#C-ins" class="headerlink" title="C-ins"></a>C-ins</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408152519706.png" alt="image-20250408152519706"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408152600779.png" alt="image-20250408152600779"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408152758307.png" alt="image-20250408152758307"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408152841602.png" alt="image-20250408152841602"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408152923618.png" alt="image-20250408152923618"></p>
+<h4 id="Eg"><a href="#Eg" class="headerlink" title="Eg"></a>Eg</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250502154554223.png" alt="image-20250502154554223"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250502154613246.png" alt="image-20250502154613246"></p>
+<p>next</p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408153534999.png" alt="image-20250408153534999"></p>
+<hr>
+<h3 id="4-5-Input-Ouput"><a href="#4-5-Input-Ouput" class="headerlink" title="4.5 Input &#x2F; Ouput"></a>4.5 Input &#x2F; Ouput</h3><ul>
+<li>本节讨论：如何通过使用机器语言 来控制和操作 这些I&#x2F;O设备</li>
+</ul>
+<h4 id="Hack-computer-platform"><a href="#Hack-computer-platform" class="headerlink" title="Hack computer platform"></a>Hack computer platform</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408154943693.png" alt="image-20250408154943693"></p>
+<p>实现：</p>
+<ul>
+<li>以后的软件部分，会用到高级语言的库来实现high-level</li>
+<li>但是现在，只能用bit来实现low-level</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408155051269.png" alt="image-20250408155051269"></p>
+<h4 id="OutPut"><a href="#OutPut" class="headerlink" title="OutPut"></a>OutPut</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408155241432.png" alt="image-20250408155241432"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250502155831854.png" alt="image-20250502155831854"></p>
+<h4 id="Screen-memory-map"><a href="#Screen-memory-map" class="headerlink" title="Screen memory map"></a>Screen memory map</h4><ul>
+<li>make a deep study in …</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250502160036115.png" alt="image-20250502160036115"></p>
+<ul>
+<li><p>每行每列的交叉点，都有所谓的像素。</p>
+</li>
+<li><p>how do we control it?</p>
+</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408155514485.png" alt="image-20250408155514485"></p>
+<ul>
+<li><p>这些值的每一个有时被称为一个单词</p>
+</li>
+<li><p>所以有8k，每一个都是16bit的单词</p>
+</li>
+<li><p>像素怎么算：8k*16≈130,000</p>
+</li>
+<li><p>一个像素就是一个bit，一个bit就是一个像素</p>
+</li>
+<li><p>那么怎么对应呢？哪个bit位于哪个像素？</p>
+</li>
+<li><p>512&#x2F;16&#x3D;32，一行32个单词。</p>
+</li>
+<li><p>例如图片左上的4个黑点就是第一个单词的前四位bit（row0，col0-4）</p>
+</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408155820456.png" alt="image-20250408155820456"></p>
+<ul>
+<li>这里的除法是整除</li>
+<li>作为内存的一部分，更准确的地址是第二个</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408160355257.png" alt="image-20250408160355257"></p>
+<ul>
+<li>如果我们想操作单词里面特定的某一位，how？</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250502162053196.png"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408160452787.png" alt="image-20250408160452787"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408160937267.png" alt="image-20250408160937267"></p>
+<h4 id="Keyboard-memory-map"><a href="#Keyboard-memory-map" class="headerlink" title="Keyboard memory map"></a>Keyboard memory map</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408161538288.png" alt="image-20250408161538288"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408161600439.png" alt="image-20250408161600439"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408161645079.png" alt="image-20250408161645079"><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408161745467.png" alt="image-20250408161745467"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408161911388.png" alt="image-20250408161911388"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408162004740.png" alt="image-20250408162004740"></p>
+<hr>
+<h3 id="4-6-HackProgramming-Part-1"><a href="#4-6-HackProgramming-Part-1" class="headerlink" title="4.6 HackProgramming  Part 1"></a>4.6 HackProgramming  Part 1</h3><h4 id="使用Hack机器语言进行编程"><a href="#使用Hack机器语言进行编程" class="headerlink" title="使用Hack机器语言进行编程"></a>使用Hack机器语言进行编程</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408170651825.png" alt="image-20250408170651825"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408170710787.png" alt="image-20250408170710787"></p>
+<h5 id="Way1：by汇编器→机器语言→执行程序（将在proj6编写汇编器）"><a href="#Way1：by汇编器→机器语言→执行程序（将在proj6编写汇编器）" class="headerlink" title="Way1：by汇编器→机器语言→执行程序（将在proj6编写汇编器）"></a>Way1：by汇编器→机器语言→执行程序（将在proj6编写汇编器）</h5><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408170815973.png" alt="image-20250408170815973"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408170841654.png" alt="image-20250408170841654"></p>
+<h5 id="Way2-把机器语言输入到-CPU-Emulator（仿真器），执行程序（我们现在的选择）"><a href="#Way2-把机器语言输入到-CPU-Emulator（仿真器），执行程序（我们现在的选择）" class="headerlink" title="Way2 : 把机器语言输入到 CPU Emulator（仿真器），执行程序（我们现在的选择）"></a>Way2 : 把机器语言输入到 CPU Emulator（仿真器），执行程序（我们现在的选择）</h5><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408170949958.png" alt="image-20250408170949958"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408171006210.png" alt="image-20250408171006210"></p>
+<h4 id="4-6-4-7-4-8-讨论的内容："><a href="#4-6-4-7-4-8-讨论的内容：" class="headerlink" title="4.6 4.7 4.8 讨论的内容："></a><strong>4.6 4.7 4.8 讨论的内容：</strong></h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408171140334.png" alt="image-20250408171140334"></p>
+<h4 id="寄存器和内存"><a href="#寄存器和内存" class="headerlink" title="寄存器和内存"></a>寄存器和内存</h4><h5 id="寄存器：D-A-M"><a href="#寄存器：D-A-M" class="headerlink" title="寄存器：D A M"></a>寄存器：D A M</h5><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408171208123.png" alt="image-20250408171208123"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408171221797.png" alt="image-20250408171221797"><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408171240428.png" alt="image-20250408171240428"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408171249595.png" alt="image-20250408171249595"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408171300916.png" alt="image-20250408171300916"><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408171306564.png" alt="image-20250408171306564"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408171321352.png" alt="image-20250408171321352"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408171545734.png" alt="image-20250408171545734"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408171835773.png" alt="image-20250408171835773"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408171859789.png" alt="image-20250408171859789"></p>
+<h5 id="如何终结程序"><a href="#如何终结程序" class="headerlink" title="如何终结程序"></a>如何终结程序</h5><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408172553897.png" alt="image-20250408172553897"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408172808706.png" alt="image-20250408172808706"></p>
+<h5 id="可读性（Hack机器语言的规范）"><a href="#可读性（Hack机器语言的规范）" class="headerlink" title="可读性（Hack机器语言的规范）"></a>可读性（Hack机器语言的规范）</h5><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408172907182.png" alt="image-20250408172907182"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408172956750.png" alt="image-20250408172956750"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408173136744.png" alt="image-20250408173136744"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408173149349.png" alt="image-20250408173149349"></p>
+<h5 id="Hack语言的内置符号"><a href="#Hack语言的内置符号" class="headerlink" title="Hack语言的内置符号"></a>Hack语言的内置符号</h5><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408173355650.png" alt="image-20250408173355650"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408173407233.png" alt="image-20250408173407233"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408175526572.png" alt="image-20250408175526572"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408173419671.png" alt="image-20250408173419671"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408173433439.png" alt="image-20250408173433439"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408173511898.png" alt="image-20250408173511898"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408173530087.png"></p>
+<hr>
+<h3 id="4-7-HackProgramming-Part-2"><a href="#4-7-HackProgramming-Part-2" class="headerlink" title="4.7 HackProgramming  Part 2"></a>4.7 HackProgramming  Part 2</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408175652006.png" alt="image-20250408175652006"></p>
+<h4 id="Branching"><a href="#Branching" class="headerlink" title="Branching"></a>Branching</h4><ul>
+<li>评估布尔表达式或布尔条件，根据这个值决定是否跳跃（go to)</li>
+</ul>
+<h5 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h5><p>可以看到一开始@后面是数字</p>
+<p>(这里的8是第8有效行，从0开始)</p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408175934716.png" alt="image-20250408175934716"></p>
+<h5 id="符号引用"><a href="#符号引用" class="headerlink" title="符号引用"></a>符号引用</h5><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408180345936.png" alt="image-20250408180345936"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408180437096.png" alt="image-20250408180437096"></p>
+<p><strong>label ：有括号（）的叫 label ，可以被引用（如下图）</strong></p>
+<p><strong>引用的符号是 @</strong></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408180508403.png" alt="image-20250408180508403"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408185937593.png" alt="image-20250408185937593"></p>
+<p>（上图小字）</p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408180613605.png" alt="image-20250408180613605"></p>
+<ul>
+<li><p>标签声明不会被翻译（不是有效行）</p>
+</li>
+<li><p>引用了标签，就跳转到标签声明的下一行（执行）</p>
+</li>
+<li><p>标签怎么被引用呢，当触发了条件时</p>
+</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408180736935.png" alt="image-20250408180736935"></p>
+<p>标签的意义：自己做的标签不会被编译，但是比数字更加可读，更清楚地知道什么时候进行分支分叉。</p>
+<hr>
+<h4 id="Variables"><a href="#Variables" class="headerlink" title="Variables"></a>Variables</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408181502003.png" alt="image-20250408181502003"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408181507772.png" alt="image-20250408181507772"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408181516292.png" alt="image-20250408181516292"></p>
+<h5 id="Example-1"><a href="#Example-1" class="headerlink" title="Example"></a>Example</h5><p><strong>变量的声明</strong></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408181712643.png" alt="image-20250408181712643"></p>
+<h5 id="标签-变量-的区别"><a href="#标签-变量-的区别" class="headerlink" title="标签 变量 的区别"></a><strong>标签 变量 的区别</strong></h5><blockquote>
+<p>**变量的引用  **  没有()</p>
+</blockquote>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408181819165.png" alt="image-20250408181819165"></p>
+<h5 id="第一个观察"><a href="#第一个观察" class="headerlink" title="第一个观察"></a>第一个观察</h5><blockquote>
+<p><strong>引用的变量 或者 label都是不被编译的，但是有对应的数字被编译</strong></p>
+</blockquote>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408181922547.png" alt="image-20250408181922547"></p>
+<h5 id="第二个观察"><a href="#第二个观察" class="headerlink" title="第二个观察"></a>第二个观察</h5><blockquote>
+<p>变量从地址16开始分配RAM，后面的以此类推。</p>
+</blockquote>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408182159346.png" alt="image-20250408182159346"></p>
+<h5 id="第三个观察"><a href="#第三个观察" class="headerlink" title="第三个观察"></a>第三个观察</h5><blockquote>
+<p>easy to read and debug（可重定位代码） <strong>？？？</strong></p>
+</blockquote>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408182323581.png" alt="image-20250408182323581"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408182346704.png" alt="image-20250408182346704"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408182351776.png" alt="image-20250408182351776"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408182400615.png" alt="image-20250408182400615"></p>
+<h4 id="Iterable"><a href="#Iterable" class="headerlink" title="Iterable"></a>Iterable</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408182556754.png" alt="image-20250408182556754"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408182619170.png" alt="image-20250408182619170"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408182712743.png" alt="image-20250408182712743"></p>
+<p>通用步骤（编写汇编语言的程序）：</p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408183553976.png" alt="image-20250408183553976"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408183605081.png" alt="image-20250408183605081"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408183616168.png" alt="image-20250408183616168"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408183654849.png" alt="image-20250408183654849"></p>
+<hr>
+<h3 id="4-8HackProgramming-Part-3"><a href="#4-8HackProgramming-Part-3" class="headerlink" title="4.8HackProgramming  Part 3"></a>4.8HackProgramming  Part 3</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408193159878.png" alt="image-20250408193159878"></p>
+<h4 id="Pointers"><a href="#Pointers" class="headerlink" title="Pointers"></a>Pointers</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408193340051.png" alt="image-20250408193340051"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408193454956.png" alt="image-20250408193454956"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408193503108.png" alt="image-20250408193503108"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408193614636.png" alt="image-20250408193614636"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408194303828.png" alt="image-20250408194303828"></p>
+<h4 id="Input-Output"><a href="#Input-Output" class="headerlink" title="Input &#x2F; Output"></a>Input &#x2F; Output</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408194624386.png" alt="image-20250408194624386"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408194713298.png" alt="image-20250408194713298"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408194740498.png" alt="image-20250408194740498"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408195434479.png" alt="image-20250408195434479"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250408195506221.png" alt="image-20250408195506221"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250409085602507.png" alt="image-20250409085602507"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250409090013332.png" alt="image-20250409090013332"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250409090019914.png" alt="image-20250409090019914"></p>
+<p>-1的二进制就是1111 1111 1111 1111 ,在图像上就是一行黑线。</p>
+<p>然后画下一行，将地址+32就是下一行了（一行32个点，每个点都是16bit的二进制数字）</p>
+<p>（16*32&#x3D;512	一行512像素）</p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250409085922633.png" alt="image-20250409085922633"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250409090618399.png" alt="image-20250409090618399"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250409090704474.png" alt="image-20250409090704474"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250409090843101.png" alt="image-20250409090843101"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250409090851821.png" alt="image-20250409090851821"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250409090858509.png" alt="image-20250409090858509"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250409091019503.png" alt="image-20250409091019503"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250409091145770.png" alt="image-20250409091145770"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250409091237626.png" alt="image-20250409091237626"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250409091410869.png" alt="image-20250409091410869"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250409091513788.png" alt="image-20250409091513788"></p>
+<hr>
+<h2 id="Proj4"><a href="#Proj4" class="headerlink" title="Proj4"></a>Proj4</h2><h3 id="4-9-Project-4-Overview"><a href="#4-9-Project-4-Overview" class="headerlink" title="4.9 Project 4 Overview"></a>4.9 Project 4 Overview</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250409091626333.png" alt="image-20250409091626333"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250409091812658.png" alt="image-20250409091812658"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250409092150938.png" alt="image-20250409092150938"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250409092627420.png" alt="image-20250409092627420"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250409093508008.png" alt="image-20250409093508008"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250409093530565.png" alt="image-20250409093530565"></p>
+<hr>
+<h3 id="4-10-Project-4"><a href="#4-10-Project-4" class="headerlink" title="4.10 Project 4"></a>4.10 Project 4</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250413153708189.png" alt="image-20250413153708189"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@R0</span><br><span class="line">D=M</span><br><span class="line">@a</span><br><span class="line">M=D // a=R0</span><br><span class="line"></span><br><span class="line">@R1</span><br><span class="line">D=M</span><br><span class="line">@b</span><br><span class="line">M=D // b=R1</span><br><span class="line"></span><br><span class="line">@0 	 		//	   </span><br><span class="line">D = A 		//</span><br><span class="line">@R2</span><br><span class="line">M=D // R2=0</span><br><span class="line"></span><br><span class="line">(LOOP)  	//</span><br><span class="line">    @a</span><br><span class="line">    D=M</span><br><span class="line">    @STOP</span><br><span class="line">    D;JLE  // while (a&gt;0),continue,or goto &#x27;stop&#x27;</span><br><span class="line"></span><br><span class="line">    @b</span><br><span class="line">    D=M</span><br><span class="line">    @R2</span><br><span class="line">    M=M+D // R2=R2+b</span><br><span class="line">	</span><br><span class="line">    @a</span><br><span class="line">    M=M-1 //a=a-1</span><br><span class="line"></span><br><span class="line">    @LOOP  		//			</span><br><span class="line">    0;JMP  		//</span><br><span class="line"></span><br><span class="line">(STOP) 		//</span><br><span class="line">    @stop</span><br><span class="line">    0;JMP</span><br><span class="line"></span><br><span class="line">// 大部分自己写出来了！小部分不到位。</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250413164147760.png" alt="image-20250413164147760"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250413163504053.png" alt="image-20250413163504053"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">@KBD // define KBD</span><br><span class="line">D=M </span><br><span class="line"></span><br><span class="line">@i</span><br><span class="line">M=0 // define i</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">(BLACK)</span><br><span class="line">	@KBD</span><br><span class="line">	D=M</span><br><span class="line">	@WHITE</span><br><span class="line">	D;JLE</span><br><span class="line">	</span><br><span class="line">	@i 		//</span><br><span class="line">	A=M		//</span><br><span class="line">	M=-1 // RAM[addr] = -1</span><br><span class="line">	</span><br><span class="line">	@i</span><br><span class="line">	M=M+1 // i++</span><br><span class="line">	</span><br><span class="line">	@BLACK</span><br><span class="line">	0;JMP</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">(WHITE)</span><br><span class="line">	@i</span><br><span class="line">	A=M		//</span><br><span class="line">	M=0 	//</span><br><span class="line">	@i		//</span><br><span class="line">	M=M+1	//</span><br><span class="line">	</span><br><span class="line">	@WHITE</span><br><span class="line">    0;JMP</span><br><span class="line">    </span><br><span class="line">// 大概逻辑写出来了，就是细节不到位。</span><br></pre></td></tr></table></figure>
+
+<p>（参考）</p>
+<img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250409090618399.png" alt="image-20250409090618399" style="zoom: 50%;" />
+
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250409090019914.png" alt="image-20250409090019914"></p>
 ]]></content>
       <categories>
         <category>code</category>
