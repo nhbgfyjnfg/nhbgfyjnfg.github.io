@@ -1,6 +1,186 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>proj1</title>
+    <url>/2025/04/19/nand2tetris/nand2tetris-proj1-final/</url>
+    <content><![CDATA[<h2 id="Proj1"><a href="#Proj1" class="headerlink" title="Proj1"></a>Proj1</h2><h3 id="1-1-Boolean-Logic"><a href="#1-1-Boolean-Logic" class="headerlink" title="1.1 Boolean Logic"></a>1.1 Boolean Logic</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404141214589.png" alt="image-20250404141214589"></p>
+<p>⭐<strong>Some useful equations</strong></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404141414517.png" alt="image-20250404141414517"></p>
+<p><strong>→Boolean Algebra  can be 化简</strong></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404141608949.png" alt="image-20250404141608949"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404141759670.png" alt="image-20250404141759670"></p>
+<p>（Two way : ①equations,②write down the truth table)</p>
+<h3 id="1-2-Boolean-Function"><a href="#1-2-Boolean-Function" class="headerlink" title="1.2 Boolean Function"></a>1.2 Boolean Function</h3><h4 id="001："><a href="#001：" class="headerlink" title="001："></a>001：</h4><ul>
+<li><strong>理论上，任何布尔函数都可以用NotAndOr等表示出来（通过真值表选取f&#x3D;1的情况）（做芯片有用）</strong></li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404142330760.png" alt="image-20250404142330760"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404142531366.png" alt="image-20250404142531366"></p>
+<h4 id="002："><a href="#002：" class="headerlink" title="002："></a>002：</h4><ul>
+<li><strong>（or可以通过And和Not表示）</strong></li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404142856026.png" alt="image-20250404142856026"></p>
+<h4 id="003："><a href="#003：" class="headerlink" title="003："></a>003：</h4><ul>
+<li><strong>而Nand可以表示出AndNot芯片（根本的根本）</strong></li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404142922081.png" alt="image-20250404142922081"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404144646895.png" alt="image-20250404144646895"></p>
+<h3 id="1-3-Logic-Gates"><a href="#1-3-Logic-Gates" class="headerlink" title="1.3 Logic Gates"></a>1.3 Logic Gates</h3><p><em>上一节是抽象的逻辑运算，这一节是<strong>实际的</strong>芯片&#x2F;逻辑门</em></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404145506478.png" alt="image-20250404145506478"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404145701379.png" alt="image-20250404145701379"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404145744036.png" alt="image-20250404145744036"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404145815647.png" alt="image-20250404145815647"></p>
+<p><strong>一个接口，可以有不同的实现</strong></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404150147322.png" alt="image-20250404150147322"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404150426261.png" alt="image-20250404150426261"></p>
+<h3 id="1-4-Hardware-Description-Language"><a href="#1-4-Hardware-Description-Language" class="headerlink" title="1.4 Hardware Description Language"></a>1.4 Hardware Description Language</h3><p><strong>一种硬件描述语言（做硬件&#x2F;芯片用的）</strong></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404150718865.png" alt="image-20250404150718865"></p>
+<p><strong>芯片接口 和 芯片实现</strong></p>
+<p>⭐<strong>实现：用真值表看1，写出布尔函数化简，画出逻辑图</strong></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404151805805.png" alt="image-20250404151805805"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404152954069.png" alt="image-20250404152954069"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404153644134.png" alt="image-20250404153644134"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404154013569.png" alt="image-20250404154013569"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404154041022.png" alt="image-20250404154041022"></p>
+<h3 id="1-5-Hardware-Simulation"><a href="#1-5-Hardware-Simulation" class="headerlink" title="1.5 Hardware Simulation"></a>1.5 Hardware Simulation</h3><ul>
+<li><strong>for 模拟芯片测试</strong><ul>
+<li>way：在给定的硬件模拟器中 + 使用编写的测试文件</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404160947915.png" alt="image-20250404160947915"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404163421803.png" alt="image-20250404163421803"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404170858647.png" alt="image-20250404170858647"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404172732071.png" alt="image-20250404172732071"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404172955446.png" alt="image-20250404172955446"></p>
+<h3 id="1-6-Mutil-bit-Buses"><a href="#1-6-Mutil-bit-Buses" class="headerlink" title="1.6 Mutil-bit Buses"></a>1.6 Mutil-bit Buses</h3><p><strong>多位总线（eg16位总线，一条线上有16个位bit）</strong></p>
+<p>（最左边第一位是高位。 最右边的最低位一般标记为第 0 位）</p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404202521312.png" alt="image-20250404202521312"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404202530048.png" alt="image-20250404202530048"></p>
+<p><strong>⭐ useful</strong></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404202602223.png" alt="image-20250404202602223"></p>
+<p>说明中第一句的意思是：<strong>可以进行多个output，比如前8位输出，后八位输出，全部输出</strong></p>
+<h3 id="1-7-proj-7-preview"><a href="#1-7-proj-7-preview" class="headerlink" title="1.7 proj 7  preview"></a>1.7 proj 7  preview</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404202849141.png" alt="image-20250404202849141"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404202926080.png" alt="image-20250404202926080"></p>
+<p><strong>tip几个</strong></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404203025658.png" alt="image-20250404203025658"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404203159712.png" alt="image-20250404203159712"></p>
+<p>（既可以用作And门，也可以用作Mux门）</p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404203425278.png" alt="image-20250404203425278"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404204239746.png" alt="image-20250404204239746"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404204625628.png" alt="image-20250404204625628"></p>
+<p><strong>And 16 ： 两个输入，都是16位的，一个输出（每位进行And运算），也是十六位的</strong></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404204739365.png" alt="image-20250404204739365"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404204849942.png" alt="image-20250404204849942"></p>
+<p><strong>16-bit，4way multiplexor : 输入都是16位的，4个输入，一个16bit输出（mux逻辑，根据which sel进行选择）。</strong></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404205018344.png" alt="image-20250404205018344"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404205126035.png" alt="image-20250404205126035"></p>
+<p>⭐ <strong>notes</strong></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404210112492.png" alt="image-20250404210112492"></p>
+<p> <strong>API</strong></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404211743753.png" alt="image-20250404211743753"></p>
+<h3 id="1-8-code"><a href="#1-8-code" class="headerlink" title="1.8 code"></a>1.8 code</h3><h4 id="Nand"><a href="#Nand" class="headerlink" title="Nand"></a>Nand</h4><table>
+<thead>
+<tr>
+<th>x</th>
+<th>y</th>
+<th>out</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+</tbody></table>
+<h4 id="Not"><a href="#Not" class="headerlink" title="Not"></a>Not</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// Not gate : if (in) out = 0, else out = 1</span><br><span class="line"></span><br><span class="line">CHIP Not &#123;</span><br><span class="line">    IN in;</span><br><span class="line">    OUT out;</span><br><span class="line"></span><br><span class="line">    PARTS:</span><br><span class="line">    Nand(a=in, b=in, out=out);</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="And"><a href="#And" class="headerlink" title="And"></a>And</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// And gate : if (a and b) out = 1, else out = 0 </span><br><span class="line"></span><br><span class="line">CHIP And &#123;</span><br><span class="line">    IN a, b;</span><br><span class="line">    OUT out;</span><br><span class="line">    </span><br><span class="line">    PARTS:</span><br><span class="line">    Nand(a=a, b=b, out=c);</span><br><span class="line">    Not(in=c,out=out);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Or"><a href="#Or" class="headerlink" title="Or"></a>Or</h4><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/b75694b72e0957867d154be60f9a207.jpg" alt="b75694b72e0957867d154be60f9a207" style="zoom:10%;" />
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// Or gate : if (a or b) out = 1, else out = 0 </span><br><span class="line">// only a=0,b=0,out=0,else out=1</span><br><span class="line"></span><br><span class="line">CHIP Or &#123;</span><br><span class="line">    IN a, b;</span><br><span class="line">    OUT out;</span><br><span class="line"></span><br><span class="line">    PARTS:</span><br><span class="line">    Nand(a=a, b=a, out=a2);</span><br><span class="line">    Nand(a=b, b=b, out=b2);</span><br><span class="line">    Nand(a=a2, b=b2,out=out);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Xor"><a href="#Xor" class="headerlink" title="Xor"></a>Xor</h4><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/14c146587d40e107bec5f52c50fc019.jpg" alt="14c146587d40e107bec5f52c50fc019" style="zoom:12%;" />
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// Exclusive-or gate: if ((a and Not(b)) or (Not(a) and b)) out = 1, else out = 0</span><br><span class="line"></span><br><span class="line">CHIP Xor &#123;</span><br><span class="line">    IN a, b;</span><br><span class="line">    OUT out;</span><br><span class="line"></span><br><span class="line">    PARTS:</span><br><span class="line">    ////真值表推出来的(定义也写明了哈哈哈)</span><br><span class="line">    Not(in=a, out=nota);</span><br><span class="line">    Not(in=b, out=notb);</span><br><span class="line">    And(a=a, b=notb, out=aAndnotb);</span><br><span class="line">    And(a=b, b=nota, out=bAndnota);</span><br><span class="line">    Or(a=aAndnotb, b=bAndnota, out=out);</span><br><span class="line">&#125;    </span><br></pre></td></tr></table></figure>
+
+<h4 id="Mux（二1bit并一）"><a href="#Mux（二1bit并一）" class="headerlink" title="Mux（二1bit并一）"></a>Mux（二1bit并一）</h4><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/bb2b12af45a30fae8396224ade119a7.jpg" alt="bb2b12af45a30fae8396224ade119a7" style="zoom:11%;" />
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// Multiplexor: if (sel = 0) out = a, else out = b  (good!)</span><br><span class="line"></span><br><span class="line">CHIP Mux &#123;</span><br><span class="line">    IN a, b, sel;</span><br><span class="line">    OUT out;</span><br><span class="line"></span><br><span class="line">    PARTS:</span><br><span class="line">    Not(in=sel, out=notsel); </span><br><span class="line">    And(a=a , b=notsel, out=outa);//if sel==0,返回a (depend on a)</span><br><span class="line">    And(a=sel, b=b, out=outb ); //if sel==1，返回b (depend on b)</span><br><span class="line">    Or(a=outa, b=outb, out=out );   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Dmux（一解二）"><a href="#Dmux（一解二）" class="headerlink" title="Dmux（一解二）"></a>Dmux（一解二）</h4><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/1c6ff7a10f0431156d30ca2e457635b.jpg" alt="1c6ff7a10f0431156d30ca2e457635b" style="zoom:12%;" />
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// Demultiplexor: [a, b] = 		[in, 0] if sel = 0 		[0, in] if sel = 1</span><br><span class="line"></span><br><span class="line">CHIP DMux &#123;</span><br><span class="line">    IN in, sel;</span><br><span class="line">    OUT a, b;</span><br><span class="line"></span><br><span class="line">    PARTS:</span><br><span class="line">    Not(in=sel , out=notsel );</span><br><span class="line">    And(a=in, b=notsel, out=a );</span><br><span class="line">    And(a=in, b=sel , out=b ); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Not16"><a href="#Not16" class="headerlink" title="Not16"></a>Not16</h4><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/2888a1bdd8c56821dc4950f143b6396.jpg" alt="2888a1bdd8c56821dc4950f143b6396" style="zoom:15%;" />
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 16-bit Not gate:		for i = 0, ..., 15: 	out[i] = Not(a[i])</span><br><span class="line"> </span><br><span class="line">// 把一个16位的数，每一位都取反</span><br><span class="line">CHIP Not16 &#123;</span><br><span class="line">    IN in[16];</span><br><span class="line">    OUT out[16];</span><br><span class="line"></span><br><span class="line">    PARTS:</span><br><span class="line">    Not(in=in[0] , out=out[0] );</span><br><span class="line">    Not(in=in[1] , out=out[1] );</span><br><span class="line">    Not(in=in[2] , out=out[2] );</span><br><span class="line">    Not(in=in[3] , out=out[3] );</span><br><span class="line">    Not(in=in[4] , out=out[4] );</span><br><span class="line">    Not(in=in[5] , out=out[5] );</span><br><span class="line">    Not(in=in[6] , out=out[6] );</span><br><span class="line">    Not(in=in[7] , out=out[7] );</span><br><span class="line">    Not(in=in[8] , out=out[8] );</span><br><span class="line">    Not(in=in[9] , out=out[9] );</span><br><span class="line">    Not(in=in[10] , out=out[10] );</span><br><span class="line">    Not(in=in[11] , out=out[11] );</span><br><span class="line">    Not(in=in[12] , out=out[12] );</span><br><span class="line">    Not(in=in[13] , out=out[13] );</span><br><span class="line">    Not(in=in[14] , out=out[14] );</span><br><span class="line">    Not(in=in[15] , out=out[15] );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="And16"><a href="#And16" class="headerlink" title="And16"></a>And16</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 16-bit And gate: 	for i = 0, ..., 15: 	out[i] = a[i] And b[i] </span><br><span class="line"></span><br><span class="line">// 把两个16位的数，每一位都求And</span><br><span class="line">CHIP And16 &#123;</span><br><span class="line">    IN a[16], b[16];</span><br><span class="line">    OUT out[16];</span><br><span class="line"></span><br><span class="line">    PARTS:</span><br><span class="line">    //// Replace this comment with your code.</span><br><span class="line">    And(a=a[0] , b=b[0] , out=out[0] );</span><br><span class="line">    And(a=a[1] , b=b[1] , out=out[1] );</span><br><span class="line">    And(a=a[2] , b=b[2] , out=out[2] );</span><br><span class="line">    And(a=a[3] , b=b[3] , out=out[3] );</span><br><span class="line">    And(a=a[4] , b=b[4] , out=out[4] );</span><br><span class="line">    And(a=a[5] , b=b[5] , out=out[5] );</span><br><span class="line">    And(a=a[6] , b=b[6] , out=out[6] );</span><br><span class="line">    And(a=a[7] , b=b[7] , out=out[7] );</span><br><span class="line">    And(a=a[8] , b=b[8] , out=out[8] );</span><br><span class="line">    And(a=a[9] , b=b[9] , out=out[9] );</span><br><span class="line">    And(a=a[10] , b=b[10] , out=out[10] );</span><br><span class="line">    And(a=a[11] , b=b[11] , out=out[11] );</span><br><span class="line">    And(a=a[12] , b=b[12] , out=out[12] );</span><br><span class="line">    And(a=a[13] , b=b[13] , out=out[13] );</span><br><span class="line">    And(a=a[14] , b=b[14] , out=out[14] );</span><br><span class="line">    And(a=a[15] , b=b[15] , out=out[15] );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Or16"><a href="#Or16" class="headerlink" title="Or16"></a>Or16</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 16-bit Or gate: 		for i = 0, ..., 15: 	out[i] = a[i] Or b[i] </span><br><span class="line"></span><br><span class="line">CHIP Or16 &#123;</span><br><span class="line">    IN a[16], b[16];</span><br><span class="line">    OUT out[16];</span><br><span class="line"></span><br><span class="line">    PARTS:</span><br><span class="line">    Or(a=a[0] , b=b[0] , out=out[0] );</span><br><span class="line">    Or(a=a[1] , b=b[1] , out=out[1] );</span><br><span class="line">    Or(a=a[2] , b=b[2] , out=out[2] );</span><br><span class="line">    Or(a=a[3] , b=b[3] , out=out[3] );</span><br><span class="line">    Or(a=a[4] , b=b[4] , out=out[4] );</span><br><span class="line">    Or(a=a[5] , b=b[5] , out=out[5] );</span><br><span class="line">    Or(a=a[6] , b=b[6] , out=out[6] );</span><br><span class="line">    Or(a=a[7] , b=b[7] , out=out[7] );</span><br><span class="line">    Or(a=a[8] , b=b[8] , out=out[8] );</span><br><span class="line">    Or(a=a[9] , b=b[9] , out=out[9] );</span><br><span class="line">    Or(a=a[10] , b=b[10] , out=out[10] );</span><br><span class="line">    Or(a=a[11] , b=b[11] , out=out[11] );</span><br><span class="line">    Or(a=a[12] , b=b[12] , out=out[12] );</span><br><span class="line">    Or(a=a[13] , b=b[13] , out=out[13] );</span><br><span class="line">    Or(a=a[14] , b=b[14] , out=out[14] );</span><br><span class="line">    Or(a=a[15] , b=b[15] , out=out[15] );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Mux16（二16bit并一）"><a href="#Mux16（二16bit并一）" class="headerlink" title="Mux16（二16bit并一）"></a>Mux16（二16bit并一）</h4><ul>
+<li>实现方式：16个Mux并排作用与每一个bit</li>
+</ul>
+<img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/e37fe587999c0d2944e788df5cbfd59.jpg" alt="e37fe587999c0d2944e788df5cbfd59" style="zoom:13%;" />
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 16-bit multiplexor: 		for i = 0, ..., 15:	   if (sel = 0) out[i] = a[i], else out[i] = b[i]</span><br><span class="line"></span><br><span class="line">CHIP Mux16 &#123;</span><br><span class="line">    IN a[16], b[16], sel;</span><br><span class="line">    OUT out[16];</span><br><span class="line"></span><br><span class="line">    PARTS:</span><br><span class="line">    Not(in=sel , out=notsel );</span><br><span class="line"></span><br><span class="line">    And(a=a[0] , b=notsel , out=out01 );</span><br><span class="line">    And(a=sel , b=b[0] , out=out02 );</span><br><span class="line">    Or(a=out01 , b=out02 , out=out[0] );</span><br><span class="line"></span><br><span class="line">    And(a=a[1] , b=notsel , out=out11 );</span><br><span class="line">    And(a=sel , b=b[1] , out=out12 );</span><br><span class="line">    Or(a=out11 , b=out12 , out=out[1] );</span><br><span class="line"></span><br><span class="line">    And(a=a[2] , b=notsel , out=out21 );</span><br><span class="line">    And(a=sel , b=b[2] , out=out22 );</span><br><span class="line">    Or(a=out21 , b=out22 , out=out[2] );</span><br><span class="line"></span><br><span class="line">    And(a=a[3] , b=notsel , out=out31 );</span><br><span class="line">    And(a=sel , b=b[3] , out=out32 );</span><br><span class="line">    Or(a=out31 , b=out32 , out=out[3] );</span><br><span class="line"></span><br><span class="line">    And(a=a[4] , b=notsel , out=out41 );</span><br><span class="line">    And(a=sel , b=b[4] , out=out42 );</span><br><span class="line">    Or(a=out41 , b=out42 , out=out[4] );</span><br><span class="line"></span><br><span class="line">    And(a=a[5] , b=notsel , out=out51 );</span><br><span class="line">    And(a=sel , b=b[5] , out=out52 );</span><br><span class="line">    Or(a=out51 , b=out52 , out=out[5] );</span><br><span class="line"></span><br><span class="line">    And(a=a[6] , b=notsel , out=out61 );</span><br><span class="line">    And(a=sel , b=b[6] , out=out62 );</span><br><span class="line">    Or(a=out61 , b=out62 , out=out[6] );</span><br><span class="line"></span><br><span class="line">    And(a=a[7] , b=notsel , out=out71 );</span><br><span class="line">    And(a=sel , b=b[7] , out=out72 );</span><br><span class="line">    Or(a=out71 , b=out72 , out=out[7] );</span><br><span class="line"></span><br><span class="line">    And(a=a[8] , b=notsel , out=out81 );</span><br><span class="line">    And(a=sel , b=b[8] , out=out82 );</span><br><span class="line">    Or(a=out81 , b=out82 , out=out[8] );</span><br><span class="line"></span><br><span class="line">    And(a=a[9] , b=notsel , out=out91 );</span><br><span class="line">    And(a=sel , b=b[9] , out=out92 );</span><br><span class="line">    Or(a=out91 , b=out92 , out=out[9] );</span><br><span class="line"></span><br><span class="line">    And(a=a[10] , b=notsel , out=out101 );</span><br><span class="line">    And(a=sel , b=b[10] , out=out102 );</span><br><span class="line">    Or(a=out101 , b=out102 , out=out[10] );</span><br><span class="line"></span><br><span class="line">    And(a=a[11] , b=notsel , out=out111 );</span><br><span class="line">    And(a=sel , b=b[11] , out=out112 );</span><br><span class="line">    Or(a=out111 , b=out112 , out=out[11] );</span><br><span class="line"></span><br><span class="line">    And(a=a[12] , b=notsel , out=out121 );</span><br><span class="line">    And(a=sel , b=b[12] , out=out122 );</span><br><span class="line">    Or(a=out121 , b=out122 , out=out[12] );</span><br><span class="line"></span><br><span class="line">    And(a=a[13] , b=notsel , out=out131 );</span><br><span class="line">    And(a=sel , b=b[13] , out=out132 );</span><br><span class="line">    Or(a=out131 , b=out132 , out=out[13] );</span><br><span class="line"></span><br><span class="line">    And(a=a[14] , b=notsel , out=out141 );</span><br><span class="line">    And(a=sel , b=b[14] , out=out142 );</span><br><span class="line">    Or(a=out141 , b=out142 , out=out[14] );</span><br><span class="line"></span><br><span class="line">    And(a=a[15] , b=notsel , out=out151 );</span><br><span class="line">    And(a=sel , b=b[15] , out=out152 );</span><br><span class="line">    Or(a=out151 , b=out152 , out=out[15] );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Or8Way"><a href="#Or8Way" class="headerlink" title="Or8Way"></a>Or8Way</h4><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/1113aa3384d980cf7a3cf7c22f999ea.jpg" alt="1113aa3384d980cf7a3cf7c22f999ea" style="zoom:11%;" />
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 8-way Or gate！  		out = in[0] Or in[1] Or ... Or in[7]</span><br><span class="line">// 输入 一个 8-bit数！而不是 两个 ！输出一个1-bit数。</span><br><span class="line"></span><br><span class="line">CHIP Or8Way &#123;</span><br><span class="line">    IN in[8];</span><br><span class="line">    OUT out;</span><br><span class="line"></span><br><span class="line">    PARTS:</span><br><span class="line">    // 输入一个八位（bit）数，依次每两位取Or，最后输出结果（全0才会输出0，有一个1就输出1）</span><br><span class="line">    Or(a=in[0] , b=in[1] , out=s1 );</span><br><span class="line">    Or(a=in[2] , b=in[3] , out=s2 );</span><br><span class="line">    Or(a=in[4] , b=in[5] , out=s3 );</span><br><span class="line">    Or(a=in[6] , b=in[7] , out=s4 );</span><br><span class="line">    Or(a=s1 , b=s2 , out=w1 );</span><br><span class="line">    Or(a=s3 , b=s4 , out=w2 );</span><br><span class="line">    Or(a=w1 , b=w2 , out=out );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Mux4Way16（四16bit并一）"><a href="#Mux4Way16（四16bit并一）" class="headerlink" title="Mux4Way16（四16bit并一）"></a>Mux4Way16（四16bit并一）</h4><ul>
+<li><p>解析名字含义：</p>
+<ul>
+<li><p><strong>Mux16</strong> 是 <strong>16-bit</strong> 的意思。</p>
+</li>
+<li><p><strong>Mux4Way16</strong> 是 <strong>16-bit，4-way</strong> 的意思</p>
+</li>
+<li><p>那为啥 Or8Way 是 8-bit，1-way？的意思？</p>
+</li>
+</ul>
+</li>
+</ul>
+<img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/412c8358a3261cc20cca4fb7d9437aa.jpg" alt="412c8358a3261cc20cca4fb7d9437aa" style="zoom:11%;" />
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 4-way 16-bit multiplexor:</span><br><span class="line"> * out = a if sel = 00</span><br><span class="line"> *       b if sel = 01</span><br><span class="line"> *       c if sel = 10</span><br><span class="line"> *       d if sel = 11</span><br><span class="line"> */</span><br><span class="line"> </span><br><span class="line">// 四条路/输入，每个都是16bit，根据sel的不同（4个sel，两位的二进制数字），输出其中 一 个数。</span><br><span class="line">CHIP Mux4Way16 &#123; 							// 看成 Mux 16 ，把 4Way 插在名字中间</span><br><span class="line">    IN a[16], b[16], c[16], d[16], sel[2];</span><br><span class="line">    OUT out[16];</span><br><span class="line">    </span><br><span class="line">    PARTS:</span><br><span class="line">    // we just need one output !</span><br><span class="line">    Mux16(a=a , b=b , sel=sel[0] , out=w1 );   // [0]是最右</span><br><span class="line">    Mux16(a=c , b=d , sel=sel[0] , out=w2 );</span><br><span class="line"></span><br><span class="line">    Mux16(a=w1 , b=w2 , sel=sel[1] , out=out );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Mux8Way16（八16bit并一）"><a href="#Mux8Way16（八16bit并一）" class="headerlink" title="Mux8Way16（八16bit并一）"></a>Mux8Way16（八16bit并一）</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 8-way 16-bit multiplexor:</span><br><span class="line"> * out = a if sel = 000</span><br><span class="line"> *       b if sel = 001</span><br><span class="line"> *       c if sel = 010</span><br><span class="line"> *       d if sel = 011</span><br><span class="line"> *       e if sel = 100</span><br><span class="line"> *       f if sel = 101</span><br><span class="line"> *       g if sel = 110</span><br><span class="line"> *       h if sel = 111</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">// 8条路/输入，每个都是16bit，根据sel的不同（8个sel，三位的二进制数字），输出其中 一 个数。</span><br><span class="line">CHIP Mux8Way16 &#123;</span><br><span class="line">    IN a[16], b[16], c[16], d[16],</span><br><span class="line">       e[16], f[16], g[16], h[16],</span><br><span class="line">       sel[3];</span><br><span class="line">    OUT out[16];</span><br><span class="line"></span><br><span class="line">    PARTS:</span><br><span class="line">    // 用两个Mux4Way16再加上一个Mux16就行了。</span><br><span class="line">    Mux4Way16(a=a , b=b , c=c , d=d , sel[0]=sel[0] ,sel[1]=sel[1],out=w1 );</span><br><span class="line">    Mux4Way16(a=e , b=f , c=g , d=h , sel[0]=sel[0] ,sel[1]=sel[1],out=w2 );</span><br><span class="line">    Mux16(a=w1 , b=w2 , sel=sel[2] , out=out );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="DMux4Way（一解四）"><a href="#DMux4Way（一解四）" class="headerlink" title="DMux4Way（一解四）"></a>DMux4Way（一解四）</h4><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/042760ad0a8f3a0d172d509e6a2462e.jpg" alt="042760ad0a8f3a0d172d509e6a2462e" style="zoom:15%;" />
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 4-way demultiplexor:</span><br><span class="line"> * [a, b, c, d] = [in, 0, 0, 0] if sel = 00</span><br><span class="line"> *                [0, in, 0, 0] if sel = 01</span><br><span class="line"> *                [0, 0, in, 0] if sel = 10</span><br><span class="line"> *                [0, 0, 0, in] if sel = 11</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">// 一个输入（几bit应该没要求），根据sel的不同选择赋予abcd哪个的值（4个值4Way，需要4个sel），其他值输出0（4个sel，两位二进制数字）</span><br><span class="line">CHIP DMux4Way &#123;</span><br><span class="line">    IN in, sel[2];</span><br><span class="line">    OUT a, b, c, d;</span><br><span class="line"></span><br><span class="line">    PARTS:</span><br><span class="line">    DMux(in=in, sel=sel[1], a=top, b=bottom);</span><br><span class="line">    </span><br><span class="line">    DMux(in=top, sel=sel[0], a=a, b=b);</span><br><span class="line">    DMux(in=bottom, sel=sel[0], a=c, b=d);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="DMux8Way（一解八）"><a href="#DMux8Way（一解八）" class="headerlink" title="DMux8Way（一解八）"></a>DMux8Way（一解八）</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 8-way demultiplexor:</span><br><span class="line"> * [a, b, c, d, e, f, g, h] = [in, 0,  0,  0,  0,  0,  0,  0] if sel = 000</span><br><span class="line"> *                            [0, in,  0,  0,  0,  0,  0,  0] if sel = 001</span><br><span class="line"> *                            [0,  0, in,  0,  0,  0,  0,  0] if sel = 010</span><br><span class="line"> *                            [0,  0,  0, in,  0,  0,  0,  0] if sel = 011</span><br><span class="line"> *                            [0,  0,  0,  0, in,  0,  0,  0] if sel = 100</span><br><span class="line"> *                            [0,  0,  0,  0,  0, in,  0,  0] if sel = 101</span><br><span class="line"> *                            [0,  0,  0,  0,  0,  0, in,  0] if sel = 110</span><br><span class="line"> *                            [0,  0,  0,  0,  0,  0,  0, in] if sel = 111</span><br><span class="line"> */</span><br><span class="line"> </span><br><span class="line">// 根据三位数的sel把in分成8部分</span><br><span class="line">CHIP DMux8Way &#123;</span><br><span class="line">    IN in, sel[3]; </span><br><span class="line">    // sel有8种可能，但打开时，只有一种状态，所以只有一个有值，其他都是0值。</span><br><span class="line">    OUT a, b, c, d, e, f, g, h;</span><br><span class="line">    </span><br><span class="line">    PARTS:</span><br><span class="line">    // 根据sel第一位，把in数据分成两部分，top和bottom</span><br><span class="line">    DMux(in=in, sel=sel[2], a=top, b=bottom);</span><br><span class="line"></span><br><span class="line">    // 根据sel第二位，分别把top和bottom再分成两个部分，总计四部分</span><br><span class="line">    DMux(in=top, sel=sel[1], a=w1, b=w2);</span><br><span class="line">    DMux(in=bottom, sel=sel[1], a=w3, b=w4);</span><br><span class="line"></span><br><span class="line">    // 根据sel第三位，把in总共分成8部分    </span><br><span class="line">    DMux(in=w1, sel=sel[0], a=a, b=b);</span><br><span class="line">    DMux(in=w2, sel=sel[0], a=c, b=d);</span><br><span class="line"></span><br><span class="line">    DMux(in=w3, sel=sel[0], a=e, b=f);</span><br><span class="line">    DMux(in=w4, sel=sel[0], a=g, b=h);   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+]]></content>
+      <categories>
+        <category>code</category>
+      </categories>
+      <tags>
+        <tag>nand2tetris</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>proj1(review)</title>
     <url>/2025/11/04/nand2tetris/nand2tetris-proj1-final2/</url>
     <content><![CDATA[<h3 id="1-1-Boolean-Logic"><a href="#1-1-Boolean-Logic" class="headerlink" title="1.1 Boolean Logic"></a>1.1 Boolean Logic</h3><p>&#x3D;&#x3D;<strong>The Formula  &#x3D;&#x3D;  The Truth table.</strong>&#x3D;&#x3D;</p>
@@ -207,186 +387,6 @@
       </tags>
   </entry>
   <entry>
-    <title>proj1</title>
-    <url>/2025/04/19/nand2tetris/nand2tetris-proj1-final/</url>
-    <content><![CDATA[<h2 id="Proj1"><a href="#Proj1" class="headerlink" title="Proj1"></a>Proj1</h2><h3 id="1-1-Boolean-Logic"><a href="#1-1-Boolean-Logic" class="headerlink" title="1.1 Boolean Logic"></a>1.1 Boolean Logic</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404141214589.png" alt="image-20250404141214589"></p>
-<p>⭐<strong>Some useful equations</strong></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404141414517.png" alt="image-20250404141414517"></p>
-<p><strong>→Boolean Algebra  can be 化简</strong></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404141608949.png" alt="image-20250404141608949"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404141759670.png" alt="image-20250404141759670"></p>
-<p>（Two way : ①equations,②write down the truth table)</p>
-<h3 id="1-2-Boolean-Function"><a href="#1-2-Boolean-Function" class="headerlink" title="1.2 Boolean Function"></a>1.2 Boolean Function</h3><h4 id="001："><a href="#001：" class="headerlink" title="001："></a>001：</h4><ul>
-<li><strong>理论上，任何布尔函数都可以用NotAndOr等表示出来（通过真值表选取f&#x3D;1的情况）（做芯片有用）</strong></li>
-</ul>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404142330760.png" alt="image-20250404142330760"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404142531366.png" alt="image-20250404142531366"></p>
-<h4 id="002："><a href="#002：" class="headerlink" title="002："></a>002：</h4><ul>
-<li><strong>（or可以通过And和Not表示）</strong></li>
-</ul>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404142856026.png" alt="image-20250404142856026"></p>
-<h4 id="003："><a href="#003：" class="headerlink" title="003："></a>003：</h4><ul>
-<li><strong>而Nand可以表示出AndNot芯片（根本的根本）</strong></li>
-</ul>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404142922081.png" alt="image-20250404142922081"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404144646895.png" alt="image-20250404144646895"></p>
-<h3 id="1-3-Logic-Gates"><a href="#1-3-Logic-Gates" class="headerlink" title="1.3 Logic Gates"></a>1.3 Logic Gates</h3><p><em>上一节是抽象的逻辑运算，这一节是<strong>实际的</strong>芯片&#x2F;逻辑门</em></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404145506478.png" alt="image-20250404145506478"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404145701379.png" alt="image-20250404145701379"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404145744036.png" alt="image-20250404145744036"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404145815647.png" alt="image-20250404145815647"></p>
-<p><strong>一个接口，可以有不同的实现</strong></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404150147322.png" alt="image-20250404150147322"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404150426261.png" alt="image-20250404150426261"></p>
-<h3 id="1-4-Hardware-Description-Language"><a href="#1-4-Hardware-Description-Language" class="headerlink" title="1.4 Hardware Description Language"></a>1.4 Hardware Description Language</h3><p><strong>一种硬件描述语言（做硬件&#x2F;芯片用的）</strong></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404150718865.png" alt="image-20250404150718865"></p>
-<p><strong>芯片接口 和 芯片实现</strong></p>
-<p>⭐<strong>实现：用真值表看1，写出布尔函数化简，画出逻辑图</strong></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404151805805.png" alt="image-20250404151805805"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404152954069.png" alt="image-20250404152954069"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404153644134.png" alt="image-20250404153644134"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404154013569.png" alt="image-20250404154013569"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404154041022.png" alt="image-20250404154041022"></p>
-<h3 id="1-5-Hardware-Simulation"><a href="#1-5-Hardware-Simulation" class="headerlink" title="1.5 Hardware Simulation"></a>1.5 Hardware Simulation</h3><ul>
-<li><strong>for 模拟芯片测试</strong><ul>
-<li>way：在给定的硬件模拟器中 + 使用编写的测试文件</li>
-</ul>
-</li>
-</ul>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404160947915.png" alt="image-20250404160947915"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404163421803.png" alt="image-20250404163421803"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404170858647.png" alt="image-20250404170858647"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404172732071.png" alt="image-20250404172732071"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404172955446.png" alt="image-20250404172955446"></p>
-<h3 id="1-6-Mutil-bit-Buses"><a href="#1-6-Mutil-bit-Buses" class="headerlink" title="1.6 Mutil-bit Buses"></a>1.6 Mutil-bit Buses</h3><p><strong>多位总线（eg16位总线，一条线上有16个位bit）</strong></p>
-<p>（最左边第一位是高位。 最右边的最低位一般标记为第 0 位）</p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404202521312.png" alt="image-20250404202521312"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404202530048.png" alt="image-20250404202530048"></p>
-<p><strong>⭐ useful</strong></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404202602223.png" alt="image-20250404202602223"></p>
-<p>说明中第一句的意思是：<strong>可以进行多个output，比如前8位输出，后八位输出，全部输出</strong></p>
-<h3 id="1-7-proj-7-preview"><a href="#1-7-proj-7-preview" class="headerlink" title="1.7 proj 7  preview"></a>1.7 proj 7  preview</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404202849141.png" alt="image-20250404202849141"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404202926080.png" alt="image-20250404202926080"></p>
-<p><strong>tip几个</strong></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404203025658.png" alt="image-20250404203025658"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404203159712.png" alt="image-20250404203159712"></p>
-<p>（既可以用作And门，也可以用作Mux门）</p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404203425278.png" alt="image-20250404203425278"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404204239746.png" alt="image-20250404204239746"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404204625628.png" alt="image-20250404204625628"></p>
-<p><strong>And 16 ： 两个输入，都是16位的，一个输出（每位进行And运算），也是十六位的</strong></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404204739365.png" alt="image-20250404204739365"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404204849942.png" alt="image-20250404204849942"></p>
-<p><strong>16-bit，4way multiplexor : 输入都是16位的，4个输入，一个16bit输出（mux逻辑，根据which sel进行选择）。</strong></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404205018344.png" alt="image-20250404205018344"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404205126035.png" alt="image-20250404205126035"></p>
-<p>⭐ <strong>notes</strong></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404210112492.png" alt="image-20250404210112492"></p>
-<p> <strong>API</strong></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250404211743753.png" alt="image-20250404211743753"></p>
-<h3 id="1-8-code"><a href="#1-8-code" class="headerlink" title="1.8 code"></a>1.8 code</h3><h4 id="Nand"><a href="#Nand" class="headerlink" title="Nand"></a>Nand</h4><table>
-<thead>
-<tr>
-<th>x</th>
-<th>y</th>
-<th>out</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-</tr>
-<tr>
-<td>1</td>
-<td>0</td>
-<td>1</td>
-</tr>
-<tr>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-</tr>
-<tr>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-</tr>
-</tbody></table>
-<h4 id="Not"><a href="#Not" class="headerlink" title="Not"></a>Not</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// Not gate : if (in) out = 0, else out = 1</span><br><span class="line"></span><br><span class="line">CHIP Not &#123;</span><br><span class="line">    IN in;</span><br><span class="line">    OUT out;</span><br><span class="line"></span><br><span class="line">    PARTS:</span><br><span class="line">    Nand(a=in, b=in, out=out);</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="And"><a href="#And" class="headerlink" title="And"></a>And</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// And gate : if (a and b) out = 1, else out = 0 </span><br><span class="line"></span><br><span class="line">CHIP And &#123;</span><br><span class="line">    IN a, b;</span><br><span class="line">    OUT out;</span><br><span class="line">    </span><br><span class="line">    PARTS:</span><br><span class="line">    Nand(a=a, b=b, out=c);</span><br><span class="line">    Not(in=c,out=out);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="Or"><a href="#Or" class="headerlink" title="Or"></a>Or</h4><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/b75694b72e0957867d154be60f9a207.jpg" alt="b75694b72e0957867d154be60f9a207" style="zoom:10%;" />
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// Or gate : if (a or b) out = 1, else out = 0 </span><br><span class="line">// only a=0,b=0,out=0,else out=1</span><br><span class="line"></span><br><span class="line">CHIP Or &#123;</span><br><span class="line">    IN a, b;</span><br><span class="line">    OUT out;</span><br><span class="line"></span><br><span class="line">    PARTS:</span><br><span class="line">    Nand(a=a, b=a, out=a2);</span><br><span class="line">    Nand(a=b, b=b, out=b2);</span><br><span class="line">    Nand(a=a2, b=b2,out=out);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="Xor"><a href="#Xor" class="headerlink" title="Xor"></a>Xor</h4><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/14c146587d40e107bec5f52c50fc019.jpg" alt="14c146587d40e107bec5f52c50fc019" style="zoom:12%;" />
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// Exclusive-or gate: if ((a and Not(b)) or (Not(a) and b)) out = 1, else out = 0</span><br><span class="line"></span><br><span class="line">CHIP Xor &#123;</span><br><span class="line">    IN a, b;</span><br><span class="line">    OUT out;</span><br><span class="line"></span><br><span class="line">    PARTS:</span><br><span class="line">    ////真值表推出来的(定义也写明了哈哈哈)</span><br><span class="line">    Not(in=a, out=nota);</span><br><span class="line">    Not(in=b, out=notb);</span><br><span class="line">    And(a=a, b=notb, out=aAndnotb);</span><br><span class="line">    And(a=b, b=nota, out=bAndnota);</span><br><span class="line">    Or(a=aAndnotb, b=bAndnota, out=out);</span><br><span class="line">&#125;    </span><br></pre></td></tr></table></figure>
-
-<h4 id="Mux（二1bit并一）"><a href="#Mux（二1bit并一）" class="headerlink" title="Mux（二1bit并一）"></a>Mux（二1bit并一）</h4><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/bb2b12af45a30fae8396224ade119a7.jpg" alt="bb2b12af45a30fae8396224ade119a7" style="zoom:11%;" />
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// Multiplexor: if (sel = 0) out = a, else out = b  (good!)</span><br><span class="line"></span><br><span class="line">CHIP Mux &#123;</span><br><span class="line">    IN a, b, sel;</span><br><span class="line">    OUT out;</span><br><span class="line"></span><br><span class="line">    PARTS:</span><br><span class="line">    Not(in=sel, out=notsel); </span><br><span class="line">    And(a=a , b=notsel, out=outa);//if sel==0,返回a (depend on a)</span><br><span class="line">    And(a=sel, b=b, out=outb ); //if sel==1，返回b (depend on b)</span><br><span class="line">    Or(a=outa, b=outb, out=out );   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="Dmux（一解二）"><a href="#Dmux（一解二）" class="headerlink" title="Dmux（一解二）"></a>Dmux（一解二）</h4><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/1c6ff7a10f0431156d30ca2e457635b.jpg" alt="1c6ff7a10f0431156d30ca2e457635b" style="zoom:12%;" />
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// Demultiplexor: [a, b] = 		[in, 0] if sel = 0 		[0, in] if sel = 1</span><br><span class="line"></span><br><span class="line">CHIP DMux &#123;</span><br><span class="line">    IN in, sel;</span><br><span class="line">    OUT a, b;</span><br><span class="line"></span><br><span class="line">    PARTS:</span><br><span class="line">    Not(in=sel , out=notsel );</span><br><span class="line">    And(a=in, b=notsel, out=a );</span><br><span class="line">    And(a=in, b=sel , out=b ); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="Not16"><a href="#Not16" class="headerlink" title="Not16"></a>Not16</h4><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/2888a1bdd8c56821dc4950f143b6396.jpg" alt="2888a1bdd8c56821dc4950f143b6396" style="zoom:15%;" />
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 16-bit Not gate:		for i = 0, ..., 15: 	out[i] = Not(a[i])</span><br><span class="line"> </span><br><span class="line">// 把一个16位的数，每一位都取反</span><br><span class="line">CHIP Not16 &#123;</span><br><span class="line">    IN in[16];</span><br><span class="line">    OUT out[16];</span><br><span class="line"></span><br><span class="line">    PARTS:</span><br><span class="line">    Not(in=in[0] , out=out[0] );</span><br><span class="line">    Not(in=in[1] , out=out[1] );</span><br><span class="line">    Not(in=in[2] , out=out[2] );</span><br><span class="line">    Not(in=in[3] , out=out[3] );</span><br><span class="line">    Not(in=in[4] , out=out[4] );</span><br><span class="line">    Not(in=in[5] , out=out[5] );</span><br><span class="line">    Not(in=in[6] , out=out[6] );</span><br><span class="line">    Not(in=in[7] , out=out[7] );</span><br><span class="line">    Not(in=in[8] , out=out[8] );</span><br><span class="line">    Not(in=in[9] , out=out[9] );</span><br><span class="line">    Not(in=in[10] , out=out[10] );</span><br><span class="line">    Not(in=in[11] , out=out[11] );</span><br><span class="line">    Not(in=in[12] , out=out[12] );</span><br><span class="line">    Not(in=in[13] , out=out[13] );</span><br><span class="line">    Not(in=in[14] , out=out[14] );</span><br><span class="line">    Not(in=in[15] , out=out[15] );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="And16"><a href="#And16" class="headerlink" title="And16"></a>And16</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 16-bit And gate: 	for i = 0, ..., 15: 	out[i] = a[i] And b[i] </span><br><span class="line"></span><br><span class="line">// 把两个16位的数，每一位都求And</span><br><span class="line">CHIP And16 &#123;</span><br><span class="line">    IN a[16], b[16];</span><br><span class="line">    OUT out[16];</span><br><span class="line"></span><br><span class="line">    PARTS:</span><br><span class="line">    //// Replace this comment with your code.</span><br><span class="line">    And(a=a[0] , b=b[0] , out=out[0] );</span><br><span class="line">    And(a=a[1] , b=b[1] , out=out[1] );</span><br><span class="line">    And(a=a[2] , b=b[2] , out=out[2] );</span><br><span class="line">    And(a=a[3] , b=b[3] , out=out[3] );</span><br><span class="line">    And(a=a[4] , b=b[4] , out=out[4] );</span><br><span class="line">    And(a=a[5] , b=b[5] , out=out[5] );</span><br><span class="line">    And(a=a[6] , b=b[6] , out=out[6] );</span><br><span class="line">    And(a=a[7] , b=b[7] , out=out[7] );</span><br><span class="line">    And(a=a[8] , b=b[8] , out=out[8] );</span><br><span class="line">    And(a=a[9] , b=b[9] , out=out[9] );</span><br><span class="line">    And(a=a[10] , b=b[10] , out=out[10] );</span><br><span class="line">    And(a=a[11] , b=b[11] , out=out[11] );</span><br><span class="line">    And(a=a[12] , b=b[12] , out=out[12] );</span><br><span class="line">    And(a=a[13] , b=b[13] , out=out[13] );</span><br><span class="line">    And(a=a[14] , b=b[14] , out=out[14] );</span><br><span class="line">    And(a=a[15] , b=b[15] , out=out[15] );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="Or16"><a href="#Or16" class="headerlink" title="Or16"></a>Or16</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 16-bit Or gate: 		for i = 0, ..., 15: 	out[i] = a[i] Or b[i] </span><br><span class="line"></span><br><span class="line">CHIP Or16 &#123;</span><br><span class="line">    IN a[16], b[16];</span><br><span class="line">    OUT out[16];</span><br><span class="line"></span><br><span class="line">    PARTS:</span><br><span class="line">    Or(a=a[0] , b=b[0] , out=out[0] );</span><br><span class="line">    Or(a=a[1] , b=b[1] , out=out[1] );</span><br><span class="line">    Or(a=a[2] , b=b[2] , out=out[2] );</span><br><span class="line">    Or(a=a[3] , b=b[3] , out=out[3] );</span><br><span class="line">    Or(a=a[4] , b=b[4] , out=out[4] );</span><br><span class="line">    Or(a=a[5] , b=b[5] , out=out[5] );</span><br><span class="line">    Or(a=a[6] , b=b[6] , out=out[6] );</span><br><span class="line">    Or(a=a[7] , b=b[7] , out=out[7] );</span><br><span class="line">    Or(a=a[8] , b=b[8] , out=out[8] );</span><br><span class="line">    Or(a=a[9] , b=b[9] , out=out[9] );</span><br><span class="line">    Or(a=a[10] , b=b[10] , out=out[10] );</span><br><span class="line">    Or(a=a[11] , b=b[11] , out=out[11] );</span><br><span class="line">    Or(a=a[12] , b=b[12] , out=out[12] );</span><br><span class="line">    Or(a=a[13] , b=b[13] , out=out[13] );</span><br><span class="line">    Or(a=a[14] , b=b[14] , out=out[14] );</span><br><span class="line">    Or(a=a[15] , b=b[15] , out=out[15] );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="Mux16（二16bit并一）"><a href="#Mux16（二16bit并一）" class="headerlink" title="Mux16（二16bit并一）"></a>Mux16（二16bit并一）</h4><ul>
-<li>实现方式：16个Mux并排作用与每一个bit</li>
-</ul>
-<img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/e37fe587999c0d2944e788df5cbfd59.jpg" alt="e37fe587999c0d2944e788df5cbfd59" style="zoom:13%;" />
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 16-bit multiplexor: 		for i = 0, ..., 15:	   if (sel = 0) out[i] = a[i], else out[i] = b[i]</span><br><span class="line"></span><br><span class="line">CHIP Mux16 &#123;</span><br><span class="line">    IN a[16], b[16], sel;</span><br><span class="line">    OUT out[16];</span><br><span class="line"></span><br><span class="line">    PARTS:</span><br><span class="line">    Not(in=sel , out=notsel );</span><br><span class="line"></span><br><span class="line">    And(a=a[0] , b=notsel , out=out01 );</span><br><span class="line">    And(a=sel , b=b[0] , out=out02 );</span><br><span class="line">    Or(a=out01 , b=out02 , out=out[0] );</span><br><span class="line"></span><br><span class="line">    And(a=a[1] , b=notsel , out=out11 );</span><br><span class="line">    And(a=sel , b=b[1] , out=out12 );</span><br><span class="line">    Or(a=out11 , b=out12 , out=out[1] );</span><br><span class="line"></span><br><span class="line">    And(a=a[2] , b=notsel , out=out21 );</span><br><span class="line">    And(a=sel , b=b[2] , out=out22 );</span><br><span class="line">    Or(a=out21 , b=out22 , out=out[2] );</span><br><span class="line"></span><br><span class="line">    And(a=a[3] , b=notsel , out=out31 );</span><br><span class="line">    And(a=sel , b=b[3] , out=out32 );</span><br><span class="line">    Or(a=out31 , b=out32 , out=out[3] );</span><br><span class="line"></span><br><span class="line">    And(a=a[4] , b=notsel , out=out41 );</span><br><span class="line">    And(a=sel , b=b[4] , out=out42 );</span><br><span class="line">    Or(a=out41 , b=out42 , out=out[4] );</span><br><span class="line"></span><br><span class="line">    And(a=a[5] , b=notsel , out=out51 );</span><br><span class="line">    And(a=sel , b=b[5] , out=out52 );</span><br><span class="line">    Or(a=out51 , b=out52 , out=out[5] );</span><br><span class="line"></span><br><span class="line">    And(a=a[6] , b=notsel , out=out61 );</span><br><span class="line">    And(a=sel , b=b[6] , out=out62 );</span><br><span class="line">    Or(a=out61 , b=out62 , out=out[6] );</span><br><span class="line"></span><br><span class="line">    And(a=a[7] , b=notsel , out=out71 );</span><br><span class="line">    And(a=sel , b=b[7] , out=out72 );</span><br><span class="line">    Or(a=out71 , b=out72 , out=out[7] );</span><br><span class="line"></span><br><span class="line">    And(a=a[8] , b=notsel , out=out81 );</span><br><span class="line">    And(a=sel , b=b[8] , out=out82 );</span><br><span class="line">    Or(a=out81 , b=out82 , out=out[8] );</span><br><span class="line"></span><br><span class="line">    And(a=a[9] , b=notsel , out=out91 );</span><br><span class="line">    And(a=sel , b=b[9] , out=out92 );</span><br><span class="line">    Or(a=out91 , b=out92 , out=out[9] );</span><br><span class="line"></span><br><span class="line">    And(a=a[10] , b=notsel , out=out101 );</span><br><span class="line">    And(a=sel , b=b[10] , out=out102 );</span><br><span class="line">    Or(a=out101 , b=out102 , out=out[10] );</span><br><span class="line"></span><br><span class="line">    And(a=a[11] , b=notsel , out=out111 );</span><br><span class="line">    And(a=sel , b=b[11] , out=out112 );</span><br><span class="line">    Or(a=out111 , b=out112 , out=out[11] );</span><br><span class="line"></span><br><span class="line">    And(a=a[12] , b=notsel , out=out121 );</span><br><span class="line">    And(a=sel , b=b[12] , out=out122 );</span><br><span class="line">    Or(a=out121 , b=out122 , out=out[12] );</span><br><span class="line"></span><br><span class="line">    And(a=a[13] , b=notsel , out=out131 );</span><br><span class="line">    And(a=sel , b=b[13] , out=out132 );</span><br><span class="line">    Or(a=out131 , b=out132 , out=out[13] );</span><br><span class="line"></span><br><span class="line">    And(a=a[14] , b=notsel , out=out141 );</span><br><span class="line">    And(a=sel , b=b[14] , out=out142 );</span><br><span class="line">    Or(a=out141 , b=out142 , out=out[14] );</span><br><span class="line"></span><br><span class="line">    And(a=a[15] , b=notsel , out=out151 );</span><br><span class="line">    And(a=sel , b=b[15] , out=out152 );</span><br><span class="line">    Or(a=out151 , b=out152 , out=out[15] );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="Or8Way"><a href="#Or8Way" class="headerlink" title="Or8Way"></a>Or8Way</h4><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/1113aa3384d980cf7a3cf7c22f999ea.jpg" alt="1113aa3384d980cf7a3cf7c22f999ea" style="zoom:11%;" />
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 8-way Or gate！  		out = in[0] Or in[1] Or ... Or in[7]</span><br><span class="line">// 输入 一个 8-bit数！而不是 两个 ！输出一个1-bit数。</span><br><span class="line"></span><br><span class="line">CHIP Or8Way &#123;</span><br><span class="line">    IN in[8];</span><br><span class="line">    OUT out;</span><br><span class="line"></span><br><span class="line">    PARTS:</span><br><span class="line">    // 输入一个八位（bit）数，依次每两位取Or，最后输出结果（全0才会输出0，有一个1就输出1）</span><br><span class="line">    Or(a=in[0] , b=in[1] , out=s1 );</span><br><span class="line">    Or(a=in[2] , b=in[3] , out=s2 );</span><br><span class="line">    Or(a=in[4] , b=in[5] , out=s3 );</span><br><span class="line">    Or(a=in[6] , b=in[7] , out=s4 );</span><br><span class="line">    Or(a=s1 , b=s2 , out=w1 );</span><br><span class="line">    Or(a=s3 , b=s4 , out=w2 );</span><br><span class="line">    Or(a=w1 , b=w2 , out=out );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="Mux4Way16（四16bit并一）"><a href="#Mux4Way16（四16bit并一）" class="headerlink" title="Mux4Way16（四16bit并一）"></a>Mux4Way16（四16bit并一）</h4><ul>
-<li><p>解析名字含义：</p>
-<ul>
-<li><p><strong>Mux16</strong> 是 <strong>16-bit</strong> 的意思。</p>
-</li>
-<li><p><strong>Mux4Way16</strong> 是 <strong>16-bit，4-way</strong> 的意思</p>
-</li>
-<li><p>那为啥 Or8Way 是 8-bit，1-way？的意思？</p>
-</li>
-</ul>
-</li>
-</ul>
-<img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/412c8358a3261cc20cca4fb7d9437aa.jpg" alt="412c8358a3261cc20cca4fb7d9437aa" style="zoom:11%;" />
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 4-way 16-bit multiplexor:</span><br><span class="line"> * out = a if sel = 00</span><br><span class="line"> *       b if sel = 01</span><br><span class="line"> *       c if sel = 10</span><br><span class="line"> *       d if sel = 11</span><br><span class="line"> */</span><br><span class="line"> </span><br><span class="line">// 四条路/输入，每个都是16bit，根据sel的不同（4个sel，两位的二进制数字），输出其中 一 个数。</span><br><span class="line">CHIP Mux4Way16 &#123; 							// 看成 Mux 16 ，把 4Way 插在名字中间</span><br><span class="line">    IN a[16], b[16], c[16], d[16], sel[2];</span><br><span class="line">    OUT out[16];</span><br><span class="line">    </span><br><span class="line">    PARTS:</span><br><span class="line">    // we just need one output !</span><br><span class="line">    Mux16(a=a , b=b , sel=sel[0] , out=w1 );   // [0]是最右</span><br><span class="line">    Mux16(a=c , b=d , sel=sel[0] , out=w2 );</span><br><span class="line"></span><br><span class="line">    Mux16(a=w1 , b=w2 , sel=sel[1] , out=out );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="Mux8Way16（八16bit并一）"><a href="#Mux8Way16（八16bit并一）" class="headerlink" title="Mux8Way16（八16bit并一）"></a>Mux8Way16（八16bit并一）</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 8-way 16-bit multiplexor:</span><br><span class="line"> * out = a if sel = 000</span><br><span class="line"> *       b if sel = 001</span><br><span class="line"> *       c if sel = 010</span><br><span class="line"> *       d if sel = 011</span><br><span class="line"> *       e if sel = 100</span><br><span class="line"> *       f if sel = 101</span><br><span class="line"> *       g if sel = 110</span><br><span class="line"> *       h if sel = 111</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">// 8条路/输入，每个都是16bit，根据sel的不同（8个sel，三位的二进制数字），输出其中 一 个数。</span><br><span class="line">CHIP Mux8Way16 &#123;</span><br><span class="line">    IN a[16], b[16], c[16], d[16],</span><br><span class="line">       e[16], f[16], g[16], h[16],</span><br><span class="line">       sel[3];</span><br><span class="line">    OUT out[16];</span><br><span class="line"></span><br><span class="line">    PARTS:</span><br><span class="line">    // 用两个Mux4Way16再加上一个Mux16就行了。</span><br><span class="line">    Mux4Way16(a=a , b=b , c=c , d=d , sel[0]=sel[0] ,sel[1]=sel[1],out=w1 );</span><br><span class="line">    Mux4Way16(a=e , b=f , c=g , d=h , sel[0]=sel[0] ,sel[1]=sel[1],out=w2 );</span><br><span class="line">    Mux16(a=w1 , b=w2 , sel=sel[2] , out=out );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="DMux4Way（一解四）"><a href="#DMux4Way（一解四）" class="headerlink" title="DMux4Way（一解四）"></a>DMux4Way（一解四）</h4><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/042760ad0a8f3a0d172d509e6a2462e.jpg" alt="042760ad0a8f3a0d172d509e6a2462e" style="zoom:15%;" />
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 4-way demultiplexor:</span><br><span class="line"> * [a, b, c, d] = [in, 0, 0, 0] if sel = 00</span><br><span class="line"> *                [0, in, 0, 0] if sel = 01</span><br><span class="line"> *                [0, 0, in, 0] if sel = 10</span><br><span class="line"> *                [0, 0, 0, in] if sel = 11</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">// 一个输入（几bit应该没要求），根据sel的不同选择赋予abcd哪个的值（4个值4Way，需要4个sel），其他值输出0（4个sel，两位二进制数字）</span><br><span class="line">CHIP DMux4Way &#123;</span><br><span class="line">    IN in, sel[2];</span><br><span class="line">    OUT a, b, c, d;</span><br><span class="line"></span><br><span class="line">    PARTS:</span><br><span class="line">    DMux(in=in, sel=sel[1], a=top, b=bottom);</span><br><span class="line">    </span><br><span class="line">    DMux(in=top, sel=sel[0], a=a, b=b);</span><br><span class="line">    DMux(in=bottom, sel=sel[0], a=c, b=d);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="DMux8Way（一解八）"><a href="#DMux8Way（一解八）" class="headerlink" title="DMux8Way（一解八）"></a>DMux8Way（一解八）</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 8-way demultiplexor:</span><br><span class="line"> * [a, b, c, d, e, f, g, h] = [in, 0,  0,  0,  0,  0,  0,  0] if sel = 000</span><br><span class="line"> *                            [0, in,  0,  0,  0,  0,  0,  0] if sel = 001</span><br><span class="line"> *                            [0,  0, in,  0,  0,  0,  0,  0] if sel = 010</span><br><span class="line"> *                            [0,  0,  0, in,  0,  0,  0,  0] if sel = 011</span><br><span class="line"> *                            [0,  0,  0,  0, in,  0,  0,  0] if sel = 100</span><br><span class="line"> *                            [0,  0,  0,  0,  0, in,  0,  0] if sel = 101</span><br><span class="line"> *                            [0,  0,  0,  0,  0,  0, in,  0] if sel = 110</span><br><span class="line"> *                            [0,  0,  0,  0,  0,  0,  0, in] if sel = 111</span><br><span class="line"> */</span><br><span class="line"> </span><br><span class="line">// 根据三位数的sel把in分成8部分</span><br><span class="line">CHIP DMux8Way &#123;</span><br><span class="line">    IN in, sel[3]; </span><br><span class="line">    // sel有8种可能，但打开时，只有一种状态，所以只有一个有值，其他都是0值。</span><br><span class="line">    OUT a, b, c, d, e, f, g, h;</span><br><span class="line">    </span><br><span class="line">    PARTS:</span><br><span class="line">    // 根据sel第一位，把in数据分成两部分，top和bottom</span><br><span class="line">    DMux(in=in, sel=sel[2], a=top, b=bottom);</span><br><span class="line"></span><br><span class="line">    // 根据sel第二位，分别把top和bottom再分成两个部分，总计四部分</span><br><span class="line">    DMux(in=top, sel=sel[1], a=w1, b=w2);</span><br><span class="line">    DMux(in=bottom, sel=sel[1], a=w3, b=w4);</span><br><span class="line"></span><br><span class="line">    // 根据sel第三位，把in总共分成8部分    </span><br><span class="line">    DMux(in=w1, sel=sel[0], a=a, b=b);</span><br><span class="line">    DMux(in=w2, sel=sel[0], a=c, b=d);</span><br><span class="line"></span><br><span class="line">    DMux(in=w3, sel=sel[0], a=e, b=f);</span><br><span class="line">    DMux(in=w4, sel=sel[0], a=g, b=h);   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-]]></content>
-      <categories>
-        <category>code</category>
-      </categories>
-      <tags>
-        <tag>nand2tetris</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>proj2</title>
     <url>/2025/05/01/nand2tetris/nand2tetris-proj2-final/</url>
     <content><![CDATA[<h3 id="2-1-Binary-Numbers"><a href="#2-1-Binary-Numbers" class="headerlink" title="2.1 Binary Numbers"></a>2.1 Binary Numbers</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250405164423371.png" alt="image-20250405164423371"></p>
@@ -475,6 +475,127 @@
 <img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/3f83a46c9a79a5e0cb1a05e2188f621.jpg" alt="3f83a46c9a79a5e0cb1a05e2188f621" style="zoom: 18%;" />
 
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CHIP ALU &#123;</span><br><span class="line">    IN  </span><br><span class="line">        x[16], y[16],  // 16-bit inputs        </span><br><span class="line">        zx, // zero the x input?</span><br><span class="line">        nx, // negate the x input?</span><br><span class="line">        zy, // zero the y input?</span><br><span class="line">        ny, // negate the y input?</span><br><span class="line">        f,  // compute (out = x + y) or (out = x &amp; y)?</span><br><span class="line">        no; // negate the out output?</span><br><span class="line">    OUT </span><br><span class="line">        out[16], // 16-bit output</span><br><span class="line">        zr,      // if (out == 0) equals 1, else 0</span><br><span class="line">        ng;      // if (out &lt; 0)  equals 1, else 0</span><br><span class="line"></span><br><span class="line">    PARTS:    </span><br><span class="line">    // zx</span><br><span class="line">    Mux16(a=x , b=false , sel=zx , out=x1 );</span><br><span class="line">    </span><br><span class="line">    // nx</span><br><span class="line">    Not16(in=x1 , out=notx );</span><br><span class="line">    Mux16(a=x1 , b=notx , sel=nx , out=x2 );</span><br><span class="line">    </span><br><span class="line">    // zy</span><br><span class="line">    Mux16(a=y , b=false , sel=zy , out=y1 );</span><br><span class="line">    </span><br><span class="line">    // ny</span><br><span class="line">    Not16(in=y1 , out=noty );</span><br><span class="line">    Mux16(a=y1 , b=noty , sel=ny , out=y2 );</span><br><span class="line">    </span><br><span class="line">    // f</span><br><span class="line">    Add16(a =x2 , b =y2 , out =add ); //+ 是 按位加 运算add</span><br><span class="line">    And16(a=x2 , b=y2 , out=and ); // &amp; 是 按位与 运算and</span><br><span class="line">    Mux16(a=and , b=add , sel=f , out=l1 );</span><br><span class="line">    </span><br><span class="line">    // no</span><br><span class="line">    Not16(in=l1 , out=l2 );</span><br><span class="line">    Mux16(a=l1, b=l2, sel=no, out=out,out[0..7]=kk1, out[8..15]=kk2, out[15]=kk);</span><br><span class="line">    // kk是精华 ！</span><br><span class="line">    </span><br><span class="line">    // zr</span><br><span class="line">    Or8Way(in=kk1, out=zr1);</span><br><span class="line">    Or8Way(in=kk2, out=zr2);</span><br><span class="line">    Or(a=zr1, b=zr2, out=zrNot);</span><br><span class="line">    Not(in=zrNot, out=zr);</span><br><span class="line"></span><br><span class="line">    // ng</span><br><span class="line">    Mux(a=false, b=kk, sel=zrNot, out=ng); </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>code</category>
+      </categories>
+      <tags>
+        <tag>nand2tetris</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>proj3(review)</title>
+    <url>/2025/11/05/nand2tetris/nand2tetris-proj3-final2/</url>
+    <content><![CDATA[<h3 id="3-1-Sequential-Logic（逻辑时序）"><a href="#3-1-Sequential-Logic（逻辑时序）" class="headerlink" title="3.1 Sequential Logic（逻辑时序）"></a>3.1 Sequential Logic（逻辑时序）</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407103408721.png" alt="image-20250407103408721"></p>
+<h4 id="The-Clock"><a href="#The-Clock" class="headerlink" title="The Clock"></a>The Clock</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407103559711.png" alt="image-20250407103559711"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407103651219.png" alt="image-20250407103651219"></p>
+<p>⭐</p>
+<h4 id="Combinatorial-Logic-vs-Sequential-Logic"><a href="#Combinatorial-Logic-vs-Sequential-Logic" class="headerlink" title="Combinatorial Logic vs. Sequential Logic"></a>Combinatorial Logic vs. Sequential Logic</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407104103457.png" alt="image-20250407104103457"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407104118222.png" alt="image-20250407104118222"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407104217914.png" alt="image-20250407104217914"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407104323702.png" alt="image-20250407104323702"></p>
+<h3 id="3-2-Flip-Flops-触发器"><a href="#3-2-Flip-Flops-触发器" class="headerlink" title="3.2 Flip Flops 触发器"></a>3.2 Flip Flops 触发器</h3><p>制作允许上一步操作的芯片</p>
+<p>⭐</p>
+<h4 id="D-触发器"><a href="#D-触发器" class="headerlink" title="D 触发器"></a><strong>D 触发器</strong></h4><p><strong>换句话说，DFF 简单地将前一个时间周期的输入值作为当前周期的输出。𝑜𝑢𝑡(𝑡)&#x3D;𝑖𝑛(𝑡−1)</strong></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407131732664.png" alt="image-20250407131732664"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407125650242.png" alt="image-20250407125650242"></p>
+<h4 id="时序逻辑的原理"><a href="#时序逻辑的原理" class="headerlink" title="时序逻辑的原理"></a><strong>时序逻辑的原理</strong></h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407130044516.png" alt="image-20250407130044516"></p>
+<h4 id="寄存器-Bit"><a href="#寄存器-Bit" class="headerlink" title="寄存器 Bit"></a>寄存器 Bit</h4><p>【寄存器（也）是一种常用的时序逻辑电路】</p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407130252903.png" alt="image-20250407130252903"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407130512040.png" alt="image-20250407130512040"></p>
+<h4 id="implement"><a href="#implement" class="headerlink" title="implement"></a>implement</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407130642446.png" alt="image-20250407130642446"></p>
+<h4 id="show"><a href="#show" class="headerlink" title="show"></a>show</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407131134475.png" alt="image-20250407131134475"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407131141487.png" alt="image-20250407131141487"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407131153974.png" alt="image-20250407131153974"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407131219341.png" alt="image-20250407131219341"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407131249812.png" alt="image-20250407131249812"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407131306313.png" alt="image-20250407131306313"></p>
+<h3 id="3-3-Memory-Units"><a href="#3-3-Memory-Units" class="headerlink" title="3.3 Memory Units"></a>3.3 Memory Units</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407162440343.png" alt="image-20250407162440343"></p>
+<h4 id="Memory"><a href="#Memory" class="headerlink" title="Memory"></a>Memory</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407162636276.png" alt="image-20250407162636276"></p>
+<h4 id="The-most-basic-memory-element-Register"><a href="#The-most-basic-memory-element-Register" class="headerlink" title="The most basic memory element: Register"></a>The most basic memory element: Register</h4><p><img src="C:\Users\99512\AppData\Roaming\Typora\typora-user-images\image-20250407162706895.png" alt="image-20250407162706895"></p>
+<p>⭐ （并着排列的）</p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407162832550.png" alt="image-20250407162832550"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407163056209.png" alt="image-20250407163056209"></p>
+<h4 id="RAM-unit"><a href="#RAM-unit" class="headerlink" title="RAM unit"></a>RAM unit</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407163925696.png" alt="image-20250407163925696"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407164114314.png" alt="image-20250407164114314"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407164124566.png" alt="image-20250407164124566"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407164321731.png" alt="image-20250407164321731"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407164328029.png" alt="image-20250407164328029"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407164336551.png" alt="image-20250407164336551"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407164355607.png" alt="image-20250407164355607"></p>
+<p>（逻辑时序的芯片）</p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407164409494.png" alt="image-20250407164409494"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407164444136.png" alt="image-20250407164444136"></p>
+<h4 id="RAM-Read-Logic"><a href="#RAM-Read-Logic" class="headerlink" title="RAM &#x2F; Read Logic"></a>RAM &#x2F; Read Logic</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407164613906.png" alt="image-20250407164613906"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407164723446.png" alt="image-20250407164723446"></p>
+<h4 id="RAM-Write-Logic"><a href="#RAM-Write-Logic" class="headerlink" title="RAM &#x2F; Write Logic"></a>RAM &#x2F; Write Logic</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407164822467.png" alt="image-20250407164822467"></p>
+<h4 id="A-family-of-16-bit-RAM-chips"><a href="#A-family-of-16-bit-RAM-chips" class="headerlink" title="A family of 16-bit RAM chips"></a>A family of 16-bit RAM chips</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407165748845.png" alt="image-20250407165748845"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407165903504.png" alt="image-20250407165903504"></p>
+<h3 id="3-4-Counters"><a href="#3-4-Counters" class="headerlink" title="3.4  Counters"></a>3.4  Counters</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407183128147.png" alt="image-20250407183128147"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407183216165.png" alt="image-20250407183216165"></p>
+<p>(Inc 代表增量[+1])</p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407183416972.png" alt="image-20250407183416972"></p>
+<h3 id="3-5-code"><a href="#3-5-code" class="headerlink" title="3.5 code"></a>3.5 code</h3><h4 id="preview：DFF"><a href="#preview：DFF" class="headerlink" title="preview：DFF"></a>preview：DFF</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250415121843294.png" alt="image-20250415121843294"></p>
+<hr>
+<h4 id="1-bit-register-芯片"><a href="#1-bit-register-芯片" class="headerlink" title="1-bit register 芯片"></a>1-bit register 芯片</h4><ul>
+<li>输入一个1-bit的数。如果load&#x3D;1，下一秒输入该数，如果load&#x3D;0，下一秒保持原来的数值。</li>
+<li>register 中文：<strong>寄存器</strong></li>
+</ul>
+<img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250415122014364.png" alt="image-20250415122014364" style="zoom:80%;" />
+
+<img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250415122027636.png" style="zoom:67%;" />
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CHIP Bit &#123;</span><br><span class="line">    IN in, load;</span><br><span class="line">    OUT out;</span><br><span class="line"></span><br><span class="line">    PARTS:</span><br><span class="line">    Mux(a=out2 , b=in , sel=load , out=w1 );</span><br><span class="line">    DFF(in=w1 , out=out,out=out2 );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="16-bit-register-芯片"><a href="#16-bit-register-芯片" class="headerlink" title="16-bit register 芯片"></a>16-bit register 芯片</h4><ul>
+<li>输入一个16-bit的数。根据load，下一秒输出该数，或者下一秒保持上一秒的值。</li>
+<li>1个load决定16个输出。16个1-bit register芯片并排。</li>
+<li>对每一位进行load运算</li>
+<li>最终的输入&#x2F;输出 都是 <strong>一个</strong> 16-bit的数</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/OIP-C%20(1).jpg"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/OIP-C%20(3).jpg"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 16-bit 寄存器! </span><br><span class="line">CHIP Register &#123;</span><br><span class="line">    IN in[16], load;</span><br><span class="line">    OUT out[16];</span><br><span class="line"></span><br><span class="line">    PARTS:</span><br><span class="line">    //对16bit的每一位进行load，当load为1的时候给 对应位 储存值</span><br><span class="line">    Bit(in=in[15] , load=load , out=out[15] );</span><br><span class="line">    Bit(in=in[14] , load=load , out=out[14] );</span><br><span class="line">    Bit(in=in[13] , load=load , out=out[13] );</span><br><span class="line">    Bit(in=in[12] , load=load , out=out[12] );</span><br><span class="line">    Bit(in=in[11] , load=load , out=out[11] );</span><br><span class="line">    Bit(in=in[10] , load=load , out=out[10] );</span><br><span class="line">    Bit(in=in[9] , load=load , out=out[9] );</span><br><span class="line">    Bit(in=in[8] , load=load , out=out[8] );</span><br><span class="line">    Bit(in=in[7] , load=load , out=out[7] );</span><br><span class="line">    Bit(in=in[6] , load=load , out=out[6] );</span><br><span class="line">    Bit(in=in[5] , load=load , out=out[5] );</span><br><span class="line">    Bit(in=in[4] , load=load , out=out[4] );</span><br><span class="line">    Bit(in=in[3] , load=load , out=out[3] );</span><br><span class="line">    Bit(in=in[2] , load=load , out=out[2] );</span><br><span class="line">    Bit(in=in[1] , load=load , out=out[1] );</span><br><span class="line">    Bit(in=in[0] , load=load , out=out[0] );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="RAM8"><a href="#RAM8" class="headerlink" title="RAM8"></a>RAM8</h4><ul>
+<li>8个 16-bit寄存器，并排放在RAM8里。</li>
+<li>输入：<strong>一个</strong>16-bit 的数。输出为 <strong>一个</strong> 16-bit 的数  （<strong>数最大 16-bit</strong>，可小点）</li>
+<li>⭐根据三位数地址address决定给    哪<strong>一个</strong>   register储存值。</li>
+<li>对应的被调到的寄存器的load会被打开，load&#x3D;1。</li>
+</ul>
+<img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy82Njg0OTktNzY0NDYzZDgxYjExYWI4Mi5qcGc.png" style="zoom: 33%;" />
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CHIP RAM8 &#123;</span><br><span class="line">    IN in[16], load, address[3];  // address有3位，能解码成 2的三次方= 8个 不一样的 三位数</span><br><span class="line">    OUT out[16];</span><br><span class="line"></span><br><span class="line">    PARTS:</span><br><span class="line">    //假设address为000，load为 1。DMux8Way会把load信号分配到输出端口a，</span><br><span class="line">    //也就是第一个寄存器的load端口会接收到值为 1 的信号，而其余寄存器的load端口会接收到值为 0 的信号（即不改变自身的值）</span><br><span class="line">    DMux8Way(in = load,sel = address,a = a,b = b,c = c,d = d,e = e,f = f,g = g,h = h);</span><br><span class="line"></span><br><span class="line">    Register(in=in , load=a , out=outa );</span><br><span class="line">    Register(in=in , load=b , out=outb );</span><br><span class="line">    Register(in=in , load=c , out=outc );</span><br><span class="line">    Register(in=in , load=d , out=outd );</span><br><span class="line">    Register(in=in , load=e , out=oute );</span><br><span class="line">    Register(in=in , load=f , out=outf );</span><br><span class="line">    Register(in=in , load=g , out=outg );</span><br><span class="line">    Register(in=in , load=h , out=outh );</span><br><span class="line"></span><br><span class="line">    Mux8Way16(a=outa , b=outb , c=outc , d=outd , e=oute , f=outf , g=outg , h=outh , sel=address , out=out);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="RAM64"><a href="#RAM64" class="headerlink" title="RAM64"></a>RAM64</h4><ul>
+<li><strong>原理同RAM8：一个最大16-bit的输入，根据address（解码后）决定把改 一位数值 保存在哪个地方（该地方的load会打开）</strong></li>
+<li>（结构由 8个RAM8 并排拼一起，解码端口变多了点，当然了address也长了点）</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"> CHIP RAM64 &#123;</span><br><span class="line">    IN in[16], load, address[6];</span><br><span class="line">    OUT out[16];</span><br><span class="line"></span><br><span class="line">    PARTS:</span><br><span class="line">    DMux8Way(in = load,sel = address[3..5],a = a,b = b,c = c,d = d,e = e,f = f,g = g,h = h);</span><br><span class="line">    //两层解码：第一层，用前3位区分开8个不一样的RAM8</span><br><span class="line"></span><br><span class="line">	// 第二层，用后三位，区分开来每个RAM8的8个不同的寄存器。（这样子就区分开来了8*8=64个寄存器）</span><br><span class="line">    RAM8(in=in , load=a , address=address[0..2] , out=outa );</span><br><span class="line">    RAM8(in=in , load=b , address=address[0..2] , out=outb );</span><br><span class="line">    RAM8(in=in , load=c , address=address[0..2] , out=outc );</span><br><span class="line">    RAM8(in=in , load=d , address=address[0..2] , out=outd );</span><br><span class="line">    RAM8(in=in , load=e , address=address[0..2] , out=oute );</span><br><span class="line">    RAM8(in=in , load=f , address=address[0..2] , out=outf );</span><br><span class="line">    RAM8(in=in , load=g , address=address[0..2] , out=outg );</span><br><span class="line">    RAM8(in=in , load=h , address=address[0..2] , out=outh );</span><br><span class="line"></span><br><span class="line">    Mux8Way16(a=outa , b=outb , c=outc , d=outd , e=oute , f=outf , g=outg , h=outh , sel=address[3..5] , out=out);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="RAM512"><a href="#RAM512" class="headerlink" title="RAM512"></a>RAM512</h4><ul>
+<li>原理同上，就是积木从小拼到大（8个RAM64）</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CHIP RAM512 &#123;</span><br><span class="line">    IN in[16], load, address[9];</span><br><span class="line">    OUT out[16];</span><br><span class="line"></span><br><span class="line">    PARTS:</span><br><span class="line">    DMux8Way(in = load,sel = address[6..8],a = a,b = b,c = c,d = d,e = e,f = f,g = g,h = h);</span><br><span class="line"></span><br><span class="line">    RAM64(in=in , load=a , address=address[0..5] , out=outa );</span><br><span class="line">    RAM64(in=in , load=b , address=address[0..5] , out=outb );</span><br><span class="line">    RAM64(in=in , load=c , address=address[0..5] , out=outc );</span><br><span class="line">    RAM64(in=in , load=d , address=address[0..5] , out=outd );</span><br><span class="line">    RAM64(in=in , load=e , address=address[0..5] , out=oute );</span><br><span class="line">    RAM64(in=in , load=f , address=address[0..5] , out=outf );</span><br><span class="line">    RAM64(in=in , load=g , address=address[0..5] , out=outg );</span><br><span class="line">    RAM64(in=in , load=h , address=address[0..5] , out=outh );</span><br><span class="line"></span><br><span class="line">    Mux8Way16(a=outa , b=outb , c=outc , d=outd , e=oute , f=outf , g=outg , h=outh , sel=address[6..8] , out=out);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="RAM4K"><a href="#RAM4K" class="headerlink" title="RAM4K"></a>RAM4K</h4><ul>
+<li>8个RAM512</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"> CHIP RAM4K &#123;</span><br><span class="line">    IN in[16], load, address[12];</span><br><span class="line">    OUT out[16];</span><br><span class="line"></span><br><span class="line">    PARTS:</span><br><span class="line">    DMux8Way(in = load,sel = address[9..11],a = a,b = b,c = c,d = d,e = e,f = f,g = g,h = h);</span><br><span class="line">    //假设address为000，load为 1。DMux8Way会把load信号分配到输出端口a。</span><br><span class="line"></span><br><span class="line">    RAM512(in=in , load=a , address=address[0..8] , out=outa );</span><br><span class="line">    RAM512(in=in , load=b , address=address[0..8] , out=outb );</span><br><span class="line">    RAM512(in=in , load=c , address=address[0..8] , out=outc );</span><br><span class="line">    RAM512(in=in , load=d , address=address[0..8] , out=outd );</span><br><span class="line">    RAM512(in=in , load=e , address=address[0..8] , out=oute );</span><br><span class="line">    RAM512(in=in , load=f , address=address[0..8] , out=outf );</span><br><span class="line">    RAM512(in=in , load=g , address=address[0..8] , out=outg );</span><br><span class="line">    RAM512(in=in , load=h , address=address[0..8] , out=outh );</span><br><span class="line"></span><br><span class="line">    Mux8Way16(a=outa , b=outb , c=outc , d=outd , e=oute , f=outf , g=outg , h=outh , sel=address[9..11] , out=out);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="RAM16K"><a href="#RAM16K" class="headerlink" title="RAM16K"></a>RAM16K</h4><ul>
+<li>4个RAM4K</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"> CHIP RAM16K &#123;</span><br><span class="line">    IN in[16], load, address[14];</span><br><span class="line">    OUT out[16];</span><br><span class="line"></span><br><span class="line">    PARTS:</span><br><span class="line">    DMux4Way(in = load,sel = address[12..13],a = a,b = b,c = c,d = d);</span><br><span class="line">    // 前两位用来区分4个RAM4K，后面12位是RAM4K所需的address。 </span><br><span class="line"></span><br><span class="line">    RAM4K(in=in , load=a , address=address[0..11] , out=outa );</span><br><span class="line">    RAM4K(in=in , load=b , address=address[0..11] , out=outb );</span><br><span class="line">    RAM4K(in=in , load=c , address=address[0..11] , out=outc );</span><br><span class="line">    RAM4K(in=in , load=d , address=address[0..11] , out=outd );</span><br><span class="line">    </span><br><span class="line">    Mux4Way16(a=outa , b=outb , c=outc , d=outd , sel=address[12..13] , out=out);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250415131408114.png" alt="image-20250415131408114" style="zoom:50%;" />
+
+
+
+<h4 id="CHIP-PC"><a href="#CHIP-PC" class="headerlink" title="CHIP PC"></a>CHIP PC</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/747e5d538c8e16996b67320f42e7e77.jpg" alt="747e5d538c8e16996b67320f42e7e77"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/**</span><br><span class="line"> * A 16-bit counter. 计数器吧？？？</span><br><span class="line"> * if      reset(t): out(t+1) = 0</span><br><span class="line"> * else if load(t):  out(t+1) = in(t)</span><br><span class="line"> * else if inc(t):   out(t+1) = out(t) + 1</span><br><span class="line"> * else              out(t+1) = out(t)</span><br><span class="line"> */</span><br><span class="line"> </span><br><span class="line">CHIP PC &#123;</span><br><span class="line">    IN in[16], reset, load, inc;</span><br><span class="line">    OUT out[16];</span><br><span class="line">    </span><br><span class="line">    PARTS:</span><br><span class="line"></span><br><span class="line">    Inc16(in = feedback,out = incout);</span><br><span class="line">    Mux16(a = feedback,b = incout,sel = inc,out = out1);</span><br><span class="line">    Mux16(a = out1,b = in,sel = load,out = out2);</span><br><span class="line">    Mux16(a = out2,b = false,sel = reset,out = out3);</span><br><span class="line"></span><br><span class="line">    Register(in = out3,load = true,out = out,out = feedback);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <categories>
@@ -597,6 +718,30 @@
       </tags>
   </entry>
   <entry>
+    <title>网站语法示例</title>
+    <url>/2025/04/10/%E8%AE%A1%E7%BB%84/example/</url>
+    <content><![CDATA[<h2 id="TO"><a href="#TO" class="headerlink" title="TO"></a>TO</h2><h5 id="fgf"><a href="#fgf" class="headerlink" title="fgf"></a>fgf</h5><h2 id="fsfs"><a href="#fsfs" class="headerlink" title="fsfs"></a>fsfs</h2><h3 id="fgd"><a href="#fgd" class="headerlink" title="fgd"></a>fgd</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">z</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Hello&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><img src="https://picsum.photos/id/627/200/300" alt="图片名称八个字"></p>
+<hr>
+<h2 id="title-Hello-world‘categories’-other"><a href="#title-Hello-world‘categories’-other" class="headerlink" title="title: Hello world‘categories’: other"></a>title: Hello world<br>‘categories’: other</h2><p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+      <categories>
+        <category>other</category>
+      </categories>
+  </entry>
+  <entry>
     <title>proj3</title>
     <url>/2025/05/02/nand2tetris/nand2tetris-proj3-final-2/</url>
     <content><![CDATA[<h3 id="3-1-Sequential-Logic（逻辑时序）"><a href="#3-1-Sequential-Logic（逻辑时序）" class="headerlink" title="3.1 Sequential Logic（逻辑时序）"></a>3.1 Sequential Logic（逻辑时序）</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407103408721.png" alt="image-20250407103408721"></p>
@@ -608,127 +753,6 @@
 <p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407104217914.png" alt="image-20250407104217914"></p>
 <p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407104323702.png" alt="image-20250407104323702"></p>
 <h3 id="3-2-Flip-Flops-触发器"><a href="#3-2-Flip-Flops-触发器" class="headerlink" title="3.2 Flip Flops 触发器"></a>3.2 Flip Flops 触发器</h3><p>制作：允许上一步操作的芯片</p>
-<p>⭐</p>
-<h4 id="D-触发器"><a href="#D-触发器" class="headerlink" title="D 触发器"></a><strong>D 触发器</strong></h4><p><strong>换句话说，DFF 简单地将前一个时间周期的输入值作为当前周期的输出。𝑜𝑢𝑡(𝑡)&#x3D;𝑖𝑛(𝑡−1)</strong></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407131732664.png" alt="image-20250407131732664"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407125650242.png" alt="image-20250407125650242"></p>
-<h4 id="时序逻辑的原理"><a href="#时序逻辑的原理" class="headerlink" title="时序逻辑的原理"></a><strong>时序逻辑的原理</strong></h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407130044516.png" alt="image-20250407130044516"></p>
-<h4 id="寄存器-Bit"><a href="#寄存器-Bit" class="headerlink" title="寄存器 Bit"></a>寄存器 Bit</h4><p>【寄存器（也）是一种常用的时序逻辑电路】</p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407130252903.png" alt="image-20250407130252903"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407130512040.png" alt="image-20250407130512040"></p>
-<h4 id="implement"><a href="#implement" class="headerlink" title="implement"></a>implement</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407130642446.png" alt="image-20250407130642446"></p>
-<h4 id="show"><a href="#show" class="headerlink" title="show"></a>show</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407131134475.png" alt="image-20250407131134475"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407131141487.png" alt="image-20250407131141487"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407131153974.png" alt="image-20250407131153974"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407131219341.png" alt="image-20250407131219341"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407131249812.png" alt="image-20250407131249812"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407131306313.png" alt="image-20250407131306313"></p>
-<h3 id="3-3-Memory-Units"><a href="#3-3-Memory-Units" class="headerlink" title="3.3 Memory Units"></a>3.3 Memory Units</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407162440343.png" alt="image-20250407162440343"></p>
-<h4 id="Memory"><a href="#Memory" class="headerlink" title="Memory"></a>Memory</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407162636276.png" alt="image-20250407162636276"></p>
-<h4 id="The-most-basic-memory-element-Register"><a href="#The-most-basic-memory-element-Register" class="headerlink" title="The most basic memory element: Register"></a>The most basic memory element: Register</h4><p><img src="C:\Users\99512\AppData\Roaming\Typora\typora-user-images\image-20250407162706895.png" alt="image-20250407162706895"></p>
-<p>⭐ （并着排列的）</p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407162832550.png" alt="image-20250407162832550"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407163056209.png" alt="image-20250407163056209"></p>
-<h4 id="RAM-unit"><a href="#RAM-unit" class="headerlink" title="RAM unit"></a>RAM unit</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407163925696.png" alt="image-20250407163925696"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407164114314.png" alt="image-20250407164114314"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407164124566.png" alt="image-20250407164124566"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407164321731.png" alt="image-20250407164321731"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407164328029.png" alt="image-20250407164328029"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407164336551.png" alt="image-20250407164336551"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407164355607.png" alt="image-20250407164355607"></p>
-<p>（逻辑时序的芯片）</p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407164409494.png" alt="image-20250407164409494"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407164444136.png" alt="image-20250407164444136"></p>
-<h4 id="RAM-Read-Logic"><a href="#RAM-Read-Logic" class="headerlink" title="RAM &#x2F; Read Logic"></a>RAM &#x2F; Read Logic</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407164613906.png" alt="image-20250407164613906"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407164723446.png" alt="image-20250407164723446"></p>
-<h4 id="RAM-Write-Logic"><a href="#RAM-Write-Logic" class="headerlink" title="RAM &#x2F; Write Logic"></a>RAM &#x2F; Write Logic</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407164822467.png" alt="image-20250407164822467"></p>
-<h4 id="A-family-of-16-bit-RAM-chips"><a href="#A-family-of-16-bit-RAM-chips" class="headerlink" title="A family of 16-bit RAM chips"></a>A family of 16-bit RAM chips</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407165748845.png" alt="image-20250407165748845"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407165903504.png" alt="image-20250407165903504"></p>
-<h3 id="3-4-Counters"><a href="#3-4-Counters" class="headerlink" title="3.4  Counters"></a>3.4  Counters</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407183128147.png" alt="image-20250407183128147"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407183216165.png" alt="image-20250407183216165"></p>
-<p>(Inc 代表增量[+1])</p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407183416972.png" alt="image-20250407183416972"></p>
-<h3 id="3-5-code"><a href="#3-5-code" class="headerlink" title="3.5 code"></a>3.5 code</h3><h4 id="preview：DFF"><a href="#preview：DFF" class="headerlink" title="preview：DFF"></a>preview：DFF</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250415121843294.png" alt="image-20250415121843294"></p>
-<hr>
-<h4 id="1-bit-register-芯片"><a href="#1-bit-register-芯片" class="headerlink" title="1-bit register 芯片"></a>1-bit register 芯片</h4><ul>
-<li>输入一个1-bit的数。如果load&#x3D;1，下一秒输入该数，如果load&#x3D;0，下一秒保持原来的数值。</li>
-<li>register 中文：<strong>寄存器</strong></li>
-</ul>
-<img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250415122014364.png" alt="image-20250415122014364" style="zoom:80%;" />
-
-<img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250415122027636.png" style="zoom:67%;" />
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CHIP Bit &#123;</span><br><span class="line">    IN in, load;</span><br><span class="line">    OUT out;</span><br><span class="line"></span><br><span class="line">    PARTS:</span><br><span class="line">    Mux(a=out2 , b=in , sel=load , out=w1 );</span><br><span class="line">    DFF(in=w1 , out=out,out=out2 );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h4 id="16-bit-register-芯片"><a href="#16-bit-register-芯片" class="headerlink" title="16-bit register 芯片"></a>16-bit register 芯片</h4><ul>
-<li>输入一个16-bit的数。根据load，下一秒输出该数，或者下一秒保持上一秒的值。</li>
-<li>1个load决定16个输出。16个1-bit register芯片并排。</li>
-<li>对每一位进行load运算</li>
-<li>最终的输入&#x2F;输出 都是 <strong>一个</strong> 16-bit的数</li>
-</ul>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/OIP-C%20(1).jpg"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/OIP-C%20(3).jpg"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 16-bit 寄存器! </span><br><span class="line">CHIP Register &#123;</span><br><span class="line">    IN in[16], load;</span><br><span class="line">    OUT out[16];</span><br><span class="line"></span><br><span class="line">    PARTS:</span><br><span class="line">    //对16bit的每一位进行load，当load为1的时候给 对应位 储存值</span><br><span class="line">    Bit(in=in[15] , load=load , out=out[15] );</span><br><span class="line">    Bit(in=in[14] , load=load , out=out[14] );</span><br><span class="line">    Bit(in=in[13] , load=load , out=out[13] );</span><br><span class="line">    Bit(in=in[12] , load=load , out=out[12] );</span><br><span class="line">    Bit(in=in[11] , load=load , out=out[11] );</span><br><span class="line">    Bit(in=in[10] , load=load , out=out[10] );</span><br><span class="line">    Bit(in=in[9] , load=load , out=out[9] );</span><br><span class="line">    Bit(in=in[8] , load=load , out=out[8] );</span><br><span class="line">    Bit(in=in[7] , load=load , out=out[7] );</span><br><span class="line">    Bit(in=in[6] , load=load , out=out[6] );</span><br><span class="line">    Bit(in=in[5] , load=load , out=out[5] );</span><br><span class="line">    Bit(in=in[4] , load=load , out=out[4] );</span><br><span class="line">    Bit(in=in[3] , load=load , out=out[3] );</span><br><span class="line">    Bit(in=in[2] , load=load , out=out[2] );</span><br><span class="line">    Bit(in=in[1] , load=load , out=out[1] );</span><br><span class="line">    Bit(in=in[0] , load=load , out=out[0] );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="RAM8"><a href="#RAM8" class="headerlink" title="RAM8"></a>RAM8</h4><ul>
-<li>8个 16-bit寄存器，并排放在RAM8里。</li>
-<li>输入：<strong>一个</strong>16-bit 的数。输出为 <strong>一个</strong> 16-bit 的数  （<strong>数最大 16-bit</strong>，可小点）</li>
-<li>⭐根据三位数地址address决定给    哪<strong>一个</strong>   register储存值。</li>
-<li>对应的被调到的寄存器的load会被打开，load&#x3D;1。</li>
-</ul>
-<img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy82Njg0OTktNzY0NDYzZDgxYjExYWI4Mi5qcGc.png" style="zoom: 33%;" />
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CHIP RAM8 &#123;</span><br><span class="line">    IN in[16], load, address[3];  // address有3位，能解码成 2的三次方= 8个 不一样的 三位数</span><br><span class="line">    OUT out[16];</span><br><span class="line"></span><br><span class="line">    PARTS:</span><br><span class="line">    //假设address为000，load为 1。DMux8Way会把load信号分配到输出端口a，</span><br><span class="line">    //也就是第一个寄存器的load端口会接收到值为 1 的信号，而其余寄存器的load端口会接收到值为 0 的信号（即不改变自身的值）</span><br><span class="line">    DMux8Way(in = load,sel = address,a = a,b = b,c = c,d = d,e = e,f = f,g = g,h = h);</span><br><span class="line"></span><br><span class="line">    Register(in=in , load=a , out=outa );</span><br><span class="line">    Register(in=in , load=b , out=outb );</span><br><span class="line">    Register(in=in , load=c , out=outc );</span><br><span class="line">    Register(in=in , load=d , out=outd );</span><br><span class="line">    Register(in=in , load=e , out=oute );</span><br><span class="line">    Register(in=in , load=f , out=outf );</span><br><span class="line">    Register(in=in , load=g , out=outg );</span><br><span class="line">    Register(in=in , load=h , out=outh );</span><br><span class="line"></span><br><span class="line">    Mux8Way16(a=outa , b=outb , c=outc , d=outd , e=oute , f=outf , g=outg , h=outh , sel=address , out=out);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="RAM64"><a href="#RAM64" class="headerlink" title="RAM64"></a>RAM64</h4><ul>
-<li><strong>原理同RAM8：一个最大16-bit的输入，根据address（解码后）决定把改 一位数值 保存在哪个地方（该地方的load会打开）</strong></li>
-<li>（结构由 8个RAM8 并排拼一起，解码端口变多了点，当然了address也长了点）</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"> CHIP RAM64 &#123;</span><br><span class="line">    IN in[16], load, address[6];</span><br><span class="line">    OUT out[16];</span><br><span class="line"></span><br><span class="line">    PARTS:</span><br><span class="line">    DMux8Way(in = load,sel = address[3..5],a = a,b = b,c = c,d = d,e = e,f = f,g = g,h = h);</span><br><span class="line">    //两层解码：第一层，用前3位区分开8个不一样的RAM8</span><br><span class="line"></span><br><span class="line">	// 第二层，用后三位，区分开来每个RAM8的8个不同的寄存器。（这样子就区分开来了8*8=64个寄存器）</span><br><span class="line">    RAM8(in=in , load=a , address=address[0..2] , out=outa );</span><br><span class="line">    RAM8(in=in , load=b , address=address[0..2] , out=outb );</span><br><span class="line">    RAM8(in=in , load=c , address=address[0..2] , out=outc );</span><br><span class="line">    RAM8(in=in , load=d , address=address[0..2] , out=outd );</span><br><span class="line">    RAM8(in=in , load=e , address=address[0..2] , out=oute );</span><br><span class="line">    RAM8(in=in , load=f , address=address[0..2] , out=outf );</span><br><span class="line">    RAM8(in=in , load=g , address=address[0..2] , out=outg );</span><br><span class="line">    RAM8(in=in , load=h , address=address[0..2] , out=outh );</span><br><span class="line"></span><br><span class="line">    Mux8Way16(a=outa , b=outb , c=outc , d=outd , e=oute , f=outf , g=outg , h=outh , sel=address[3..5] , out=out);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="RAM512"><a href="#RAM512" class="headerlink" title="RAM512"></a>RAM512</h4><ul>
-<li>原理同上，就是积木从小拼到大（8个RAM64）</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CHIP RAM512 &#123;</span><br><span class="line">    IN in[16], load, address[9];</span><br><span class="line">    OUT out[16];</span><br><span class="line"></span><br><span class="line">    PARTS:</span><br><span class="line">    DMux8Way(in = load,sel = address[6..8],a = a,b = b,c = c,d = d,e = e,f = f,g = g,h = h);</span><br><span class="line"></span><br><span class="line">    RAM64(in=in , load=a , address=address[0..5] , out=outa );</span><br><span class="line">    RAM64(in=in , load=b , address=address[0..5] , out=outb );</span><br><span class="line">    RAM64(in=in , load=c , address=address[0..5] , out=outc );</span><br><span class="line">    RAM64(in=in , load=d , address=address[0..5] , out=outd );</span><br><span class="line">    RAM64(in=in , load=e , address=address[0..5] , out=oute );</span><br><span class="line">    RAM64(in=in , load=f , address=address[0..5] , out=outf );</span><br><span class="line">    RAM64(in=in , load=g , address=address[0..5] , out=outg );</span><br><span class="line">    RAM64(in=in , load=h , address=address[0..5] , out=outh );</span><br><span class="line"></span><br><span class="line">    Mux8Way16(a=outa , b=outb , c=outc , d=outd , e=oute , f=outf , g=outg , h=outh , sel=address[6..8] , out=out);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="RAM4K"><a href="#RAM4K" class="headerlink" title="RAM4K"></a>RAM4K</h4><ul>
-<li>8个RAM512</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"> CHIP RAM4K &#123;</span><br><span class="line">    IN in[16], load, address[12];</span><br><span class="line">    OUT out[16];</span><br><span class="line"></span><br><span class="line">    PARTS:</span><br><span class="line">    DMux8Way(in = load,sel = address[9..11],a = a,b = b,c = c,d = d,e = e,f = f,g = g,h = h);</span><br><span class="line">    //假设address为000，load为 1。DMux8Way会把load信号分配到输出端口a。</span><br><span class="line"></span><br><span class="line">    RAM512(in=in , load=a , address=address[0..8] , out=outa );</span><br><span class="line">    RAM512(in=in , load=b , address=address[0..8] , out=outb );</span><br><span class="line">    RAM512(in=in , load=c , address=address[0..8] , out=outc );</span><br><span class="line">    RAM512(in=in , load=d , address=address[0..8] , out=outd );</span><br><span class="line">    RAM512(in=in , load=e , address=address[0..8] , out=oute );</span><br><span class="line">    RAM512(in=in , load=f , address=address[0..8] , out=outf );</span><br><span class="line">    RAM512(in=in , load=g , address=address[0..8] , out=outg );</span><br><span class="line">    RAM512(in=in , load=h , address=address[0..8] , out=outh );</span><br><span class="line"></span><br><span class="line">    Mux8Way16(a=outa , b=outb , c=outc , d=outd , e=oute , f=outf , g=outg , h=outh , sel=address[9..11] , out=out);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="RAM16K"><a href="#RAM16K" class="headerlink" title="RAM16K"></a>RAM16K</h4><ul>
-<li>4个RAM4K</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"> CHIP RAM16K &#123;</span><br><span class="line">    IN in[16], load, address[14];</span><br><span class="line">    OUT out[16];</span><br><span class="line"></span><br><span class="line">    PARTS:</span><br><span class="line">    DMux4Way(in = load,sel = address[12..13],a = a,b = b,c = c,d = d);</span><br><span class="line">    // 前两位用来区分4个RAM4K，后面12位是RAM4K所需的address。 </span><br><span class="line"></span><br><span class="line">    RAM4K(in=in , load=a , address=address[0..11] , out=outa );</span><br><span class="line">    RAM4K(in=in , load=b , address=address[0..11] , out=outb );</span><br><span class="line">    RAM4K(in=in , load=c , address=address[0..11] , out=outc );</span><br><span class="line">    RAM4K(in=in , load=d , address=address[0..11] , out=outd );</span><br><span class="line">    </span><br><span class="line">    Mux4Way16(a=outa , b=outb , c=outc , d=outd , sel=address[12..13] , out=out);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250415131408114.png" alt="image-20250415131408114" style="zoom:50%;" />
-
-
-
-<h4 id="CHIP-PC"><a href="#CHIP-PC" class="headerlink" title="CHIP PC"></a>CHIP PC</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/747e5d538c8e16996b67320f42e7e77.jpg" alt="747e5d538c8e16996b67320f42e7e77"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/**</span><br><span class="line"> * A 16-bit counter. 计数器吧？？？</span><br><span class="line"> * if      reset(t): out(t+1) = 0</span><br><span class="line"> * else if load(t):  out(t+1) = in(t)</span><br><span class="line"> * else if inc(t):   out(t+1) = out(t) + 1</span><br><span class="line"> * else              out(t+1) = out(t)</span><br><span class="line"> */</span><br><span class="line"> </span><br><span class="line">CHIP PC &#123;</span><br><span class="line">    IN in[16], reset, load, inc;</span><br><span class="line">    OUT out[16];</span><br><span class="line">    </span><br><span class="line">    PARTS:</span><br><span class="line"></span><br><span class="line">    Inc16(in = feedback,out = incout);</span><br><span class="line">    Mux16(a = feedback,b = incout,sel = inc,out = out1);</span><br><span class="line">    Mux16(a = out1,b = in,sel = load,out = out2);</span><br><span class="line">    Mux16(a = out2,b = false,sel = reset,out = out3);</span><br><span class="line"></span><br><span class="line">    Register(in = out3,load = true,out = out,out = feedback);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>code</category>
-      </categories>
-      <tags>
-        <tag>nand2tetris</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>proj3(review)</title>
-    <url>/2025/11/05/nand2tetris/nand2tetris-proj3-final2/</url>
-    <content><![CDATA[<h3 id="3-1-Sequential-Logic（逻辑时序）"><a href="#3-1-Sequential-Logic（逻辑时序）" class="headerlink" title="3.1 Sequential Logic（逻辑时序）"></a>3.1 Sequential Logic（逻辑时序）</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407103408721.png" alt="image-20250407103408721"></p>
-<h4 id="The-Clock"><a href="#The-Clock" class="headerlink" title="The Clock"></a>The Clock</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407103559711.png" alt="image-20250407103559711"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407103651219.png" alt="image-20250407103651219"></p>
-<p>⭐</p>
-<h4 id="Combinatorial-Logic-vs-Sequential-Logic"><a href="#Combinatorial-Logic-vs-Sequential-Logic" class="headerlink" title="Combinatorial Logic vs. Sequential Logic"></a>Combinatorial Logic vs. Sequential Logic</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407104103457.png" alt="image-20250407104103457"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407104118222.png" alt="image-20250407104118222"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407104217914.png" alt="image-20250407104217914"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407104323702.png" alt="image-20250407104323702"></p>
-<h3 id="3-2-Flip-Flops-触发器"><a href="#3-2-Flip-Flops-触发器" class="headerlink" title="3.2 Flip Flops 触发器"></a>3.2 Flip Flops 触发器</h3><p>制作允许上一步操作的芯片</p>
 <p>⭐</p>
 <h4 id="D-触发器"><a href="#D-触发器" class="headerlink" title="D 触发器"></a><strong>D 触发器</strong></h4><p><strong>换句话说，DFF 简单地将前一个时间周期的输入值作为当前周期的输出。𝑜𝑢𝑡(𝑡)&#x3D;𝑖𝑛(𝑡−1)</strong></p>
 <p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250407131732664.png" alt="image-20250407131732664"></p>
@@ -1323,163 +1347,6 @@
       </tags>
   </entry>
   <entry>
-    <title>网站语法示例</title>
-    <url>/2025/04/10/%E8%AE%A1%E7%BB%84/example/</url>
-    <content><![CDATA[<h2 id="TO"><a href="#TO" class="headerlink" title="TO"></a>TO</h2><h5 id="fgf"><a href="#fgf" class="headerlink" title="fgf"></a>fgf</h5><h2 id="fsfs"><a href="#fsfs" class="headerlink" title="fsfs"></a>fsfs</h2><h3 id="fgd"><a href="#fgd" class="headerlink" title="fgd"></a>fgd</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">z</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Hello&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><img src="https://picsum.photos/id/627/200/300" alt="图片名称八个字"></p>
-<hr>
-<h2 id="title-Hello-world‘categories’-other"><a href="#title-Hello-world‘categories’-other" class="headerlink" title="title: Hello world‘categories’: other"></a>title: Hello world<br>‘categories’: other</h2><p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-      <categories>
-        <category>other</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>计组-4.1 指令系统</title>
-    <url>/2026/02/24/%E8%AE%A1%E7%BB%84/%E8%AE%A1%E7%BB%84-4.1%20%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F/</url>
-    <content><![CDATA[<h2 id="4-1-指令系统"><a href="#4-1-指令系统" class="headerlink" title="4.1 指令系统"></a>4.1 指令系统</h2><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260220183411571.png" alt="image-20260220183411571"></p>
-<p>指令系统是<strong>控制器</strong>部分的内容。</p>
-<p>控制器和运算器组成了CPU。</p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260220183511003.png" alt="image-20260220183511003"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260220183537805.png" alt="image-20260220183537805"></p>
-<h3 id="指令集体系结构（ISA）"><a href="#指令集体系结构（ISA）" class="headerlink" title="指令集体系结构（ISA）"></a>指令集体系结构（<strong>ISA</strong>）</h3><ul>
-<li><p><strong>ISA</strong>是软件和硬件之间接口的完整定义，包含了：基本数据类型，<strong>指令集</strong>，寄存器，寻址模式，储存体系，中断和异常处理及外部I&#x2F;O</p>
-</li>
-<li><p><strong>一台计算机所有的指令的集合构成该机的指令系统，由叫指令集。</strong></p>
-</li>
-<li><p>一台计算机只能执行自己指令系统的指令，不能执行其他系统的指令。eg  PC的x86架构，手机的ARM架构</p>
-</li>
-</ul>
-<h3 id="指令的基本格式"><a href="#指令的基本格式" class="headerlink" title="&#x3D;&#x3D;指令的基本格式&#x3D;&#x3D;"></a>&#x3D;&#x3D;指令的基本格式&#x3D;&#x3D;</h3><ul>
-<li><p><strong>操作码+地址码</strong></p>
-</li>
-<li><p>操作码 ：<strong>给出指令&#x2F;操作</strong></p>
-</li>
-<li><p>地址码 ：对谁操作&#x2F;操作对象（给出<strong>被操作</strong>数据&#x2F;指令<strong>的地址）</strong></p>
-</li>
-<li><p>指令字长 – 指令长度</p>
-<ul>
-<li>单字长指令，双字长指令（存取需两次访存），半字长指令（指令长度&#x3D;半个机器字长）</li>
-</ul>
-</li>
-</ul>
-<h3 id="指令分类"><a href="#指令分类" class="headerlink" title="指令分类"></a>指令分类</h3><p>&#x3D;&#x3D;**A. ** 按地址码数目（需要几个操作数）不同：&#x3D;&#x3D;</p>
-<ul>
-<li><p>零地址指令</p>
-<ul>
-<li>只有操作码OP</li>
-<li>when：<ul>
-<li>不需要操作码的指令（空操作&#x2F;停机指令…</li>
-<li>用在堆栈中的运算类指令。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>一地址指令</p>
-<ul>
-<li><p>when:</p>
-<ul>
-<li>OP(A₁)→A₁【只需要一个操作数，eg加1，求反…】（3次访存，取指，读A1，写A1）</li>
-<li>(ACC)OP(A₁)→ACC【两个操作数，但隐含另一个操作数由ACC累加器提供】（2次访存，取指，读A1）</li>
-<li>【A₁表示主存地址，(A₁)表示A₁所指向的地址的内容】</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>二地址指令</p>
-<ul>
-<li>when:<ul>
-<li>(A₁)OP(A₂)→A₁【用于需要两个操作数的指令】（完成一条指令需要 4 次访存）</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>三地址指令</p>
-<ul>
-<li>when：<ul>
-<li>(A₁)OP(A₂)→A₃（完成一条指令需要 4 次访存）</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>四地址指令</p>
-<ul>
-<li>when：<ul>
-<li>(A₁)OP(A₂)→A₃，A₄&#x3D;下一条将执行指令的地址 （执行指令后，PC不是简单地+1，而是转到A₄所指的地址）</li>
-</ul>
-</li>
-<li>若指令字长32位，<strong>操作码占8位</strong>，<strong>4个地址码字段各占6位。</strong></li>
-<li>则<strong>每个操作数</strong>的<strong>直接寻址范围</strong>为2^6&#x3D;64。若地址码均为主存地址，则完成一条四地址指令需要<strong>4次访存</strong>（取指令1，取两个操作数2，存结果1）</li>
-</ul>
-</li>
-</ul>
-<p>&#x3D;&#x3D;B. 按指令长度&#x3D;&#x3D;</p>
-<ul>
-<li>定长指令字结构：指令系统中所有指令的长度都相等</li>
-<li>变长指令字结构</li>
-</ul>
-<p>&#x3D;&#x3D;C. 按操作码长度&#x3D;&#x3D;</p>
-<ul>
-<li><p><strong>定长</strong>操作码：<strong>n位操作码字段</strong>的指令系统最大能够表示<strong>2^n条指令</strong></p>
-</li>
-<li><p><strong>可变长度</strong>操作码</p>
-</li>
-<li><p>（留图）</p>
-</li>
-</ul>
-<p>&#x3D;&#x3D;D. 按功能分类&#x3D;&#x3D;</p>
-<ul>
-<li>数据传送<ul>
-<li>LOAD  把<strong>存储器</strong>中的数据放到<strong>寄存器</strong>中</li>
-<li>STORE 把<strong>寄存器</strong>中的数据放到<strong>存储器</strong>中</li>
-</ul>
-</li>
-<li>算术和逻辑运算<ul>
-<li>算术：加减乘除，自增，求补..</li>
-<li>逻辑：与或非异或…</li>
-</ul>
-</li>
-<li>移位操作：算术移位，逻辑移位，循环移位。</li>
-<li>转移操作：无条件转移（JMP），有条件转移，调用（CALL），返回（RET)，陷阱（Trap）…</li>
-<li>输出输入操作</li>
-</ul>
-<h3 id="扩展操作码"><a href="#扩展操作码" class="headerlink" title="扩展操作码"></a>扩展操作码</h3><p>&#x3D;&#x3D;B+C→扩展操作码&#x3D;&#x3D;</p>
-<ul>
-<li><p><strong>定长指令字结构+可变长操作码！</strong></p>
-</li>
-<li><p>指令长度不变，<strong>操作码长度 由地址码↓而↑</strong></p>
-</li>
-<li><p>优点：丰富指令种类</p>
-</li>
-</ul>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260220224526187.png" alt="image-20260220224526187"></p>
-<p>attention：</p>
-<ul>
-<li>不允许短码是长码的前缀</li>
-<li>各指令的操作码一定不能重复</li>
-</ul>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260220225514999.png" alt="image-20260220225514999"></p>
-]]></content>
-      <categories>
-        <category>计组</category>
-      </categories>
-      <tags>
-        <tag>指令</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>proj5</title>
     <url>/2025/05/03/nand2tetris/nand2tetris-proj5-final-2/</url>
     <content><![CDATA[<h1 id="5-1"><a href="#5-1" class="headerlink" title="5.1"></a>5.1</h1><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20250414103254600.png" alt="image-20250414103254600"></p>
@@ -1757,227 +1624,136 @@
       </tags>
   </entry>
   <entry>
-    <title>计组-4.3 指令的汇编格式</title>
-    <url>/2026/02/26/%E8%AE%A1%E7%BB%84/%E8%AE%A1%E7%BB%84-4.3%20%E6%8C%87%E4%BB%A4%E7%9A%84%E6%B1%87%E7%BC%96%E7%BA%A7%E5%88%AB%E8%A1%A8%E7%A4%BA.md/</url>
-    <content><![CDATA[<h1 id="4-3-指令的汇编级别表示"><a href="#4-3-指令的汇编级别表示" class="headerlink" title="4.3 指令的汇编级别表示"></a>4.3 指令的汇编级别表示</h1><h2 id="4-3-1-1-汇编语言中的-地址码"><a href="#4-3-1-1-汇编语言中的-地址码" class="headerlink" title="4.3.1-1 汇编语言中的 地址码"></a>4.3.1-1 汇编语言中的 地址码</h2><p>&#x3D;&#x3D;指令格式 &#x3D;  操作码 + 地址码&#x3D;&#x3D;</p>
-<ul>
-<li><p>&#x3D;&#x3D;探讨的：如何在汇编语言中指明指令的数据（操作码）存放在什么地方。（关注于地址码）&#x3D;&#x3D;</p>
+    <title>计组-4.1 指令系统</title>
+    <url>/2026/02/24/%E8%AE%A1%E7%BB%84/%E8%AE%A1%E7%BB%84-4.1%20%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F/</url>
+    <content><![CDATA[<h2 id="4-1-指令系统"><a href="#4-1-指令系统" class="headerlink" title="4.1 指令系统"></a>4.1 指令系统</h2><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260220183411571.png" alt="image-20260220183411571"></p>
+<p>指令系统是<strong>控制器</strong>部分的内容。</p>
+<p>控制器和运算器组成了CPU。</p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260220183511003.png" alt="image-20260220183511003"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260220183537805.png" alt="image-20260220183537805"></p>
+<h3 id="指令集体系结构（ISA）"><a href="#指令集体系结构（ISA）" class="headerlink" title="指令集体系结构（ISA）"></a>指令集体系结构（<strong>ISA</strong>）</h3><ul>
+<li><p><strong>ISA</strong>是软件和硬件之间接口的完整定义，包含了：基本数据类型，<strong>指令集</strong>，寄存器，寻址模式，储存体系，中断和异常处理及外部I&#x2F;O</p>
 </li>
-<li><p>&#x3D;&#x3D;下一节：汇编语言指令可以对数据进行哪些处理。（关注于操作码）&#x3D;&#x3D;</p>
+<li><p><strong>一台计算机所有的指令的集合构成该机的指令系统，由叫指令集。</strong></p>
+</li>
+<li><p>一台计算机只能执行自己指令系统的指令，不能执行其他系统的指令。eg  PC的x86架构，手机的ARM架构</p>
 </li>
 </ul>
-<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><ul>
-<li>高级语言→汇编语言→机器语言</li>
-</ul>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226094410975.png" alt="image-20260226094410975"></p>
-<img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226094439829.png" alt="image-20260226094439829" style="zoom:50%;" />
-
-<h3 id="汇编角度看待指令"><a href="#汇编角度看待指令" class="headerlink" title="汇编角度看待指令"></a>汇编角度看待指令</h3><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226094818185.png" alt="image-20260226094818185" style="zoom:50%;" />
-
-<img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226100055282.png" alt="image-20260226100055282" style="zoom:25%;" />
-
-
-
-<h4 id="关于寄存器"><a href="#关于寄存器" class="headerlink" title="关于寄存器"></a>关于寄存器</h4><ul>
-<li>三类常见寄存器：通用寄存器，变址寄存器，堆栈寄存器</li>
-</ul>
-<img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226100718663.png" alt="image-20260226100718663" style="zoom: 50%;" />
-
-<p>（少见的情况）</p>
+<h3 id="指令的基本格式"><a href="#指令的基本格式" class="headerlink" title="&#x3D;&#x3D;指令的基本格式&#x3D;&#x3D;"></a>&#x3D;&#x3D;指令的基本格式&#x3D;&#x3D;</h3><ul>
+<li><p><strong>操作码+地址码</strong></p>
+</li>
+<li><p>操作码 ：<strong>给出指令&#x2F;操作</strong></p>
+</li>
+<li><p>地址码 ：对谁操作&#x2F;操作对象（给出<strong>被操作</strong>数据&#x2F;指令<strong>的地址）</strong></p>
+</li>
+<li><p>指令字长 – 指令长度</p>
 <ul>
-<li><strong>通用寄存器 可以把E去掉</strong>，用低16bit，甚至用某个低8bit。</li>
-<li><strong>其他寄存器固定32bit</strong></li>
-</ul>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226101035949.png" alt="image-20260226101035949" style="zoom: 18%;" /><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226101011430.png" alt="image-20260226101011430" style="zoom: 18%;" /></p>
-<p>（补充）</p>
-<ul>
-<li>【ebx】指的是ebx所指的主存地址</li>
-<li>&#x3D;&#x3D;未指明默认32bit&#x3D;&#x3D;</li>
-</ul>
-<img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226101454284.png" alt="image-20260226101454284" style="zoom:20%;" />
-
-
-
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>一表概括</p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226101604146.png" alt="image-20260226101604146"></p>
-<hr>
-<h2 id="4-3-1-2-汇编语言中的-操作码"><a href="#4-3-1-2-汇编语言中的-操作码" class="headerlink" title="4.3.1-2 汇编语言中的 操作码"></a>4.3.1-2 汇编语言中的 操作码</h2><p>&#x3D;&#x3D;这一节：汇编语言指令可以对数据进行哪些处理。（关注于操作码）&#x3D;&#x3D;</p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226110927202.png" alt="image-20260226110927202"></p>
-<h3 id="算术运算"><a href="#算术运算" class="headerlink" title="算术运算"></a>算术运算</h3><ul>
-<li><strong>destination不可以是常量</strong>，只能是寄存器或者主存。source都可。</li>
-<li><strong>div s</strong> ，s是除数，被除数提前放在edx，eax。（高位存余低位存商）（被除数需要提前扩展（位数*2），所以需要两个寄存器）</li>
-<li><strong>imul a，b，c</strong> → 将第二和第三个数相乘，结果保存到第一个数.<ul>
-<li>i - integer带符号的整数</li>
+<li>单字长指令，双字长指令（存取需两次访存），半字长指令（指令长度&#x3D;半个机器字长）</li>
 </ul>
 </li>
 </ul>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226112343895.png" alt="image-20260226112343895"></p>
-<h3 id="逻辑运算"><a href="#逻辑运算" class="headerlink" title="逻辑运算"></a>逻辑运算</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226113038595.png" alt="image-20260226113038595"></p>
-<h3 id="其他指令"><a href="#其他指令" class="headerlink" title="其他指令"></a>其他指令</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226113310667.png" alt="image-20260226113310667"></p>
-<hr>
-<h2 id="4-3-1-3-AT-T-格式-（v-s-intel-格式）"><a href="#4-3-1-3-AT-T-格式-（v-s-intel-格式）" class="headerlink" title="4.3.1-3 AT&amp;T 格式  （v.s.  intel 格式）"></a>4.3.1-3 AT&amp;T 格式  （v.s.  intel 格式）</h2><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226114251144.png" alt="image-20260226114251144"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226114449792.png" alt="image-20260226114449792"></p>
-<hr>
-<h2 id="4-3-2-选择语句的机器级表示"><a href="#4-3-2-选择语句的机器级表示" class="headerlink" title="4.3.2 选择语句的机器级表示"></a>4.3.2 选择语句的机器级表示</h2><ul>
-<li><strong>PC</strong> (program counter)也被称为 <strong>IP</strong>（instruction pointer)</li>
-</ul>
-<h3 id="无条件转移指令jmp"><a href="#无条件转移指令jmp" class="headerlink" title="无条件转移指令jmp"></a>无条件转移指令jmp</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226130627276.png" alt="image-20260226130627276"></p>
-<h3 id="条件转移指令jxxx"><a href="#条件转移指令jxxx" class="headerlink" title="条件转移指令jxxx"></a>条件转移指令jxxx</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226131300659.png" alt="image-20260226131300659"></p>
-<p>（简单例子）</p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226131711931.png" alt="image-20260226131711931" style="zoom:20%;" /><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226132102625.png" alt="image-20260226132102625" style="zoom:18%;" /></p>
-<h3 id="（扩展：cmp指令底层原理）"><a href="#（扩展：cmp指令底层原理）" class="headerlink" title="（扩展：cmp指令底层原理）"></a>（扩展：cmp指令底层原理）</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226132729951.png" alt="image-20260226132729951"></p>
-<hr>
-<h2 id="4-3-3-循环语句的机器级表示"><a href="#4-3-3-循环语句的机器级表示" class="headerlink" title="4.3.3 循环语句的机器级表示"></a>4.3.3 循环语句的机器级表示</h2><h3 id="用-条件转移指令-实现循环"><a href="#用-条件转移指令-实现循环" class="headerlink" title="用 条件转移指令 实现循环"></a>用 条件转移指令 实现循环</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226132931532.png" alt="image-20260226132931532"></p>
-<h3 id="用-loop指令-实现循环"><a href="#用-loop指令-实现循环" class="headerlink" title="用 loop指令 实现循环"></a>用 loop指令 实现循环</h3><ul>
-<li>（<strong>ecx是专门用于循环计数器的</strong>，eax ebx edx都不行）</li>
-<li>理论上只要能用loop指令实现的功能，都可以用条件转移指令实现。（只是 loop指令更简洁，且jxxx第一印象可能是分支而不是循环（但并非如此哈哈哈））</li>
-</ul>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226133511948.png" alt="image-20260226133511948"></p>
-<hr>
-<h2 id="4-3-4-函数调用的机器级表示"><a href="#4-3-4-函数调用的机器级表示" class="headerlink" title="4.3.4 函数调用的机器级表示"></a>4.3.4 函数调用的机器级表示</h2><p>待解决的：</p>
+<h3 id="指令分类"><a href="#指令分类" class="headerlink" title="指令分类"></a>指令分类</h3><p>&#x3D;&#x3D;**A. ** 按地址码数目（需要几个操作数）不同：&#x3D;&#x3D;</p>
 <ul>
-<li><p>函数调用过去和回来的过程 – 1</p>
-</li>
-<li><p>如何<strong>访问</strong>栈帧里的数据 – 2</p>
-</li>
-<li><p>如何传递调用参数，返回值 – 4</p>
-</li>
-<li><p>栈帧内可能包含哪些内容 – 4</p>
+<li><p>零地址指令</p>
+<ul>
+<li>只有操作码OP</li>
+<li>when：<ul>
+<li>不需要操作码的指令（空操作&#x2F;停机指令…</li>
+<li>用在堆栈中的运算类指令。</li>
+</ul>
 </li>
 </ul>
-<h3 id="call和ret指令"><a href="#call和ret指令" class="headerlink" title="call和ret指令"></a>call和ret指令</h3><h5 id="高级语言视角下的-函数调用"><a href="#高级语言视角下的-函数调用" class="headerlink" title="高级语言视角下的 函数调用"></a>高级语言视角下的 函数调用</h5><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226134658011.png" alt="image-20260226134658011"></p>
-<h5 id="x86汇编语言视角下的-函数调用"><a href="#x86汇编语言视角下的-函数调用" class="headerlink" title="x86汇编语言视角下的 函数调用"></a>x86汇编语言视角下的 函数调用</h5><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226135247889.png" alt="image-20260226135247889"></p>
-<hr>
-<h3 id="如何访问栈帧"><a href="#如何访问栈帧" class="headerlink" title="如何访问栈帧"></a>如何访问栈帧</h3><h4 id="函数调用栈-在内存中的位置"><a href="#函数调用栈-在内存中的位置" class="headerlink" title="函数调用栈 在内存中的位置"></a>函数调用栈 在内存中的位置</h4><ul>
-<li><strong>在用户栈中</strong></li>
-</ul>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226140709521.png" alt="image-20260226140709521"></p>
-<p>&#x3D;&#x3D;栈帧：&#x3D;&#x3D;</p>
-<ul>
-<li><strong>ebp</strong>寄存器 指向栈帧“底部”（extend base pointer)</li>
-<li><strong>esp</strong>寄存器 指向栈帧“顶部  （extend stack pointer）</li>
-<li>ebp和esp之间的内容就是<strong>栈帧的范围</strong></li>
-</ul>
-<p>其他：</p>
-<ul>
-<li><strong>入栈 - 4</strong>，因为<strong>高地址是栈底，低地址是栈顶</strong></li>
-<li><strong>默认4字节为单位</strong></li>
-<li>出栈不能pop+元素，原因同destination</li>
-</ul>
-<h4 id="访问栈帧数据的方式①：push，pop指令"><a href="#访问栈帧数据的方式①：push，pop指令" class="headerlink" title="访问栈帧数据的方式①：push，pop指令"></a>访问栈帧数据的方式①：push，pop指令</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226141447650.png" alt="image-20260226141447650"></p>
-<h4 id="访问栈帧数据的方式②：mov指令"><a href="#访问栈帧数据的方式②：mov指令" class="headerlink" title="访问栈帧数据的方式②：mov指令"></a>访问栈帧数据的方式②：mov指令</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226141918737.png" alt="image-20260226141918737"></p>
-<h3 id="如何切换栈帧"><a href="#如何切换栈帧" class="headerlink" title="如何切换栈帧"></a>如何切换栈帧</h3><p><strong>（栈指针怎么变）</strong></p>
-<h4 id="函数调用时，栈指针的变化"><a href="#函数调用时，栈指针的变化" class="headerlink" title="函数调用时，栈指针的变化"></a>函数调用时，栈指针的变化</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226172951049.png" alt="image-20260226172951049"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226183721505.png" alt="image-20260226183721505"></p>
-<h4 id="函数返回时，栈指针的变化"><a href="#函数返回时，栈指针的变化" class="headerlink" title="函数返回时，栈指针的变化"></a>函数返回时，栈指针的变化</h4><ul>
-<li>⭐</li>
-</ul>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226183915571.png" alt="image-20260226183915571"></p>
-<p>（注：<strong>每一个栈帧的底部</strong>，用于保存上一层栈帧的基址）</p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226184109023.png" alt="image-20260226184109023"></p>
-<p>ret的作用</p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226184200050.png" alt="image-20260226184200050"></p>
-<h4 id="函数调用时栈指针的变化（总）"><a href="#函数调用时栈指针的变化（总）" class="headerlink" title="函数调用时栈指针的变化（总）"></a>函数调用时栈指针的变化（总）</h4><ul>
-<li>除了main函数，其他的函数都有调用和被调用</li>
-</ul>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226184318481.png" alt="（"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226184649617.png" alt="image-20260226184649617"></p>
-<h3 id="如何传递参数和返回值-指针包含的内容"><a href="#如何传递参数和返回值-指针包含的内容" class="headerlink" title="如何传递参数和返回值+指针包含的内容"></a>如何传递参数和返回值+指针包含的内容</h3><h4 id="指针包含的内容"><a href="#指针包含的内容" class="headerlink" title="指针包含的内容"></a>指针包含的内容</h4><ul>
-<li>（like [ebp&#x3D;&#x3D;-&#x3D;&#x3D;4]这类就是指<strong>局部变量</strong>）</li>
-</ul>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226192036882.png" alt="image-20260226192036882"></p>
-<ul>
-<li>（此处是add函数，[ebp&#x3D;&#x3D;+&#x3D;&#x3D;8]这类指的是<strong>调用参数</strong>）</li>
-</ul>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226192332054.png" alt="image-20260226192332054"></p>
-<ul>
-<li>（有空闲的区域是正常的）</li>
-</ul>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226192633373.png" alt="image-20260226192633373"></p>
-<ul>
-<li><strong>调用参数发生在call（下一fuc）指令之前</strong></li>
-</ul>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226194506993.png" alt="image-20260226194506993"></p>
-<h4 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h4><ul>
-<li>压入上一层栈帧基址</li>
-</ul>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226194645675.png" alt="image-20260226194645675"></p>
-<ul>
-<li>esp-24，划出了栈帧的范围</li>
-</ul>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226195154935.png" alt="image-20260226195154935"></p>
-<ul>
-<li>局部变量的初始化</li>
-</ul>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226195512328.png" alt="image-20260226195512328"></p>
-<ul>
-<li><p>调用add的参数发生在add函数call之前</p>
 </li>
-<li><p>（mov指令是不能两个操作数都来自主存的，所以此处需两步）</p>
-</li>
-<li><p>（x的参数调用同y）</p>
+<li><p>一地址指令</p>
+<ul>
+<li><p>when:</p>
+<ul>
+<li>OP(A₁)→A₁【只需要一个操作数，eg加1，求反…】（3次访存，取指，读A1，写A1）</li>
+<li>(ACC)OP(A₁)→ACC【两个操作数，但隐含另一个操作数由ACC累加器提供】（2次访存，取指，读A1）</li>
+<li>【A₁表示主存地址，(A₁)表示A₁所指向的地址的内容】</li>
+</ul>
 </li>
 </ul>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226195925891.png" alt="image-20260226195925891"></p>
-<ul>
-<li>call指令，把ip的旧值压到栈顶</li>
-<li>&#x3D;&#x3D;同时程序的执行流，转移到add函数的第一条指令&#x3D;&#x3D;</li>
-</ul>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226200244224.png" alt="image-20260226200244224"></p>
-<ul>
-<li>push指令把caller函数的栈帧基地址保存下来（0xA00F…)</li>
-<li>move指令让ebp指针指向当前函数的基地址（esp所指的）</li>
-</ul>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226200347709.png" alt="image-20260226200347709"></p>
-<ul>
-<li>访问add需要的两个参数x，y</li>
-<li>后add，并把结果写回eax</li>
-</ul>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226200854157.png" alt="image-20260226200854157"></p>
-<ul>
-<li>leave指令，切换回上层函数的栈帧</li>
-</ul>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226201027770.png" alt="image-20260226201027770"></p>
-<ul>
-<li>执行return指令，让程序的指令流回到上一层函数</li>
-</ul>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226201111545.png" alt="image-20260226201111545"></p>
-<ul>
-<li>&#x3D;&#x3D;<strong>通常用eax返回结果</strong>&#x3D;&#x3D;</li>
-<li><strong>用eax把 add函数的返回值 返回到sum变量【ebp-4处】</strong></li>
-</ul>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226201438311.png" alt="image-20260226201438311"></p>
-<ul>
-<li><strong>caller函数 把sum的值返回给 上一层函数</strong>    <strong>【先返回到eax寄存器里】</strong></li>
-</ul>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226201710656.png" alt="image-20260226201710656"></p>
-<p>总结</p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226201905123.png" alt="image-20260226201905123"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226202018379.png" alt="image-20260226202018379"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226202811025.png" alt="image-20260226202811025"></p>
-<h2 id="4-3-5-补充内容"><a href="#4-3-5-补充内容" class="headerlink" title="4.3.5 补充内容"></a>4.3.5 补充内容</h2><ul>
-<li><p>&#x3D;&#x3D;CF值（有无进位）判断方法&#x3D;&#x3D;：sub位 <strong>⊕</strong> Cout 位  （异或）</p>
 </li>
-<li><p><strong>指令序列</strong>（左边为指令地址，中间为机器代码，右边为汇编指令）</p>
+<li><p>二地址指令</p>
 <ul>
-<li>【机器代码和汇编指令表达的同个东西，表示方法不同而已】</li>
-<li>【指令地址不是地址码，是从地址码找到的指令地址】</li>
+<li>when:<ul>
+<li>(A₁)OP(A₂)→A₁【用于需要两个操作数的指令】（完成一条指令需要 4 次访存）</li>
 </ul>
 </li>
-<li><p><strong>使程序跳转执行的指令</strong>：jmp，jxxx，call，ret</p>
+</ul>
 </li>
-<li><p>有符号乘法溢出判断：高33位不全为1或0，此时OF&#x3D;1</p>
-</li>
-<li><p>指令都是虚拟地址。虚拟地址和物理地址低xx位相同（虚拟地址&#x3D;虚拟页号+页内地址）</p>
+<li><p>三地址指令</p>
+<ul>
+<li>when：<ul>
+<li>(A₁)OP(A₂)→A₃（完成一条指令需要 4 次访存）</li>
+</ul>
 </li>
 </ul>
+</li>
+<li><p>四地址指令</p>
+<ul>
+<li>when：<ul>
+<li>(A₁)OP(A₂)→A₃，A₄&#x3D;下一条将执行指令的地址 （执行指令后，PC不是简单地+1，而是转到A₄所指的地址）</li>
+</ul>
+</li>
+<li>若指令字长32位，<strong>操作码占8位</strong>，<strong>4个地址码字段各占6位。</strong></li>
+<li>则<strong>每个操作数</strong>的<strong>直接寻址范围</strong>为2^6&#x3D;64。若地址码均为主存地址，则完成一条四地址指令需要<strong>4次访存</strong>（取指令1，取两个操作数2，存结果1）</li>
+</ul>
+</li>
+</ul>
+<p>&#x3D;&#x3D;B. 按指令长度&#x3D;&#x3D;</p>
+<ul>
+<li>定长指令字结构：指令系统中所有指令的长度都相等</li>
+<li>变长指令字结构</li>
+</ul>
+<p>&#x3D;&#x3D;C. 按操作码长度&#x3D;&#x3D;</p>
+<ul>
+<li><p><strong>定长</strong>操作码：<strong>n位操作码字段</strong>的指令系统最大能够表示<strong>2^n条指令</strong></p>
+</li>
+<li><p><strong>可变长度</strong>操作码</p>
+</li>
+<li><p>（留图）</p>
+</li>
+</ul>
+<p>&#x3D;&#x3D;D. 按功能分类&#x3D;&#x3D;</p>
+<ul>
+<li>数据传送<ul>
+<li>LOAD  把<strong>存储器</strong>中的数据放到<strong>寄存器</strong>中</li>
+<li>STORE 把<strong>寄存器</strong>中的数据放到<strong>存储器</strong>中</li>
+</ul>
+</li>
+<li>算术和逻辑运算<ul>
+<li>算术：加减乘除，自增，求补..</li>
+<li>逻辑：与或非异或…</li>
+</ul>
+</li>
+<li>移位操作：算术移位，逻辑移位，循环移位。</li>
+<li>转移操作：无条件转移（JMP），有条件转移，调用（CALL），返回（RET)，陷阱（Trap）…</li>
+<li>输出输入操作</li>
+</ul>
+<h3 id="扩展操作码"><a href="#扩展操作码" class="headerlink" title="扩展操作码"></a>扩展操作码</h3><p>&#x3D;&#x3D;B+C→扩展操作码&#x3D;&#x3D;</p>
+<ul>
+<li><p><strong>定长指令字结构+可变长操作码！</strong></p>
+</li>
+<li><p>指令长度不变，<strong>操作码长度 由地址码↓而↑</strong></p>
+</li>
+<li><p>优点：丰富指令种类</p>
+</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260220224526187.png" alt="image-20260220224526187"></p>
+<p>attention：</p>
+<ul>
+<li>不允许短码是长码的前缀</li>
+<li>各指令的操作码一定不能重复</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260220225514999.png" alt="image-20260220225514999"></p>
 ]]></content>
       <categories>
         <category>计组</category>
       </categories>
       <tags>
         <tag>指令</tag>
-        <tag>汇编</tag>
       </tags>
   </entry>
   <entry>
@@ -2229,19 +2005,219 @@
       </tags>
   </entry>
   <entry>
-    <title>计组-4.4 CISC和RISC</title>
-    <url>/2026/02/28/%E8%AE%A1%E7%BB%84/%E8%AE%A1%E7%BB%84-4.4%20CISC%E5%92%8CRISC/</url>
-    <content><![CDATA[<p>相比于CISC,RISC的特点是：（Complex &#x2F; Reduced）</p>
+    <title>计组-4.3 指令的汇编格式</title>
+    <url>/2026/02/26/%E8%AE%A1%E7%BB%84/%E8%AE%A1%E7%BB%84-4.3%20%E6%8C%87%E4%BB%A4%E7%9A%84%E6%B1%87%E7%BC%96%E7%BA%A7%E5%88%AB%E8%A1%A8%E7%A4%BA.md/</url>
+    <content><![CDATA[<h1 id="4-3-指令的汇编级别表示"><a href="#4-3-指令的汇编级别表示" class="headerlink" title="4.3 指令的汇编级别表示"></a>4.3 指令的汇编级别表示</h1><h2 id="4-3-1-1-汇编语言中的-地址码"><a href="#4-3-1-1-汇编语言中的-地址码" class="headerlink" title="4.3.1-1 汇编语言中的 地址码"></a>4.3.1-1 汇编语言中的 地址码</h2><p>&#x3D;&#x3D;指令格式 &#x3D;  操作码 + 地址码&#x3D;&#x3D;</p>
 <ul>
-<li>&#x3D;&#x3D;极简&#x3D;&#x3D;，速度快。</li>
-<li><strong>指令条数少</strong>；</li>
-<li>&#x3D;&#x3D;<strong>指令长度固定</strong>&#x3D;&#x3D;，指令格式和寻址种类少；<strong>（功能性不强）</strong>（编程不方便）</li>
-<li>只有取数&#x2F;存数（LOAD&#x2F;STORE）指令访问<strong>存储器</strong>，其余指令的操作均在<strong>寄存器</strong>进行；</li>
-<li>CPU中<strong>通用寄存器多</strong>；</li>
-<li>大部分指令在一个时钟周期内完成；（指令执行时间）</li>
-<li>以硬布线逻辑为主，不用或<strong>少用微程序控制器</strong>控制。</li>
-<li>必须实现指令<strong>流水线控制</strong></li>
-<li><strong>用优化的编译程序</strong>，生成的代码高效。</li>
+<li><p>&#x3D;&#x3D;探讨的：如何在汇编语言中指明指令的数据（操作码）存放在什么地方。（关注于地址码）&#x3D;&#x3D;</p>
+</li>
+<li><p>&#x3D;&#x3D;下一节：汇编语言指令可以对数据进行哪些处理。（关注于操作码）&#x3D;&#x3D;</p>
+</li>
+</ul>
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><ul>
+<li>高级语言→汇编语言→机器语言</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226094410975.png" alt="image-20260226094410975"></p>
+<img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226094439829.png" alt="image-20260226094439829" style="zoom:50%;" />
+
+<h3 id="汇编角度看待指令"><a href="#汇编角度看待指令" class="headerlink" title="汇编角度看待指令"></a>汇编角度看待指令</h3><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226094818185.png" alt="image-20260226094818185" style="zoom:50%;" />
+
+<img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226100055282.png" alt="image-20260226100055282" style="zoom:25%;" />
+
+
+
+<h4 id="关于寄存器"><a href="#关于寄存器" class="headerlink" title="关于寄存器"></a>关于寄存器</h4><ul>
+<li>三类常见寄存器：通用寄存器，变址寄存器，堆栈寄存器</li>
+</ul>
+<img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226100718663.png" alt="image-20260226100718663" style="zoom: 50%;" />
+
+<p>（少见的情况）</p>
+<ul>
+<li><strong>通用寄存器 可以把E去掉</strong>，用低16bit，甚至用某个低8bit。</li>
+<li><strong>其他寄存器固定32bit</strong></li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226101035949.png" alt="image-20260226101035949" style="zoom: 18%;" /><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226101011430.png" alt="image-20260226101011430" style="zoom: 18%;" /></p>
+<p>（补充）</p>
+<ul>
+<li>【ebx】指的是ebx所指的主存地址</li>
+<li>&#x3D;&#x3D;未指明默认32bit&#x3D;&#x3D;</li>
+</ul>
+<img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226101454284.png" alt="image-20260226101454284" style="zoom:20%;" />
+
+
+
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>一表概括</p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226101604146.png" alt="image-20260226101604146"></p>
+<hr>
+<h2 id="4-3-1-2-汇编语言中的-操作码"><a href="#4-3-1-2-汇编语言中的-操作码" class="headerlink" title="4.3.1-2 汇编语言中的 操作码"></a>4.3.1-2 汇编语言中的 操作码</h2><p>&#x3D;&#x3D;这一节：汇编语言指令可以对数据进行哪些处理。（关注于操作码）&#x3D;&#x3D;</p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226110927202.png" alt="image-20260226110927202"></p>
+<h3 id="算术运算"><a href="#算术运算" class="headerlink" title="算术运算"></a>算术运算</h3><ul>
+<li><strong>destination不可以是常量</strong>，只能是寄存器或者主存。source都可。</li>
+<li><strong>div s</strong> ，s是除数，被除数提前放在edx，eax。（高位存余低位存商）（被除数需要提前扩展（位数*2），所以需要两个寄存器）</li>
+<li><strong>imul a，b，c</strong> → 将第二和第三个数相乘，结果保存到第一个数.<ul>
+<li>i - integer带符号的整数</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226112343895.png" alt="image-20260226112343895"></p>
+<h3 id="逻辑运算"><a href="#逻辑运算" class="headerlink" title="逻辑运算"></a>逻辑运算</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226113038595.png" alt="image-20260226113038595"></p>
+<h3 id="其他指令"><a href="#其他指令" class="headerlink" title="其他指令"></a>其他指令</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226113310667.png" alt="image-20260226113310667"></p>
+<hr>
+<h2 id="4-3-1-3-AT-T-格式-（v-s-intel-格式）"><a href="#4-3-1-3-AT-T-格式-（v-s-intel-格式）" class="headerlink" title="4.3.1-3 AT&amp;T 格式  （v.s.  intel 格式）"></a>4.3.1-3 AT&amp;T 格式  （v.s.  intel 格式）</h2><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226114251144.png" alt="image-20260226114251144"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226114449792.png" alt="image-20260226114449792"></p>
+<hr>
+<h2 id="4-3-2-选择语句的机器级表示"><a href="#4-3-2-选择语句的机器级表示" class="headerlink" title="4.3.2 选择语句的机器级表示"></a>4.3.2 选择语句的机器级表示</h2><ul>
+<li><strong>PC</strong> (program counter)也被称为 <strong>IP</strong>（instruction pointer)</li>
+</ul>
+<h3 id="无条件转移指令jmp"><a href="#无条件转移指令jmp" class="headerlink" title="无条件转移指令jmp"></a>无条件转移指令jmp</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226130627276.png" alt="image-20260226130627276"></p>
+<h3 id="条件转移指令jxxx"><a href="#条件转移指令jxxx" class="headerlink" title="条件转移指令jxxx"></a>条件转移指令jxxx</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226131300659.png" alt="image-20260226131300659"></p>
+<p>（简单例子）</p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226131711931.png" alt="image-20260226131711931" style="zoom:20%;" /><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226132102625.png" alt="image-20260226132102625" style="zoom:18%;" /></p>
+<h3 id="（扩展：cmp指令底层原理）"><a href="#（扩展：cmp指令底层原理）" class="headerlink" title="（扩展：cmp指令底层原理）"></a>（扩展：cmp指令底层原理）</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226132729951.png" alt="image-20260226132729951"></p>
+<hr>
+<h2 id="4-3-3-循环语句的机器级表示"><a href="#4-3-3-循环语句的机器级表示" class="headerlink" title="4.3.3 循环语句的机器级表示"></a>4.3.3 循环语句的机器级表示</h2><h3 id="用-条件转移指令-实现循环"><a href="#用-条件转移指令-实现循环" class="headerlink" title="用 条件转移指令 实现循环"></a>用 条件转移指令 实现循环</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226132931532.png" alt="image-20260226132931532"></p>
+<h3 id="用-loop指令-实现循环"><a href="#用-loop指令-实现循环" class="headerlink" title="用 loop指令 实现循环"></a>用 loop指令 实现循环</h3><ul>
+<li>（<strong>ecx是专门用于循环计数器的</strong>，eax ebx edx都不行）</li>
+<li>理论上只要能用loop指令实现的功能，都可以用条件转移指令实现。（只是 loop指令更简洁，且jxxx第一印象可能是分支而不是循环（但并非如此哈哈哈））</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226133511948.png" alt="image-20260226133511948"></p>
+<hr>
+<h2 id="4-3-4-函数调用的机器级表示"><a href="#4-3-4-函数调用的机器级表示" class="headerlink" title="4.3.4 函数调用的机器级表示"></a>4.3.4 函数调用的机器级表示</h2><p>待解决的：</p>
+<ul>
+<li><p>函数调用过去和回来的过程 – 1</p>
+</li>
+<li><p>如何<strong>访问</strong>栈帧里的数据 – 2</p>
+</li>
+<li><p>如何传递调用参数，返回值 – 4</p>
+</li>
+<li><p>栈帧内可能包含哪些内容 – 4</p>
+</li>
+</ul>
+<h3 id="call和ret指令"><a href="#call和ret指令" class="headerlink" title="call和ret指令"></a>call和ret指令</h3><h5 id="高级语言视角下的-函数调用"><a href="#高级语言视角下的-函数调用" class="headerlink" title="高级语言视角下的 函数调用"></a>高级语言视角下的 函数调用</h5><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226134658011.png" alt="image-20260226134658011"></p>
+<h5 id="x86汇编语言视角下的-函数调用"><a href="#x86汇编语言视角下的-函数调用" class="headerlink" title="x86汇编语言视角下的 函数调用"></a>x86汇编语言视角下的 函数调用</h5><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226135247889.png" alt="image-20260226135247889"></p>
+<hr>
+<h3 id="如何访问栈帧"><a href="#如何访问栈帧" class="headerlink" title="如何访问栈帧"></a>如何访问栈帧</h3><h4 id="函数调用栈-在内存中的位置"><a href="#函数调用栈-在内存中的位置" class="headerlink" title="函数调用栈 在内存中的位置"></a>函数调用栈 在内存中的位置</h4><ul>
+<li><strong>在用户栈中</strong></li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226140709521.png" alt="image-20260226140709521"></p>
+<p>&#x3D;&#x3D;栈帧：&#x3D;&#x3D;</p>
+<ul>
+<li><strong>ebp</strong>寄存器 指向栈帧“底部”（extend base pointer)</li>
+<li><strong>esp</strong>寄存器 指向栈帧“顶部  （extend stack pointer）</li>
+<li>ebp和esp之间的内容就是<strong>栈帧的范围</strong></li>
+</ul>
+<p>其他：</p>
+<ul>
+<li><strong>入栈 - 4</strong>，因为<strong>高地址是栈底，低地址是栈顶</strong></li>
+<li><strong>默认4字节为单位</strong></li>
+<li>出栈不能pop+元素，原因同destination</li>
+</ul>
+<h4 id="访问栈帧数据的方式①：push，pop指令"><a href="#访问栈帧数据的方式①：push，pop指令" class="headerlink" title="访问栈帧数据的方式①：push，pop指令"></a>访问栈帧数据的方式①：push，pop指令</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226141447650.png" alt="image-20260226141447650"></p>
+<h4 id="访问栈帧数据的方式②：mov指令"><a href="#访问栈帧数据的方式②：mov指令" class="headerlink" title="访问栈帧数据的方式②：mov指令"></a>访问栈帧数据的方式②：mov指令</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226141918737.png" alt="image-20260226141918737"></p>
+<h3 id="如何切换栈帧"><a href="#如何切换栈帧" class="headerlink" title="如何切换栈帧"></a>如何切换栈帧</h3><p><strong>（栈指针怎么变）</strong></p>
+<h4 id="函数调用时，栈指针的变化"><a href="#函数调用时，栈指针的变化" class="headerlink" title="函数调用时，栈指针的变化"></a>函数调用时，栈指针的变化</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226172951049.png" alt="image-20260226172951049"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226183721505.png" alt="image-20260226183721505"></p>
+<h4 id="函数返回时，栈指针的变化"><a href="#函数返回时，栈指针的变化" class="headerlink" title="函数返回时，栈指针的变化"></a>函数返回时，栈指针的变化</h4><ul>
+<li>⭐</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226183915571.png" alt="image-20260226183915571"></p>
+<p>（注：<strong>每一个栈帧的底部</strong>，用于保存上一层栈帧的基址）</p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226184109023.png" alt="image-20260226184109023"></p>
+<p>ret的作用</p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226184200050.png" alt="image-20260226184200050"></p>
+<h4 id="函数调用时栈指针的变化（总）"><a href="#函数调用时栈指针的变化（总）" class="headerlink" title="函数调用时栈指针的变化（总）"></a>函数调用时栈指针的变化（总）</h4><ul>
+<li>除了main函数，其他的函数都有调用和被调用</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226184318481.png" alt="（"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226184649617.png" alt="image-20260226184649617"></p>
+<h3 id="如何传递参数和返回值-指针包含的内容"><a href="#如何传递参数和返回值-指针包含的内容" class="headerlink" title="如何传递参数和返回值+指针包含的内容"></a>如何传递参数和返回值+指针包含的内容</h3><h4 id="指针包含的内容"><a href="#指针包含的内容" class="headerlink" title="指针包含的内容"></a>指针包含的内容</h4><ul>
+<li>（like [ebp&#x3D;&#x3D;-&#x3D;&#x3D;4]这类就是指<strong>局部变量</strong>）</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226192036882.png" alt="image-20260226192036882"></p>
+<ul>
+<li>（此处是add函数，[ebp&#x3D;&#x3D;+&#x3D;&#x3D;8]这类指的是<strong>调用参数</strong>）</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226192332054.png" alt="image-20260226192332054"></p>
+<ul>
+<li>（有空闲的区域是正常的）</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226192633373.png" alt="image-20260226192633373"></p>
+<ul>
+<li><strong>调用参数发生在call（下一fuc）指令之前</strong></li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226194506993.png" alt="image-20260226194506993"></p>
+<h4 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h4><ul>
+<li>压入上一层栈帧基址</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226194645675.png" alt="image-20260226194645675"></p>
+<ul>
+<li>esp-24，划出了栈帧的范围</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226195154935.png" alt="image-20260226195154935"></p>
+<ul>
+<li>局部变量的初始化</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226195512328.png" alt="image-20260226195512328"></p>
+<ul>
+<li><p>调用add的参数发生在add函数call之前</p>
+</li>
+<li><p>（mov指令是不能两个操作数都来自主存的，所以此处需两步）</p>
+</li>
+<li><p>（x的参数调用同y）</p>
+</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226195925891.png" alt="image-20260226195925891"></p>
+<ul>
+<li>call指令，把ip的旧值压到栈顶</li>
+<li>&#x3D;&#x3D;同时程序的执行流，转移到add函数的第一条指令&#x3D;&#x3D;</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226200244224.png" alt="image-20260226200244224"></p>
+<ul>
+<li>push指令把caller函数的栈帧基地址保存下来（0xA00F…)</li>
+<li>move指令让ebp指针指向当前函数的基地址（esp所指的）</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226200347709.png" alt="image-20260226200347709"></p>
+<ul>
+<li>访问add需要的两个参数x，y</li>
+<li>后add，并把结果写回eax</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226200854157.png" alt="image-20260226200854157"></p>
+<ul>
+<li>leave指令，切换回上层函数的栈帧</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226201027770.png" alt="image-20260226201027770"></p>
+<ul>
+<li>执行return指令，让程序的指令流回到上一层函数</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226201111545.png" alt="image-20260226201111545"></p>
+<ul>
+<li>&#x3D;&#x3D;<strong>通常用eax返回结果</strong>&#x3D;&#x3D;</li>
+<li><strong>用eax把 add函数的返回值 返回到sum变量【ebp-4处】</strong></li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226201438311.png" alt="image-20260226201438311"></p>
+<ul>
+<li><strong>caller函数 把sum的值返回给 上一层函数</strong>    <strong>【先返回到eax寄存器里】</strong></li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226201710656.png" alt="image-20260226201710656"></p>
+<p>总结</p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226201905123.png" alt="image-20260226201905123"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226202018379.png" alt="image-20260226202018379"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226202811025.png" alt="image-20260226202811025"></p>
+<h2 id="4-3-5-补充内容"><a href="#4-3-5-补充内容" class="headerlink" title="4.3.5 补充内容"></a>4.3.5 补充内容</h2><ul>
+<li><p>&#x3D;&#x3D;CF值（有无进位）判断方法&#x3D;&#x3D;：sub位 <strong>⊕</strong> Cout 位  （异或）</p>
+</li>
+<li><p><strong>指令序列</strong>（左边为指令地址，中间为机器代码，右边为汇编指令）</p>
+<ul>
+<li>【机器代码和汇编指令表达的同个东西，表示方法不同而已】</li>
+<li>【指令地址不是地址码，是从地址码找到的指令地址】</li>
+</ul>
+</li>
+<li><p><strong>使程序跳转执行的指令</strong>：jmp，jxxx，call，ret</p>
+</li>
+<li><p>有符号乘法溢出判断：高33位不全为1或0，此时OF&#x3D;1</p>
+</li>
+<li><p>指令都是虚拟地址。虚拟地址和物理地址低xx位相同（虚拟地址&#x3D;虚拟页号+页内地址）</p>
+</li>
 </ul>
 ]]></content>
       <categories>
@@ -2249,6 +2225,7 @@
       </categories>
       <tags>
         <tag>指令</tag>
+        <tag>汇编</tag>
       </tags>
   </entry>
   <entry>
@@ -2400,65 +2377,26 @@
       </tags>
   </entry>
   <entry>
-    <title>计组-5.3 数据通路的功能和基本结构</title>
-    <url>/2026/03/03/%E8%AE%A1%E7%BB%84/%E8%AE%A1%E7%BB%84-5.3%20%E6%95%B0%E6%8D%AE%E9%80%9A%E8%B7%AF%E7%9A%84%E5%8A%9F%E8%83%BD%E5%92%8C%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84/</url>
-    <content><![CDATA[<h2 id="5-3-数据通路的功能和基本结构"><a href="#5-3-数据通路的功能和基本结构" class="headerlink" title="5.3 数据通路的功能和基本结构"></a>5.3 数据通路的功能和基本结构</h2><p><strong>CPU</strong>内部可视为：数据通路 和 控制部件 <strong>两大部分</strong>。</p>
-<p><strong>数据通路：</strong>数据在功能部件之间传送的路径。</p>
-<h3 id="CPU内数据的流动"><a href="#CPU内数据的流动" class="headerlink" title="CPU内数据的流动"></a>CPU内数据的流动</h3><ul>
-<li>寄存器和寄存器</li>
-<li>寄存器和主存</li>
-<li>寄存器和ALU</li>
-</ul>
-<h3 id="数据通路的基本结构"><a href="#数据通路的基本结构" class="headerlink" title="&#x3D;&#x3D;数据通路的基本结构&#x3D;&#x3D;"></a>&#x3D;&#x3D;数据通路的基本结构&#x3D;&#x3D;</h3><p>CPU内部单总线方式：CPU<strong>内</strong>数据通过一条总线传输。<strong>（常搭配多周期处理器，CPI＞1）</strong></p>
-<p>CPU内部多总线方式：<strong>（常搭配单周期处理器，CPI&#x3D;1）</strong></p>
-<p>专用数据通路方式：寄存器之间有通路来传输交流数据。</p>
-<p>其他：</p>
+    <title>计组-4.4 CISC和RISC</title>
+    <url>/2026/02/28/%E8%AE%A1%E7%BB%84/%E8%AE%A1%E7%BB%84-4.4%20CISC%E5%92%8CRISC/</url>
+    <content><![CDATA[<p>相比于CISC,RISC的特点是：（Complex &#x2F; Reduced）</p>
 <ul>
-<li><p>有总线时信号流动的原则：每个时刻只有<strong>一个</strong>器件发出信息，可以有<strong>多个</strong>器件接收消息。</p>
-</li>
-<li><p><strong>CPI</strong>：每周期指令数。</p>
-<ul>
-<li><strong>&#x3D;&#x3D;单周期处理器&#x3D;&#x3D;<strong>：所有指令的指令周期为一个时间周期</strong>（all步骤，一个时间周期搞定）（&#x3D;&#x3D;不同于单总线&#x3D;&#x3D;哦）</strong><ul>
-<li>在执行同一条指令的过程中，每个主要的硬件部件（如ALU）最多被使用一次。</li>
+<li>&#x3D;&#x3D;极简&#x3D;&#x3D;，速度快。</li>
+<li><strong>指令条数少</strong>；</li>
+<li>&#x3D;&#x3D;<strong>指令长度固定</strong>&#x3D;&#x3D;，指令格式和寻址种类少；<strong>（功能性不强）</strong>（编程不方便）</li>
+<li>只有取数&#x2F;存数（LOAD&#x2F;STORE）指令访问<strong>存储器</strong>，其余指令的操作均在<strong>寄存器</strong>进行；</li>
+<li>CPU中<strong>通用寄存器多</strong>；</li>
+<li>大部分指令在一个时钟周期内完成；（指令执行时间）</li>
+<li>以硬布线逻辑为主，不用或<strong>少用微程序控制器</strong>控制。</li>
+<li>必须实现指令<strong>流水线控制</strong></li>
+<li><strong>用优化的编译程序</strong>，生成的代码高效。</li>
 </ul>
-</li>
-</ul>
-</li>
-</ul>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260303144240744.png" alt="image-20260303144240744"></p>
-<h3 id="CPU内部单总线方式"><a href="#CPU内部单总线方式" class="headerlink" title="CPU内部单总线方式"></a>CPU内部单总线方式</h3><ul>
-<li><strong>每一个时钟周期，CU都会发出&#x3D;&#x3D;一个&#x3D;&#x3D;控制信号，执行完成&#x3D;&#x3D;一个&#x3D;&#x3D;微操作。</strong></li>
-<li>单总线结构中，<strong>每一时刻总线上只有一个数据有效</strong><ul>
-<li>ALU计算得配合暂存寄存器使用：另一个操作数提前放在暂存寄存器Y。</li>
-</ul>
-</li>
-<li><strong>MARinE</strong>（表示数据总线（到MARin这条路）是否畅通）</li>
-</ul>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260303150602920.png" alt="image-20260303150602920"></p>
-<p><strong>例题</strong></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260303151747869.png" alt="image-20260303151747869"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260303152645805.png" alt="image-20260303152645805"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260304122012559.png" alt="image-20260304122012559"></p>
-<ul>
-<li><strong>ALU不是寄存器</strong>（所以不写在上面，直接写Z就行）</li>
-</ul>
-<h3 id="专用数据通路方式"><a href="#专用数据通路方式" class="headerlink" title="专用数据通路方式"></a>专用数据通路方式</h3><ul>
-<li>（指令译码器在微操作发生器里面）</li>
-</ul>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260303154329633.png"></p>
-<p><strong>例题</strong></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260303155233119.png" alt="image-20260303155233119"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260303155559778.png" alt="image-20260303155559778"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260303155837212.png" alt="image-20260303155837212"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260303160019964.png" alt="image-20260303160019964"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260303160138454.png" alt="image-20260303160138454"></p>
 ]]></content>
       <categories>
         <category>计组</category>
       </categories>
       <tags>
-        <tag>CPU</tag>
-        <tag>数据通路</tag>
+        <tag>指令</tag>
       </tags>
   </entry>
   <entry>
@@ -3111,74 +3049,86 @@
       </tags>
   </entry>
   <entry>
-    <title>计组-6.3 总线标准</title>
-    <url>/2026/03/13/%E8%AE%A1%E7%BB%84/%E8%AE%A1%E7%BB%84-6.3%20%E6%80%BB%E7%BA%BF%E6%A0%87%E5%87%86/</url>
-    <content><![CDATA[<h3 id="6-3-总线标准"><a href="#6-3-总线标准" class="headerlink" title="6.3 总线标准"></a>6.3 总线标准</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260313210552332.png" alt="image-20260313210552332"></p>
-<h3 id="总线分类（根据在计算机的位置）"><a href="#总线分类（根据在计算机的位置）" class="headerlink" title="总线分类（根据在计算机的位置）"></a>总线分类（根据在计算机的位置）</h3><ul>
-<li>系统总线</li>
-<li>局部总线</li>
-<li>设备总线，通信总线</li>
-</ul>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260313210831493.png" alt="image-20260313210831493"></p>
-<h3 id="系统总线标准"><a href="#系统总线标准" class="headerlink" title="系统总线标准"></a>系统总线标准</h3><p>ISA</p>
-<p>EISA</p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260313211302821.png" alt="image-20260313211302821"></p>
-<h3 id="局部总线标准"><a href="#局部总线标准" class="headerlink" title="局部总线标准"></a>局部总线标准</h3><p>VESA</p>
+    <title>计组-7.2 I/O接口</title>
+    <url>/2026/03/14/%E8%AE%A1%E7%BB%84/%E8%AE%A1%E7%BB%84-7.2%20IO%E6%8E%A5%E5%8F%A3/</url>
+    <content><![CDATA[<h2 id="7-2-IO接口"><a href="#7-2-IO接口" class="headerlink" title="7.2 IO接口"></a>7.2 IO接口</h2><h3 id="I-O接口的结构-作用"><a href="#I-O接口的结构-作用" class="headerlink" title="I&#x2F;O接口的结构&#x2F;作用"></a>I&#x2F;O接口的结构&#x2F;作用</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260314124352664.png" alt="image-20260314124352664"></p>
 <ul>
-<li>工作频率受到CPU的控制，CPU频率越来越快，VESA总线的标准很难跟得上CPU的发展速度</li>
+<li>数据缓冲：通过<strong>数据缓冲寄存器</strong>（DBR）达到主机与外设工作速度的匹配</li>
+<li>错误或状态检测：通过<strong>状态寄存器</strong>反馈设备的各种错误，状态信息，供CPU查用</li>
+<li>控制和定时：<strong>IO控制逻辑</strong>接受从 控制总线 发来的控制信号，时钟信号。</li>
+<li>数据格式转换：串-并，并-串等格式转换</li>
+<li>地址信号映射：<strong>地址译码逻辑</strong>负责，将地址信号映射到指定的IO端口</li>
+<li>&#x3D;&#x3D;与主机和设备通信&#x3D;&#x3D;：<ul>
+<li>CPU和主存  –  通过&#x3D;&#x3D;IO总线&#x3D;&#x3D;（数据控制地址线） – 和IO接口连接</li>
+<li>IO接口通过 –  &#x3D;&#x3D;通信总线（电缆）&#x3D;&#x3D; – 和外设连接</li>
+<li>IO&#x3D;&#x3D;接口&#x3D;&#x3D;连接了主存和外设。</li>
 </ul>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260313211540234.png" alt="image-20260313211540234"></p>
-<p><strong>PCI</strong></p>
+</li>
+</ul>
+<img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260314124952228.png" alt="image-20260314124952228" style="zoom: 50%;" />
+
+<h3 id="I-O接口的工作流程"><a href="#I-O接口的工作流程" class="headerlink" title="I&#x2F;O接口的工作流程"></a>I&#x2F;O接口的工作流程</h3><p><strong>工作流程</strong>：</p>
 <ul>
-<li>最大特点：不依附于某个处理器</li>
+<li>发命令：CPU发<strong>命令字</strong>到IO控制寄存器，向设备发送命令&#x3D;&#x3D;<strong>（需要驱动程序的协助）</strong>&#x3D;&#x3D;</li>
+<li>读状态：从状态存储器读取<strong>状态字</strong>，获得设备或IO控制器的状态信息</li>
+<li>读&#x2F;写数据：从数据缓冲寄存器发送或读取数据，完成主机与外设的数据交换。</li>
 </ul>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260313211945867.png" alt="image-20260313211945867"></p>
-<p>AGP</p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260313212140981.png" alt="image-20260313212140981"></p>
-<p><strong>PCI-E</strong></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260314140037043.png" alt="image-20260314140037043"></p>
+<h3 id="接口和端口"><a href="#接口和端口" class="headerlink" title="接口和端口"></a>接口和端口</h3><ul>
+<li><p>&#x3D;&#x3D;I&#x2F;O接口 &#x3D;&#x3D; 端口（数据缓冲寄存器，状态&#x2F;控制寄存器） + 控制逻辑（地址译码，I&#x2F;O控制，外设界面）&#x3D;&#x3D;</p>
+</li>
+<li><p>&#x3D;&#x3D;I&#x2F;O端口是&#x3D;&#x3D;指接口电路中可以被CPU直接访问的<strong>寄存器</strong>。 </p>
+</li>
+<li><p><strong>接口内部有多个端口</strong>（多个寄存器），需给这些&#x3D;&#x3D;<strong>端口编址</strong>&#x3D;&#x3D;（便于计算机访问）</p>
+</li>
+</ul>
+<img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260314140731333.png" alt="image-20260314140731333" style="zoom:50%;" />
+
+<p><strong>统一编址</strong></p>
 <ul>
-<li><strong>最大特点是串行传输</strong>。前面的总线标准都是并行传输的。（所以布线也少了）</li>
-<li><strong>第二大特点是点对点传输</strong>：每个PCI-E设备都有自己独立的数据连接。（因为布线少了）</li>
+<li>靠不同&#x3D;&#x3D;地址码区分&#x3D;&#x3D;内存和IO设备。</li>
+<li><strong>访存类指令也可以访问IO端口。</strong></li>
+<li>（又称为存储器映射方式）</li>
+<li>主存单元和IO端口的存储保护措施是相同的。</li>
+<li>优点：端口编址空间大。</li>
+<li>缺点：寻址时间长。</li>
 </ul>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260313212733414.png" alt="image-20260313212733414"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260313212844465.png" alt="image-20260313212844465"></p>
-<h3 id="设备总线标准"><a href="#设备总线标准" class="headerlink" title="设备总线标准"></a>设备总线标准</h3><p>RS-232C</p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260313213111215.png" alt="image-20260313213111215"></p>
-<p>SISC</p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260313213249826.png" alt="image-20260313213249826"></p>
-<p>PCMCIA</p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260313213445944.png" alt="image-20260313213445944"></p>
-<p>USB</p>
+<p><strong>独立编址</strong></p>
 <ul>
-<li><strong>最大的特点是串行传输</strong>。之前的设备总线都是并行传输。</li>
-<li><strong>USB每 次 只能传输1bit数据</strong></li>
-</ul>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260313213819913.png" alt="image-20260313213819913"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260313214054879.png" alt="image-20260313214054879"></p>
-<p>IDE(ATA)</p>
+<li><p>靠不同的&#x3D;&#x3D;指令区分&#x3D;&#x3D;内存和IO设备。</p>
+</li>
+<li><p>只能用&#x3D;&#x3D;<strong>专门的IO指令（IN，OUT)</strong>&#x3D;&#x3D;访问IO端口。（程序编址清晰，可读）</p>
 <ul>
-<li>并行硬盘接口</li>
+<li>IO指令是指令系统的一部分，是机器指令的一类。只是<strong>格式和别的不同。</strong></li>
 </ul>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260313214514306.png" alt="image-20260313214514306"></p>
-<p>SATA</p>
+</li>
+<li><p>缺点：①IO指令类型少。②需要CPU提供两组控制信号，复杂。（存储器读写，IO设备读写）</p>
+<img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260314134554134.png" alt="image-20260314134554134" style="zoom: 67%;" /></li>
+</ul>
+<h3 id="IO接口的分类"><a href="#IO接口的分类" class="headerlink" title="IO接口的分类"></a>IO接口的分类</h3><p>根据数据传送方式：</p>
 <ul>
-<li>串行硬盘接口</li>
+<li>并行接口</li>
+<li>串行接口</li>
 </ul>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260313214553709.png" alt="image-20260313214553709"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260313214614970.png" alt="image-20260313214614970"></p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260313214650385.png" alt="image-20260313214650385"></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260313214906819.png" alt="image-20260313214906819"></p>
-<p><strong>趋势：并行总线 →替代→ 串行总线</strong></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260313215346928.png" alt="image-20260313215346928"></p>
-<p><strong>实例</strong></p>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260313215554226.png" alt="image-20260313215554226"></p>
+<p>根据主机访问IO设备的控制方式：</p>
+<ul>
+<li>程序查询接口</li>
+<li>中断接口</li>
+<li>DMA接口</li>
+</ul>
+<p>根据接口能否编程：</p>
+<ul>
+<li>可编程接口</li>
+<li>不可编程接口</li>
+</ul>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260314135552282.png"></p>
 ]]></content>
       <categories>
         <category>计组</category>
       </categories>
       <tags>
-        <tag>总线</tag>
-        <tag>总线标准</tag>
+        <tag>I/O</tag>
+        <tag>I/O接口</tag>
       </tags>
   </entry>
   <entry>
@@ -3263,86 +3213,65 @@
       </tags>
   </entry>
   <entry>
-    <title>计组-7.2 I/O接口</title>
-    <url>/2026/03/14/%E8%AE%A1%E7%BB%84/%E8%AE%A1%E7%BB%84-7.2%20IO%E6%8E%A5%E5%8F%A3/</url>
-    <content><![CDATA[<h2 id="7-2-IO接口"><a href="#7-2-IO接口" class="headerlink" title="7.2 IO接口"></a>7.2 IO接口</h2><h3 id="I-O接口的结构-作用"><a href="#I-O接口的结构-作用" class="headerlink" title="I&#x2F;O接口的结构&#x2F;作用"></a>I&#x2F;O接口的结构&#x2F;作用</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260314124352664.png" alt="image-20260314124352664"></p>
+    <title>计组-5.3 数据通路的功能和基本结构</title>
+    <url>/2026/03/03/%E8%AE%A1%E7%BB%84/%E8%AE%A1%E7%BB%84-5.3%20%E6%95%B0%E6%8D%AE%E9%80%9A%E8%B7%AF%E7%9A%84%E5%8A%9F%E8%83%BD%E5%92%8C%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84/</url>
+    <content><![CDATA[<h2 id="5-3-数据通路的功能和基本结构"><a href="#5-3-数据通路的功能和基本结构" class="headerlink" title="5.3 数据通路的功能和基本结构"></a>5.3 数据通路的功能和基本结构</h2><p><strong>CPU</strong>内部可视为：数据通路 和 控制部件 <strong>两大部分</strong>。</p>
+<p><strong>数据通路：</strong>数据在功能部件之间传送的路径。</p>
+<h3 id="CPU内数据的流动"><a href="#CPU内数据的流动" class="headerlink" title="CPU内数据的流动"></a>CPU内数据的流动</h3><ul>
+<li>寄存器和寄存器</li>
+<li>寄存器和主存</li>
+<li>寄存器和ALU</li>
+</ul>
+<h3 id="数据通路的基本结构"><a href="#数据通路的基本结构" class="headerlink" title="&#x3D;&#x3D;数据通路的基本结构&#x3D;&#x3D;"></a>&#x3D;&#x3D;数据通路的基本结构&#x3D;&#x3D;</h3><p>CPU内部单总线方式：CPU<strong>内</strong>数据通过一条总线传输。<strong>（常搭配多周期处理器，CPI＞1）</strong></p>
+<p>CPU内部多总线方式：<strong>（常搭配单周期处理器，CPI&#x3D;1）</strong></p>
+<p>专用数据通路方式：寄存器之间有通路来传输交流数据。</p>
+<p>其他：</p>
 <ul>
-<li>数据缓冲：通过<strong>数据缓冲寄存器</strong>（DBR）达到主机与外设工作速度的匹配</li>
-<li>错误或状态检测：通过<strong>状态寄存器</strong>反馈设备的各种错误，状态信息，供CPU查用</li>
-<li>控制和定时：<strong>IO控制逻辑</strong>接受从 控制总线 发来的控制信号，时钟信号。</li>
-<li>数据格式转换：串-并，并-串等格式转换</li>
-<li>地址信号映射：<strong>地址译码逻辑</strong>负责，将地址信号映射到指定的IO端口</li>
-<li>&#x3D;&#x3D;与主机和设备通信&#x3D;&#x3D;：<ul>
-<li>CPU和主存  –  通过&#x3D;&#x3D;IO总线&#x3D;&#x3D;（数据控制地址线） – 和IO接口连接</li>
-<li>IO接口通过 –  &#x3D;&#x3D;通信总线（电缆）&#x3D;&#x3D; – 和外设连接</li>
-<li>IO&#x3D;&#x3D;接口&#x3D;&#x3D;连接了主存和外设。</li>
+<li><p>有总线时信号流动的原则：每个时刻只有<strong>一个</strong>器件发出信息，可以有<strong>多个</strong>器件接收消息。</p>
+</li>
+<li><p><strong>CPI</strong>：每周期指令数。</p>
+<ul>
+<li><strong>&#x3D;&#x3D;单周期处理器&#x3D;&#x3D;<strong>：所有指令的指令周期为一个时间周期</strong>（all步骤，一个时间周期搞定）（&#x3D;&#x3D;不同于单总线&#x3D;&#x3D;哦）</strong><ul>
+<li>在执行同一条指令的过程中，每个主要的硬件部件（如ALU）最多被使用一次。</li>
 </ul>
 </li>
 </ul>
-<img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260314124952228.png" alt="image-20260314124952228" style="zoom: 50%;" />
-
-<h3 id="I-O接口的工作流程"><a href="#I-O接口的工作流程" class="headerlink" title="I&#x2F;O接口的工作流程"></a>I&#x2F;O接口的工作流程</h3><p><strong>工作流程</strong>：</p>
-<ul>
-<li>发命令：CPU发<strong>命令字</strong>到IO控制寄存器，向设备发送命令&#x3D;&#x3D;<strong>（需要驱动程序的协助）</strong>&#x3D;&#x3D;</li>
-<li>读状态：从状态存储器读取<strong>状态字</strong>，获得设备或IO控制器的状态信息</li>
-<li>读&#x2F;写数据：从数据缓冲寄存器发送或读取数据，完成主机与外设的数据交换。</li>
-</ul>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260314140037043.png" alt="image-20260314140037043"></p>
-<h3 id="接口和端口"><a href="#接口和端口" class="headerlink" title="接口和端口"></a>接口和端口</h3><ul>
-<li><p>&#x3D;&#x3D;I&#x2F;O接口 &#x3D;&#x3D; 端口（数据缓冲寄存器，状态&#x2F;控制寄存器） + 控制逻辑（地址译码，I&#x2F;O控制，外设界面）&#x3D;&#x3D;</p>
-</li>
-<li><p>&#x3D;&#x3D;I&#x2F;O端口是&#x3D;&#x3D;指接口电路中可以被CPU直接访问的<strong>寄存器</strong>。 </p>
-</li>
-<li><p><strong>接口内部有多个端口</strong>（多个寄存器），需给这些&#x3D;&#x3D;<strong>端口编址</strong>&#x3D;&#x3D;（便于计算机访问）</p>
 </li>
 </ul>
-<img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260314140731333.png" alt="image-20260314140731333" style="zoom:50%;" />
-
-<p><strong>统一编址</strong></p>
-<ul>
-<li>靠不同&#x3D;&#x3D;地址码区分&#x3D;&#x3D;内存和IO设备。</li>
-<li><strong>访存类指令也可以访问IO端口。</strong></li>
-<li>（又称为存储器映射方式）</li>
-<li>主存单元和IO端口的存储保护措施是相同的。</li>
-<li>优点：端口编址空间大。</li>
-<li>缺点：寻址时间长。</li>
-</ul>
-<p><strong>独立编址</strong></p>
-<ul>
-<li><p>靠不同的&#x3D;&#x3D;指令区分&#x3D;&#x3D;内存和IO设备。</p>
-</li>
-<li><p>只能用&#x3D;&#x3D;<strong>专门的IO指令（IN，OUT)</strong>&#x3D;&#x3D;访问IO端口。（程序编址清晰，可读）</p>
-<ul>
-<li>IO指令是指令系统的一部分，是机器指令的一类。只是<strong>格式和别的不同。</strong></li>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260303144240744.png" alt="image-20260303144240744"></p>
+<h3 id="CPU内部单总线方式"><a href="#CPU内部单总线方式" class="headerlink" title="CPU内部单总线方式"></a>CPU内部单总线方式</h3><ul>
+<li><strong>每一个时钟周期，CU都会发出&#x3D;&#x3D;一个&#x3D;&#x3D;控制信号，执行完成&#x3D;&#x3D;一个&#x3D;&#x3D;微操作。</strong></li>
+<li>单总线结构中，<strong>每一时刻总线上只有一个数据有效</strong><ul>
+<li>ALU计算得配合暂存寄存器使用：另一个操作数提前放在暂存寄存器Y。</li>
 </ul>
 </li>
-<li><p>缺点：①IO指令类型少。②需要CPU提供两组控制信号，复杂。（存储器读写，IO设备读写）</p>
-<img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260314134554134.png" alt="image-20260314134554134" style="zoom: 67%;" /></li>
+<li><strong>MARinE</strong>（表示数据总线（到MARin这条路）是否畅通）</li>
 </ul>
-<h3 id="IO接口的分类"><a href="#IO接口的分类" class="headerlink" title="IO接口的分类"></a>IO接口的分类</h3><p>根据数据传送方式：</p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260303150602920.png" alt="image-20260303150602920"></p>
+<p><strong>例题</strong></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260303151747869.png" alt="image-20260303151747869"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260303152645805.png" alt="image-20260303152645805"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260304122012559.png" alt="image-20260304122012559"></p>
 <ul>
-<li>并行接口</li>
-<li>串行接口</li>
+<li><strong>ALU不是寄存器</strong>（所以不写在上面，直接写Z就行）</li>
 </ul>
-<p>根据主机访问IO设备的控制方式：</p>
-<ul>
-<li>程序查询接口</li>
-<li>中断接口</li>
-<li>DMA接口</li>
+<h3 id="专用数据通路方式"><a href="#专用数据通路方式" class="headerlink" title="专用数据通路方式"></a>专用数据通路方式</h3><ul>
+<li>（指令译码器在微操作发生器里面）</li>
 </ul>
-<p>根据接口能否编程：</p>
-<ul>
-<li>可编程接口</li>
-<li>不可编程接口</li>
-</ul>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260314135552282.png"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260303154329633.png"></p>
+<p><strong>例题</strong></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260303155233119.png" alt="image-20260303155233119"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260303155559778.png" alt="image-20260303155559778"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260303155837212.png" alt="image-20260303155837212"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260303160019964.png" alt="image-20260303160019964"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260303160138454.png" alt="image-20260303160138454"></p>
 ]]></content>
       <categories>
         <category>计组</category>
       </categories>
       <tags>
-        <tag>I/O</tag>
-        <tag>I/O接口</tag>
+        <tag>CPU</tag>
+        <tag>数据通路</tag>
       </tags>
   </entry>
   <entry>
@@ -3587,6 +3516,77 @@
       <tags>
         <tag>I/O</tag>
         <tag>I/O控制</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>计组-6.3 总线标准</title>
+    <url>/2026/03/13/%E8%AE%A1%E7%BB%84/%E8%AE%A1%E7%BB%84-6.3%20%E6%80%BB%E7%BA%BF%E6%A0%87%E5%87%86/</url>
+    <content><![CDATA[<h3 id="6-3-总线标准"><a href="#6-3-总线标准" class="headerlink" title="6.3 总线标准"></a>6.3 总线标准</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260313210552332.png" alt="image-20260313210552332"></p>
+<h3 id="总线分类（根据在计算机的位置）"><a href="#总线分类（根据在计算机的位置）" class="headerlink" title="总线分类（根据在计算机的位置）"></a>总线分类（根据在计算机的位置）</h3><ul>
+<li>系统总线</li>
+<li>局部总线</li>
+<li>设备总线，通信总线</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260313210831493.png" alt="image-20260313210831493"></p>
+<h3 id="系统总线标准"><a href="#系统总线标准" class="headerlink" title="系统总线标准"></a>系统总线标准</h3><p>ISA</p>
+<p>EISA</p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260313211302821.png" alt="image-20260313211302821"></p>
+<h3 id="局部总线标准"><a href="#局部总线标准" class="headerlink" title="局部总线标准"></a>局部总线标准</h3><p>VESA</p>
+<ul>
+<li>工作频率受到CPU的控制，CPU频率越来越快，VESA总线的标准很难跟得上CPU的发展速度</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260313211540234.png" alt="image-20260313211540234"></p>
+<p><strong>PCI</strong></p>
+<ul>
+<li>最大特点：不依附于某个处理器</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260313211945867.png" alt="image-20260313211945867"></p>
+<p>AGP</p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260313212140981.png" alt="image-20260313212140981"></p>
+<p><strong>PCI-E</strong></p>
+<ul>
+<li><strong>最大特点是串行传输</strong>。前面的总线标准都是并行传输的。（所以布线也少了）</li>
+<li><strong>第二大特点是点对点传输</strong>：每个PCI-E设备都有自己独立的数据连接。（因为布线少了）</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260313212733414.png" alt="image-20260313212733414"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260313212844465.png" alt="image-20260313212844465"></p>
+<h3 id="设备总线标准"><a href="#设备总线标准" class="headerlink" title="设备总线标准"></a>设备总线标准</h3><p>RS-232C</p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260313213111215.png" alt="image-20260313213111215"></p>
+<p>SISC</p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260313213249826.png" alt="image-20260313213249826"></p>
+<p>PCMCIA</p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260313213445944.png" alt="image-20260313213445944"></p>
+<p>USB</p>
+<ul>
+<li><strong>最大的特点是串行传输</strong>。之前的设备总线都是并行传输。</li>
+<li><strong>USB每 次 只能传输1bit数据</strong></li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260313213819913.png" alt="image-20260313213819913"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260313214054879.png" alt="image-20260313214054879"></p>
+<p>IDE(ATA)</p>
+<ul>
+<li>并行硬盘接口</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260313214514306.png" alt="image-20260313214514306"></p>
+<p>SATA</p>
+<ul>
+<li>串行硬盘接口</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260313214553709.png" alt="image-20260313214553709"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260313214614970.png" alt="image-20260313214614970"></p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260313214650385.png" alt="image-20260313214650385"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260313214906819.png" alt="image-20260313214906819"></p>
+<p><strong>趋势：并行总线 →替代→ 串行总线</strong></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260313215346928.png" alt="image-20260313215346928"></p>
+<p><strong>实例</strong></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260313215554226.png" alt="image-20260313215554226"></p>
+]]></content>
+      <categories>
+        <category>计组</category>
+      </categories>
+      <tags>
+        <tag>总线</tag>
+        <tag>总线标准</tag>
       </tags>
   </entry>
 </search>
