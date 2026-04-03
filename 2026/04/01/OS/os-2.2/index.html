@@ -1,13 +1,13 @@
-<!DOCTYPE html><html class="hide-aside" lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>LKK の blog | LKK の blog</title><meta name="author" content="KKL"><meta name="copyright" content="KKL"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="2.2 CPU调度一 . 处理机调度概念、层次 基本概念  假设一堆人需要服务，就需要有某种规则（先后，VIP等）来决定谁先谁后。   三个层次  高级调度  又称作业调度。  按照某种规则，把作业从外存调入内存，并创建进程。  每个作业只会调入一次，调出一次。作业调入时建立PCB，调出时撤销PCB。     低级调度  按照某种算法进行 – 进程间的调度。又称进程调度（处理机调度） 进程调度的频">
+<!DOCTYPE html><html class="hide-aside" lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>LKK の blog | LKK の blog</title><meta name="author" content="KKL"><meta name="copyright" content="KKL"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="2.2 CPU调度12我在年青时候也曾经做过许多梦，后来大半忘却了，但自己也并不以为可惜。所谓回忆者，虽说可以使人欢欣，有时也不免使人寂寞，使精神的丝缕还牵着已逝的寂寞的时光，又有什么意味呢。  一 . 处理机调度概念、层次 “调度”概念 假设一堆人需要服务，就需要有某种规则（先后，VIP等）来决定谁先谁后。 三个层次  高级调度  又称作业调度。  按照某种规则，把作业从外存调入内存，并创建进程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LKK の blog">
 <meta property="og:url" content="http://example.com/2026/04/01/OS/os-2.2/index.html">
 <meta property="og:site_name" content="LKK の blog">
-<meta property="og:description" content="2.2 CPU调度一 . 处理机调度概念、层次 基本概念  假设一堆人需要服务，就需要有某种规则（先后，VIP等）来决定谁先谁后。   三个层次  高级调度  又称作业调度。  按照某种规则，把作业从外存调入内存，并创建进程。  每个作业只会调入一次，调出一次。作业调入时建立PCB，调出时撤销PCB。     低级调度  按照某种算法进行 – 进程间的调度。又称进程调度（处理机调度） 进程调度的频">
+<meta property="og:description" content="2.2 CPU调度12我在年青时候也曾经做过许多梦，后来大半忘却了，但自己也并不以为可惜。所谓回忆者，虽说可以使人欢欣，有时也不免使人寂寞，使精神的丝缕还牵着已逝的寂寞的时光，又有什么意味呢。  一 . 处理机调度概念、层次 “调度”概念 假设一堆人需要服务，就需要有某种规则（先后，VIP等）来决定谁先谁后。 三个层次  高级调度  又称作业调度。  按照某种规则，把作业从外存调入内存，并创建进程">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png">
 <meta property="article:published_time" content="2026-04-01T08:39:48.875Z">
-<meta property="article:modified_time" content="2026-04-03T06:22:41.261Z">
+<meta property="article:modified_time" content="2026-04-03T06:36:11.085Z">
 <meta property="article:author" content="KKL">
 <meta property="article:tag" content="博客,lkk">
 <meta name="twitter:card" content="summary">
@@ -18,7 +18,7 @@
   "url": "http://example.com/2026/04/01/OS/os-2.2/",
   "image": "https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png",
   "datePublished": "2026-04-01T08:39:48.875Z",
-  "dateModified": "2026-04-03T06:22:41.261Z",
+  "dateModified": "2026-04-03T06:36:11.085Z",
   "author": [
     {
       "@type": "Person",
@@ -169,19 +169,18 @@ btf.addGlobalFn('pjaxComplete', () => {
   isHighlightShrink: false,
   isToc: true,
   pageType: 'post'
-}</script><link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/css/main.css"><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/./img/001.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">32</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">17</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 文章</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/movies/"><i class="fa-fw fas fa-movie"></i><span> Movie</span></a></div><div class="menus_item"><a class="site-page" href="/game/"><i class="fa-fw fas fa-gamepad"></i><span> 游戏</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">LKK の blog</span></a><a class="nav-page-title" href="/"><span class="site-name">LKK の blog</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 文章</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/movies/"><i class="fa-fw fas fa-movie"></i><span> Movie</span></a></div><div class="menus_item"><a class="site-page" href="/game/"><i class="fa-fw fas fa-gamepad"></i><span> 游戏</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">无标题</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-04-01T08:39:48.875Z" title="发表于 2026-04-01 16:39:48">2026-04-01</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-04-03T06:22:41.261Z" title="更新于 2026-04-03 14:22:41">2026-04-03</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h2 id="2-2-CPU调度"><a href="#2-2-CPU调度" class="headerlink" title="2.2 CPU调度"></a>2.2 CPU调度</h2><h3 id="一-处理机调度概念、层次"><a href="#一-处理机调度概念、层次" class="headerlink" title="一 . 处理机调度概念、层次"></a>一 . 处理机调度概念、层次</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260401164042037.png" alt="image-20260401164042037"></p>
-<p><strong>基本概念</strong></p>
-<ul>
-<li>假设一堆人需要服务，就需要有某种规则（先后，VIP等）来决定谁先谁后。</li>
-</ul>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260401164247590.png" alt="image-20260401164247590"></p>
+}</script><link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/css/main.css"><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/./img/001.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">32</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">17</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 文章</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/movies/"><i class="fa-fw fas fa-movie"></i><span> Movie</span></a></div><div class="menus_item"><a class="site-page" href="/game/"><i class="fa-fw fas fa-gamepad"></i><span> 游戏</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">LKK の blog</span></a><a class="nav-page-title" href="/"><span class="site-name">LKK の blog</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 文章</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/movies/"><i class="fa-fw fas fa-movie"></i><span> Movie</span></a></div><div class="menus_item"><a class="site-page" href="/game/"><i class="fa-fw fas fa-gamepad"></i><span> 游戏</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">无标题</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-04-01T08:39:48.875Z" title="发表于 2026-04-01 16:39:48">2026-04-01</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-04-03T06:36:11.085Z" title="更新于 2026-04-03 14:36:11">2026-04-03</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h2 id="2-2-CPU调度"><a href="#2-2-CPU调度" class="headerlink" title="2.2 CPU调度"></a>2.2 CPU调度</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">我在年青时候也曾经做过许多梦，后来大半忘却了，但自己也并不以为可惜。</span><br><span class="line">所谓回忆者，虽说可以使人欢欣，有时也不免使人寂寞，使精神的丝缕还牵着已逝的寂寞的时光，又有什么意味呢。</span><br></pre></td></tr></table></figure>
+
+<h3 id="一-处理机调度概念、层次"><a href="#一-处理机调度概念、层次" class="headerlink" title="一 . 处理机调度概念、层次"></a>一 . 处理机调度概念、层次</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260401164042037.png" alt="image-20260401164042037"></p>
+<p><strong>“调度”概念</strong></p>
+<p>假设一堆人需要服务，就需要<strong>有某种规则</strong>（先后，VIP等）<strong>来决定谁先谁后</strong>。</p>
 <p><strong>三个层次</strong></p>
 <p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260401165206476.png" alt="image-20260401165206476"></p>
 <p>高级调度</p>
 <ul>
 <li><p>又称作业调度。</p>
 </li>
-<li><p>按照某种规则，把作业从外存调入内存，并创建进程。</p>
+<li><p>按照某种规则，<strong>把作业从外存调入内存，并创建进程。</strong></p>
 <ul>
 <li>每个作业只会调入一次，调出一次。作业调入时建立PCB，调出时撤销PCB。</li>
 </ul>
@@ -190,7 +189,8 @@ btf.addGlobalFn('pjaxComplete', () => {
 <p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260401164400135.png" alt="image-20260401164400135"></p>
 <p>低级调度</p>
 <ul>
-<li>按照某种算法进行 – 进程间的调度。又称进程调度（处理机调度）</li>
+<li>又称进程调度（处理机调度）</li>
+<li>按照某种算法进行 – <strong>进程间的调度</strong>。</li>
 <li>进程调度的频率最高。</li>
 </ul>
 <p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260401164521825.png" alt="image-20260401164521825"></p>
@@ -198,7 +198,7 @@ btf.addGlobalFn('pjaxComplete', () => {
 <ul>
 <li><p>又称内存调度。</p>
 </li>
-<li><p>按照某种策略，把暂存到外存的、挂起状态的进程，重新调回内存。</p>
+<li><p>按照某种策略，<strong>把暂存到外存的、<em>挂起状态</em> 的进程，重新调回 内存。</strong></p>
 <ul>
 <li>存在原因：内存不够时，一些进程的数据会被调出外存。</li>
 <li>一个进程可能会被多次调入调出，所以中级调度发生的频率比高级调度高。</li>
@@ -207,9 +207,12 @@ btf.addGlobalFn('pjaxComplete', () => {
 </ul>
 <p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260401164736766.png" alt="image-20260401164736766"></p>
 <p><strong>进程状态的补充</strong></p>
+<p><strong>挂起态</strong></p>
 <ul>
-<li>可能有挂起态（就绪挂起和阻塞挂起两个挂起态）</li>
-<li>挂起态：暂时调到外存等待的进程的状态。</li>
+<li><p><strong>挂起态：</strong>暂时调到外存等待的进程的状态。</p>
+</li>
+<li><p>有两种挂起态：就绪挂起和阻塞挂起</p>
+</li>
 </ul>
 <p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260401165008693.png" alt="image-20260401165008693"></p>
 <p>回顾</p>
