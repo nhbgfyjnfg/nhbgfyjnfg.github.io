@@ -2480,7 +2480,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>微信聊天 - 流畅版</title>
+    <title>微信聊天</title>
     <style>
         * {
             margin: 0;
@@ -2489,23 +2489,13 @@
             -webkit-tap-highlight-color: transparent;
         }
 
-        html {
-            /* 全局启用平滑滚动 */
-            scroll-behavior: smooth;
-            /* 防止 iOS 橡皮筋效果导致的卡顿感 */
-            overscroll-behavior: none;
-        }
-
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             background: #ededed;
             height: 100vh;
-            height: 100dvh; /* 使用动态视口高度，避免地址栏影响 */
-            overflow: hidden; /* 防止 body 滚动，只允许聊天区域滚动 */
+            overflow: hidden;
             display: flex;
             flex-direction: column;
-            /* 防止触摸延迟 */
-            touch-action: pan-y;
         }
 
         /* 状态栏 */
@@ -2521,7 +2511,7 @@
             color: #000;
             position: relative;
             z-index: 100;
-            flex-shrink: 0; /* 防止被压缩 */
+            flex-shrink: 0;
         }
 
         .status-bar::after {
@@ -2557,7 +2547,6 @@
             position: relative;
             padding: 0 15px;
             flex-shrink: 0;
-            z-index: 99;
         }
 
         .nav-back {
@@ -2603,39 +2592,20 @@
             margin: 0 auto;
         }
 
-        /* 聊天区域 - 关键修复部分 */
+        /* 聊天区域 - 只改这里 */
         .chat-container {
             flex: 1;
-            overflow-y: auto; /* 改为 auto，在需要时才显示滚动条 */
+            overflow-y: scroll; /* 改成 scroll */
             overflow-x: hidden;
             padding: 15px;
             background: #ededed;
-            
-            /* 核心修复：启用硬件加速和惯性滚动 */
-            -webkit-overflow-scrolling: touch; /* iOS 惯性滚动关键 */
-            scroll-behavior: smooth; /* 平滑滚动 */
-            
-            /* 防止内容被压缩 */
-            contain: layout style paint;
-            
-            /* 优化触摸响应 */
-            touch-action: pan-y pinch-zoom;
-            
-            /* 防止 margin collapse 导致的滚动问题 */
-            display: flex;
-            flex-direction: column;
+            /* 关键：启用硬件加速和惯性滚动 */
+            -webkit-overflow-scrolling: touch;
+            transform: translateZ(0);
         }
 
-        /* 隐藏滚动条但保持功能 */
         .chat-container::-webkit-scrollbar {
-            width: 0px;
-            background: transparent;
             display: none;
-        }
-
-        .chat-container {
-            scrollbar-width: none; /* Firefox */
-            -ms-overflow-style: none; /* IE 10+ */
         }
 
         /* 时间分隔线 */
@@ -2644,7 +2614,6 @@
             margin: 20px 0;
             font-size: 12px;
             color: #999;
-            flex-shrink: 0;
         }
 
         /* 消息气泡基础 */
@@ -2652,7 +2621,6 @@
             display: flex;
             margin-bottom: 20px;
             animation: slideIn 0.3s ease-out;
-            flex-shrink: 0; /* 防止消息被压缩 */
         }
 
         @keyframes slideIn {
@@ -2678,14 +2646,12 @@
             flex-shrink: 0;
             overflow: hidden;
             box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-            background: #ddd; /* 占位背景 */
         }
 
         .avatar img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            display: block; /* 消除图片底部间隙 */
         }
 
         /* 消息内容区 */
@@ -2693,8 +2659,6 @@
             max-width: 70%;
             margin: 0 10px;
             position: relative;
-            display: flex;
-            flex-direction: column;
         }
 
         /* 昵称 */
@@ -2703,7 +2667,6 @@
             color: #999;
             margin-bottom: 4px;
             margin-left: 8px;
-            flex-shrink: 0;
         }
 
         .message-row.sent .nickname {
@@ -2718,11 +2681,9 @@
             font-size: 16px;
             line-height: 1.4;
             word-wrap: break-word;
-            word-break: break-all; /* 防止长单词撑破布局 */
             position: relative;
             border-radius: 4px;
             box-shadow: 0 1px 2px rgba(0,0,0,0.05);
-            flex-shrink: 0;
         }
 
         /* 接收的消息 - 白色 */
@@ -2730,7 +2691,6 @@
             background: #fff;
             color: #000;
             border-top-left-radius: 2px;
-            align-self: flex-start;
         }
 
         .message-row.received .bubble::before {
@@ -2750,7 +2710,6 @@
             background: #95ec69;
             color: #000;
             border-top-right-radius: 2px;
-            align-self: flex-end;
         }
 
         .message-row.sent .bubble::before {
@@ -2772,7 +2731,6 @@
             gap: 8px;
             min-width: 80px;
             cursor: pointer;
-            user-select: none; /* 防止长按选中文字 */
         }
 
         .voice-icon {
@@ -2801,7 +2759,6 @@
             overflow: hidden;
             cursor: pointer;
             background: #f0f0f0;
-            line-height: 0; /* 消除图片间隙 */
         }
 
         .image-message img {
@@ -2810,20 +2767,20 @@
             display: block;
         }
 
-        /* 输入区域 */
+        /* 输入区域 - 恢复原样 */
         .input-area {
             background: #f7f7f7;
             border-top: 1px solid #e5e5e5;
             padding: 10px 15px;
             padding-bottom: calc(10px + env(safe-area-inset-bottom));
-            flex-shrink: 0; /* 防止被压缩 */
-            z-index: 100;
+            flex-shrink: 0;
         }
 
         .input-toolbar {
             display: flex;
-            align-items: flex-end; /* 底部对齐，多行输入时 */
+            align-items: center;
             gap: 12px;
+            margin-bottom: 10px;
         }
 
         .tool-btn {
@@ -2834,8 +2791,6 @@
             justify-content: center;
             cursor: pointer;
             transition: opacity 0.2s;
-            flex-shrink: 0;
-            margin-bottom: 5px; /* 与输入框底部对齐 */
         }
 
         .tool-btn:active {
@@ -2850,26 +2805,25 @@
 
         .input-box {
             flex: 1;
-            min-height: 40px;
-            max-height: 120px;
+            display: flex;
+            align-items: center;
             background: #fff;
             border-radius: 6px;
             padding: 8px 12px;
+            min-height: 40px;
+            max-height: 120px;
+            overflow-y: auto;
             font-size: 16px;
             line-height: 1.4;
             outline: none;
             border: none;
             resize: none;
-            overflow-y: auto;
             -webkit-appearance: none;
-            /* 优化输入框滚动 */
-            -webkit-overflow-scrolling: touch;
         }
 
         .input-box:empty:before {
             content: '发送消息';
             color: #999;
-            pointer-events: none;
         }
 
         .send-btn {
@@ -2884,8 +2838,6 @@
             transform: scale(0.8);
             transition: all 0.2s;
             font-weight: 500;
-            flex-shrink: 0;
-            margin-bottom: 5px;
         }
 
         .send-btn.show {
@@ -2899,20 +2851,18 @@
 
         /* 底部功能面板 */
         .feature-panel {
-            max-height: 0;
+            height: 0;
             background: #f7f7f7;
             overflow: hidden;
-            transition: max-height 0.3s ease;
+            transition: height 0.3s ease;
             display: flex;
             justify-content: space-around;
             align-items: center;
             padding: 0 20px;
-            flex-shrink: 0;
         }
 
         .feature-panel.show {
-            max-height: 220px;
-            padding: 20px;
+            height: 220px;
             border-top: 1px solid #e5e5e5;
         }
 
@@ -2978,8 +2928,6 @@
             transform: translateY(20px);
             transition: all 0.3s;
             z-index: 50;
-            /* 硬件加速 */
-            will-change: transform, opacity;
         }
 
         .scroll-bottom.show {
@@ -3013,8 +2961,6 @@
             display: none;
             z-index: 1000;
             backdrop-filter: blur(10px);
-            /* 防止菜单被滚动影响 */
-            position: fixed;
         }
 
         .context-menu.show {
@@ -3047,8 +2993,6 @@
             justify-content: center;
             opacity: 0;
             transition: opacity 0.3s;
-            /* 允许预览时的滑动 */
-            touch-action: pan-y pinch-zoom;
         }
 
         .image-preview.show {
@@ -3071,41 +3015,6 @@
             color: #fff;
             font-size: 28px;
             cursor: pointer;
-            z-index: 2001;
-        }
-
-        /* 针对桌面端触控板的优化 */
-        @media (hover: hover) and (pointer: fine) {
-            .chat-container {
-                /* 桌面端使用原生平滑滚动 */
-                scroll-behavior: smooth;
-            }
-            
-            /* 自定义滚动条样式（桌面端） */
-            .chat-container::-webkit-scrollbar {
-                width: 6px;
-                display: block;
-            }
-            
-            .chat-container::-webkit-scrollbar-track {
-                background: transparent;
-            }
-            
-            .chat-container::-webkit-scrollbar-thumb {
-                background: rgba(0,0,0,0.2);
-                border-radius: 3px;
-            }
-            
-            .chat-container::-webkit-scrollbar-thumb:hover {
-                background: rgba(0,0,0,0.3);
-            }
-        }
-
-        /* 防止 iOS 双击缩放导致的卡顿 */
-        @media (pointer: coarse) {
-            .chat-container {
-                touch-action: pan-y;
-            }
         }
     </style>
 </head>
@@ -3198,10 +3107,7 @@
             </div>
         </div>
 
-        <!-- 生成更多消息用于测试滚动性能 -->
-        <div class="time-divider">10:20</div>
-        
-        <!-- 重复生成多条消息以测试滚动 -->
+        <!-- 生成更多消息用于测试滚动 -->
         <script>
             for(let i = 0; i < 20; i++) {
                 document.write(`
@@ -3211,7 +3117,7 @@
                         </div>
                         <div class="message-content">
                             ${i % 2 === 0 ? '<div class="nickname">文件传输助手</div>' : ''}
-                            <div class="bubble">这是第 ${i + 1} 条测试消息，用于测试滚动流畅度。在触控板上上下滑动应该感觉顺滑自然，没有卡顿感。</div>
+                            <div class="bubble">这是第 ${i + 1} 条测试消息，用于测试滚动流畅度。在触控板上上下滑动应该感觉顺滑自然。</div>
                             ${i % 2 !== 0 ? '<div class="read-status">已读</div>' : ''}
                         </div>
                     </div>
@@ -3314,17 +3220,12 @@
         const featurePanel = document.getElementById('featurePanel');
         const scrollBottomBtn = document.getElementById('scrollBottom');
 
-        // 使用 requestAnimationFrame 优化输入响应
-        let inputRAF;
         inputBox.addEventListener('input', function() {
-            cancelAnimationFrame(inputRAF);
-            inputRAF = requestAnimationFrame(() => {
-                if (this.textContent.trim().length > 0) {
-                    sendBtn.classList.add('show');
-                } else {
-                    sendBtn.classList.remove('show');
-                }
-            });
+            if (this.textContent.trim().length > 0) {
+                sendBtn.classList.add('show');
+            } else {
+                sendBtn.classList.remove('show');
+            }
         });
 
         inputBox.addEventListener('keydown', function(e) {
@@ -3341,7 +3242,6 @@
 
             const messageRow = document.createElement('div');
             messageRow.className = 'message-row sent';
-            messageRow.style.animation = 'none'; // 先移除动画避免初始状态问题
             messageRow.innerHTML = `
                 <div class="avatar">
                     <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Aneka" alt="avatar">
@@ -3352,22 +3252,12 @@
                 </div>
             `;
 
-            // 强制重绘以触发动画
-            void messageRow.offsetWidth;
-            messageRow.style.animation = '';
-
-            // 添加长按菜单
-            addLongPressHandler(messageRow);
-
             chatContainer.appendChild(messageRow);
             
             inputBox.textContent = '';
             sendBtn.classList.remove('show');
-            
-            // 使用 smooth scroll 行为
             scrollToBottom();
 
-            // 模拟对方回复
             setTimeout(() => {
                 receiveMessage('收到：' + text);
             }, 1000);
@@ -3386,34 +3276,10 @@
                     <div class="bubble">${escapeHtml(text)}</div>
                 </div>
             `;
-            
-            addLongPressHandler(messageRow);
             chatContainer.appendChild(messageRow);
-            
-            if (isNearBottom()) {
-                scrollToBottom();
-            } else {
-                scrollBottomBtn.classList.add('show', 'unread');
-            }
+            scrollToBottom();
         }
 
-        // 优化滚动性能：使用 passive 监听器
-        let ticking = false;
-        chatContainer.addEventListener('scroll', function() {
-            if (!ticking) {
-                window.requestAnimationFrame(() => {
-                    if (isNearBottom()) {
-                        scrollBottomBtn.classList.remove('show');
-                    } else if (chatContainer.scrollTop < chatContainer.scrollHeight - chatContainer.clientHeight - 100) {
-                        scrollBottomBtn.classList.add('show');
-                    }
-                    ticking = false;
-                });
-                ticking = true;
-            }
-        }, { passive: true });
-
-        // 工具函数
         function escapeHtml(text) {
             const div = document.createElement('div');
             div.textContent = text;
@@ -3421,24 +3287,21 @@
         }
 
         function scrollToBottom() {
-            chatContainer.scrollTo({
-                top: chatContainer.scrollHeight,
-                behavior: 'smooth'
-            });
-            scrollBottomBtn.classList.remove('show', 'unread');
+            chatContainer.scrollTop = chatContainer.scrollHeight;
         }
 
         function isNearBottom() {
-            const threshold = 50;
-            return chatContainer.scrollHeight - chatContainer.scrollTop - chatContainer.clientHeight < threshold;
+            return chatContainer.scrollHeight - chatContainer.scrollTop - chatContainer.clientHeight < 100;
         }
 
-        // 切换功能面板
+        chatContainer.addEventListener('scroll', function() {
+            if (isNearBottom()) {
+                scrollBottomBtn.classList.remove('show');
+            }
+        });
+
         function toggleMore() {
             featurePanel.classList.toggle('show');
-            if (featurePanel.classList.contains('show')) {
-                inputBox.blur();
-            }
         }
 
         function toggleEmoji() {
@@ -3449,7 +3312,6 @@
             alert('按住说话功能');
         }
 
-        // 语音播放
         function playVoice(element) {
             element.style.opacity = '0.7';
             setTimeout(() => {
@@ -3457,7 +3319,6 @@
             }, 1000);
         }
 
-        // 图片预览
         function previewImage(element) {
             const img = element.querySelector('img');
             const preview = document.getElementById('imagePreview');
@@ -3470,48 +3331,19 @@
             document.getElementById('imagePreview').classList.remove('show');
         }
 
-        // 长按菜单处理
+        // 长按菜单
         let currentMessage = null;
         const contextMenu = document.getElementById('contextMenu');
-        let longPressTimer;
 
-        function addLongPressHandler(element) {
-            // 桌面端右键
-            element.addEventListener('contextmenu', function(e) {
+        document.querySelectorAll('.message-row').forEach(row => {
+            row.addEventListener('contextmenu', function(e) {
                 e.preventDefault();
-                showContextMenu(e, element);
+                currentMessage = this;
+                contextMenu.style.left = e.pageX + 'px';
+                contextMenu.style.top = e.pageY + 'px';
+                contextMenu.classList.add('show');
             });
-
-            // 移动端长按 - 使用 passive: false 防止滚动冲突
-            element.addEventListener('touchstart', function(e) {
-                longPressTimer = setTimeout(() => {
-                    showContextMenu(e.touches[0], element);
-                }, 500);
-            }, { passive: true });
-
-            element.addEventListener('touchmove', function() {
-                clearTimeout(longPressTimer);
-            }, { passive: true });
-
-            element.addEventListener('touchend', function() {
-                clearTimeout(longPressTimer);
-            }, { passive: true });
-        }
-
-        // 为现有消息添加长按处理
-        document.querySelectorAll('.message-row').forEach(addLongPressHandler);
-
-        function showContextMenu(e, messageRow) {
-            currentMessage = messageRow;
-            
-            // 确保菜单不超出视口
-            let x = e.clientX || e.pageX;
-            let y = e.clientY || e.pageY;
-            
-            contextMenu.style.left = x + 'px';
-            contextMenu.style.top = y + 'px';
-            contextMenu.classList.add('show');
-        }
+        });
 
         document.addEventListener('click', function() {
             contextMenu.classList.remove('show');
@@ -3520,16 +3352,8 @@
         function copyMessage() {
             if (currentMessage) {
                 const text = currentMessage.querySelector('.bubble').textContent;
-                navigator.clipboard.writeText(text).then(() => {
-                    // 使用更 subtle 的反馈
-                    const original = currentMessage.style.backgroundColor;
-                    currentMessage.style.backgroundColor = 'rgba(149, 236, 105, 0.3)';
-                    setTimeout(() => {
-                        currentMessage.style.backgroundColor = original;
-                    }, 300);
-                });
+                navigator.clipboard.writeText(text);
             }
-            contextMenu.classList.remove('show');
         }
 
         function recallMessage() {
@@ -3539,29 +3363,15 @@
                 bubble.style.background = '#ccc';
                 bubble.style.color = '#999';
             }
-            contextMenu.classList.remove('show');
         }
 
         function deleteMessage() {
             if (currentMessage) {
-                currentMessage.style.transition = 'all 0.3s';
-                currentMessage.style.opacity = '0';
-                currentMessage.style.transform = 'translateX(100%)';
-                setTimeout(() => currentMessage.remove(), 300);
+                currentMessage.remove();
             }
-            contextMenu.classList.remove('show');
         }
 
-        // 初始化滚动到底部
-        setTimeout(scrollToBottom, 100);
-
-        // 防止 body 滚动，只允许 chat-container 滚动
-        document.body.addEventListener('touchmove', function(e) {
-            if (e.target.closest('.chat-container') || e.target.closest('.input-box')) {
-                return;
-            }
-            e.preventDefault();
-        }, { passive: false });
+        scrollToBottom();
     </script>
 </body>
 </html>]]></content>
