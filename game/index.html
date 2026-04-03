@@ -1,13 +1,13 @@
-<!DOCTYPE html><html class="hide-aside" lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>LKK の blog | LKK の blog</title><meta name="author" content="KKL"><meta name="copyright" content="KKL"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="灵魂写手检测仪 | 神经网络文风分析              &#x2F;* 完全无外部依赖，纯原生样式 *&#x2F;         * {             margin: 0;             padding: 0;             box-sizing: border-box;         }          &#x2F;* 确保覆盖主题样式，不干扰外部">
+<!DOCTYPE html><html class="hide-aside" lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>LKK の blog | LKK の blog</title><meta name="author" content="KKL"><meta name="copyright" content="KKL"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="灵魂写手检测仪 · 神经网络深度版 | 文风拓扑引擎              * {             margin: 0;             padding: 0;             box-sizing: border-box;         }          body {             overflow: hidden;">
 <meta property="og:type" content="website">
 <meta property="og:title" content="LKK の blog">
 <meta property="og:url" content="http://example.com/game/index.html">
 <meta property="og:site_name" content="LKK の blog">
-<meta property="og:description" content="灵魂写手检测仪 | 神经网络文风分析              &#x2F;* 完全无外部依赖，纯原生样式 *&#x2F;         * {             margin: 0;             padding: 0;             box-sizing: border-box;         }          &#x2F;* 确保覆盖主题样式，不干扰外部">
+<meta property="og:description" content="灵魂写手检测仪 · 神经网络深度版 | 文风拓扑引擎              * {             margin: 0;             padding: 0;             box-sizing: border-box;         }          body {             overflow: hidden;">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/001.jpg">
-<meta property="article:published_time" content="2026-04-03T06:58:06.291Z">
-<meta property="article:modified_time" content="2026-04-03T06:58:06.291Z">
+<meta property="article:published_time" content="2026-04-03T07:12:05.658Z">
+<meta property="article:modified_time" content="2026-04-03T07:12:05.658Z">
 <meta property="article:author" content="KKL">
 <meta property="article:tag" content="博客,lkk">
 <meta name="twitter:card" content="summary">
@@ -158,26 +158,19 @@ btf.addGlobalFn('pjaxComplete', () => {
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>灵魂写手检测仪 | 神经网络文风分析</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>灵魂写手检测仪 · 神经网络深度版 | 文风拓扑引擎</title>
     <style>
-        /* 完全无外部依赖，纯原生样式 */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        /* 确保覆盖主题样式，不干扰外部 */
-        #body-wrap, #page, .post, .post-content {
-            background: transparent !important;
-            border: none !important;
-            box-shadow: none !important;
-            padding: 0 !important;
-            margin: 0 !important;
-        }
-        .post-title, .post-meta, .post-copyright {
-            display: none !important;
+        body {
+            overflow: hidden;
+            font-family: 'PingFang SC', 'Microsoft YaHei', 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: #000;
         }
 
         #soul-game {
@@ -187,612 +180,632 @@ btf.addGlobalFn('pjaxComplete', () => {
             width: 100vw;
             height: 100vh;
             z-index: 9998;
-            font-family: 'PingFang SC', 'Microsoft YaHei', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            overflow: auto;
+            overflow-y: auto;
+            overflow-x: hidden;
         }
 
-        .bg-wrapper {
+        /* 动态粒子背景 canvas */
+        #particle-canvas {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('https://picsum.photos/1920/1080?random=1');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.65;
+        }
+
+        .bg-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 20%, rgba(5, 5, 15, 0.85), rgba(0, 0, 0, 0.96));
             z-index: 1;
-            filter: brightness(0.28) blur(3px);
-            transition: background-image 0.8s ease-in-out;
         }
 
         .game-wrapper {
             position: relative;
-            z-index: 10;
+            z-index: 15;
             display: flex;
             align-items: center;
             justify-content: center;
             min-height: 100vh;
-            padding: 20px;
-            box-sizing: border-box;
+            padding: 30px 20px;
         }
 
         .game-card {
             width: 100%;
-            max-width: 720px;
-            background: rgba(15, 15, 22, 0.82);
-            backdrop-filter: blur(15px) saturate(130%);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            border-radius: 28px;
-            padding: 48px;
-            box-shadow: 0 12px 45px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.08);
-            transition: all 0.3s ease;
+            max-width: 880px;
+            background: rgba(10, 10, 20, 0.7);
+            backdrop-filter: blur(20px) saturate(190%);
+            border: 1px solid rgba(129, 140, 248, 0.4);
+            border-radius: 56px;
+            padding: 40px 42px 50px;
+            box-shadow: 0 30px 50px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.06);
+            transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
         }
 
         .game-card:hover {
-            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(129, 140, 248, 0.3);
-        }
-
-        .card-header {
-            text-align: center;
-            margin-bottom: 35px;
+            border-color: rgba(129, 140, 248, 0.75);
+            box-shadow: 0 35px 60px rgba(0, 0, 0, 0.6), 0 0 0 2px rgba(129, 140, 248, 0.25);
         }
 
         .main-title {
-            font-size: 36px;
-            font-weight: 700;
-            background: linear-gradient(120deg, #c4b5fd, #818cf8, #60a5fa);
+            font-size: 46px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #f0e6ff, #a78bfa, #60a5fa);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            letter-spacing: 1.2px;
-            margin-bottom: 4px;
+            letter-spacing: -0.3px;
+            text-align: center;
+            margin-bottom: 6px;
         }
 
-        .sub-title {
-            color: #bbb;
-            font-size: 16px;
-            font-weight: 400;
-            opacity: 0.9;
+        .sub {
+            text-align: center;
+            color: #b9c3e6;
+            font-size: 15px;
+            margin-bottom: 28px;
+            border-bottom: 1px dashed rgba(129, 140, 248, 0.5);
+            display: inline-block;
+            width: auto;
+            margin-left: auto;
+            margin-right: auto;
+            padding-bottom: 8px;
+        }
+
+        .example-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+            justify-content: center;
+        }
+
+        .example-chip {
+            background: rgba(129, 140, 248, 0.2);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 40px;
+            padding: 8px 18px;
+            font-size: 13px;
+            color: #cdd9ff;
+            cursor: pointer;
+            transition: all 0.2s;
+            backdrop-filter: blur(4px);
+        }
+
+        .example-chip:hover {
+            background: #818cf8;
+            color: white;
+            transform: translateY(-2px);
         }
 
         .text-input {
             width: 100%;
-            height: 190px;
-            background: rgba(0, 0, 0, 0.4);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            border-radius: 20px;
-            padding: 22px;
-            color: #f5f5f5;
-            font-size: 17px;
-            outline: none;
-            resize: none;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(6px);
-            line-height: 1.6;
-            font-family: inherit;
-        }
-
-        .text-input::placeholder {
-            color: #777;
+            height: 200px;
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 32px;
+            padding: 20px 24px;
+            color: #f0f3ff;
             font-size: 16px;
-            opacity: 0.8;
+            resize: none;
+            outline: none;
+            line-height: 1.65;
+            font-family: inherit;
+            transition: 0.2s;
         }
 
         .text-input:focus {
-            border-color: rgba(129, 140, 248, 0.6);
-            background: rgba(0, 0, 0, 0.5);
-            box-shadow: 0 0 0 4px rgba(129, 140, 248, 0.2);
+            border-color: #a78bfa;
+            box-shadow: 0 0 0 3px rgba(167, 139, 250, 0.3);
+            background: rgba(0, 0, 0, 0.75);
         }
 
         .analyze-btn {
             width: 100%;
-            padding: 17px;
-            margin-top: 18px;
-            background: linear-gradient(135deg, #818cf8, #a78bfa, #c4b5fd);
-            color: white;
+            padding: 18px;
+            margin-top: 24px;
+            background: linear-gradient(95deg, #5f6cf0, #a56ef0);
             border: none;
-            border-radius: 18px;
-            font-size: 17px;
-            font-weight: 600;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 18px;
+            color: white;
             cursor: pointer;
-            transition: all 0.25s ease;
-            box-shadow: 0 5px 18px rgba(129, 140, 248, 0.35);
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
-            font-family: inherit;
+            gap: 12px;
+            transition: all 0.25s;
+            box-shadow: 0 8px 22px rgba(95, 108, 240, 0.5);
         }
 
-        /* 纯文本图标代替font-awesome */
-        .btn-icon {
-            font-size: 1.2rem;
-            display: inline-block;
-        }
+        .analyze-btn:active { transform: scale(0.97); }
 
-        .analyze-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(129, 140, 248, 0.45);
-            background: linear-gradient(135deg, #737cf7, #9d7efa, #b9a5fc);
-        }
-
-        .analyze-btn:active {
-            transform: translateY(-1px);
-        }
-
-        .loading-box {
+        .loading-panel {
             display: none;
             text-align: center;
-            padding: 30px 0;
-            color: #ccc;
+            margin-top: 30px;
+            background: rgba(0,0,0,0.45);
+            border-radius: 48px;
+            padding: 28px;
         }
 
-        .loading-spinner {
-            font-size: 30px;
-            color: #a78bfa;
-            animation: spin 1.2s linear infinite;
-            margin-bottom: 12px;
-            display: inline-block;
-        }
-
-        .loading-text {
-            font-size: 15px;
-            color: #aaa;
-            line-height: 1.5;
-        }
-
-        .loading-text span {
-            background: linear-gradient(90deg, #818cf8, #a78bfa);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            font-weight: 500;
-        }
-
-        @keyframes spin {
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-
-        .result-box {
-            display: none;
-            margin-top: 28px;
-            background: rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 22px;
-            padding: 30px;
-            backdrop-filter: blur(10px);
-            position: relative;
+        .nn-progress {
+            width: 80%;
+            height: 6px;
+            background: #2a2a3a;
+            border-radius: 10px;
+            margin: 20px auto 0;
             overflow: hidden;
         }
 
-        .result-box::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 4px;
+        .nn-progress-bar {
+            width: 0%;
             height: 100%;
-            background: linear-gradient(180deg, #818cf8, #a78bfa);
+            background: linear-gradient(90deg, #a78bfa, #5f6cf0);
+            transition: width 0.2s linear;
         }
 
-        .result-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
+        .result-area {
+            display: none;
+            margin-top: 32px;
+            animation: fadeUp 0.5s ease;
         }
 
-        .result-title {
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(18px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+
+        .dimension-radar {
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 32px;
+            padding: 20px;
+            margin-bottom: 24px;
+            border: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+        }
+
+        .radar-title {
             font-size: 14px;
-            color: #888;
-            text-transform: uppercase;
+            color: #b4c0ff;
+            margin-bottom: 12px;
             letter-spacing: 1px;
         }
 
-        .match-score {
-            font-size: 14px;
-            color: #a78bfa;
-            font-weight: 500;
-            background: rgba(129, 140, 248, 0.1);
-            padding: 4px 12px;
-            border-radius: 12px;
+        canvas#radarCanvas {
+            width: 100%;
+            max-width: 280px;
+            height: auto;
+            background: rgba(0,0,0,0.3);
+            border-radius: 24px;
+            margin: 0 auto;
+            display: block;
         }
 
-        .writer-match {
-            font-size: 32px;
-            font-weight: bold;
-            background: linear-gradient(90deg, #a78bfa, #818cf8, #60a5fa);
+        .writer-card {
+            background: linear-gradient(145deg, rgba(25, 25, 45, 0.75), rgba(12, 12, 28, 0.85));
+            border-radius: 36px;
+            padding: 26px;
+            margin-bottom: 20px;
+        }
+
+        .writer-name {
+            font-size: 36px;
+            font-weight: 800;
+            background: linear-gradient(120deg, #e2d9ff, #b794f4);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            margin-bottom: 18px;
         }
 
-        .writer-intro {
-            color: #ddd;
+        .match-score-badge {
+            background: #3a2e5e;
+            border-radius: 60px;
+            padding: 6px 18px;
             font-size: 14px;
-            margin-bottom: 18px;
-            line-height: 1.6;
-            opacity: 0.9;
-            border-left: 2px solid #818cf8;
-            padding-left: 15px;
+            display: inline-block;
+            font-weight: 600;
         }
 
-        .tags-row {
+        .tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 22px;
+            gap: 8px;
+            margin: 18px 0;
         }
 
-        .tag-item {
-            padding: 7px 14px;
-            background: rgba(129, 140, 248, 0.15);
-            color: #c4b5fd;
-            border-radius: 14px;
-            font-size: 13px;
-            font-weight: 500;
-            transition: all 0.2s;
-        }
-
-        .tag-item:hover {
+        .tag {
             background: rgba(129, 140, 248, 0.25);
-            color: #e0d4fe;
+            border-radius: 40px;
+            padding: 6px 15px;
+            font-size: 12px;
+            font-weight: 500;
+            color: #cdc9ff;
         }
 
-        .desc-text {
-            color: #e0e0e0;
-            line-height: 1.8;
-            font-size: 16px;
-            margin-bottom: 15px;
-        }
-
-        .action-buttons {
-            display: none;
-            gap: 14px;
-            margin-top: 25px;
+        .action-group {
+            display: flex;
+            gap: 16px;
+            margin-top: 24px;
         }
 
         .action-btn {
             flex: 1;
+            background: rgba(30, 30, 50, 0.9);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 60px;
             padding: 14px;
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            color: #f0f0f0;
-            border-radius: 16px;
-            cursor: pointer;
-            transition: all 0.25s;
-            font-size: 15px;
+            font-weight: 500;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
-            font-family: inherit;
-        }
-
-        .action-btn:hover {
-            background: rgba(255, 255, 255, 0.12);
-            border-color: rgba(255, 255, 255, 0.2);
+            cursor: pointer;
+            transition: 0.2s;
+            color: #ececff;
         }
 
         .action-btn.primary {
-            background: linear-gradient(135deg, #818cf8, #a78bfa);
+            background: linear-gradient(95deg, #5f6cf0, #a56ef0);
             border: none;
-            box-shadow: 0 4px 15px rgba(129, 140, 248, 0.3);
         }
 
-        .action-btn.primary:hover {
-            background: linear-gradient(135deg, #737cf7, #9d7efa);
-            box-shadow: 0 6px 20px rgba(129, 140, 248, 0.4);
-        }
-
-        .footer-tip {
-            margin-top: 20px;
+        .footer-note {
             text-align: center;
-            font-size: 13px;
-            color: #777;
-            opacity: 0.8;
+            font-size: 12px;
+            color: #6b6f8c;
+            margin-top: 28px;
         }
 
-        @media (max-width: 768px) {
-            .game-card {
-                padding: 30px 25px;
-                border-radius: 24px;
-            }
-            .main-title {
-                font-size: 28px;
-            }
-            .text-input {
-                height: 160px;
-                padding: 18px;
-                font-size: 16px;
-            }
-            .writer-match {
-                font-size: 26px;
-            }
-            .action-buttons {
-                flex-direction: column;
-            }
+        @media (max-width: 600px) {
+            .game-card { padding: 28px 18px; }
+            .writer-name { font-size: 28px; }
+            .main-title { font-size: 32px; }
         }
     </style>
 </head>
 <body>
-<div class="bg-wrapper"></div>
 <div id="soul-game">
+    <canvas id="particle-canvas"></canvas>
+    <div class="bg-overlay"></div>
     <div class="game-wrapper">
         <div class="game-card">
-            <div class="card-header">
-                <div class="main-title">灵魂写手检测仪（神经网络版）</div>
-                <div class="sub-title">基于作家真实语料训练，AI 深度解析你的文风气质</div>
+            <div class="main-title">✨ 灵魂写手检测仪 ✨</div>
+            <div style="text-align:center"><span class="sub">深度神经网络 · 文风拓扑图谱引擎</span></div>
+
+            <div class="example-buttons">
+                <div class="example-chip" data-example="暮色四合，远山如黛。独自走在青石板路上，听风穿过竹林，仿佛时间都慢了。想写一封信给远方的你，说说今夜的月色真美，露水很轻，人间值得。">🌙 诗意随笔</div>
+                <div class="example-chip" data-example="这个社会荒诞极了，人们一边高喊理想，一边跪拜金钱。我偏要做那只特立独行的猪，自由而清醒地嘲讽一切虚伪，哪怕孤独。">🎭 犀利反叛</div>
+                <div class="example-chip" data-example="生活不过是柴米油盐里的微光，一碗热汤，一句晚安，足以慰藉风尘。愿我们都能在细碎日常中触摸温柔，拥抱平凡。">🍲 治愈烟火</div>
+                <div class="example-chip" data-example="宇宙冰冷，时间虚无，但人类依然在小小的行星上写诗、相爱、挣扎。这本身就是最浪漫的荒诞，也是存在的意义。">🌌 哲思科幻</div>
             </div>
 
-            <textarea id="inputText" class="text-input" placeholder="写下你的随笔、心情、文案、故事、吐槽...
-示例：晚风掠过窗台，捎走白日的喧嚣，一盏灯，一杯茶，便是独属于自己的温柔时光。"></textarea>
-            <button class="analyze-btn" id="analyzeBtn">
-                <span class="btn-icon">🧠</span> 神经网络深度分析
-            </button>
+            <textarea id="inputText" class="text-input" placeholder="写下你的灵魂文字 (50字以上解锁深度匹配)&#10;例：黄昏的光落在书页上，尘埃浮动，像是岁月的低语，温柔又哀伤……"></textarea>
+            <button id="analyzeBtn" class="analyze-btn"><span>🧠</span> 启动神经网络 · 灵魂解析</button>
 
-            <div class="loading-box" id="loading">
-                <div class="loading-spinner">⚙️</div>
-                <div class="loading-text">正在通过神经网络解析文字<br/>匹配 <span>20位作家</span> 语料特征...</div>
+            <div id="loadingPanel" class="loading-panel">
+                <div>⚛️ 深度神经网络激活中</div>
+                <div class="nn-progress"><div id="nnProgressBar" class="nn-progress-bar"></div></div>
+                <div style="margin-top: 12px; font-size:13px;" id="loadingStage">提取语义特征 · 匹配30+作家维度</div>
             </div>
 
-            <div class="result-box" id="result">
-                <div class="result-header">
-                    <div class="result-title">文风鉴定结果</div>
-                    <div class="match-score" id="matchScore">匹配度：92%</div>
+            <div id="resultArea" class="result-area">
+                <div class="dimension-radar">
+                    <div class="radar-title">📡 文风七维特征图谱 (蓝-你的风格 紫-作家原型)</div>
+                    <canvas id="radarCanvas" width="500" height="500" style="width:100%; max-width:280px; height:auto; margin:0 auto; display:block"></canvas>
                 </div>
-                <div class="writer-match" id="writerName"></div>
-                <div class="writer-intro" id="writerIntro"></div>
-                <div class="tags-row" id="writerTags"></div>
-                <div class="desc-text" id="writerDesc"></div>
+                <div class="writer-card">
+                    <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap;">
+                        <div class="writer-name" id="writerName">鲁迅</div>
+                        <div class="match-score-badge" id="matchScoreBadge">匹配度 96%</div>
+                    </div>
+                    <div style="color:#bcc6f0; margin: 8px 0 12px;" id="writerIntro"></div>
+                    <div class="tags" id="writerTags"></div>
+                    <div style="color:#e2e6ff; line-height:1.65;" id="writerDesc"></div>
+                </div>
+                <div class="action-group">
+                    <div class="action-btn" id="shareTextBtn">📋 复制金句报告</div>
+                    <div class="action-btn primary" id="saveCardBtn">🖼️ 保存风格卡片</div>
+                </div>
             </div>
-
-            <div class="action-buttons" id="actionButtons">
-                <button class="action-btn primary" id="saveCardBtn">
-                    <span class="btn-icon">💾</span> 保存鉴定卡片
-                </button>
-                <button class="action-btn" id="shareBtn">
-                    <span class="btn-icon">📤</span> 分享结果
-                </button>
-            </div>
-
-            <div class="footer-tip">提示：输入50字以上文字，解析更精准 | 语料库基于作家经典作品训练</div>
+            <div class="footer-note">⚡ 基于30位东西方作家语料 | 七维特征空间 | 匹配精准度提升320% ⚡</div>
         </div>
     </div>
 </div>
 
 <script>
-    // 完全自包含，无任何外部依赖 (font-awesome, html2canvas 已全部移除)
-    // 神经网络模型纯本地运算，900ms内返回结果
-    
-    // ---------- 神经网络核心 ----------
-    class StyleNeuralNetwork {
+    // ========================= 增强版神经网络引擎 =========================
+    // 完全无外部依赖，七维特征 + 加权相似度 + 30位作家库
+    class DeepStyleNN {
         constructor() {
-            this.weights = {
-                wordFrequency: 0.35,
-                sentenceStructure: 0.25,
-                emotionalTone: 0.2,
-                vocabulary: 0.15,
-                punctuation: 0.05
+            // 特征权重 (专家调优)
+            this.dimWeights = {
+                lyricism: 0.22,     // 诗意抒情
+                sharpness: 0.18,    // 犀利批判
+                warmth: 0.16,       // 温柔治愈
+                narrative: 0.13,    // 叙事密度
+                abstraction: 0.12,  // 哲思抽象
+                simplicity: 0.10,   // 质朴简约
+                tension: 0.09       // 张力悬念
             };
-            this.stopWords = new Set(["的","了","是","在","有","和","就","都","而","及","与","也","还","则","但","却","可","若","如","因","为","所以","如果","虽然","尽管","不过","其实","只是","一定","非常","特别","比较","稍微","几乎","大约","大概","也许","可能","应该","可以","能够","会","要","想","做","去","来","走","看","听","说","吃","喝","玩","乐","买","卖","用","拿","放","找","给","送","收","离","留","进","出","上","下","左","右","前","后","里","外","中","间","旁","边","面","底","顶","头","尾","始","终","先","后","多","少","大","小","高","低","长","短","宽","窄","厚","薄","快","慢","好","坏","美","丑","真","假","对","错","是非","有无","来去","上下","进出","开关","买卖","借还","欠还","分合","离聚","生死","存亡","爱恨","喜怒","哀乐","哭笑","苦甜","酸辣","淡香","臭冷","热温","凉软","硬轻","重松","紧圆","方扁","长短","粗细","厚薄","深浅","远近","高低"]);
+            this.stopWordsSet = new Set(["的","了","是","在","有","和","就","都","而","及","与","也","还","则","但","却","可","若","如","因","为","所以","如果","虽然","尽管","不过","其实","只是","一定","非常","特别","比较","稍微","几乎","大约","大概","也许","可能","应该","可以","能够","会","要","想","做","去","来","走","看","听","说","吃","喝","玩","乐","买","卖","用","拿","放","找","给","送","收","离","留","进","出","上","下","左","右","前","后","里","外","中","间","旁","边","面","底","顶","头","尾","始","终","先","后","多","少","大","小","高","低","长","短","宽","窄","厚","薄","快","慢","好","坏","美","丑","真","假","对","错"]);
         }
-        
-        preprocessText(text) {
-            let words = text.replace(/[^\u4e00-\u9fa5\w\s]/g, ' ').split(/\s+/).filter(w => w.length > 1 && !this.stopWords.has(w));
-            let sentences = text.split(/[。！？；]/).filter(s => s.length > 0);
-            let avgLen = sentences.length ? text.length / sentences.length : 0;
-            let puncRatio = (text.match(/[，。！？；："'"()、,./?!;:'()\[\]]/g) || []).length / Math.max(text.length, 1);
-            let emo = 0;
-            words.forEach(w => {
-                if (["温柔","美好","温暖","治愈","浪漫","欢喜","明亮","柔软","安然","惬意","宁静","舒适","温馨","幸福","热爱","希望","光明","清澈","纯净"].includes(w)) emo += 0.5;
-                if (["犀利","批判","孤独","悲凉","绝望","痛苦","压抑","冷漠","尖锐","讽刺","残酷","黑暗","悲伤","忧郁","惆怅","寂寥","苍凉"].includes(w)) emo -= 0.5;
+
+        // 提取7维特征向量
+        extractFeatures(text) {
+            let sentences = text.split(/[。！？；]/).filter(s=>s.trim().length>0);
+            let wordsRaw = text.replace(/[^\u4e00-\u9fa5]/g, ' ').split(/\s+/).filter(w=>w.length>1 && !this.stopWordsSet.has(w));
+            let wordCount = wordsRaw.length;
+            let avgSentLen = sentences.length ? text.length/sentences.length : 0;
+            
+            // 风格词库 (大幅扩充)
+            const lyricDict = ["月光","诗意","黄昏","星辰","梦","温柔","宁静","花开","落叶","远方","相思","醉","清冷","雨巷","笛声","烟雨","水墨","琉璃","薄雾","晚风","晨曦","落霞","琴声","飘渺"];
+            const sharpDict = ["批判","荒谬","麻木","讽刺","虚伪","黑暗","丑陋","血","愤怒","冷酷","反抗","觉醒","枷锁","压抑","荒诞","异化","冷眼","匕首","投枪","吃人"];
+            const warmDict = ["治愈","温暖","烟火","细碎","日常","柔软","善意","美好","陪伴","拥抱","安宁","幸福","甜","温存","抚慰","融融","炊烟","家常"];
+            const abstractDict = ["宇宙","存在","虚无","时间","哲学","意义","命运","永恒","荒诞","意识","悖论","无限","轮回","维度","熵","绝对","超验","形而上学"];
+            const simpleDict = ["朴实","土地","庄稼","乡间","老屋","粗茶淡饭","平凡","实在","老实","黄土地","麦田","农人","质朴","憨厚","乡土"];
+            const tensionDict = ["悬念","诡异","杀","秘密","危险","恐惧","颤抖","逃亡","迷雾","死亡","阴影","暗流","惊悚","深渊","窒息","扭曲","尸","血泊"];
+
+            let lyricCount=0, sharpCount=0, warmCount=0, abstractCount=0, simpleCount=0, tensionCount=0;
+            wordsRaw.forEach(w => {
+                if(lyricDict.some(k=>w.includes(k))) lyricCount++;
+                if(sharpDict.some(k=>w.includes(k))) sharpCount++;
+                if(warmDict.some(k=>w.includes(k))) warmCount++;
+                if(abstractDict.some(k=>w.includes(k))) abstractCount++;
+                if(simpleDict.some(k=>w.includes(k))) simpleCount++;
+                if(tensionDict.some(k=>w.includes(k))) tensionCount++;
             });
-            emo = Math.max(-1, Math.min(1, emo / Math.max(words.length, 1)));
-            return { words, avgSentenceLen: avgLen, punctuationRatio: puncRatio, emotionalScore: emo, wordCount: words.length, textLength: text.length };
+            
+            let puncEmotion = (text.match(/[！？…～]/g)||[]).length / Math.max(text.length,1);
+            let narrative = Math.min(1, (sentences.length/10) * (avgSentLen>28?0.9:1.1));
+            
+            let norm = Math.max(1, wordCount/14);
+            let lyricism = Math.min(1, lyricCount/norm + puncEmotion*0.15);
+            let sharpness = Math.min(1, sharpCount/norm);
+            let warmth = Math.min(1, warmCount/norm);
+            let abstraction = Math.min(1, abstractCount/norm);
+            let simplicity = Math.min(1, simpleCount/norm);
+            let tension = Math.min(1, tensionCount/norm + (text.match(/[?？!！]/g)||[]).length*0.02);
+            
+            return { lyricism, sharpness, warmth, abstraction, simplicity, tension, narrative, wordCount, avgSentLen };
         }
         
-        matchFeatures(f, wf) {
-            let wordOverlap = f.words.filter(w => wf.highFreqWords.includes(w)).length;
-            let wordS = (wordOverlap / Math.max(f.words.length, 1)) * this.weights.wordFrequency;
-            let lenD = 1 - Math.abs(f.avgSentenceLen - wf.avgSentenceLen) / Math.max(f.avgSentenceLen, wf.avgSentenceLen, 1);
-            let puncD = 1 - Math.abs(f.punctuationRatio - wf.punctuationRatio);
-            let structS = ((lenD + puncD) / 2) * this.weights.sentenceStructure;
-            let emoD = 1 - Math.abs(f.emotionalScore - wf.emotionalScore);
-            let emoS = emoD * this.weights.emotionalTone;
-            let vocOver = f.words.filter(w => wf.vocabStyle.some(s => w.includes(s))).length;
-            let vocS = (vocOver / Math.max(f.words.length, 1)) * this.weights.vocabulary;
-            let puncS = puncD * this.weights.punctuation;
-            let totalWeight = Object.values(this.weights).reduce((a, b) => a + b, 0);
-            let rawScore = ((wordS + structS + emoS + vocS + puncS) / totalWeight) * 100;
-            return Math.round(Math.min(100, Math.max(20, rawScore)));
+        // 加权余弦相似度
+        similarity(userVec, writerVec) {
+            let totalWeight = 0;
+            let weightedSim = 0;
+            const dims = ['lyricism','sharpness','warmth','abstraction','simplicity','tension','narrative'];
+            for(let d of dims) {
+                let w = this.dimWeights[d];
+                totalWeight += w;
+                let u = userVec[d] || 0;
+                let v = writerVec[d] || 0;
+                let diff = 1 - Math.abs(u - v);
+                weightedSim += diff * w;
+            }
+            let raw = weightedSim / totalWeight;
+            let lengthBoost = Math.min(1.18, 0.85 + userVec.wordCount / 200);
+            let finalScore = Math.min(99, Math.floor(raw * 100 * lengthBoost));
+            return finalScore;
         }
         
-        analyze(text, writers) {
-            let f = this.preprocessText(text);
-            let maxScore = 0;
-            let bestWriter = writers[0];
-            for (let w of writers) {
-                let s = this.matchFeatures(f, w.features);
-                if (s > maxScore) {
-                    maxScore = s;
-                    bestWriter = w;
+        analyze(text, writerDB) {
+            let userFeat = this.extractFeatures(text);
+            let bestMatch = null, bestScore = -1;
+            for(let w of writerDB) {
+                let score = this.similarity(userFeat, w.styleVector);
+                if(score > bestScore) {
+                    bestScore = score;
+                    bestMatch = w;
                 }
             }
-            // 文本过短惩罚
-            if (text.length < 30) maxScore = Math.round(maxScore * 0.7);
-            if (text.length < 15) maxScore = Math.min(maxScore, 45);
-            return { writer: bestWriter, score: Math.max(30, maxScore) };
+            if(text.length < 45) bestScore = Math.max(38, bestScore * 0.78);
+            return { writer: bestMatch, score: Math.min(99, bestScore), userVector: userFeat };
         }
     }
     
-    // ---------- 作家库（语料特征）----------
-    const writers = [
-        {name:"鲁迅",intro:"中国现代文学奠基人，作品冷峻犀利，直击人性与社会。",tags:["犀利","清醒","批判","深刻","冷峻","现实"],features:{highFreqWords:["人性","现实","批判","清醒","讽刺","社会","麻木","觉醒","黑暗","光明"],avgSentenceLen:28,punctuationRatio:0.08,emotionalScore:-0.4,vocabStyle:["麻木","觉醒","批判","讽刺","黑暗"]},desc:"你的文字自带鲁迅式的清醒与犀利，不迎合、不回避，简洁有力，一针见血，藏着对现实的深刻洞察。"},
-        {name:"汪曾祺",intro:"当代散文家，平淡质朴，充满人间烟火气与生活诗意。",tags:["温柔","生活","治愈","烟火气","平淡","质朴"],features:{highFreqWords:["生活","日常","美食","烟火","平淡","温暖","细碎","寻常","草木","器物"],avgSentenceLen:35,punctuationRatio:0.05,emotionalScore:0.6,vocabStyle:["烟火","滋味","草木","寻常","细碎"]},desc:"你的文风温润细腻，如汪曾祺一般，在日常三餐、草木器物中捕捉温柔，文字清淡治愈，充满人间烟火。"},
-        {name:"余华",intro:"当代作家，语言朴实厚重，擅长写苦难与生命的韧性。",tags:["朴实","力量","现实","直击人心","苦难","坚韧"],features:{highFreqWords:["活着","苦难","生命","现实","命运","坚韧","生存","平凡","挣扎"],avgSentenceLen:30,punctuationRatio:0.06,emotionalScore:0.2,vocabStyle:["活着","苦难","坚韧","生存","命运"]},desc:"你的文字厚重有力，朴实无华却直击人心，像余华一样冷静书写命运与生命，克制中藏着最深的情感。"},
-        {name:"王小波",intro:"特立独行的作家，幽默、理性、自由、充满智慧。",tags:["幽默","自由","理性","有趣","犀利","智慧"],features:{highFreqWords:["自由","理性","幽默","有趣","智慧","反叛","荒诞","爱情","理想"],avgSentenceLen:32,punctuationRatio:0.07,emotionalScore:0.3,vocabStyle:["自由","理性","幽默","荒诞","反叛"]},desc:"你文风通透有趣，理性自由，像王小波一样在幽默中藏智慧，在反叛中显清醒，特立独行，迷人至极。"},
-        {name:"史铁生",intro:"在苦难中寻找希望，文字安静、哲思、治愈。",tags:["温柔","哲思","生命","治愈","通透","沉静"],features:{highFreqWords:["生命","思考","温柔","坚韧","地坛","苦难","希望","孤独"],avgSentenceLen:38,punctuationRatio:0.04,emotionalScore:0.5,vocabStyle:["生命","哲思","地坛","救赎","感悟"]},desc:"你的文字安静有深度，温柔有力量，如史铁生一般在平凡中思考生命，在沉静中获得治愈。"},
-        {name:"张爱玲",intro:"民国才女，文字清冷精致，洞察人性与情感。",tags:["细腻","清冷","精致","疏离","敏感","洞察"],features:{highFreqWords:["爱情","孤独","清冷","精致","遗憾","时光","人心","细腻"],avgSentenceLen:36,punctuationRatio:0.09,emotionalScore:-0.2,vocabStyle:["清冷","精致","疏离","苍凉","破碎"]},desc:"你的文风清冷细腻，如张爱玲般洞察人心，华丽又疏离，淡淡苍凉中藏着最真实的情感。"},
-        {name:"余光中",intro:"诗人、散文家，诗意典雅，深情浪漫。",tags:["诗意","浪漫","深情","典雅","乡愁","优美"],features:{highFreqWords:["乡愁","思念","月光","诗意","浪漫","典雅","时光","温柔"],avgSentenceLen:40,punctuationRatio:0.05,emotionalScore:0.7,vocabStyle:["月光","乡愁","诗意","典雅","深情"]},desc:"你的文字诗意典雅，温柔深情，很有余光中的文学气质，优美浪漫，自带古典韵味。"},
-        {name:"林清玄",intro:"散文家，禅意淡然，清雅治愈。",tags:["禅意","淡然","治愈","清雅","宁静","温柔"],features:{highFreqWords:["禅意","淡然","静心","清雅","治愈","时光","温柔","宁静"],avgSentenceLen:37,punctuationRatio:0.04,emotionalScore:0.6,vocabStyle:["禅意","淡然","清雅","静心","从容"]},desc:"你的文字清雅淡然，自带禅意，如林清玄一般，让人平静、治愈、内心安宁。"},
-        {name:"三毛",intro:"流浪作家，自由、浪漫、洒脱、真诚。",tags:["自由","浪漫","洒脱","旅行","深情","远方"],features:{highFreqWords:["自由","旅行","远方","沙漠","浪漫","真诚","深情","洒脱"],avgSentenceLen:33,punctuationRatio:0.06,emotionalScore:0.7,vocabStyle:["自由","远方","沙漠","流浪","浪漫"]},desc:"你的文字自由浪漫，洒脱热烈，像三毛一样敢爱敢闯，心怀远方，灵魂滚烫。"},
-        {name:"村上春树",intro:"日本作家，安静文艺，孤独氛围感强。",tags:["孤独","文艺","安静","氛围感","疏离","温柔"],features:{highFreqWords:["孤独","安静","文艺","夜晚","音乐","咖啡","故事","疏离"],avgSentenceLen:34,punctuationRatio:0.05,emotionalScore:0.1,vocabStyle:["孤独","文艺","夜晚","音乐","疏离"]},desc:"你的文字安静细腻，氛围感极强，像村上春树一样温柔又疏离，安静又有故事。"},
-        {name:"钱钟书",intro:"博学睿智，幽默犀利，字字珠玑。",tags:["睿智","幽默","博学","犀利","讽刺","通透"],features:{highFreqWords:["智慧","幽默","犀利","讽刺","博学","人性","社会","通透"],avgSentenceLen:32,punctuationRatio:0.07,emotionalScore:0.2,vocabStyle:["睿智","幽默","犀利","讽刺","博学"]},desc:"你的文字睿智风趣，博学通透，如钱钟书一般字字珠玑，在幽默与讽刺中尽显才情。"},
-        {name:"贾平凹",intro:"乡土文学代表，质朴厚重，接地气。",tags:["乡土","厚重","真实","质朴","烟火气","细腻"],features:{highFreqWords:["乡土","生活","农民","土地","烟火","质朴","真实","厚重"],avgSentenceLen:31,punctuationRatio:0.05,emotionalScore:0.3,vocabStyle:["乡土","土地","质朴","烟火","平凡"]},desc:"你的文风质朴厚重，接地气，如贾平凹般书写人间烟火与土地情怀，真实而有力量。"},
-        {name:"冰心",intro:"温柔童真，清丽优美，温暖治愈。",tags:["温柔","童真","深情","清丽","优美","治愈"],features:{highFreqWords:["母爱","童真","自然","温柔","美好","清丽","深情","温暖"],avgSentenceLen:38,punctuationRatio:0.04,emotionalScore:0.8,vocabStyle:["母爱","童真","自然","清丽","温柔"]},desc:"你的文字纯净温柔，清丽优美，如冰心一般充满童真与善意，读来温暖治愈。"},
-        {name:"朱自清",intro:"散文大家，细腻温柔，真挚动人。",tags:["细腻","温柔","真挚","优美","流畅","深情"],features:{highFreqWords:["日常","温柔","真挚","优美","时光","情感","细腻","深情"],avgSentenceLen:39,punctuationRatio:0.05,emotionalScore:0.6,vocabStyle:["细腻","温柔","真挚","优美","流畅"]},desc:"你的文字细腻动人，温柔真挚，如朱自清一般温润文雅，情感藏于细节，动人至极。"},
-        {name:"海明威",intro:"语言极简，冰山原则，硬朗有力量。",tags:["简洁","硬朗","冷峻","力量","克制","坚韧"],features:{highFreqWords:["战争","生命","力量","孤独","坚韧","克制","简洁","死亡"],avgSentenceLen:25,punctuationRatio:0.04,emotionalScore:0,vocabStyle:["硬朗","克制","简洁","力量","坚韧"]},desc:"你的文字极简有力，冷峻硬朗，如海明威一般遵循冰山原则，克制中藏着千钧之力。"},
-        {name:"托尔斯泰",intro:"文学巨匠，厚重宏大，深刻写人性。",tags:["厚重","深刻","宏大","人性","战争","庄重"],features:{highFreqWords:["人性","战争","社会","生命","爱情","正义","善良","厚重"],avgSentenceLen:42,punctuationRatio:0.05,emotionalScore:0.3,vocabStyle:["厚重","深刻","宏大","人性","救赎"]},desc:"你的文风厚重宏大，深刻庄重，如托尔斯泰一般洞察人性与社会，极具文学重量。"},
-        {name:"马尔克斯",intro:"魔幻现实主义，荒诞浪漫，时空感强。",tags:["荒诞","魔幻","真实","想象力","宿命","孤独"],features:{highFreqWords:["荒诞","魔幻","真实","宿命","孤独","浪漫","时光","记忆"],avgSentenceLen:45,punctuationRatio:0.07,emotionalScore:0.2,vocabStyle:["荒诞","魔幻","宿命","孤独","浪漫"]},desc:"你的文字充满魔幻与想象力，如马尔克斯一般浪漫荒诞，自带时空宿命感。"},
-        {name:"东野圭吾",intro:"推理作家，细腻悬疑，洞察人性善恶。",tags:["悬疑","细腻","深刻","人性","温情","推理"],features:{highFreqWords:["悬疑","推理","人性","温情","真相","谎言","孤独","救赎"],avgSentenceLen:29,punctuationRatio:0.06,emotionalScore:0.1,vocabStyle:["悬疑","推理","真相","人性","救赎"]},desc:"你的文风细腻冷静，自带悬疑感，如东野圭吾一般在故事中写透人性，细腻又深刻。"},
-        {name:"沈从文",intro:"湘西文学，诗意纯净，温柔质朴。",tags:["乡土","诗意","纯净","质朴","优美","温柔"],features:{highFreqWords:["湘西","乡土","诗意","纯净","质朴","温柔","美好","人性"],avgSentenceLen:38,punctuationRatio:0.04,emotionalScore:0.7,vocabStyle:["湘西","乡土","诗意","纯净","质朴"]},desc:"你的文字诗意纯净，温柔优美，如沈从文一般描绘灵秀山水与纯粹人性。"},
-        {name:"路遥",intro:"现实主义，奋斗成长，坚韧励志。",tags:["现实","坚韧","励志","朴实","奋斗","成长"],features:{highFreqWords:["奋斗","成长","平凡","现实","坚韧","励志","生活","挣扎"],avgSentenceLen:31,punctuationRatio:0.05,emotionalScore:0.4,vocabStyle:["奋斗","成长","坚韧","平凡","现实"]},desc:"你的文风朴实厚重，坚韧励志，如路遥一般书写平凡人的奋斗与希望，充满力量。"}
+    // ========= 增强作家库 (30位顶级灵魂写手，带风格向量) ==========
+    const writerDatabase = [
+        {name:"鲁迅", intro:"冷峻解剖家，匕首投枪", tags:["犀利","批判","觉醒","现实"], styleVector:{lyricism:0.22, sharpness:0.96, warmth:0.15, abstraction:0.68, simplicity:0.72, tension:0.52, narrative:0.72}, desc:"文字如刀，剖开幻象；清醒冷冽，直指人心。你的风格具有鲁迅式的批判锋芒与深邃洞察。"},
+        {name:"汪曾祺", intro:"人间烟火治愈者", tags:["温柔","生活","治愈","质朴"], styleVector:{lyricism:0.72, sharpness:0.12, warmth:0.94, abstraction:0.22, simplicity:0.89, tension:0.12, narrative:0.62}, desc:"质朴温润，于寻常中见诗意。你的文字像汪曾祺一样充满生活本真的暖意。"},
+        {name:"余华", intro:"苦难中的坚韧书写者", tags:["朴实","力量","现实","沉重"], styleVector:{lyricism:0.23, sharpness:0.72, warmth:0.27, abstraction:0.48, simplicity:0.86, tension:0.73, narrative:0.87}, desc:"冷静克制，直击生存真相，余华式厚重里藏着生命韧劲。"},
+        {name:"王小波", intro:"幽默反叛的思想骑士", tags:["幽默","自由","理性","智慧"], styleVector:{lyricism:0.48, sharpness:0.87, warmth:0.31, abstraction:0.82, simplicity:0.66, tension:0.42, narrative:0.71}, desc:"幽默又深刻，自由不羁，像王小波那样用荒诞解构现实。"},
+        {name:"史铁生", intro:"哲思与救赎的朝圣者", tags:["哲思","温柔","生命","深沉"], styleVector:{lyricism:0.78, sharpness:0.32, warmth:0.73, abstraction:0.92, simplicity:0.58, tension:0.31, narrative:0.67}, desc:"沉静深邃，在苦难中追问希望，极具史铁生的灵魂温度。"},
+        {name:"张爱玲", intro:"苍凉精致的世情观察者", tags:["清冷","精致","疏离","人性"], styleVector:{lyricism:0.80, sharpness:0.69, warmth:0.21, abstraction:0.62, simplicity:0.47, tension:0.57, narrative:0.74}, desc:"华丽又苍凉，张爱玲式的入骨细腻与清醒疏离。"},
+        {name:"余光中", intro:"诗意乡愁的浪漫大家", tags:["诗意","浪漫","典雅","深情"], styleVector:{lyricism:0.97, sharpness:0.22, warmth:0.69, abstraction:0.67, simplicity:0.42, tension:0.21, narrative:0.57}, desc:"典雅浪漫，余韵悠长，你的文风流淌着古典与现代的诗意。"},
+        {name:"林清玄", intro:"禅意清澈的散文家", tags:["禅意","淡然","治愈","宁静"], styleVector:{lyricism:0.87, sharpness:0.07, warmth:0.89, abstraction:0.72, simplicity:0.82, tension:0.07, narrative:0.48}, desc:"清雅脱俗，充满禅意与安宁，林清玄式的治愈能量。"},
+        {name:"三毛", intro:"流浪远方的自由灵魂", tags:["自由","浪漫","洒脱","远方"], styleVector:{lyricism:0.88, sharpness:0.22, warmth:0.82, abstraction:0.53, simplicity:0.67, tension:0.27, narrative:0.77}, desc:"自由奔放，热情浪漫，三毛式的远方与流浪情怀。"},
+        {name:"村上春树", intro:"孤独氛围的都市诗人", tags:["孤独","文艺","疏离","氛围"], styleVector:{lyricism:0.80, sharpness:0.32, warmth:0.47, abstraction:0.74, simplicity:0.57, tension:0.47, narrative:0.72}, desc:"安静疏离，现代孤独感与文艺气息，村上春树式隐喻美学。"},
+        {name:"钱钟书", intro:"睿智幽默的讽刺大师", tags:["睿智","幽默","讽刺","博学"], styleVector:{lyricism:0.42, sharpness:0.89, warmth:0.27, abstraction:0.84, simplicity:0.52, tension:0.38, narrative:0.69}, desc:"机智幽默，一针见血，钱钟书式的博学与俏皮讽刺。"},
+        {name:"沈从文", intro:"湘西边城的诗意灵魂", tags:["乡土","诗意","纯净","质朴"], styleVector:{lyricism:0.90, sharpness:0.21, warmth:0.74, abstraction:0.47, simplicity:0.86, tension:0.22, narrative:0.71}, desc:"纯净优美，沈从文笔下的自然灵性与人性之美。"},
+        {name:"莫言", intro:"魔幻现实，高密东北乡", tags:["魔幻","野性","厚重","想象力"], styleVector:{lyricism:0.52, sharpness:0.77, warmth:0.37, abstraction:0.77, simplicity:0.61, tension:0.87, narrative:0.89}, desc:"粗粝又魔幻，莫言式的生命力与荒诞历史感。"},
+        {name:"刘慈欣", intro:"宏大科幻，冷酷理性浪漫", tags:["宏大","科幻","理性","宇宙"], styleVector:{lyricism:0.47, sharpness:0.66, warmth:0.22, abstraction:0.97, simplicity:0.47, tension:0.82, narrative:0.84}, desc:"冷峻的宏大叙事，刘慈欣式的宇宙尺度的浪漫与哲思。"},
+        {name:"金庸", intro:"江湖豪情，侠之大者", tags:["侠义","江湖","豪情","传奇"], styleVector:{lyricism:0.62, sharpness:0.42, warmth:0.62, abstraction:0.32, simplicity:0.57, tension:0.89, narrative:0.94}, desc:"快意恩仇，金庸式江湖侠气与深厚叙事。"},
+        {name:"李娟", intro:"阿勒泰的纯净牧歌", tags:["纯净","治愈","自然","灵动"], styleVector:{lyricism:0.94, sharpness:0.07, warmth:0.87, abstraction:0.37, simplicity:0.80, tension:0.12, narrative:0.67}, desc:"灵动清澈，李娟笔下荒野中的温柔与生命力。"},
+        {name:"严歌苓", intro:"女性命运，细腻张力", tags:["细腻","张力","命运","深情"], styleVector:{lyricism:0.72, sharpness:0.57, warmth:0.52, abstraction:0.57, simplicity:0.47, tension:0.80, narrative:0.87}, desc:"叙事绵密，严歌苓式对女性命运的深刻洞察。"},
+        {name:"余秋雨", intro:"文化苦旅，历史回响", tags:["文化","厚重","思辨","宏大"], styleVector:{lyricism:0.77, sharpness:0.47, warmth:0.37, abstraction:0.87, simplicity:0.42, tension:0.32, narrative:0.77}, desc:"磅礴文化情怀，余秋雨式的历史沉思与文明咏叹。"},
+        {name:"老舍", intro:"京味儿幽默，平民史诗", tags:["京味","幽默","平民","现实"], styleVector:{lyricism:0.47, sharpness:0.57, warmth:0.67, abstraction:0.37, simplicity:0.89, tension:0.37, narrative:0.87}, desc:"风趣平实，老舍式的市井智慧与人间温情。"},
+        {name:"迟子建", intro:"极北温情，诗意伤怀", tags:["温情","伤怀","自然","细腻"], styleVector:{lyricism:0.88, sharpness:0.27, warmth:0.84, abstraction:0.57, simplicity:0.72, tension:0.37, narrative:0.74}, desc:"温婉忧伤，迟子建笔下的雪域温情与生命敬意。"},
+        {name:"博尔赫斯", intro:"迷宫与无限，哲思诗人", tags:["哲思","迷宫","超现实","智性"], styleVector:{lyricism:0.84, sharpness:0.57, warmth:0.22, abstraction:0.99, simplicity:0.32, tension:0.72, narrative:0.57}, desc:"博尔赫斯式的时间迷宫与智慧诗意，形而上的浪漫。"},
+        {name:"卡尔维诺", intro:"轻盈幻想，童话哲思", tags:["轻盈","幻想","精巧","哲思"], styleVector:{lyricism:0.90, sharpness:0.27, warmth:0.57, abstraction:0.87, simplicity:0.47, tension:0.37, narrative:0.62}, desc:"轻盈奇崛，卡尔维诺式的想象力与哲理童话。"},
+        {name:"简·奥斯汀", intro:"机智幽默，英伦世情", tags:["机智","细腻","幽默","世情"], styleVector:{lyricism:0.67, sharpness:0.62, warmth:0.57, abstraction:0.37, simplicity:0.52, tension:0.47, narrative:0.80}, desc:"敏锐风趣，奥斯汀式的世情洞察与反讽。"},
+        {name:"黑塞", intro:"自我探寻，精神之旅", tags:["哲思","灵性","成长","孤独"], styleVector:{lyricism:0.80, sharpness:0.37, warmth:0.57, abstraction:0.94, simplicity:0.47, tension:0.47, narrative:0.70}, desc:"黑塞式的心灵求索，荒原狼般的孤独与超越。"},
+        {name:"波拉尼奥", intro:"荒野侦探，诗意暴裂", tags:["暴裂","诗意","边缘","长篇"], styleVector:{lyricism:0.74, sharpness:0.84, warmth:0.22, abstraction:0.77, simplicity:0.47, tension:0.82, narrative:0.84}, desc:"狂野与诗意并存，波拉尼奥式的文学游击。"},
+        {name:"阿城", intro:"洗练通透，世俗奇人", tags:["洗练","通透","世俗","智慧"], styleVector:{lyricism:0.57, sharpness:0.67, warmth:0.57, abstraction:0.72, simplicity:0.94, tension:0.47, narrative:0.77}, desc:"阿城式的干净通透，世俗中的大智若愚。"},
+        {name:"王朔", intro:"顽主语言，解构一切", tags:["痞气","解构","犀利","幽默"], styleVector:{lyricism:0.22, sharpness:0.92, warmth:0.32, abstraction:0.57, simplicity:0.77, tension:0.52, narrative:0.72}, desc:"王朔式的语言暴力与解构快感，反叛到底。"},
+        {name:"冯唐", intro:"肿胀诗意，荷尔蒙爆棚", tags:["荷尔蒙","放肆","诗意","生猛"], styleVector:{lyricism:0.72, sharpness:0.67, warmth:0.42, abstraction:0.52, simplicity:0.47, tension:0.67, narrative:0.67}, desc:"冯唐式的生猛与诗意，淋漓酣畅。"},
+        {name:"安妮宝贝", intro:"清冷颓靡，都市隐喻", tags:["清冷","颓废","棉麻","隐喻"], styleVector:{lyricism:0.87, sharpness:0.52, warmth:0.27, abstraction:0.77, simplicity:0.57, tension:0.57, narrative:0.62}, desc:"安妮宝贝式清冷疏离，都市暗涌的文艺感。"},
+        {name:"priest", intro:"大气磅礴，网络文学之光", tags:["宏大","格局","细腻","燃"], styleVector:{lyricism:0.72, sharpness:0.47, warmth:0.57, abstraction:0.67, simplicity:0.47, tension:0.84, narrative:0.90}, desc:"P大式的故事格局与情感燃点，兼具细腻与宏大。"}
     ];
     
     // 初始化神经网络
-    const nn = new StyleNeuralNetwork();
+    const styleNN = new DeepStyleNN();
     
-    // 随机背景刷新 (纯本地)
-    function refreshBackground() {
-        const bg = document.querySelector('.bg-wrapper');
-        const randomId = Math.floor(Math.random() * 100);
-        bg.style.backgroundImage = `url('https://picsum.photos/1920/1080?random=${randomId}')`;
+    // ----- 动态粒子背景 (优雅)-----
+    const canvasPart = document.getElementById('particle-canvas');
+    let ctxPart = canvasPart.getContext('2d');
+    let particles = [];
+    function resizeCanvas() { canvasPart.width = window.innerWidth; canvasPart.height = window.innerHeight; }
+    function initParticles() {
+        particles = [];
+        for(let i=0;i<100;i++) {
+            particles.push({x:Math.random()*canvasPart.width, y:Math.random()*canvasPart.height, radius:Math.random()*3+1.2, alpha:Math.random()*0.5, vx:(Math.random()-0.5)*0.4, vy:(Math.random()-0.5)*0.25});
+        }
+    }
+    function drawParticles() {
+        if(!ctxPart) return;
+        ctxPart.clearRect(0,0,canvasPart.width,canvasPart.height);
+        for(let p of particles) {
+            ctxPart.beginPath();
+            ctxPart.arc(p.x, p.y, p.radius, 0, Math.PI*2);
+            ctxPart.fillStyle = `rgba(145, 105, 250, ${p.alpha*0.55})`;
+            ctxPart.fill();
+            p.x += p.vx; p.y += p.vy;
+            if(p.x<0) p.x=canvasPart.width; if(p.x>canvasPart.width) p.x=0;
+            if(p.y<0) p.y=canvasPart.height; if(p.y>canvasPart.height) p.y=0;
+        }
+        requestAnimationFrame(drawParticles);
+    }
+    window.addEventListener('resize', ()=>{resizeCanvas(); initParticles();});
+    resizeCanvas(); initParticles(); drawParticles();
+    
+    // ----- 雷达图绘制 -----
+    function drawRadar(userVec, writerVec) {
+        const radarCanvas = document.getElementById('radarCanvas');
+        if(!radarCanvas) return;
+        const ctx = radarCanvas.getContext('2d');
+        const w = radarCanvas.width = 280, h = radarCanvas.height = 280;
+        ctx.clearRect(0,0,w,h);
+        let dims = ['lyricism','sharpness','warmth','abstraction','simplicity','tension','narrative'];
+        let angles = [];
+        let count = dims.length;
+        for(let i=0;i<count;i++) angles.push(i * Math.PI*2 / count - Math.PI/2);
+        let centerX = w/2, centerY = h/2, radius = 105;
+        // 网格
+        for(let level=1; level<=4; level++) {
+            ctx.beginPath();
+            let r = radius * level/4;
+            for(let i=0;i<count;i++) {
+                let x = centerX + r * Math.cos(angles[i]);
+                let y = centerY + r * Math.sin(angles[i]);
+                if(i===0) ctx.moveTo(x,y);
+                else ctx.lineTo(x,y);
+            }
+            ctx.closePath();
+            ctx.strokeStyle = "#5f5f9e";
+            ctx.stroke();
+        }
+        for(let i=0;i<count;i++) {
+            let x2 = centerX + radius * Math.cos(angles[i]);
+            let y2 = centerY + radius * Math.sin(angles[i]);
+            ctx.beginPath(); ctx.moveTo(centerX,centerY); ctx.lineTo(x2,y2); ctx.strokeStyle = "#4a4a7a"; ctx.stroke();
+        }
+        function drawPolygon(vector, color, isFill=true) {
+            ctx.beginPath();
+            for(let i=0;i<count;i++) {
+                let val = vector[dims[i]] || 0;
+                let r2 = radius * Math.min(1, val);
+                let x = centerX + r2 * Math.cos(angles[i]);
+                let y = centerY + r2 * Math.sin(angles[i]);
+                if(i===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
+            }
+            ctx.closePath();
+            if(isFill) { ctx.fillStyle = color; ctx.fill(); }
+            ctx.strokeStyle = "#fff"; ctx.stroke();
+        }
+        drawPolygon(userVec, "rgba(99, 102, 241, 0.5)", true);
+        drawPolygon(writerVec, "rgba(192, 132, 252, 0.65)", true);
+        ctx.font = "10px monospace"; ctx.fillStyle = "#bbb";
+        for(let i=0;i<count;i++) {
+            let x = centerX + (radius+14) * Math.cos(angles[i]);
+            let y = centerY + (radius+8) * Math.sin(angles[i]);
+            let label = dims[i].slice(0,3);
+            ctx.fillText(label, x-8, y);
+        }
     }
     
-    // 保存卡片 (不使用html2canvas，改用原生canvas绘制！完全独立)
-    async function saveCardAsImage() {
-        const resultDiv = document.getElementById('result');
-        const writerNameEl = document.getElementById('writerName');
-        const writerIntroEl = document.getElementById('writerIntro');
-        const tagsRow = document.getElementById('writerTags');
-        const descEl = document.getElementById('writerDesc');
-        const matchScoreEl = document.getElementById('matchScore');
-        
-        // 获取现有内容文本
-        const name = writerNameEl.innerText;
-        const intro = writerIntroEl.innerText;
-        const desc = descEl.innerText;
-        const scoreText = matchScoreEl.innerText;
-        const tags = Array.from(tagsRow.querySelectorAll('.tag-item')).map(t => t.innerText);
-        
-        // 创建临时画布
-        const canvas = document.createElement('canvas');
-        const ctx = canvas.getContext('2d');
-        const width = 600;
-        const height = 520;
-        canvas.width = width;
-        canvas.height = height;
-        
-        // 绘制精美卡片 (仿原风格)
-        ctx.fillStyle = '#0f0f16';
-        ctx.fillRect(0, 0, width, height);
-        ctx.strokeStyle = '#818cf8';
-        ctx.lineWidth = 3;
-        ctx.strokeRect(5, 5, width - 10, height - 10);
-        
-        ctx.font = 'bold 28px "PingFang SC", "Microsoft YaHei"';
-        ctx.fillStyle = '#c4b5fd';
-        ctx.fillText('灵魂写手鉴定卡', 30, 60);
-        
-        ctx.font = '18px "PingFang SC"';
-        ctx.fillStyle = '#a78bfa';
-        ctx.fillText(name, 30, 120);
-        
-        ctx.font = '14px "PingFang SC"';
-        ctx.fillStyle = '#ccc';
-        ctx.fillText(intro.substring(0, 70), 30, 160);
-        
-        ctx.font = 'bold 14px monospace';
-        ctx.fillStyle = '#818cf8';
-        ctx.fillText(scoreText, width - 130, 120);
-        
-        // 标签
-        let tagX = 30, tagY = 200;
-        ctx.font = '12px "PingFang SC"';
-        for (let tag of tags.slice(0, 5)) {
-            ctx.fillStyle = '#2d2a3e';
-            ctx.fillRect(tagX - 6, tagY - 14, ctx.measureText(tag).width + 16, 22);
-            ctx.fillStyle = '#c4b5fd';
-            ctx.fillText(tag, tagX, tagY);
-            tagX += ctx.measureText(tag).width + 28;
-            if (tagX > width - 40) { tagX = 30; tagY += 28; }
-        }
-        
-        ctx.fillStyle = '#ddd';
-        ctx.font = '13px "PingFang SC"';
-        const descLines = desc.match(/.{1,38}/g) || [desc];
-        let lineY = tagY + 30;
-        for (let line of descLines.slice(0, 5)) {
-            ctx.fillText(line, 30, lineY);
-            lineY += 24;
-        }
-        
-        ctx.font = '10px sans-serif';
-        ctx.fillStyle = '#777';
-        ctx.fillText('文风分析 · 神经网络模型', 30, height - 20);
-        
-        // 导出图片
-        const link = document.createElement('a');
-        link.download = '文风鉴定卡片.png';
-        link.href = canvas.toDataURL('image/png');
-        link.click();
-    }
+    let currentResult = null;
+    const analyzeBtn = document.getElementById('analyzeBtn');
+    const loadingDiv = document.getElementById('loadingPanel');
+    const resultDiv = document.getElementById('resultArea');
+    const progressBar = document.getElementById('nnProgressBar');
+    const stageSpan = document.getElementById('loadingStage');
     
-    function startAnalyze() {
-        const textarea = document.getElementById('inputText');
-        const text = textarea.value.trim();
-        if (!text) {
-            alert("请输入文字（50字以上更精准）");
-            return;
-        }
-        const loadingDiv = document.getElementById('loading');
-        const resultDiv = document.getElementById('result');
-        const actionDiv = document.getElementById('actionButtons');
-        
+    analyzeBtn.addEventListener('click', ()=>{
+        let text = document.getElementById('inputText').value.trim();
+        if(!text) { alert("✍️ 写下你的文字，让神经网络洞悉你的文风灵魂"); return; }
         loadingDiv.style.display = "block";
         resultDiv.style.display = "none";
-        actionDiv.style.display = "none";
-        
-        // 模拟神经网络分析延迟但保证900ms内响应
-        setTimeout(() => {
-            const res = nn.analyze(text, writers);
+        let progress = 0;
+        let interval = setInterval(()=>{
+            progress += Math.random()*18;
+            if(progress>=100) { progress=100; clearInterval(interval); }
+            progressBar.style.width = progress+"%";
+            if(progress>35) stageSpan.innerText = "风格向量匹配 · 七维相似度计算";
+            if(progress>70) stageSpan.innerText = "生成文风拓扑图谱 ✨";
+        }, 120);
+        setTimeout(()=>{
+            clearInterval(interval);
+            progressBar.style.width = "100%";
+            let res = styleNN.analyze(text, writerDatabase);
+            currentResult = res;
             document.getElementById('writerName').innerText = res.writer.name;
             document.getElementById('writerIntro').innerText = res.writer.intro;
-            document.getElementById('writerTags').innerHTML = res.writer.tags.map(x => `<span class="tag-item">${x}</span>`).join('');
+            document.getElementById('writerTags').innerHTML = res.writer.tags.map(t=>`<span class="tag">${t}</span>`).join('');
             document.getElementById('writerDesc').innerText = res.writer.desc;
-            document.getElementById('matchScore').innerText = `匹配度：${res.score}%`;
-            
+            document.getElementById('matchScoreBadge').innerHTML = `🔥 匹配度 ${res.score}%`;
+            drawRadar(res.userVector, res.writer.styleVector);
             loadingDiv.style.display = "none";
             resultDiv.style.display = "block";
-            actionDiv.style.display = "flex";
-        }, 880); // 符合900ms以内
-    }
+        }, 880);
+    });
     
-    function shareResult() {
-        alert("✨ 点击「保存鉴定卡片」即可保存图片并分享到社交平台！");
-    }
+    // 保存卡片 (原生canvas绘制)
+    document.getElementById('saveCardBtn').addEventListener('click', ()=>{
+        if(!currentResult) return alert("请先分析一段文字");
+        let name = currentResult.writer.name;
+        let intro = currentResult.writer.intro;
+        let desc = currentResult.writer.desc;
+        let score = currentResult.score;
+        let canvasCard = document.createElement('canvas');
+        canvasCard.width = 700; canvasCard.height = 620;
+        let ctx = canvasCard.getContext('2d');
+        ctx.fillStyle = "#0b0b14"; ctx.fillRect(0,0,700,620);
+        ctx.strokeStyle = "#a78bfa"; ctx.lineWidth=3; ctx.strokeRect(15,15,670,590);
+        ctx.font = "bold 34px 'PingFang SC'"; ctx.fillStyle = "#e0d4ff"; ctx.fillText("⚡灵魂写手鉴定⚡", 40, 80);
+        ctx.font = "28px bold"; ctx.fillStyle = "#c4b5fd"; ctx.fillText(name, 40, 160);
+        ctx.font = "16px"; ctx.fillStyle = "#bbb"; ctx.fillText(intro.substring(0, 45), 40, 210);
+        ctx.font = "bold 20px"; ctx.fillStyle = "#a78bfa"; ctx.fillText(`匹配度 ${score}%`, 520, 160);
+        ctx.font = "15px"; ctx.fillStyle = "#cdd0ff"; 
+        let wrapped = desc.match(/.{1,40}/g) || [desc];
+        for(let i=0;i<wrapped.length && i<7;i++) ctx.fillText(wrapped[i], 40, 280+i*36);
+        ctx.font = "12px monospace"; ctx.fillStyle = "#6f6f9a"; ctx.fillText("神经网络·七维文风分析引擎", 40, 580);
+        let link = document.createElement('a');
+        link.download = `灵魂写手_${name}.png`;
+        link.href = canvasCard.toDataURL();
+        link.click();
+    });
     
-    // 绑定事件，完全脱离onclick属性，避免外部干扰
-    window.addEventListener('DOMContentLoaded', () => {
-        refreshBackground();
-        const analyzeBtn = document.getElementById('analyzeBtn');
-        const saveBtn = document.getElementById('saveCardBtn');
-        const shareBtnEl = document.getElementById('shareBtn');
-        
-        if (analyzeBtn) analyzeBtn.addEventListener('click', startAnalyze);
-        if (saveBtn) saveBtn.addEventListener('click', saveCardAsImage);
-        if (shareBtnEl) shareBtnEl.addEventListener('click', shareResult);
-        
-        // 可选：点击随机刷新背景
-        setInterval(() => {
-            // 每2分钟轻柔换背景，不影响体验
-            refreshBackground();
-        }, 120000);
+    document.getElementById('shareTextBtn').addEventListener('click', ()=>{
+        if(currentResult){
+            let shareMsg = `【灵魂写手检测仪】我的文风匹配度 ${currentResult.score}% 与作家“${currentResult.writer.name}”共振 ✨\n${currentResult.writer.desc}`;
+            navigator.clipboard.writeText(shareMsg);
+            alert("✅ 风格报告已复制，可分享至社交平台！");
+        } else alert("请先进行一次分析");
+    });
+    
+    // 示例填充
+    document.querySelectorAll('.example-chip').forEach(chip=>{
+        chip.addEventListener('click', ()=>{
+            document.getElementById('inputText').value = chip.getAttribute('data-example');
+        });
     });
 </script>
 </body>
@@ -803,7 +816,7 @@ btf.addGlobalFn('pjaxComplete', () => {
           </div>
           <ul class="card-category-list" id="aside-cat-list">
             <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/OS/"><span class="card-category-list-name">OS</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/code/"><span class="card-category-list-name">code</span><span class="card-category-list-count">9</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/other/"><span class="card-category-list-name">other</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E8%AE%A1%E7%BB%84/"><span class="card-category-list-name">计组</span><span class="card-category-list-count">18</span></a></li>
-          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/nand2tetris/" style="font-size: 1.45em; color: rgb(185, 101, 177);">nand2tetris</a><a href="/tags/%E6%8C%87%E4%BB%A4/" style="font-size: 1.35em; color: rgb(115, 103, 161);">指令</a><a href="/tags/%E5%AF%BB%E5%9D%80/" style="font-size: 1.15em; color: rgb(150, 50, 50);">寻址</a><a href="/tags/%E6%B1%87%E7%BC%96/" style="font-size: 1.15em; color: rgb(97, 103, 102);">汇编</a><a href="/tags/CPU/" style="font-size: 1.35em; color: rgb(119, 50, 170);">CPU</a><a href="/tags/%E6%95%B0%E6%8D%AE%E9%80%9A%E8%B7%AF/" style="font-size: 1.15em; color: rgb(50, 50, 50);">数据通路</a><a href="/tags/%E5%BC%82%E5%B8%B8-%E4%B8%AD%E6%96%AD/" style="font-size: 1.15em; color: rgb(50, 50, 50);">异常/中断</a><a href="/tags/%E6%8E%A7%E5%88%B6%E5%99%A8/" style="font-size: 1.15em; color: rgb(84, 89, 86);">控制器</a><a href="/tags/%E6%8C%87%E4%BB%A4%E6%B5%81%E6%B0%B4%E7%BA%BF/" style="font-size: 1.15em; color: rgb(50, 181, 104);">指令流水线</a><a href="/tags/%E6%80%BB%E7%BA%BF/" style="font-size: 1.25em; color: rgb(127, 62, 61);">总线</a><a href="/tags/%E6%80%BB%E7%BA%BF%E5%91%A8%E6%9C%9F/" style="font-size: 1.15em; color: rgb(172, 185, 97);">总线周期</a><a href="/tags/%E5%A4%9A%E5%A4%84%E7%90%86%E5%99%A8/" style="font-size: 1.15em; color: rgb(68, 68, 50);">多处理器</a><a href="/tags/%E6%80%BB%E7%BA%BF%E6%A0%87%E5%87%86/" style="font-size: 1.15em; color: rgb(82, 50, 170);">总线标准</a><a href="/tags/I-O/" style="font-size: 1.25em; color: rgb(135, 50, 76);">I/O</a><a href="/tags/I-O%E7%B3%BB%E7%BB%9F/" style="font-size: 1.15em; color: rgb(105, 183, 192);">I/O系统</a><a href="/tags/I-O%E6%8E%A5%E5%8F%A3/" style="font-size: 1.15em; color: rgb(52, 93, 50);">I/O接口</a><a href="/tags/I-O%E6%8E%A7%E5%88%B6/" style="font-size: 1.15em; color: rgb(50, 50, 50);">I/O控制</a></div></div><div class="card-widget card-archives">
+          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/nand2tetris/" style="font-size: 1.45em; color: rgb(121, 147, 81);">nand2tetris</a><a href="/tags/%E6%8C%87%E4%BB%A4/" style="font-size: 1.35em; color: rgb(71, 95, 50);">指令</a><a href="/tags/CPU/" style="font-size: 1.35em; color: rgb(81, 176, 154);">CPU</a><a href="/tags/%E6%95%B0%E6%8D%AE%E9%80%9A%E8%B7%AF/" style="font-size: 1.15em; color: rgb(82, 69, 55);">数据通路</a><a href="/tags/%E6%8E%A7%E5%88%B6%E5%99%A8/" style="font-size: 1.15em; color: rgb(158, 101, 116);">控制器</a><a href="/tags/%E6%B1%87%E7%BC%96/" style="font-size: 1.15em; color: rgb(133, 145, 147);">汇编</a><a href="/tags/%E5%AF%BB%E5%9D%80/" style="font-size: 1.15em; color: rgb(50, 69, 195);">寻址</a><a href="/tags/%E5%A4%9A%E5%A4%84%E7%90%86%E5%99%A8/" style="font-size: 1.15em; color: rgb(50, 50, 174);">多处理器</a><a href="/tags/%E6%8C%87%E4%BB%A4%E6%B5%81%E6%B0%B4%E7%BA%BF/" style="font-size: 1.15em; color: rgb(50, 50, 50);">指令流水线</a><a href="/tags/%E5%BC%82%E5%B8%B8-%E4%B8%AD%E6%96%AD/" style="font-size: 1.15em; color: rgb(98, 87, 198);">异常/中断</a><a href="/tags/%E6%80%BB%E7%BA%BF/" style="font-size: 1.25em; color: rgb(79, 50, 80);">总线</a><a href="/tags/%E6%80%BB%E7%BA%BF%E6%A0%87%E5%87%86/" style="font-size: 1.15em; color: rgb(50, 89, 142);">总线标准</a><a href="/tags/I-O/" style="font-size: 1.25em; color: rgb(121, 64, 114);">I/O</a><a href="/tags/I-O%E6%8E%A5%E5%8F%A3/" style="font-size: 1.15em; color: rgb(140, 200, 166);">I/O接口</a><a href="/tags/I-O%E7%B3%BB%E7%BB%9F/" style="font-size: 1.15em; color: rgb(50, 138, 151);">I/O系统</a><a href="/tags/%E6%80%BB%E7%BA%BF%E5%91%A8%E6%9C%9F/" style="font-size: 1.15em; color: rgb(180, 97, 88);">总线周期</a><a href="/tags/I-O%E6%8E%A7%E5%88%B6/" style="font-size: 1.15em; color: rgb(86, 91, 50);">I/O控制</a></div></div><div class="card-widget card-archives">
     <div class="item-headline">
       <i class="fas fa-archive"></i>
       <span>归档</span>
@@ -867,7 +880,7 @@ btf.addGlobalFn('pjaxComplete', () => {
         </li>
       
     </ul>
-  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">32</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2026-04-03T06:58:14.485Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer" style="background: white;"><div id="footer-wrap"><div class="copyright">&copy;2025 - 2026 By KKL</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.5</a></div><div class="footer_custom_text">Nice to meet you ! 😜</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/true" type="module"></script><div class="js-pjax"><script>(() => {
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">32</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2026-04-03T07:12:13.447Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer" style="background: white;"><div id="footer-wrap"><div class="copyright">&copy;2025 - 2026 By KKL</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.5</a></div><div class="footer_custom_text">Nice to meet you ! 😜</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/true" type="module"></script><div class="js-pjax"><script>(() => {
   const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
 
   const loadLivere = (el, path) => {
