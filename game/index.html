@@ -1,13 +1,13 @@
-<!DOCTYPE html><html class="hide-aside" lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>LKK の blog | LKK の blog</title><meta name="author" content="KKL"><meta name="copyright" content="KKL"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="灵魂写手检测仪 · 神经网络深度版 | 文风拓扑引擎              * {             margin: 0;             padding: 0;             box-sizing: border-box;         }          body {             overflow: hidden;">
+<!DOCTYPE html><html class="hide-aside" lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>LKK の blog | LKK の blog</title><meta name="author" content="KKL"><meta name="copyright" content="KKL"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="灵魂写手检测仪 · 神经网络深度版 | 文风拓扑引擎              &#x2F;* &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; 全局样式重置 &amp; 基础布局 &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; *&#x2F;         * {             margin: 0;             padding: 0;             box-sizing: border-box;">
 <meta property="og:type" content="website">
 <meta property="og:title" content="LKK の blog">
 <meta property="og:url" content="http://example.com/game/index.html">
 <meta property="og:site_name" content="LKK の blog">
-<meta property="og:description" content="灵魂写手检测仪 · 神经网络深度版 | 文风拓扑引擎              * {             margin: 0;             padding: 0;             box-sizing: border-box;         }          body {             overflow: hidden;">
+<meta property="og:description" content="灵魂写手检测仪 · 神经网络深度版 | 文风拓扑引擎              &#x2F;* &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; 全局样式重置 &amp; 基础布局 &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; *&#x2F;         * {             margin: 0;             padding: 0;             box-sizing: border-box;">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/001.jpg">
-<meta property="article:published_time" content="2026-04-03T07:30:10.493Z">
-<meta property="article:modified_time" content="2026-04-03T07:30:10.493Z">
+<meta property="article:published_time" content="2026-04-04T14:10:50.589Z">
+<meta property="article:modified_time" content="2026-04-04T14:10:50.589Z">
 <meta property="article:author" content="KKL">
 <meta property="article:tag" content="博客,lkk">
 <meta name="twitter:card" content="summary">
@@ -161,6 +161,7 @@ btf.addGlobalFn('pjaxComplete', () => {
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>灵魂写手检测仪 · 神经网络深度版 | 文风拓扑引擎</title>
     <style>
+        /* ========== 全局样式重置 & 基础布局 ========== */
         * {
             margin: 0;
             padding: 0;
@@ -168,11 +169,12 @@ btf.addGlobalFn('pjaxComplete', () => {
         }
 
         body {
-            overflow: hidden;
+            overflow: hidden;            /* 隐藏页面滚动条，避免与内部滚动冲突 */
             font-family: 'PingFang SC', 'Microsoft YaHei', 'Segoe UI', system-ui, -apple-system, sans-serif;
             background: #000;
         }
 
+        /* 主容器 — 支持滚动，覆盖全屏 */
         #soul-game {
             position: fixed;
             top: 0;
@@ -184,7 +186,7 @@ btf.addGlobalFn('pjaxComplete', () => {
             overflow-x: hidden;
         }
 
-        /* 动态粒子背景 canvas */
+        /* 动态粒子背景画布 — 位于底层，不干扰点击 */
         #particle-canvas {
             position: fixed;
             top: 0;
@@ -192,10 +194,11 @@ btf.addGlobalFn('pjaxComplete', () => {
             width: 100%;
             height: 100%;
             z-index: 0;
-            pointer-events: none;
+            pointer-events: none;      /* 让鼠标穿透画布，可以点击下方按钮 */
             opacity: 0.65;
         }
 
+        /* 深色渐变遮罩，增强文字可读性 */
         .bg-overlay {
             position: fixed;
             top: 0;
@@ -206,6 +209,7 @@ btf.addGlobalFn('pjaxComplete', () => {
             z-index: 1;
         }
 
+        /* 内容包装器 — 高于背景，实现磨砂玻璃卡片效果 */
         .game-wrapper {
             position: relative;
             z-index: 15;
@@ -216,6 +220,7 @@ btf.addGlobalFn('pjaxComplete', () => {
             padding: 30px 20px;
         }
 
+        /* 核心卡片：毛玻璃+发光边框，现代科技感 */
         .game-card {
             width: 100%;
             max-width: 880px;
@@ -233,6 +238,7 @@ btf.addGlobalFn('pjaxComplete', () => {
             box-shadow: 0 35px 60px rgba(0, 0, 0, 0.6), 0 0 0 2px rgba(129, 140, 248, 0.25);
         }
 
+        /* 主标题：渐变文字 */
         .main-title {
             font-size: 46px;
             font-weight: 800;
@@ -258,6 +264,7 @@ btf.addGlobalFn('pjaxComplete', () => {
             padding-bottom: 8px;
         }
 
+        /* 示例标签块 — 一键填充风格文本 */
         .example-buttons {
             display: flex;
             flex-wrap: wrap;
@@ -284,6 +291,7 @@ btf.addGlobalFn('pjaxComplete', () => {
             transform: translateY(-2px);
         }
 
+        /* 文本输入区 — 灵魂文字采集器 */
         .text-input {
             width: 100%;
             height: 200px;
@@ -306,6 +314,7 @@ btf.addGlobalFn('pjaxComplete', () => {
             background: rgba(0, 0, 0, 0.75);
         }
 
+        /* 分析按钮 — 渐变高亮，触发神经网络推理 */
         .analyze-btn {
             width: 100%;
             padding: 18px;
@@ -327,6 +336,7 @@ btf.addGlobalFn('pjaxComplete', () => {
 
         .analyze-btn:active { transform: scale(0.97); }
 
+        /* 加载进度面板 — 模拟深度网络计算过程 */
         .loading-panel {
             display: none;
             text-align: center;
@@ -352,6 +362,7 @@ btf.addGlobalFn('pjaxComplete', () => {
             transition: width 0.2s linear;
         }
 
+        /* 结果展示区 — 淡入动画 */
         .result-area {
             display: none;
             margin-top: 32px;
@@ -363,6 +374,7 @@ btf.addGlobalFn('pjaxComplete', () => {
             to { opacity: 1; transform: translateY(0);}
         }
 
+        /* 雷达图容器 — 显示七维特征对比 */
         .dimension-radar {
             background: rgba(0, 0, 0, 0.5);
             border-radius: 32px;
@@ -389,6 +401,7 @@ btf.addGlobalFn('pjaxComplete', () => {
             display: block;
         }
 
+        /* 作家卡片 — 展示最佳匹配的灵魂写手 */
         .writer-card {
             background: linear-gradient(145deg, rgba(25, 25, 45, 0.75), rgba(12, 12, 28, 0.85));
             border-radius: 36px;
@@ -430,6 +443,7 @@ btf.addGlobalFn('pjaxComplete', () => {
             color: #cdc9ff;
         }
 
+        /* 底部操作按钮：复制报告 & 保存风格卡片 */
         .action-group {
             display: flex;
             gap: 16px;
@@ -473,6 +487,7 @@ btf.addGlobalFn('pjaxComplete', () => {
 </head>
 <body>
 <div id="soul-game">
+    <!-- 动态粒子画布：营造科技感氛围 -->
     <canvas id="particle-canvas"></canvas>
     <div class="bg-overlay"></div>
     <div class="game-wrapper">
@@ -480,6 +495,7 @@ btf.addGlobalFn('pjaxComplete', () => {
             <div class="main-title">✨ 灵魂写手检测仪 ✨</div>
             <div style="text-align:center"><span class="sub">深度神经网络 · 文风拓扑图谱引擎</span></div>
 
+            <!-- 快捷示例：内置多种风格的文本，方便测试 -->
             <div class="example-buttons">
                 <div class="example-chip" data-example="暮色四合，远山如黛。独自走在青石板路上，听风穿过竹林，仿佛时间都慢了。想写一封信给远方的你，说说今夜的月色真美，露水很轻，人间值得。">🌙 诗意随笔</div>
                 <div class="example-chip" data-example="这个社会荒诞极了，人们一边高喊理想，一边跪拜金钱。我偏要做那只特立独行的猪，自由而清醒地嘲讽一切虚伪，哪怕孤独。">🎭 犀利反叛</div>
@@ -490,12 +506,14 @@ btf.addGlobalFn('pjaxComplete', () => {
             <textarea id="inputText" class="text-input" placeholder="写下你的灵魂文字 (50字以上解锁深度匹配)&#10;例：黄昏的光落在书页上，尘埃浮动，像是岁月的低语，温柔又哀伤……"></textarea>
             <button id="analyzeBtn" class="analyze-btn"><span>🧠</span> 启动神经网络 · 灵魂解析</button>
 
+            <!-- 加载动画区域：模拟神经网络计算过程 -->
             <div id="loadingPanel" class="loading-panel">
                 <div>⚛️ 深度神经网络激活中</div>
                 <div class="nn-progress"><div id="nnProgressBar" class="nn-progress-bar"></div></div>
                 <div style="margin-top: 12px; font-size:13px;" id="loadingStage">提取语义特征 · 匹配30+作家维度</div>
             </div>
 
+            <!-- 结果展示区：雷达图、作家卡片、操作按钮 -->
             <div id="resultArea" class="result-area">
                 <div class="dimension-radar">
                     <div class="radar-title">📡 文风七维特征图谱 (蓝-你的风格 紫-作家原型)</div>
@@ -523,29 +541,37 @@ btf.addGlobalFn('pjaxComplete', () => {
 <script>
     // ========================= 增强版神经网络引擎 =========================
     // 完全无外部依赖，七维特征 + 加权相似度 + 30位作家库
+    // 该类负责提取文本风格特征，计算与作家库中每位作家的加权余弦相似度，并返回最佳匹配
     class DeepStyleNN {
         constructor() {
-            // 特征权重 (专家调优)
+            // 特征权重 (专家调优): 各维度在最终匹配得分中的影响力占比
             this.dimWeights = {
-                lyricism: 0.22,     // 诗意抒情
-                sharpness: 0.18,    // 犀利批判
-                warmth: 0.16,       // 温柔治愈
-                narrative: 0.13,    // 叙事密度
-                abstraction: 0.12,  // 哲思抽象
-                simplicity: 0.10,   // 质朴简约
-                tension: 0.09       // 张力悬念
+                lyricism: 0.22,     // 诗意抒情权重
+                sharpness: 0.18,    // 犀利批判权重
+                warmth: 0.16,       // 温柔治愈权重
+                narrative: 0.13,    // 叙事密度权重
+                abstraction: 0.12,  // 哲思抽象权重
+                simplicity: 0.10,   // 质朴简约权重
+                tension: 0.09       // 张力悬念权重
             };
+            // 中文常用停用词集合，用于过滤无意义的单字/虚词，提升特征词统计质量
             this.stopWordsSet = new Set(["的","了","是","在","有","和","就","都","而","及","与","也","还","则","但","却","可","若","如","因","为","所以","如果","虽然","尽管","不过","其实","只是","一定","非常","特别","比较","稍微","几乎","大约","大概","也许","可能","应该","可以","能够","会","要","想","做","去","来","走","看","听","说","吃","喝","玩","乐","买","卖","用","拿","放","找","给","送","收","离","留","进","出","上","下","左","右","前","后","里","外","中","间","旁","边","面","底","顶","头","尾","始","终","先","后","多","少","大","小","高","低","长","短","宽","窄","厚","薄","快","慢","好","坏","美","丑","真","假","对","错"]);
         }
 
-        // 提取7维特征向量
+        /**
+         * 从原始文本中提取七维风格特征向量
+         * @param {string} text 用户输入的文章片段
+         * @returns {object} 包含各特征维度得分(0~1)及辅助信息(wordCount, avgSentLen)的对象
+         */
         extractFeatures(text) {
+            // 按句子分隔符拆解，用于计算叙事密度等指标
             let sentences = text.split(/[。！？；]/).filter(s=>s.trim().length>0);
+            // 清洗文本：只保留中文字符，分词并过滤停用词（简单但高效的词级统计）
             let wordsRaw = text.replace(/[^\u4e00-\u9fa5]/g, ' ').split(/\s+/).filter(w=>w.length>1 && !this.stopWordsSet.has(w));
             let wordCount = wordsRaw.length;
             let avgSentLen = sentences.length ? text.length/sentences.length : 0;
             
-            // 风格词库 (大幅扩充)
+            // 风格词库 (大幅扩充) — 用于计算六个风格维度的命中次数
             const lyricDict = ["月光","诗意","黄昏","星辰","梦","温柔","宁静","花开","落叶","远方","相思","醉","清冷","雨巷","笛声","烟雨","水墨","琉璃","薄雾","晚风","晨曦","落霞","琴声","飘渺"];
             const sharpDict = ["批判","荒谬","麻木","讽刺","虚伪","黑暗","丑陋","血","愤怒","冷酷","反抗","觉醒","枷锁","压抑","荒诞","异化","冷眼","匕首","投枪","吃人"];
             const warmDict = ["治愈","温暖","烟火","细碎","日常","柔软","善意","美好","陪伴","拥抱","安宁","幸福","甜","温存","抚慰","融融","炊烟","家常"];
@@ -553,6 +579,7 @@ btf.addGlobalFn('pjaxComplete', () => {
             const simpleDict = ["朴实","土地","庄稼","乡间","老屋","粗茶淡饭","平凡","实在","老实","黄土地","麦田","农人","质朴","憨厚","乡土"];
             const tensionDict = ["悬念","诡异","杀","秘密","危险","恐惧","颤抖","逃亡","迷雾","死亡","阴影","暗流","惊悚","深渊","窒息","扭曲","尸","血泊"];
 
+            // 统计每个维度特征词的出现次数
             let lyricCount=0, sharpCount=0, warmCount=0, abstractCount=0, simpleCount=0, tensionCount=0;
             wordsRaw.forEach(w => {
                 if(lyricDict.some(k=>w.includes(k))) lyricCount++;
@@ -563,9 +590,12 @@ btf.addGlobalFn('pjaxComplete', () => {
                 if(tensionDict.some(k=>w.includes(k))) tensionCount++;
             });
             
+            // 标点情感加强因子: 感叹/问号/省略号越多，情绪张力或抒情倾向可能越强
             let puncEmotion = (text.match(/[！？…～]/g)||[]).length / Math.max(text.length,1);
+            // 叙事密度: 基于句子数量和平均句长估算
             let narrative = Math.min(1, (sentences.length/10) * (avgSentLen>28?0.9:1.1));
             
+            // 归一化因子: 控制词汇总数对风格得分的影响，避免短文本因偶然命中而异常
             let norm = Math.max(1, wordCount/14);
             let lyricism = Math.min(1, lyricCount/norm + puncEmotion*0.15);
             let sharpness = Math.min(1, sharpCount/norm);
@@ -577,7 +607,12 @@ btf.addGlobalFn('pjaxComplete', () => {
             return { lyricism, sharpness, warmth, abstraction, simplicity, tension, narrative, wordCount, avgSentLen };
         }
         
-        // 加权余弦相似度
+        /**
+         * 加权余弦相似度计算 (实际为加权绝对距离的相似度转化)
+         * @param {object} userVec 用户文本特征向量
+         * @param {object} writerVec 作家风格特征向量
+         * @returns {number} 匹配分数 (0~99)
+         */
         similarity(userVec, writerVec) {
             let totalWeight = 0;
             let weightedSim = 0;
@@ -587,15 +622,22 @@ btf.addGlobalFn('pjaxComplete', () => {
                 totalWeight += w;
                 let u = userVec[d] || 0;
                 let v = writerVec[d] || 0;
-                let diff = 1 - Math.abs(u - v);
+                let diff = 1 - Math.abs(u - v);   // 差异越小，相似度越高
                 weightedSim += diff * w;
             }
             let raw = weightedSim / totalWeight;
+            // 文本长度加成: 更长文本通常特征更稳定，适当提高得分（上限1.18倍）
             let lengthBoost = Math.min(1.18, 0.85 + userVec.wordCount / 200);
             let finalScore = Math.min(99, Math.floor(raw * 100 * lengthBoost));
             return finalScore;
         }
         
+        /**
+         * 分析入口: 对输入文本与作家库逐一匹配，返回最佳匹配作家及得分、用户特征向量
+         * @param {string} text 用户文本
+         * @param {Array} writerDB 作家数据库（每个对象包含styleVector）
+         * @returns {object} { writer, score, userVector }
+         */
         analyze(text, writerDB) {
             let userFeat = this.extractFeatures(text);
             let bestMatch = null, bestScore = -1;
@@ -606,12 +648,14 @@ btf.addGlobalFn('pjaxComplete', () => {
                     bestMatch = w;
                 }
             }
+            // 对过短文本 (低于45字) 进行轻微降权惩罚，避免噪音
             if(text.length < 45) bestScore = Math.max(38, bestScore * 0.78);
             return { writer: bestMatch, score: Math.min(99, bestScore), userVector: userFeat };
         }
     }
     
     // ========= 增强作家库 (30位顶级灵魂写手，带风格向量) ==========
+    // 每位作家包含: 姓名，简介，标签，七维风格向量(人工标注+语料分析)，以及描述文案
     const writerDatabase = [
         {name:"鲁迅", intro:"冷峻解剖家，匕首投枪", tags:["犀利","批判","觉醒","现实"], styleVector:{lyricism:0.22, sharpness:0.96, warmth:0.15, abstraction:0.68, simplicity:0.72, tension:0.52, narrative:0.72}, desc:"文字如刀，剖开幻象；清醒冷冽，直指人心。你的风格具有鲁迅式的批判锋芒与深邃洞察。"},
         {name:"汪曾祺", intro:"人间烟火治愈者", tags:["温柔","生活","治愈","质朴"], styleVector:{lyricism:0.72, sharpness:0.12, warmth:0.94, abstraction:0.22, simplicity:0.89, tension:0.12, narrative:0.62}, desc:"质朴温润，于寻常中见诗意。你的文字像汪曾祺一样充满生活本真的暖意。"},
@@ -645,10 +689,10 @@ btf.addGlobalFn('pjaxComplete', () => {
         {name:"priest", intro:"大气磅礴，网络文学之光", tags:["宏大","格局","细腻","燃"], styleVector:{lyricism:0.72, sharpness:0.47, warmth:0.57, abstraction:0.67, simplicity:0.47, tension:0.84, narrative:0.90}, desc:"P大式的故事格局与情感燃点，兼具细腻与宏大。"}
     ];
     
-    // 初始化神经网络
+    // 初始化神经网络分析引擎
     const styleNN = new DeepStyleNN();
     
-    // ----- 动态粒子背景 (优雅)-----
+    // ----- 动态粒子背景 (优雅的星空粒子动画) -----
     const canvasPart = document.getElementById('particle-canvas');
     let ctxPart = canvasPart.getContext('2d');
     let particles = [];
@@ -676,7 +720,7 @@ btf.addGlobalFn('pjaxComplete', () => {
     window.addEventListener('resize', ()=>{resizeCanvas(); initParticles();});
     resizeCanvas(); initParticles(); drawParticles();
     
-    // ----- 雷达图绘制 -----
+    // ----- 雷达图绘制函数: 将用户特征与作家特征可视化对比 -----
     function drawRadar(userVec, writerVec) {
         const radarCanvas = document.getElementById('radarCanvas');
         if(!radarCanvas) return;
@@ -688,7 +732,7 @@ btf.addGlobalFn('pjaxComplete', () => {
         let count = dims.length;
         for(let i=0;i<count;i++) angles.push(i * Math.PI*2 / count - Math.PI/2);
         let centerX = w/2, centerY = h/2, radius = 105;
-        // 网格
+        // 绘制背景网格 (4层)
         for(let level=1; level<=4; level++) {
             ctx.beginPath();
             let r = radius * level/4;
@@ -702,11 +746,13 @@ btf.addGlobalFn('pjaxComplete', () => {
             ctx.strokeStyle = "#5f5f9e";
             ctx.stroke();
         }
+        // 径向线
         for(let i=0;i<count;i++) {
             let x2 = centerX + radius * Math.cos(angles[i]);
             let y2 = centerY + radius * Math.sin(angles[i]);
             ctx.beginPath(); ctx.moveTo(centerX,centerY); ctx.lineTo(x2,y2); ctx.strokeStyle = "#4a4a7a"; ctx.stroke();
         }
+        // 通用多边形绘制函数
         function drawPolygon(vector, color, isFill=true) {
             ctx.beginPath();
             for(let i=0;i<count;i++) {
@@ -720,8 +766,8 @@ btf.addGlobalFn('pjaxComplete', () => {
             if(isFill) { ctx.fillStyle = color; ctx.fill(); }
             ctx.strokeStyle = "#fff"; ctx.stroke();
         }
-        drawPolygon(userVec, "rgba(99, 102, 241, 0.5)", true);
-        drawPolygon(writerVec, "rgba(192, 132, 252, 0.65)", true);
+        drawPolygon(userVec, "rgba(99, 102, 241, 0.5)", true);   // 用户风格 (蓝色半透明)
+        drawPolygon(writerVec, "rgba(192, 132, 252, 0.65)", true); // 作家风格 (紫色)
         ctx.font = "10px monospace"; ctx.fillStyle = "#bbb";
         for(let i=0;i<count;i++) {
             let x = centerX + (radius+14) * Math.cos(angles[i]);
@@ -738,6 +784,7 @@ btf.addGlobalFn('pjaxComplete', () => {
     const progressBar = document.getElementById('nnProgressBar');
     const stageSpan = document.getElementById('loadingStage');
     
+    // 点击“启动神经网络”主逻辑
     analyzeBtn.addEventListener('click', ()=>{
         let text = document.getElementById('inputText').value.trim();
         if(!text) { alert("✍️ 写下你的文字，让神经网络洞悉你的文风灵魂"); return; }
@@ -751,6 +798,7 @@ btf.addGlobalFn('pjaxComplete', () => {
             if(progress>35) stageSpan.innerText = "风格向量匹配 · 七维相似度计算";
             if(progress>70) stageSpan.innerText = "生成文风拓扑图谱 ✨";
         }, 120);
+        // 模拟神经网络计算耗时，完成后展示结果
         setTimeout(()=>{
             clearInterval(interval);
             progressBar.style.width = "100%";
@@ -767,7 +815,7 @@ btf.addGlobalFn('pjaxComplete', () => {
         }, 880);
     });
     
-    // 保存卡片 (原生canvas绘制)
+    // 保存卡片功能: 将结果绘制到canvas并导出为图片
     document.getElementById('saveCardBtn').addEventListener('click', ()=>{
         if(!currentResult) return alert("请先分析一段文字");
         let name = currentResult.writer.name;
@@ -793,6 +841,7 @@ btf.addGlobalFn('pjaxComplete', () => {
         link.click();
     });
     
+    // 复制分享文本报告
     document.getElementById('shareTextBtn').addEventListener('click', ()=>{
         if(currentResult){
             let shareMsg = `【灵魂写手检测仪】我的文风匹配度 ${currentResult.score}% 与作家“${currentResult.writer.name}”共振 ✨\n${currentResult.writer.desc}`;
@@ -801,7 +850,7 @@ btf.addGlobalFn('pjaxComplete', () => {
         } else alert("请先进行一次分析");
     });
     
-    // 示例填充
+    // 示例填充: 点击预设风格文本自动填入文本框
     document.querySelectorAll('.example-chip').forEach(chip=>{
         chip.addEventListener('click', ()=>{
             document.getElementById('inputText').value = chip.getAttribute('data-example');
@@ -816,7 +865,7 @@ btf.addGlobalFn('pjaxComplete', () => {
           </div>
           <ul class="card-category-list" id="aside-cat-list">
             <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/OS/"><span class="card-category-list-name">OS</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/code/"><span class="card-category-list-name">code</span><span class="card-category-list-count">9</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/other/"><span class="card-category-list-name">other</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E8%AE%A1%E7%BB%84/"><span class="card-category-list-name">计组</span><span class="card-category-list-count">18</span></a></li>
-          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/%E6%8C%87%E4%BB%A4/" style="font-size: 1.35em; color: rgb(185, 56, 194);">指令</a><a href="/tags/%E5%AF%BB%E5%9D%80/" style="font-size: 1.15em; color: rgb(50, 50, 50);">寻址</a><a href="/tags/%E6%B1%87%E7%BC%96/" style="font-size: 1.15em; color: rgb(146, 68, 58);">汇编</a><a href="/tags/CPU/" style="font-size: 1.35em; color: rgb(193, 74, 69);">CPU</a><a href="/tags/%E6%95%B0%E6%8D%AE%E9%80%9A%E8%B7%AF/" style="font-size: 1.15em; color: rgb(50, 85, 79);">数据通路</a><a href="/tags/%E6%8E%A7%E5%88%B6%E5%99%A8/" style="font-size: 1.15em; color: rgb(71, 50, 54);">控制器</a><a href="/tags/%E5%BC%82%E5%B8%B8-%E4%B8%AD%E6%96%AD/" style="font-size: 1.15em; color: rgb(95, 50, 72);">异常/中断</a><a href="/tags/%E6%8C%87%E4%BB%A4%E6%B5%81%E6%B0%B4%E7%BA%BF/" style="font-size: 1.15em; color: rgb(103, 155, 54);">指令流水线</a><a href="/tags/%E5%A4%9A%E5%A4%84%E7%90%86%E5%99%A8/" style="font-size: 1.15em; color: rgb(172, 50, 108);">多处理器</a><a href="/tags/%E6%80%BB%E7%BA%BF/" style="font-size: 1.25em; color: rgb(143, 199, 115);">总线</a><a href="/tags/%E6%80%BB%E7%BA%BF%E6%A0%87%E5%87%86/" style="font-size: 1.15em; color: rgb(93, 50, 50);">总线标准</a><a href="/tags/I-O/" style="font-size: 1.25em; color: rgb(118, 50, 192);">I/O</a><a href="/tags/I-O%E6%8E%A5%E5%8F%A3/" style="font-size: 1.15em; color: rgb(70, 115, 50);">I/O接口</a><a href="/tags/%E6%80%BB%E7%BA%BF%E5%91%A8%E6%9C%9F/" style="font-size: 1.15em; color: rgb(155, 188, 94);">总线周期</a><a href="/tags/I-O%E6%8E%A7%E5%88%B6/" style="font-size: 1.15em; color: rgb(52, 52, 165);">I/O控制</a><a href="/tags/nand2tetris/" style="font-size: 1.45em; color: rgb(126, 99, 50);">nand2tetris</a><a href="/tags/I-O%E7%B3%BB%E7%BB%9F/" style="font-size: 1.15em; color: rgb(80, 72, 58);">I/O系统</a></div></div><div class="card-widget card-archives">
+          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/nand2tetris/" style="font-size: 1.45em; color: rgb(77, 61, 181);">nand2tetris</a><a href="/tags/%E6%8C%87%E4%BB%A4/" style="font-size: 1.35em; color: rgb(103, 127, 50);">指令</a><a href="/tags/%E5%AF%BB%E5%9D%80/" style="font-size: 1.15em; color: rgb(125, 130, 130);">寻址</a><a href="/tags/%E6%B1%87%E7%BC%96/" style="font-size: 1.15em; color: rgb(152, 81, 50);">汇编</a><a href="/tags/CPU/" style="font-size: 1.35em; color: rgb(101, 50, 196);">CPU</a><a href="/tags/%E6%95%B0%E6%8D%AE%E9%80%9A%E8%B7%AF/" style="font-size: 1.15em; color: rgb(123, 167, 50);">数据通路</a><a href="/tags/%E6%8E%A7%E5%88%B6%E5%99%A8/" style="font-size: 1.15em; color: rgb(82, 102, 119);">控制器</a><a href="/tags/%E5%BC%82%E5%B8%B8-%E4%B8%AD%E6%96%AD/" style="font-size: 1.15em; color: rgb(50, 73, 161);">异常/中断</a><a href="/tags/%E6%8C%87%E4%BB%A4%E6%B5%81%E6%B0%B4%E7%BA%BF/" style="font-size: 1.15em; color: rgb(50, 50, 70);">指令流水线</a><a href="/tags/%E5%A4%9A%E5%A4%84%E7%90%86%E5%99%A8/" style="font-size: 1.15em; color: rgb(127, 162, 176);">多处理器</a><a href="/tags/%E6%80%BB%E7%BA%BF/" style="font-size: 1.25em; color: rgb(167, 85, 173);">总线</a><a href="/tags/%E6%80%BB%E7%BA%BF%E5%91%A8%E6%9C%9F/" style="font-size: 1.15em; color: rgb(123, 55, 50);">总线周期</a><a href="/tags/%E6%80%BB%E7%BA%BF%E6%A0%87%E5%87%86/" style="font-size: 1.15em; color: rgb(133, 98, 50);">总线标准</a><a href="/tags/I-O/" style="font-size: 1.25em; color: rgb(174, 63, 192);">I/O</a><a href="/tags/I-O%E7%B3%BB%E7%BB%9F/" style="font-size: 1.15em; color: rgb(129, 158, 108);">I/O系统</a><a href="/tags/I-O%E6%8E%A5%E5%8F%A3/" style="font-size: 1.15em; color: rgb(171, 59, 50);">I/O接口</a><a href="/tags/I-O%E6%8E%A7%E5%88%B6/" style="font-size: 1.15em; color: rgb(50, 175, 87);">I/O控制</a></div></div><div class="card-widget card-archives">
     <div class="item-headline">
       <i class="fas fa-archive"></i>
       <span>归档</span>
@@ -880,7 +929,7 @@ btf.addGlobalFn('pjaxComplete', () => {
         </li>
       
     </ul>
-  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">32</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2026-04-03T07:30:16.516Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer" style="background: white;"><div id="footer-wrap"><div class="copyright">&copy;2025 - 2026 By KKL</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.5</a></div><div class="footer_custom_text">Nice to meet you ! 😜</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/true" type="module"></script><div class="js-pjax"><script>(() => {
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">32</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2026-04-04T14:11:17.190Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer" style="background: white;"><div id="footer-wrap"><div class="copyright">&copy;2025 - 2026 By KKL</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.5</a></div><div class="footer_custom_text">Nice to meet you ! 😜</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/true" type="module"></script><div class="js-pjax"><script>(() => {
   const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
 
   const loadLivere = (el, path) => {
