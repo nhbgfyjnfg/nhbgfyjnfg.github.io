@@ -1,13 +1,13 @@
-<!DOCTYPE html><html class="hide-aside" lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>OS-2 2.1进程 | LKK の blog</title><meta name="author" content="KKL"><meta name="copyright" content="KKL"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="2.1 进程进程的概念，特征和组成进程的概念和特征程序：是静态的，存放在磁盘里的可执行文件（一系列指令集合） 进程（process）：动态的（最本质的区别），是程序的一次执行过程。 进程实体（进程映像）：是静态的，是进程在某一时刻的状态。 进程支撑起了OS两大基本特性：并发性和共享性。  解决了：①失去封闭性。②执行过程间断性。③结果不可再现性。  生命周期：一个进程在生命周期内可以执行一个或多个">
+<!DOCTYPE html><html class="hide-aside" lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>OS-2 2.1进程 | LKK の blog</title><meta name="author" content="KKL"><meta name="copyright" content="KKL"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="2.1 进程进程的概念，特征和组成进程的概念和特征程序：是静态的，存放在磁盘里的可执行文件（一系列指令集合）。 进程（process）：动态的（最本质的区别），是程序的一次执行过程。 进程实体（进程映像）：是静态的，是进程在某一时刻的状态。 进程支撑起了OS两大基本特性：并发性和共享性。  解决了：①失去封闭性。②执行过程间断性。③结果不可再现性。  生命周期：一个进程在生命周期内可以执行一个或多">
 <meta property="og:type" content="article">
 <meta property="og:title" content="OS-2 2.1进程">
 <meta property="og:url" content="http://example.com/2026/03/25/OS/os-2.1%E8%BF%9B%E7%A8%8B/index.html">
 <meta property="og:site_name" content="LKK の blog">
-<meta property="og:description" content="2.1 进程进程的概念，特征和组成进程的概念和特征程序：是静态的，存放在磁盘里的可执行文件（一系列指令集合） 进程（process）：动态的（最本质的区别），是程序的一次执行过程。 进程实体（进程映像）：是静态的，是进程在某一时刻的状态。 进程支撑起了OS两大基本特性：并发性和共享性。  解决了：①失去封闭性。②执行过程间断性。③结果不可再现性。  生命周期：一个进程在生命周期内可以执行一个或多个">
+<meta property="og:description" content="2.1 进程进程的概念，特征和组成进程的概念和特征程序：是静态的，存放在磁盘里的可执行文件（一系列指令集合）。 进程（process）：动态的（最本质的区别），是程序的一次执行过程。 进程实体（进程映像）：是静态的，是进程在某一时刻的状态。 进程支撑起了OS两大基本特性：并发性和共享性。  解决了：①失去封闭性。②执行过程间断性。③结果不可再现性。  生命周期：一个进程在生命周期内可以执行一个或多">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png">
 <meta property="article:published_time" content="2026-03-24T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-03-31T05:57:08.792Z">
+<meta property="article:modified_time" content="2026-04-06T03:43:34.506Z">
 <meta property="article:author" content="KKL">
 <meta property="article:tag" content="博客,lkk">
 <meta name="twitter:card" content="summary">
@@ -18,7 +18,7 @@
   "url": "http://example.com/2026/03/25/OS/os-2.1%E8%BF%9B%E7%A8%8B/",
   "image": "https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png",
   "datePublished": "2026-03-24T16:00:00.000Z",
-  "dateModified": "2026-03-31T05:57:08.792Z",
+  "dateModified": "2026-04-06T03:43:34.506Z",
   "author": [
     {
       "@type": "Person",
@@ -169,8 +169,8 @@ btf.addGlobalFn('pjaxComplete', () => {
   isHighlightShrink: false,
   isToc: true,
   pageType: 'post'
-}</script><link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/css/main.css"><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/./img/001.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">32</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">18</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 文章</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/movies/"><i class="fa-fw fas fa-movie"></i><span> Movie</span></a></div><div class="menus_item"><a class="site-page" href="/game/"><i class="fa-fw fas fa-gamepad"></i><span> 游戏</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://picsum.photos/200/300);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">LKK の blog</span></a><a class="nav-page-title" href="/"><span class="site-name">OS-2 2.1进程</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 文章</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/movies/"><i class="fa-fw fas fa-movie"></i><span> Movie</span></a></div><div class="menus_item"><a class="site-page" href="/game/"><i class="fa-fw fas fa-gamepad"></i><span> 游戏</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">OS-2 2.1进程</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-03-24T16:00:00.000Z" title="发表于 2026-03-25 00:00:00">2026-03-25</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-03-31T05:57:08.792Z" title="更新于 2026-03-31 13:57:08">2026-03-31</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/OS/">OS</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="2-1-进程"><a href="#2-1-进程" class="headerlink" title="2.1 进程"></a>2.1 进程</h1><h2 id="进程的概念，特征和组成"><a href="#进程的概念，特征和组成" class="headerlink" title="进程的概念，特征和组成"></a>进程的概念，特征和组成</h2><h4 id="进程的概念和特征"><a href="#进程的概念和特征" class="headerlink" title="进程的概念和特征"></a>进程的概念和特征</h4><p><strong>程序</strong>：是<strong>静态</strong>的，存放在磁盘里的可执行文件（一系列指令集合）</p>
-<p><strong>进程</strong>（process）：<strong>动态</strong>的<strong>（最本质的区别</strong>），是程序的一次执行过程。</p>
+}</script><link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/css/main.css"><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/./img/001.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">32</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">18</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 文章</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/movies/"><i class="fa-fw fas fa-movie"></i><span> Movie</span></a></div><div class="menus_item"><a class="site-page" href="/game/"><i class="fa-fw fas fa-gamepad"></i><span> 游戏</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://picsum.photos/200/300);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">LKK の blog</span></a><a class="nav-page-title" href="/"><span class="site-name">OS-2 2.1进程</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 文章</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/movies/"><i class="fa-fw fas fa-movie"></i><span> Movie</span></a></div><div class="menus_item"><a class="site-page" href="/game/"><i class="fa-fw fas fa-gamepad"></i><span> 游戏</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">OS-2 2.1进程</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-03-24T16:00:00.000Z" title="发表于 2026-03-25 00:00:00">2026-03-25</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-04-06T03:43:34.506Z" title="更新于 2026-04-06 11:43:34">2026-04-06</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/OS/">OS</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="2-1-进程"><a href="#2-1-进程" class="headerlink" title="2.1 进程"></a>2.1 进程</h1><h2 id="进程的概念，特征和组成"><a href="#进程的概念，特征和组成" class="headerlink" title="进程的概念，特征和组成"></a>进程的概念，特征和组成</h2><h4 id="进程的概念和特征"><a href="#进程的概念和特征" class="headerlink" title="进程的概念和特征"></a>进程的概念和特征</h4><p><strong>程序</strong>：是<strong>静态</strong>的，存放在磁盘里的<em>可执行文件</em>（一系列指令集合）。</p>
+<p><strong>进程</strong>（process）：<strong>动态</strong>的<strong>（最本质的区别</strong>），是程序的一次<em>执行过程</em>。</p>
 <p><strong>进程实体（进程映像）</strong>：是静态的，是进程在某一时刻的状态。</p>
 <p>进程支撑起了OS两大基本特性：并发性和共享性。</p>
 <ul>
@@ -191,7 +191,7 @@ btf.addGlobalFn('pjaxComplete', () => {
 </thead>
 <tbody><tr>
 <td align="left"><strong>父子进程</strong></td>
-<td align="left">一个进程创建另一个新进程，<strong>两个进程同时存在</strong>（不共享地址）</td>
+<td align="left">一个进程创建另一个新进程，<strong>两个进程“同时”存在</strong>（不共享地址）</td>
 </tr>
 <tr>
 <td align="left"><strong>进程切换</strong></td>
@@ -206,7 +206,7 @@ btf.addGlobalFn('pjaxComplete', () => {
 <p>题目2：</p>
 <p>进程之间可能有相关性，也可能是相互独立的。</p>
 <p><strong>进程的相关性</strong>：血缘关系（父子） 或 协作关系（进程间通信）</p>
-<p>进程的特征（相比于程序）</p>
+<p><strong>进程的特征（相比于程序）</strong></p>
 <p><strong>动态性。</strong>并发性。独立性。异步性。结构性。</p>
 <p>异步性：<strong>并发进程每次运行时可能会有不同的结果。</strong>（执行速度的不同会造成进程执行顺序和冲突等问题）</p>
 <p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260325193602202.png" alt="image-20260325193602202"></p>
@@ -216,10 +216,10 @@ btf.addGlobalFn('pjaxComplete', () => {
 <ul>
 <li>PID：OS在创建一个进程时候，会给其一个ID，即PID。（用于区分同一软件的不同进程）</li>
 </ul>
-<p>③<strong>PCB内容</strong>：进程标志信息。进程控制信息。资源分配信息，CPU现场信息。</p>
+<p>③<strong>PCB内容</strong>：进程标志信息。进程控制信息。资源分配信息，CPU现场信息（各种寄存器的值）。</p>
 <p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260325192211120.png" alt="image-20260325192211120"></p>
 <p><strong>进程的组成 – 程序段、数据段</strong></p>
-<p>PCB是给OS用的</p>
+<p>PCB是给OS用的。</p>
 <p>程序段、数据段是给进程自己用的。</p>
 <p>程序段：程序的指令。数据段：运行过程中产生数据。（运行时细分 – 数据段+堆+栈+共享库）</p>
 <ul>
@@ -242,7 +242,7 @@ btf.addGlobalFn('pjaxComplete', () => {
 <p>回顾</p>
 <p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260325193721980.png" alt="image-20260325193721980"></p>
 <h2 id="进程的状态与转换"><a href="#进程的状态与转换" class="headerlink" title="进程的状态与转换"></a>进程的状态与转换</h2><p>进程&#x2F;线程的状态：创建 → 就绪 → 运行 → 阻塞 → 终止</p>
-<p><strong>进程在 CPU 上的执行不是连续的</strong>（进程切换，阻塞…)</p>
+<p>进程<strong>在 CPU 上的执行不是连续的</strong>（进程切换，阻塞…)</p>
 <p>但进程的<strong>生命周期</strong>（从创建到终止）本身<strong>是连续的</strong></p>
 <h4 id="进程的状态"><a href="#进程的状态" class="headerlink" title="进程的状态"></a>进程的状态</h4><p>创建态：进程被创建时，OS为进程分配资源，初始化PCB</p>
 <p>就绪态：进程创建完成后，为“就绪态”。<strong>有资源，无CPU。</strong>（CPU忙）</p>
@@ -251,7 +251,7 @@ btf.addGlobalFn('pjaxComplete', () => {
 <p>运行态：有资源+有CPU。</p>
 <img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260325200034574.png" alt="image-20260325200034574" style="zoom:33%;" />
 
-<p>阻塞态：进程运行过程中，请求等待某个事件的发生（eg打印机响应），在事件发生前，进程无法继续执行，OS会让进程下CPU，并让它进入<strong>阻塞态</strong>，别的进程上CPU。</p>
+<p>阻塞态：进程运行过程中，请求等待某个事件的发生（eg打印机响应）。在事件发生前，进程无法继续执行，OS会让进程下CPU，并让它进入<strong>阻塞态</strong>，别的进程上CPU。</p>
 <img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260325200347501.png" alt="image-20260325200347501" style="zoom:33%;" />
 
 <p>终止态：进程执行exit系统调用，请求OS终止该进程，此时进程进入终止态。OS回收进程。</p>
@@ -263,15 +263,14 @@ btf.addGlobalFn('pjaxComplete', () => {
 <ul>
 <li>details：进程执行wait（）后，<strong>若 未能获取资源</strong>→进入阻塞态。</li>
 </ul>
-<p>when进程切换：运行态→就绪态。</p>
 <p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260325194759219.png" alt="image-20260325194759219"></p>
 <p>题目2：</p>
-<p>一个进程状态的变化<strong>会</strong>引起另一个进程的变化：运行态→终止态</p>
-<p>一个进程状态的变化<strong>不会</strong>引起另一个进程的变化：阻塞态→就绪态</p>
+<p>一个进程状态的变化<strong>会</strong>引起 <em>另一个</em> 进程的变化：运行态→终止态</p>
+<p>一个进程状态的变化<strong>不会</strong>引起 <em>另一个</em> 进程的变化：阻塞态→就绪态</p>
 <p>题目3：</p>
 <p>（在分时系统中）处于<strong>就绪态</strong>的进程最多。（都在等待CPU，而阻塞态一般不会太多）</p>
 <h4 id="进程的组织"><a href="#进程的组织" class="headerlink" title="进程的组织"></a>进程的组织</h4><blockquote>
-<p>在实际OS中，通常存在着大量的进程，为进行调度和管理，OS将各进程的PCB以某种方式组织起来</p>
+<p>在实际OS中，通常存在着大量的进程，为进行调度和管理，OS将各进程的PCB以某种方式组织起来。</p>
 </blockquote>
 <p>链接方式：系统将处于相同状态的PCB通过指针链接成一个队列。</p>
 <p>索引方式：系统为每种状态建立一个索引表（本质上是一个数组），表项指向对应状态的PCB。</p>
@@ -303,24 +302,22 @@ btf.addGlobalFn('pjaxComplete', () => {
 </ul>
 <p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260325210123068.png" alt="image-20260325210123068"></p>
 <p>撤销原语</p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260325210559548.png" alt="image-20260325210559548"></p>
+<p>进程终止时，不同系统的对子进程的处理方式：</p>
 <ul>
-<li>进程终止时：<ul>
 <li>有的系统子进程终止。</li>
 <li>有的系统（如Linux系统）子进程不终止而是由init进程（pid&#x3D;1）收养继续执行。</li>
 </ul>
-</li>
-</ul>
-<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260325210559548.png" alt="image-20260325210559548"></p>
 <p>阻塞原语和唤醒原语</p>
 <ul>
-<li><p>阻塞原语往往包含“状态修改 + 调用切换原语”两个步骤</p>
+<li><p><strong>阻塞原语往往包含</strong>“状态修改 + <strong>调用切换原语</strong>”两个步骤</p>
 <ul>
 <li>而切换原语也可以由其他原因触发（如时间片用完）</li>
 </ul>
 </li>
 <li><p>阻塞和唤醒两个原语<strong>必须成对使用。</strong></p>
 </li>
-<li><p>某进程退出临界区后，之前因需要进入该临界区而被阻塞的有关进程会被<strong>唤醒</strong></p>
+<li><p>某进程退出 <em>临界区</em> 后，之前因需要进入该临界区而被阻塞的有关进程会被<strong>唤醒</strong></p>
 <ul>
 <li><strong>临界资源</strong>，一次只能给一个进程所用。</li>
 </ul>
@@ -340,13 +337,13 @@ btf.addGlobalFn('pjaxComplete', () => {
 </ul>
 <h4 id="共享存储"><a href="#共享存储" class="headerlink" title="共享存储"></a>共享存储</h4><p>​	– A.基于存储器的共享</p>
 <p>申请一片共享内存区。  </p>
-<p>需保证各个进程对共享空间的访问是<strong>互斥</strong>的。<em>（用户程序由自己负责引入同步控制和读写操作）</em></p>
+<p>需保证各个进程对共享空间的访问是<strong>互斥</strong>的。 （程序员&#x2F;高级库&#x2F;进程通过调用OS提供的同步原语来保证互斥）</p>
 <p>共享存储是三种方式中数据传输速度最快的。(消息传递和管道都需通过内核中转)</p>
 <p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260325212851945.png" alt="image-20260325212851945"></p>
 <p>​	– B.基于数据结构的共享</p>
 <p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260325213126018.png" alt="image-20260325213126018"></p>
-<h4 id="消息传递"><a href="#消息传递" class="headerlink" title="消息传递"></a>消息传递</h4><p>数据交换以<em>格式化的消息</em>（消息头，消息体）<em>为单位</em>。</p>
-<p>进程通过OS提供的“发送消息&#x2F;接收消息”<em>两个原语</em>进行数据交换。</p>
+<h4 id="消息传递"><a href="#消息传递" class="headerlink" title="消息传递"></a>消息传递</h4><p>数据交换以格式化的消息<em>（消息头，消息体）</em>为单位。</p>
+<p>进程通过OS提供的“发送消息&#x2F;接收消息” <em>两个原语</em> 进行数据交换。</p>
 <p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260325213329839.png" alt="image-20260325213329839"></p>
 <p>直接通信方式</p>
 <p>指明发送给谁，谁接收。</p>
@@ -399,16 +396,16 @@ btf.addGlobalFn('pjaxComplete', () => {
 <p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260325222127559.png" alt="image-20260325222127559"></p>
 <p>信号可以作为异常的配套机制，让进程对OS的异常处理进行<em>补充</em></p>
 <ul>
-<li>（当有的异常，OS无法由内核全部处理时）</li>
+<li>（当有的异常，OS无法由内核全部处理时，可能还需要用户进程的配合）</li>
 </ul>
 <p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260325222405583.png" alt="image-20260325222405583"></p>
 <p>回顾⭐</p>
 <p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260325222739958.png" alt="image-20260325222739958"></p>
 <h2 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h2><h4 id="基本概念-1"><a href="#基本概念-1" class="headerlink" title="基本概念"></a>基本概念</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260326115720468.png" alt="image-20260326115720468"></p>
-<p>线程 – 使进程并发</p>
+<p>线程 – 使进程并发pro</p>
 <p>概念：</p>
 <ul>
-<li><p>&#x3D;&#x3D;<strong>线程不拥有独立的系统资源（如(内存）地址空间，打开的文件..)</strong>&#x3D;&#x3D;</p>
+<li><p>&#x3D;&#x3D;<strong>线程不拥有独立的系统资源（如(内存）地址空间，代码，数据)</strong>&#x3D;&#x3D;</p>
 <ul>
 <li>资源通过共享的方式获取。（eg代码段，数据段..)</li>
 </ul>
@@ -453,7 +450,8 @@ btf.addGlobalFn('pjaxComplete', () => {
 
 
 
-<h4 id="多线程模型"><a href="#多线程模型" class="headerlink" title="多线程模型"></a>多线程模型</h4><p>用户级线程和内核级线程的组合。</p>
+<p><strong>多线程模型</strong></p>
+<p>​	– 用户级线程和内核级线程的组合。</p>
 <p><strong>一对一模型</strong></p>
 <p>一个用户级线程映射到一个内核级线程。</p>
 <p>优点：当一个线程被阻塞，别的线程还可以继续执行，并发能力强。</p>
@@ -479,7 +477,7 @@ btf.addGlobalFn('pjaxComplete', () => {
 <p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260327164235902.png" alt="image-20260327164235902"></p>
 <p><strong>线程的组织与控制</strong></p>
 <p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260327164420152.png" alt="image-20260327164420152"></p>
-</article><div class="tag_share"><div class="post-share"><div class="social-share" data-image="https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="lv-container" data-id="city" data-uid="MTAyMC82MDU3Mi8zNzA0Mw=="></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#2-1-%E8%BF%9B%E7%A8%8B"><span class="toc-text">2.1 进程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E7%9A%84%E6%A6%82%E5%BF%B5%EF%BC%8C%E7%89%B9%E5%BE%81%E5%92%8C%E7%BB%84%E6%88%90"><span class="toc-text">进程的概念，特征和组成</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E7%9A%84%E6%A6%82%E5%BF%B5%E5%92%8C%E7%89%B9%E5%BE%81"><span class="toc-text">进程的概念和特征</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%EF%BC%88%E5%AE%9E%E4%BD%93%EF%BC%89%E7%9A%84%E7%BB%84%E6%88%90%EF%BC%88%E9%80%BB%E8%BE%91%E8%A7%86%E8%A7%92%EF%BC%89"><span class="toc-text">进程（实体）的组成（逻辑视角）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E7%9A%84%E5%86%85%E5%AD%98%E6%98%A0%E5%83%8F%EF%BC%88%E8%BF%90%E8%A1%8C%E6%97%B6%E5%B8%83%E5%B1%80%EF%BC%89"><span class="toc-text">进程的内存映像（运行时布局）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E7%9A%84%E7%8A%B6%E6%80%81%E4%B8%8E%E8%BD%AC%E6%8D%A2"><span class="toc-text">进程的状态与转换</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E7%9A%84%E7%8A%B6%E6%80%81"><span class="toc-text">进程的状态</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E7%8A%B6%E6%80%81%E7%9A%84%E8%BD%AC%E6%8D%A2"><span class="toc-text">进程状态的转换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E7%9A%84%E7%BB%84%E7%BB%87"><span class="toc-text">进程的组织</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E6%8E%A7%E5%88%B6"><span class="toc-text">进程控制</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E6%8E%A7%E5%88%B6%E5%92%8C%E5%AE%9E%E7%8E%B0"><span class="toc-text">进程控制和实现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E6%8E%A7%E5%88%B6%E7%9B%B8%E5%85%B3%E7%9A%84%E5%8E%9F%E8%AF%AD"><span class="toc-text">进程控制相关的原语</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E9%80%9A%E4%BF%A1"><span class="toc-text">进程通信</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B1%E4%BA%AB%E5%AD%98%E5%82%A8"><span class="toc-text">共享存储</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B6%88%E6%81%AF%E4%BC%A0%E9%80%92"><span class="toc-text">消息传递</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%A1%E9%81%93%E9%80%9A%E4%BF%A1"><span class="toc-text">管道通信</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%A1%E5%8F%B7"><span class="toc-text">信号</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-text">基本概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86"><span class="toc-text">实现原理</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B"><span class="toc-text">线程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5-1"><span class="toc-text">基本概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F"><span class="toc-text">线程的实现方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B"><span class="toc-text">多线程模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E7%9A%84%E7%8A%B6%E6%80%81%E4%B8%8E%E8%BD%AC%E6%8D%A2"><span class="toc-text">线程的状态与转换</span></a></li></ol></li></ol></li></ol></li></ol></div></div></div></div></main><footer id="footer" style="background: white;"><div id="footer-wrap"><div class="copyright">&copy;2025 - 2026 By KKL</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.5</a></div><div class="footer_custom_text">Nice to meet you ! 😜</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/true" type="module"></script><div class="js-pjax"><script>(() => {
+</article><div class="tag_share"><div class="post-share"><div class="social-share" data-image="https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="lv-container" data-id="city" data-uid="MTAyMC82MDU3Mi8zNzA0Mw=="></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#2-1-%E8%BF%9B%E7%A8%8B"><span class="toc-text">2.1 进程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E7%9A%84%E6%A6%82%E5%BF%B5%EF%BC%8C%E7%89%B9%E5%BE%81%E5%92%8C%E7%BB%84%E6%88%90"><span class="toc-text">进程的概念，特征和组成</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E7%9A%84%E6%A6%82%E5%BF%B5%E5%92%8C%E7%89%B9%E5%BE%81"><span class="toc-text">进程的概念和特征</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%EF%BC%88%E5%AE%9E%E4%BD%93%EF%BC%89%E7%9A%84%E7%BB%84%E6%88%90%EF%BC%88%E9%80%BB%E8%BE%91%E8%A7%86%E8%A7%92%EF%BC%89"><span class="toc-text">进程（实体）的组成（逻辑视角）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E7%9A%84%E5%86%85%E5%AD%98%E6%98%A0%E5%83%8F%EF%BC%88%E8%BF%90%E8%A1%8C%E6%97%B6%E5%B8%83%E5%B1%80%EF%BC%89"><span class="toc-text">进程的内存映像（运行时布局）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E7%9A%84%E7%8A%B6%E6%80%81%E4%B8%8E%E8%BD%AC%E6%8D%A2"><span class="toc-text">进程的状态与转换</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E7%9A%84%E7%8A%B6%E6%80%81"><span class="toc-text">进程的状态</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E7%8A%B6%E6%80%81%E7%9A%84%E8%BD%AC%E6%8D%A2"><span class="toc-text">进程状态的转换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E7%9A%84%E7%BB%84%E7%BB%87"><span class="toc-text">进程的组织</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E6%8E%A7%E5%88%B6"><span class="toc-text">进程控制</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E6%8E%A7%E5%88%B6%E5%92%8C%E5%AE%9E%E7%8E%B0"><span class="toc-text">进程控制和实现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E6%8E%A7%E5%88%B6%E7%9B%B8%E5%85%B3%E7%9A%84%E5%8E%9F%E8%AF%AD"><span class="toc-text">进程控制相关的原语</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E9%80%9A%E4%BF%A1"><span class="toc-text">进程通信</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B1%E4%BA%AB%E5%AD%98%E5%82%A8"><span class="toc-text">共享存储</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B6%88%E6%81%AF%E4%BC%A0%E9%80%92"><span class="toc-text">消息传递</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%A1%E9%81%93%E9%80%9A%E4%BF%A1"><span class="toc-text">管道通信</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%A1%E5%8F%B7"><span class="toc-text">信号</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-text">基本概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86"><span class="toc-text">实现原理</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B"><span class="toc-text">线程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5-1"><span class="toc-text">基本概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F"><span class="toc-text">线程的实现方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E7%9A%84%E7%8A%B6%E6%80%81%E4%B8%8E%E8%BD%AC%E6%8D%A2"><span class="toc-text">线程的状态与转换</span></a></li></ol></li></ol></li></ol></li></ol></div></div></div></div></main><footer id="footer" style="background: white;"><div id="footer-wrap"><div class="copyright">&copy;2025 - 2026 By KKL</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.5</a></div><div class="footer_custom_text">Nice to meet you ! 😜</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/true" type="module"></script><div class="js-pjax"><script>(() => {
   const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
 
   const loadLivere = (el, path) => {
