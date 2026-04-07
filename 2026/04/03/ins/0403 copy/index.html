@@ -1,0 +1,1222 @@
+<!DOCTYPE html><html class="hide-aside" lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>微信聊天界面（仿） | LKK の blog</title><meta name="author" content="KKL"><meta name="copyright" content="KKL"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="微信聊天              * {             margin: 0;             padding: 0;             box-sizing: border-box;             -webkit-tap-highlight-color: transparent;         }      body &amp;#12">
+<meta property="og:type" content="article">
+<meta property="og:title" content="微信聊天界面（仿）">
+<meta property="og:url" content="http://example.com/2026/04/03/ins/0403%20copy/index.html">
+<meta property="og:site_name" content="LKK の blog">
+<meta property="og:description" content="微信聊天              * {             margin: 0;             padding: 0;             box-sizing: border-box;             -webkit-tap-highlight-color: transparent;         }      body &amp;#12">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png">
+<meta property="article:published_time" content="2026-04-02T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-04-04T14:32:15.744Z">
+<meta property="article:author" content="KKL">
+<meta property="article:tag" content="ui">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "微信聊天界面（仿）",
+  "url": "http://example.com/2026/04/03/ins/0403%20copy/",
+  "image": "https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png",
+  "datePublished": "2026-04-02T16:00:00.000Z",
+  "dateModified": "2026-04-04T14:32:15.744Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "KKL",
+      "url": "http://example.com/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2026/04/03/ins/0403%20copy/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!true && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?61208d72ee755d3d238bfecf1e0a2afe";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+btf.addGlobalFn('pjaxComplete', () => {
+  _hmt.push(['_trackPageview',window.location.pathname])
+}, 'baidu_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":true,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":150,"languages":{"author":"作者: KKL","link":"链接: ","source":"来源: LKK の blog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: true,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '微信聊天界面（仿）',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/css/main.css"><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/./img/001.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">35</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">18</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 文章</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/movies/"><i class="fa-fw fas fa-movie"></i><span> Movie</span></a></div><div class="menus_item"><a class="site-page" href="/game/"><i class="fa-fw fas fa-gamepad"></i><span> 游戏</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://picsum.photos/200/300);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">LKK の blog</span></a><a class="nav-page-title" href="/"><span class="site-name">微信聊天界面（仿）</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 文章</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/movies/"><i class="fa-fw fas fa-movie"></i><span> Movie</span></a></div><div class="menus_item"><a class="site-page" href="/game/"><i class="fa-fw fas fa-gamepad"></i><span> 游戏</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">微信聊天界面（仿）</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-04-02T16:00:00.000Z" title="发表于 2026-04-03 00:00:00">2026-04-03</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-04-04T14:32:15.744Z" title="更新于 2026-04-04 22:32:15">2026-04-04</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/ins/">ins</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>微信聊天</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+<pre><code>    body &#123;
+        font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, sans-serif;
+        background: #ededed;
+        height: 100vh;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+    &#125;
+
+    /* 状态栏 */
+    .status-bar &#123;
+        height: 44px;
+        background: #ededed;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+        font-size: 14px;
+        font-weight: 600;
+        color: #000;
+        position: relative;
+        z-index: 100;
+    &#125;
+
+    .status-bar::after &#123;
+        content: &#39;&#39;;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: #d6d6d6;
+        transform: scaleY(0.5);
+    &#125;
+
+    .status-time &#123;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    &#125;
+
+    .status-icons &#123;
+        display: flex;
+        gap: 5px;
+        align-items: center;
+    &#125;
+
+    /* 导航栏 */
+    .nav-bar &#123;
+        height: 44px;
+        background: #ededed;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        padding: 0 15px;
+    &#125;
+
+    .nav-back &#123;
+        position: absolute;
+        left: 10px;
+        display: flex;
+        align-items: center;
+        color: #000;
+        text-decoration: none;
+        font-size: 16px;
+    &#125;
+
+    .nav-back svg &#123;
+        width: 12px;
+        height: 20px;
+        margin-right: 5px;
+    &#125;
+
+    .nav-title &#123;
+        font-size: 17px;
+        font-weight: 600;
+        color: #000;
+    &#125;
+
+    .nav-more &#123;
+        position: absolute;
+        right: 15px;
+        width: 24px;
+        height: 24px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 3px;
+        cursor: pointer;
+    &#125;
+
+    .nav-more span &#123;
+        display: block;
+        width: 4px;
+        height: 4px;
+        background: #000;
+        border-radius: 50%;
+        margin: 0 auto;
+    &#125;
+
+    /* 聊天区域 - 修复触控板滚动卡顿 */
+    .chat-container &#123;
+        flex: 1;
+        overflow-y: auto;
+        overflow-x: hidden;
+        padding: 15px;
+        background: #ededed;
+        overscroll-behavior: contain; /* 防止滚动链，提升流畅度 */
+        /* 已删除 -webkit-overflow-scrolling: touch; 解决触控板卡顿问题 */
+    &#125;
+
+    .chat-container::-webkit-scrollbar &#123;
+        display: none;
+    &#125;
+
+    /* 时间分隔线 */
+    .time-divider &#123;
+        text-align: center;
+        margin: 20px 0;
+        font-size: 12px;
+        color: #999;
+    &#125;
+
+    /* 消息气泡基础 */
+    .message-row &#123;
+        display: flex;
+        margin-bottom: 20px;
+        animation: slideIn 0.3s ease-out;
+    &#125;
+
+    @keyframes slideIn &#123;
+        from &#123;
+            opacity: 0;
+            transform: translateY(10px);
+        &#125;
+        to &#123;
+            opacity: 1;
+            transform: translateY(0);
+        &#125;
+    &#125;
+
+    .message-row.sent &#123;
+        flex-direction: row-reverse;
+    &#125;
+
+    /* 头像 */
+    .avatar &#123;
+        width: 40px;
+        height: 40px;
+        border-radius: 4px;
+        flex-shrink: 0;
+        overflow: hidden;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    &#125;
+
+    .avatar img &#123;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    &#125;
+
+    /* 消息内容区 */
+    .message-content &#123;
+        max-width: 70%;
+        margin: 0 10px;
+        position: relative;
+    &#125;
+
+    /* 昵称 */
+    .nickname &#123;
+        font-size: 12px;
+        color: #999;
+        margin-bottom: 4px;
+        margin-left: 8px;
+    &#125;
+
+    .message-row.sent .nickname &#123;
+        text-align: right;
+        margin-left: 0;
+        margin-right: 8px;
+    &#125;
+
+    /* 气泡 */
+    .bubble &#123;
+        padding: 10px 12px;
+        font-size: 16px;
+        line-height: 1.4;
+        word-wrap: break-word;
+        position: relative;
+        border-radius: 4px;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    &#125;
+
+    /* 接收的消息 - 白色 */
+    .message-row.received .bubble &#123;
+        background: #fff;
+        color: #000;
+        border-top-left-radius: 2px;
+    &#125;
+
+    .message-row.received .bubble::before &#123;
+        content: &#39;&#39;;
+        position: absolute;
+        left: -6px;
+        top: 0;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 8px 8px 0;
+        border-color: transparent #fff transparent transparent;
+    &#125;
+
+    /* 发送的消息 - 绿色 */
+    .message-row.sent .bubble &#123;
+        background: #95ec69;
+        color: #000;
+        border-top-right-radius: 2px;
+    &#125;
+
+    .message-row.sent .bubble::before &#123;
+        content: &#39;&#39;;
+        position: absolute;
+        right: -6px;
+        top: 0;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 8px 8px 0 0;
+        border-color: #95ec69 transparent transparent transparent;
+    &#125;
+
+    /* 语音消息 */
+    .voice-message &#123;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        min-width: 80px;
+        cursor: pointer;
+    &#125;
+
+    .voice-icon &#123;
+        width: 20px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    &#125;
+
+    .voice-icon svg &#123;
+        width: 100%;
+        height: 100%;
+        fill: currentColor;
+    &#125;
+
+    .voice-duration &#123;
+        font-size: 14px;
+        color: #888;
+    &#125;
+
+    /* 图片消息 */
+    .image-message &#123;
+        max-width: 200px;
+        border-radius: 4px;
+        overflow: hidden;
+        cursor: pointer;
+        background: #f0f0f0;
+    &#125;
+
+    .image-message img &#123;
+        width: 100%;
+        height: auto;
+        display: block;
+    &#125;
+
+    /* 输入区域 */
+    .input-area &#123;
+        background: #f7f7f7;
+        border-top: 1px solid #e5e5e5;
+        padding: 10px 15px;
+        padding-bottom: calc(10px + env(safe-area-inset-bottom));
+    &#125;
+
+    .input-toolbar &#123;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 10px;
+    &#125;
+
+    .tool-btn &#123;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: opacity 0.2s;
+    &#125;
+
+    .tool-btn:active &#123;
+        opacity: 0.6;
+    &#125;
+
+    .tool-btn svg &#123;
+        width: 28px;
+        height: 28px;
+        fill: #2c2c2c;
+    &#125;
+
+    .input-box &#123;
+        flex: 1;
+        display: flex;
+        align-items: center;
+        background: #fff;
+        border-radius: 6px;
+        padding: 8px 12px;
+        min-height: 40px;
+        max-height: 120px;
+        overflow-y: auto;
+        font-size: 16px;
+        line-height: 1.4;
+        outline: none;
+        border: none;
+        resize: none;
+        -webkit-appearance: none;
+    &#125;
+
+    .input-box:empty:before &#123;
+        content: &#39;发送消息&#39;;
+        color: #999;
+    &#125;
+
+    .send-btn &#123;
+        background: #07c160;
+        color: #fff;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 4px;
+        font-size: 16px;
+        cursor: pointer;
+        opacity: 0;
+        transform: scale(0.8);
+        transition: all 0.2s;
+        font-weight: 500;
+    &#125;
+
+    .send-btn.show &#123;
+        opacity: 1;
+        transform: scale(1);
+    &#125;
+
+    .send-btn:active &#123;
+        background: #06ad56;
+    &#125;
+
+    /* 底部功能面板 */
+    .feature-panel &#123;
+        height: 0;
+        background: #f7f7f7;
+        overflow: hidden;
+        transition: height 0.3s ease;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 0 20px;
+    &#125;
+
+    .feature-panel.show &#123;
+        height: 220px;
+        border-top: 1px solid #e5e5e5;
+    &#125;
+
+    .feature-item &#123;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        cursor: pointer;
+    &#125;
+
+    .feature-icon &#123;
+        width: 60px;
+        height: 60px;
+        background: #fff;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        transition: transform 0.2s;
+    &#125;
+
+    .feature-icon:active &#123;
+        transform: scale(0.95);
+    &#125;
+
+    .feature-icon svg &#123;
+        width: 32px;
+        height: 32px;
+        fill: #2c2c2c;
+    &#125;
+
+    .feature-label &#123;
+        font-size: 12px;
+        color: #666;
+    &#125;
+
+    /* 已读标记 */
+    .read-status &#123;
+        font-size: 12px;
+        color: #999;
+        text-align: right;
+        margin-top: 4px;
+        margin-right: 8px;
+    &#125;
+
+    /* 加载动画 */
+    .loading &#123;
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border: 2px solid #f3f3f3;
+        border-top: 2px solid #07c160;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin-right: 8px;
+    &#125;
+
+    @keyframes spin &#123;
+        0% &#123; transform: rotate(0deg); &#125;
+        100% &#123; transform: rotate(360deg); &#125;
+    &#125;
+
+    /* 滚动到底部按钮 */
+    .scroll-bottom &#123;
+        position: fixed;
+        right: 20px;
+        bottom: 100px;
+        width: 40px;
+        height: 40px;
+        background: #fff;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        cursor: pointer;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.3s;
+        z-index: 50;
+    &#125;
+
+    .scroll-bottom.show &#123;
+        opacity: 1;
+        transform: translateY(0);
+    &#125;
+
+    .scroll-bottom svg &#123;
+        width: 20px;
+        height: 20px;
+        fill: #999;
+    &#125;
+
+    .scroll-bottom.unread::after &#123;
+        content: &#39;&#39;;
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        width: 8px;
+        height: 8px;
+        background: #ff3b30;
+        border-radius: 50%;
+    &#125;
+
+    /* 长按菜单 */
+    .context-menu &#123;
+        position: absolute;
+        background: rgba(0,0,0,0.8);
+        border-radius: 6px;
+        padding: 8px 0;
+        display: none;
+        z-index: 1000;
+        backdrop-filter: blur(10px);
+    &#125;
+
+    .context-menu.show &#123;
+        display: block;
+    &#125;
+
+    .menu-item &#123;
+        padding: 10px 20px;
+        color: #fff;
+        font-size: 14px;
+        cursor: pointer;
+        white-space: nowrap;
+    &#125;
+
+    .menu-item:active &#123;
+        background: rgba(255,255,255,0.1);
+    &#125;
+
+    /* 图片预览 */
+    .image-preview &#123;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: #000;
+        z-index: 2000;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.3s;
+    &#125;
+
+    .image-preview.show &#123;
+        display: flex;
+        opacity: 1;
+    &#125;
+
+    .image-preview img &#123;
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+    &#125;
+
+    .close-preview &#123;
+        position: absolute;
+        top: 44px;
+        right: 20px;
+        width: 30px;
+        height: 30px;
+        color: #fff;
+        font-size: 28px;
+        cursor: pointer;
+    &#125;
+&lt;/style&gt;
+</code></pre>
+</head>
+<body>
+
+<pre><code>&lt;!-- 状态栏 --&gt;
+&lt;div class=&quot;status-bar&quot;&gt;
+    &lt;span&gt;5G&lt;/span&gt;
+    &lt;span class=&quot;status-time&quot; id=&quot;statusTime&quot;&gt;12:00&lt;/span&gt;
+    &lt;div class=&quot;status-icons&quot;&gt;
+        &lt;span&gt;📶&lt;/span&gt;
+        &lt;span&gt;🔋&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- 导航栏 --&gt;
+&lt;div class=&quot;nav-bar&quot;&gt;
+    &lt;a href=&quot;#&quot; class=&quot;nav-back&quot;&gt;
+        &lt;svg viewBox=&quot;0 0 12 20&quot; fill=&quot;none&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;
+            &lt;path d=&quot;M10 18L2 10L10 2&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;/&gt;
+        &lt;/svg&gt;
+        微信
+    &lt;/a&gt;
+    &lt;div class=&quot;nav-title&quot;&gt;文件传输助手&lt;/div&gt;
+    &lt;div class=&quot;nav-more&quot;&gt;
+        &lt;span&gt;&lt;/span&gt;
+        &lt;span&gt;&lt;/span&gt;
+        &lt;span&gt;&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- 聊天区域 --&gt;
+&lt;div class=&quot;chat-container&quot; id=&quot;chatContainer&quot;&gt;
+    &lt;div class=&quot;time-divider&quot;&gt;昨天 14:30&lt;/div&gt;
+    
+    &lt;!-- 接收的消息 --&gt;
+    &lt;div class=&quot;message-row received&quot;&gt;
+        &lt;div class=&quot;avatar&quot;&gt;
+            &lt;img src=&quot;https://api.dicebear.com/7.x/avataaars/svg?seed=Felix&quot; alt=&quot;avatar&quot;&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;message-content&quot;&gt;
+            &lt;div class=&quot;nickname&quot;&gt;文件传输助手&lt;/div&gt;
+            &lt;div class=&quot;bubble&quot;&gt;
+                欢迎使用文件传输助手！你可以在这里发送文件、图片、文字等内容，实现手机与电脑之间的快速传输。
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- 发送的消息 --&gt;
+    &lt;div class=&quot;message-row sent&quot;&gt;
+        &lt;div class=&quot;avatar&quot;&gt;
+            &lt;img src=&quot;https://api.dicebear.com/7.x/avataaars/svg?seed=Aneka&quot; alt=&quot;avatar&quot;&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;message-content&quot;&gt;
+            &lt;div class=&quot;bubble&quot;&gt;好的，谢谢！这个功能很方便。&lt;/div&gt;
+            &lt;div class=&quot;read-status&quot;&gt;已读&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;time-divider&quot;&gt;今天 10:15&lt;/div&gt;
+
+    &lt;!-- 语音消息 --&gt;
+    &lt;div class=&quot;message-row received&quot;&gt;
+        &lt;div class=&quot;avatar&quot;&gt;
+            &lt;img src=&quot;https://api.dicebear.com/7.x/avataaars/svg?seed=Felix&quot; alt=&quot;avatar&quot;&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;message-content&quot;&gt;
+            &lt;div class=&quot;nickname&quot;&gt;文件传输助手&lt;/div&gt;
+            &lt;div class=&quot;bubble voice-message&quot; onclick=&quot;playVoice(this)&quot;&gt;
+                &lt;div class=&quot;voice-icon&quot;&gt;
+                    &lt;svg viewBox=&quot;0 0 24 24&quot;&gt;
+                        &lt;path d=&quot;M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z&quot;/&gt;
+                    &lt;/svg&gt;
+                &lt;/div&gt;
+                &lt;span class=&quot;voice-duration&quot;&gt;12&quot;&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- 图片消息 --&gt;
+    &lt;div class=&quot;message-row sent&quot;&gt;
+        &lt;div class=&quot;avatar&quot;&gt;
+            &lt;img src=&quot;https://api.dicebear.com/7.x/avataaars/svg?seed=Aneka&quot; alt=&quot;avatar&quot;&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;message-content&quot;&gt;
+            &lt;div class=&quot;bubble image-message&quot; onclick=&quot;previewImage(this)&quot;&gt;
+                &lt;img src=&quot;https://picsum.photos/400/300?random=1&quot; alt=&quot;shared image&quot;&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;read-status&quot;&gt;已读&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- 更多消息将通过JS动态添加 --&gt;
+&lt;/div&gt;
+
+&lt;!-- 滚动到底部按钮 --&gt;
+&lt;div class=&quot;scroll-bottom&quot; id=&quot;scrollBottom&quot; onclick=&quot;scrollToBottom()&quot;&gt;
+    &lt;svg viewBox=&quot;0 0 24 24&quot;&gt;
+        &lt;path d=&quot;M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z&quot;/&gt;
+    &lt;/svg&gt;
+&lt;/div&gt;
+
+&lt;!-- 输入区域 --&gt;
+&lt;div class=&quot;input-area&quot;&gt;
+    &lt;div class=&quot;input-toolbar&quot;&gt;
+        &lt;div class=&quot;tool-btn&quot; onclick=&quot;toggleVoice()&quot;&gt;
+            &lt;svg viewBox=&quot;0 0 24 24&quot;&gt;
+                &lt;path d=&quot;M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z&quot;/&gt;
+                &lt;path d=&quot;M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z&quot;/&gt;
+            &lt;/svg&gt;
+        &lt;/div&gt;
+        
+        &lt;div class=&quot;input-box&quot; id=&quot;inputBox&quot; contenteditable=&quot;true&quot; placeholder=&quot;发送消息&quot;&gt;&lt;/div&gt;
+        
+        &lt;div class=&quot;tool-btn&quot; onclick=&quot;toggleEmoji()&quot;&gt;
+            &lt;svg viewBox=&quot;0 0 24 24&quot;&gt;
+                &lt;path d=&quot;M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z&quot;/&gt;
+            &lt;/svg&gt;
+        &lt;/div&gt;
+        
+        &lt;div class=&quot;tool-btn&quot; onclick=&quot;toggleMore()&quot;&gt;
+            &lt;svg viewBox=&quot;0 0 24 24&quot;&gt;
+                &lt;path d=&quot;M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z&quot;/&gt;
+            &lt;/svg&gt;
+        &lt;/div&gt;
+
+        &lt;button class=&quot;send-btn&quot; id=&quot;sendBtn&quot; onclick=&quot;sendMessage()&quot;&gt;发送&lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;!-- 功能面板 --&gt;
+    &lt;div class=&quot;feature-panel&quot; id=&quot;featurePanel&quot;&gt;
+        &lt;div class=&quot;feature-item&quot;&gt;
+            &lt;div class=&quot;feature-icon&quot;&gt;
+                &lt;svg viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z&quot;/&gt;&lt;/svg&gt;
+            &lt;/div&gt;
+            &lt;span class=&quot;feature-label&quot;&gt;相册&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;feature-item&quot;&gt;
+            &lt;div class=&quot;feature-icon&quot;&gt;
+                &lt;svg viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M12 15.5A3.5 3.5 0 0 1 8.5 12 3.5 3.5 0 0 1 12 8.5a3.5 3.5 0 0 1 3.5 3.5 3.5 3.5 0 0 1-3.5 3.5m7.43-2.53c.04-.32.07-.64.07-.97 0-.33-.03-.66-.07-1l2.11-1.63c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.5.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.63c-.04.34-.07.67-.07 1 0 .33.03.66.07.97l-2.11 1.63c-.19.15-.24.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1.01c.52.4 1.08.73 1.69.98l.38 2.65c.04.24.25.42.5.42h4c.25 0 .46-.18.5-.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1.01c.22.08.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.63z&quot;/&gt;&lt;/svg&gt;
+            &lt;/div&gt;
+            &lt;span class=&quot;feature-label&quot;&gt;拍摄&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;feature-item&quot;&gt;
+            &lt;div class=&quot;feature-icon&quot;&gt;
+                &lt;svg viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M20 6h-4V4c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zM10 4h4v2h-4V4zm10 16H4V8h16v12z&quot;/&gt;&lt;/svg&gt;
+            &lt;/div&gt;
+            &lt;span class=&quot;feature-label&quot;&gt;文件&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;feature-item&quot;&gt;
+            &lt;div class=&quot;feature-icon&quot;&gt;
+                &lt;svg viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z&quot;/&gt;&lt;/svg&gt;
+            &lt;/div&gt;
+            &lt;span class=&quot;feature-label&quot;&gt;位置&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- 图片预览 --&gt;
+&lt;div class=&quot;image-preview&quot; id=&quot;imagePreview&quot; onclick=&quot;closePreview()&quot;&gt;
+    &lt;span class=&quot;close-preview&quot;&gt;&amp;times;&lt;/span&gt;
+    &lt;img src=&quot;&quot; alt=&quot;preview&quot; id=&quot;previewImg&quot;&gt;
+&lt;/div&gt;
+
+&lt;!-- 长按菜单 --&gt;
+&lt;div class=&quot;context-menu&quot; id=&quot;contextMenu&quot;&gt;
+    &lt;div class=&quot;menu-item&quot; onclick=&quot;copyMessage()&quot;&gt;复制&lt;/div&gt;
+    &lt;div class=&quot;menu-item&quot; onclick=&quot;recallMessage()&quot;&gt;撤回&lt;/div&gt;
+    &lt;div class=&quot;menu-item&quot; onclick=&quot;deleteMessage()&quot;&gt;删除&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+    // 更新时间
+    function updateTime() &#123;
+        const now = new Date();
+        const hours = now.getHours().toString().padStart(2, &#39;0&#39;);
+        const minutes = now.getMinutes().toString().padStart(2, &#39;0&#39;);
+        document.getElementById(&#39;statusTime&#39;).textContent = `$&#123;hours&#125;:$&#123;minutes&#125;`;
+    &#125;
+    updateTime();
+    setInterval(updateTime, 1000);
+
+    // 输入框处理
+    const inputBox = document.getElementById(&#39;inputBox&#39;);
+    const sendBtn = document.getElementById(&#39;sendBtn&#39;);
+    const chatContainer = document.getElementById(&#39;chatContainer&#39;);
+    const featurePanel = document.getElementById(&#39;featurePanel&#39;);
+    const scrollBottomBtn = document.getElementById(&#39;scrollBottom&#39;);
+
+    inputBox.addEventListener(&#39;input&#39;, function() &#123;
+        if (this.textContent.trim().length &gt; 0) &#123;
+            sendBtn.classList.add(&#39;show&#39;);
+        &#125; else &#123;
+            sendBtn.classList.remove(&#39;show&#39;);
+        &#125;
+    &#125;);
+
+    inputBox.addEventListener(&#39;keydown&#39;, function(e) &#123;
+        if (e.key === &#39;Enter&#39; &amp;&amp; !e.shiftKey) &#123;
+            e.preventDefault();
+            sendMessage();
+        &#125;
+    &#125;);
+
+    // 发送消息
+    function sendMessage() &#123;
+        const text = inputBox.textContent.trim();
+        if (!text) return;
+
+        const timeDiv = document.createElement(&#39;div&#39;);
+        timeDiv.className = &#39;time-divider&#39;;
+        timeDiv.textContent = &#39;刚刚&#39;;
+
+        const messageRow = document.createElement(&#39;div&#39;);
+        messageRow.className = &#39;message-row sent&#39;;
+        messageRow.innerHTML = `
+            &lt;div class=&quot;avatar&quot;&gt;
+                &lt;img src=&quot;https://api.dicebear.com/7.x/avataaars/svg?seed=Aneka&quot; alt=&quot;avatar&quot;&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;message-content&quot;&gt;
+                &lt;div class=&quot;bubble&quot;&gt;$&#123;escapeHtml(text)&#125;&lt;/div&gt;
+                &lt;div class=&quot;read-status&quot;&gt;已读&lt;/div&gt;
+            &lt;/div&gt;
+        `;
+
+        // 添加长按菜单
+        messageRow.addEventListener(&#39;contextmenu&#39;, function(e) &#123;
+            e.preventDefault();
+            showContextMenu(e, messageRow);
+        &#125;);
+
+        // 移动端长按
+        let pressTimer;
+        messageRow.addEventListener(&#39;touchstart&#39;, function(e) &#123;
+            pressTimer = setTimeout(() =&gt; &#123;
+                showContextMenu(e.touches[0], messageRow);
+            &#125;, 500);
+        &#125;);
+        messageRow.addEventListener(&#39;touchend&#39;, function() &#123;
+            clearTimeout(pressTimer);
+        &#125;);
+
+        chatContainer.appendChild(timeDiv);
+        chatContainer.appendChild(messageRow);
+        
+        inputBox.textContent = &#39;&#39;;
+        sendBtn.classList.remove(&#39;show&#39;);
+        scrollToBottom();
+
+        // 模拟对方回复
+        setTimeout(() =&gt; &#123;
+            receiveMessage(&#39;收到！&#39; + text);
+        &#125;, 1000);
+    &#125;
+
+    // 接收消息
+    function receiveMessage(text) &#123;
+        const messageRow = document.createElement(&#39;div&#39;);
+        messageRow.className = &#39;message-row received&#39;;
+        messageRow.innerHTML = `
+            &lt;div class=&quot;avatar&quot;&gt;
+                &lt;img src=&quot;https://api.dicebear.com/7.x/avataaars/svg?seed=Felix&quot; alt=&quot;avatar&quot;&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;message-content&quot;&gt;
+                &lt;div class=&quot;nickname&quot;&gt;文件传输助手&lt;/div&gt;
+                &lt;div class=&quot;bubble&quot;&gt;$&#123;escapeHtml(text)&#125;&lt;/div&gt;
+            &lt;/div&gt;
+        `;
+        chatContainer.appendChild(messageRow);
+        scrollToBottom();
+        
+        // 显示新消息提示
+        if (!isNearBottom()) &#123;
+            scrollBottomBtn.classList.add(&#39;show&#39;, &#39;unread&#39;);
+        &#125;
+    &#125;
+
+    // 工具函数
+    function escapeHtml(text) &#123;
+        const div = document.createElement(&#39;div&#39;);
+        div.textContent = text;
+        return div.innerHTML;
+    &#125;
+
+    function scrollToBottom() &#123;
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+        scrollBottomBtn.classList.remove(&#39;show&#39;, &#39;unread&#39;);
+    &#125;
+
+    function isNearBottom() &#123;
+        return chatContainer.scrollHeight - chatContainer.scrollTop - chatContainer.clientHeight &lt; 100;
+    &#125;
+
+    // 监听滚动
+    chatContainer.addEventListener(&#39;scroll&#39;, function() &#123;
+        if (isNearBottom()) &#123;
+            scrollBottomBtn.classList.remove(&#39;show&#39;);
+        &#125;
+    &#125;);
+
+    // 切换功能面板
+    function toggleMore() &#123;
+        featurePanel.classList.toggle(&#39;show&#39;);
+        if (featurePanel.classList.contains(&#39;show&#39;)) &#123;
+            inputBox.blur();
+        &#125;
+    &#125;
+
+    function toggleEmoji() &#123;
+        // 简化处理，实际应显示表情面板
+        inputBox.focus();
+    &#125;
+
+    function toggleVoice() &#123;
+        // 简化处理
+        alert(&#39;按住说话功能&#39;);
+    &#125;
+
+    // 语音播放
+    function playVoice(element) &#123;
+        element.style.opacity = &#39;0.7&#39;;
+        setTimeout(() =&gt; &#123;
+            element.style.opacity = &#39;1&#39;;
+        &#125;, 1000);
+    &#125;
+
+    // 图片预览
+    function previewImage(element) &#123;
+        const img = element.querySelector(&#39;img&#39;);
+        const preview = document.getElementById(&#39;imagePreview&#39;);
+        const previewImg = document.getElementById(&#39;previewImg&#39;);
+        previewImg.src = img.src;
+        preview.classList.add(&#39;show&#39;);
+    &#125;
+
+    function closePreview() &#123;
+        document.getElementById(&#39;imagePreview&#39;).classList.remove(&#39;show&#39;);
+    &#125;
+
+    // 长按菜单
+    let currentMessage = null;
+    const contextMenu = document.getElementById(&#39;contextMenu&#39;);
+
+    function showContextMenu(e, messageRow) &#123;
+        currentMessage = messageRow;
+        contextMenu.style.left = e.pageX + &#39;px&#39;;
+        contextMenu.style.top = e.pageY + &#39;px&#39;;
+        contextMenu.classList.add(&#39;show&#39;);
+    &#125;
+
+    document.addEventListener(&#39;click&#39;, function() &#123;
+        contextMenu.classList.remove(&#39;show&#39;);
+    &#125;);
+
+    function copyMessage() &#123;
+        if (currentMessage) &#123;
+            const text = currentMessage.querySelector(&#39;.bubble&#39;).textContent;
+            navigator.clipboard.writeText(text);
+            alert(&#39;已复制&#39;);
+        &#125;
+    &#125;
+
+    function recallMessage() &#123;
+        if (currentMessage) &#123;
+            currentMessage.style.opacity = &#39;0.5&#39;;
+            currentMessage.querySelector(&#39;.bubble&#39;).textContent = &#39;你撤回了一条消息&#39;;
+            currentMessage.querySelector(&#39;.bubble&#39;).style.background = &#39;#ccc&#39;;
+            currentMessage.querySelector(&#39;.bubble&#39;).style.color = &#39;#999&#39;;
+        &#125;
+    &#125;
+
+    function deleteMessage() &#123;
+        if (currentMessage) &#123;
+            currentMessage.remove();
+        &#125;
+    &#125;
+
+    // 初始化滚动到底部
+    scrollToBottom();
+
+    // 模拟收到新消息
+    setTimeout(() =&gt; &#123;
+        receiveMessage(&#39;这是一个演示用的微信风格聊天界面，支持发送文字、图片、语音等功能。&#39;);
+    &#125;, 2000);
+&lt;/script&gt;
+</code></pre>
+</body>
+</html></article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/ui/">ui</a></div><div class="post-share"><div class="social-share" data-image="https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2026/04/03/ins/0403/" title="微信聊天界面（仿）"><img class="cover" src="https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-04-03</div><div class="info-item-2">微信聊天界面（仿）</div></div><div class="info-2"><div class="info-item-1">                 微信聊天              * {             margin: 0;             padding: 0;             box-sizing: border-box;             -webkit-tap-highlight-color: transparent;         }          body {             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;             background: #ededed;             height: 100vh;             overflow: hidden;             display: flex;             flex-direction: column;         }          /*...</div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="lv-container" data-id="city" data-uid="MTAyMC82MDU3Mi8zNzA0Mw=="></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/./img/001.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">KKL</div><div class="author-info-description">Welcome</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">35</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">18</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://baidu.com/"><i class="fab fa-github"></i><span>关注我</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/linlinlin" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:xxxxxx@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a><a class="social-icon" href="/baidu.com" target="_blank" title="百度"><i class="fa-solid fa-truck" style="color: #4a7dbe;"></i></a></div></div><div class="sticky_layout"><div class="card-widget card-history"><div class="card-content"><div class="item-headline"><i class="fas fa-clock fa-spin"></i><span>那年今日</span></div><div id="history-baidu" style="height: 60px;overflow: hidden;"><div class="history_swiper-container" id="history-container" style="width: 100%;height: 100%;"><div class="swiper-wrapper" id="history_container_wrapper" style="height:20px"></div></div></div></div></div></div></div></main><footer id="footer" style="background: white;"><div id="footer-wrap"><div class="copyright">&copy;2025 - 2026 By KKL</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.5</a></div><div class="footer_custom_text">Nice to meet you ! 😜</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/true" type="module"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+
+  const loadLivere = (el, path) => {
+    window.livereOptions = {
+      refer: path || location.pathname
+    }
+
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyLivere = () => {
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+
+    if (typeof LivereTower === 'object') window.LivereTower.init()
+    else {
+      (function(d, s) {
+          var j, e = d.getElementsByTagName(s)[0];
+          if (typeof LivereTower === 'function') { return; }
+          j = d.createElement(s);
+          j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+          j.async = true;
+          e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    }
+  }
+
+  if (isShuoshuo) {
+    'Livere' === 'Livere'
+      ? window.shuoshuoComment = { loadComment: loadLivere }
+      : window.loadOtherComment = loadLivere
+    return
+  }
+
+  if ('Livere' === 'Livere' || !false) {
+    if (false) btf.loadComment(document.getElementById('lv-container'), loadLivere)
+    else loadLivere()
+  } else {
+    window.loadOtherComment = loadLivere
+  }
+})()</script></div><script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script><script src="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/js/main.js"></script><div class="aplayer no-destroy" data-id="2690846376" data-server="netease" data-type="song" data-fixed="true" data-mini="true" data-lrctype="0" data-mutex="true" data-order="random" data-loop="all" data-listFolded="true" data-preload="none" data-autoplay="false" data-volume="0.3" data-listmaxheight="265px" data-theme="#2980b1"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script>(() => {
+  const destroyAplayer = () => {
+    if (window.aplayers) {
+      for (let i = 0; i < window.aplayers.length; i++) {
+        if (!window.aplayers[i].options.fixed) {
+          window.aplayers[i].destroy()
+        }
+      }
+    }
+  }
+
+  const runMetingJS = () => {
+    typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+  }
+
+  btf.addGlobalFn('pjaxSend', destroyAplayer, 'destroyAplayer')
+  btf.addGlobalFn('pjaxComplete', loadMeting, 'runMetingJS')
+})()</script><script src="/%5Bobject%20Object%5D"></script><script>(() => {
+  const pjaxSelectors = ["meta[property=\"og:image\"]","meta[property=\"og:title\"]","meta[property=\"og:url\"]","meta[property=\"og:description\"]","link[rel=\"canonical\"]","head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+  window.pjax = new Pjax({
+    elements: 'a:not([target="_blank"]):not([href="/movies/"]):not([href="/about/"]):not([href="/link/"]):not([href="/categories/"]):not([href="/tags/"]):not([href="/archives/"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  const triggerPjaxFn = (val) => {
+    if (!val) return
+    Object.values(val).forEach(fn => fn())
+  }
+
+  document.addEventListener('pjax:send', () => {
+    // removeEventListener
+    btf.removeGlobalFnEvent('pjaxSendOnce')
+    btf.removeGlobalFnEvent('themeChange')
+
+    // reset readmode
+    const $bodyClassList = document.body.classList
+    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
+
+    triggerPjaxFn(window.globalFn.pjaxSend)
+  })
+
+  document.addEventListener('pjax:complete', () => {
+    btf.removeGlobalFnEvent('pjaxCompleteOnce')
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+
+    triggerPjaxFn(window.globalFn.pjaxComplete)
+  })
+
+  document.addEventListener('pjax:error', e => {
+    if (e.request.status === 404) {
+      const usePjax = true
+      true 
+        ? (usePjax ? pjax.loadUrl('/404.html') : window.location.href = '/404.html')
+        : window.location.href = e.request.responseURL
+    }
+  })
+})()</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
