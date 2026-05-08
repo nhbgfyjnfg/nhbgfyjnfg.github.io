@@ -1,13 +1,13 @@
-<!DOCTYPE html><html class="hide-aside" lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>OS-2.4 死锁 | LKK の blog</title><meta name="author" content="KKL"><meta name="copyright" content="KKL"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="2.4 死锁&#x3D;&#x3D;死锁公式：m个资源&gt;n个进程（每个进程所需资源数k-1）【不会发生死锁】&#x3D;&#x3D; 按照安全家算法，只要保证进程申请的最大资源数≤m，就一定存在一个安全队列。考虑极端的情况，n-1个进程申请了1个资源，剩下的一个进程申请了m个资源，则&#x3D;&#x3D;各个进程最大需求之和为m+（n-1），此时一定不会发生死锁&#x3D;&#x3D; 死">
+<!DOCTYPE html><html class="hide-aside" lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>OS-2.4 死锁 | LKK の blog</title><meta name="author" content="KKL"><meta name="copyright" content="KKL"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="2.4 死锁&#x3D;&#x3D;死锁公式【不会发生死锁】：m个资源&gt;n个进程（每个进程所需资源数k-1）&#x3D;&#x3D; 按照安全家算法，只要保证进程申请的最大资源数≤m，就一定存在一个安全队列。考虑极端的情况，n-1个进程申请了1个资源，剩下的一个进程申请了m个资源，则&#x3D;&#x3D;各个进程最大需求之和为m+（n-1），此时一定不会发生死锁&#x3D;&#x3D; 死">
 <meta property="og:type" content="article">
 <meta property="og:title" content="OS-2.4 死锁">
 <meta property="og:url" content="http://example.com/2026/04/12/OS/os-2.4%20%E6%AD%BB%E9%94%81/index.html">
 <meta property="og:site_name" content="LKK の blog">
-<meta property="og:description" content="2.4 死锁&#x3D;&#x3D;死锁公式：m个资源&gt;n个进程（每个进程所需资源数k-1）【不会发生死锁】&#x3D;&#x3D; 按照安全家算法，只要保证进程申请的最大资源数≤m，就一定存在一个安全队列。考虑极端的情况，n-1个进程申请了1个资源，剩下的一个进程申请了m个资源，则&#x3D;&#x3D;各个进程最大需求之和为m+（n-1），此时一定不会发生死锁&#x3D;&#x3D; 死">
+<meta property="og:description" content="2.4 死锁&#x3D;&#x3D;死锁公式【不会发生死锁】：m个资源&gt;n个进程（每个进程所需资源数k-1）&#x3D;&#x3D; 按照安全家算法，只要保证进程申请的最大资源数≤m，就一定存在一个安全队列。考虑极端的情况，n-1个进程申请了1个资源，剩下的一个进程申请了m个资源，则&#x3D;&#x3D;各个进程最大需求之和为m+（n-1），此时一定不会发生死锁&#x3D;&#x3D; 死">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png">
 <meta property="article:published_time" content="2026-04-11T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-04-14T05:41:45.412Z">
+<meta property="article:modified_time" content="2026-05-01T06:18:58.514Z">
 <meta property="article:author" content="KKL">
 <meta property="article:tag" content="博客,lkk">
 <meta name="twitter:card" content="summary">
@@ -18,7 +18,7 @@
   "url": "http://example.com/2026/04/12/OS/os-2.4%20%E6%AD%BB%E9%94%81/",
   "image": "https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png",
   "datePublished": "2026-04-11T16:00:00.000Z",
-  "dateModified": "2026-04-14T05:41:45.412Z",
+  "dateModified": "2026-05-01T06:18:58.514Z",
   "author": [
     {
       "@type": "Person",
@@ -169,7 +169,7 @@ btf.addGlobalFn('pjaxComplete', () => {
   isHighlightShrink: false,
   isToc: true,
   pageType: 'post'
-}</script><link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/css/main.css"><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/./img/001.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">36</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">18</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 文章</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/movies/"><i class="fa-fw fas fa-movie"></i><span> Movie</span></a></div><div class="menus_item"><a class="site-page" href="/game/"><i class="fa-fw fas fa-gamepad"></i><span> 游戏</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://picsum.photos/200/300);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">LKK の blog</span></a><a class="nav-page-title" href="/"><span class="site-name">OS-2.4 死锁</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 文章</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/movies/"><i class="fa-fw fas fa-movie"></i><span> Movie</span></a></div><div class="menus_item"><a class="site-page" href="/game/"><i class="fa-fw fas fa-gamepad"></i><span> 游戏</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">OS-2.4 死锁</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-04-11T16:00:00.000Z" title="发表于 2026-04-12 00:00:00">2026-04-12</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-04-14T05:41:45.412Z" title="更新于 2026-04-14 13:41:45">2026-04-14</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/OS/">OS</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h2 id="2-4-死锁"><a href="#2-4-死锁" class="headerlink" title="2.4 死锁"></a>2.4 死锁</h2><p>&#x3D;&#x3D;死锁公式：m个资源&gt;n个进程（每个进程所需资源数k-1）【不会发生死锁】&#x3D;&#x3D;</p>
+}</script><link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/css/main.css"><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/./img/001.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">37</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">18</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 文章</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/movies/"><i class="fa-fw fas fa-movie"></i><span> Movie</span></a></div><div class="menus_item"><a class="site-page" href="/game/"><i class="fa-fw fas fa-gamepad"></i><span> 游戏</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://picsum.photos/200/300);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">LKK の blog</span></a><a class="nav-page-title" href="/"><span class="site-name">OS-2.4 死锁</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 文章</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/movies/"><i class="fa-fw fas fa-movie"></i><span> Movie</span></a></div><div class="menus_item"><a class="site-page" href="/game/"><i class="fa-fw fas fa-gamepad"></i><span> 游戏</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">OS-2.4 死锁</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-04-11T16:00:00.000Z" title="发表于 2026-04-12 00:00:00">2026-04-12</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-05-01T06:18:58.514Z" title="更新于 2026-05-01 14:18:58">2026-05-01</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/OS/">OS</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h2 id="2-4-死锁"><a href="#2-4-死锁" class="headerlink" title="2.4 死锁"></a>2.4 死锁</h2><p>&#x3D;&#x3D;死锁公式【不会发生死锁】：m个资源&gt;n个进程（每个进程所需资源数k-1）&#x3D;&#x3D;</p>
 <p>按照安全家算法，只要保证进程申请的最大资源数≤m，就一定存在一个安全队列。考虑极端的情况，n-1个进程申请了1个资源，剩下的一个进程申请了m个资源，则&#x3D;&#x3D;各个进程最大需求之和为m+（n-1），此时一定不会发生死锁&#x3D;&#x3D;</p>
 <h3 id="死锁的概念"><a href="#死锁的概念" class="headerlink" title="死锁的概念"></a>死锁的概念</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260412150805100.png" alt="image-20260412150805100"></p>
 <p><strong>基本概念</strong></p>
@@ -178,9 +178,9 @@ btf.addGlobalFn('pjaxComplete', () => {
 <p>死循环：进程跳不出某个循环。（死循环的进程可以上CPU）</p>
 <p>死锁和饥饿是OS要解决的问题。死循环是coder要解决的问题。</p>
 <p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260412151355425.png" alt="image-20260412151355425"></p>
-<p><strong>死锁产生的四个必要条件（需同时满足）</strong></p>
+<p>&#x3D;&#x3D;<strong>死锁产生的四个必要条件（需同时满足）</strong>&#x3D;&#x3D;</p>
 <p>互斥条件：对互斥使用的资源的争抢。</p>
-<p><strong>不剥夺条件：</strong>进程所获得的资源在未使用完之前，不能被其他进程强行夺走，只能主动释放。</p>
+<p><strong>不剥夺条件：</strong>进程所获得的资源在未使用完之前，不能被其他进程强行夺走，只能自己主动释放。</p>
 <p><strong>请求并保持条件：</strong>已有（一个）资源，同时发出新的资源请求，若无法获得，则阻塞但不会释放已占有的资源。</p>
 <p>循环等待条件：存在一种进程资源的循环等待链。</p>
 <img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260412151843943.png" alt="image-20260412151843943" style="zoom:50%;" />
@@ -189,7 +189,7 @@ btf.addGlobalFn('pjaxComplete', () => {
 
 <p>注：发生死锁一定有循环等待，但是发生循环等待未必是死锁。（if 同类资源大于1，可以由别人提供）</p>
 <p><strong>什么时候（有可能）发生死锁</strong></p>
-<p>① 对系统资源的竞争</p>
+<p>① 对系统（不可剥夺）资源的竞争</p>
 <p>② 进程推进顺序非法</p>
 <p>③ 信号量使用不当</p>
 <p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260412152344596.png" alt="image-20260412152344596"></p>
@@ -198,7 +198,8 @@ btf.addGlobalFn('pjaxComplete', () => {
 <p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260412152503881.png" alt="image-20260412152503881"></p>
 <p>回顾</p>
 <p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260412152628076.png" alt="image-20260412152628076"></p>
-<h3 id="死锁的处理策略①-–-预防策略"><a href="#死锁的处理策略①-–-预防策略" class="headerlink" title="死锁的处理策略① – 预防策略"></a>死锁的处理策略① – 预防策略</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260412152740542.png" alt="image-20260412152740542"></p>
+<h3 id="死锁的处理策略①-–-预防策略"><a href="#死锁的处理策略①-–-预防策略" class="headerlink" title="死锁的处理策略① – 预防策略"></a>死锁的处理策略① – 预防策略</h3><p>预防策略：破坏死锁产生的四个必要条件。</p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260412152740542.png" alt="image-20260412152740542"></p>
 <p><strong>A：破坏–互斥条件</strong></p>
 <p>比如SPOOLing技术，把互斥的资源改成可共享的资源，让各个进程看起来自己的响应被即刻接收处理了（实际上多加了一层类似cache的层）</p>
 <p>缺点：很多资源无法改成可共享的资源。<strong>本质上不可行。</strong></p>
@@ -213,7 +214,8 @@ btf.addGlobalFn('pjaxComplete', () => {
 <p>④方案一可能会有进程一直无法完整地申请到资源，造成进程饥饿。</p>
 <p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260412153345712.png" alt="image-20260412153345712"></p>
 <p><strong>C：破坏–请求和保持条件</strong></p>
-<p>进程在运行前，申请完它所需要的全部资源！（就不会出现已有一个资源，继续申请资源，同时保留已有的资源不放手的情况。）</p>
+<p>进程在运行前，申请完它所需要的全部资源！</p>
+<p>（就不会出现已有一个资源，继续申请资源，同时保留已有的资源不放手的情况。）</p>
 <p>缺点：有的资源用的时间短，用完在进程中闲着，造成资源浪费。</p>
 <p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260412153652883.png" alt="image-20260412153652883"></p>
 <p><strong>D：破坏–循环等待条件</strong></p>
@@ -227,10 +229,11 @@ btf.addGlobalFn('pjaxComplete', () => {
 <p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260412154151888.png" alt="image-20260412154151888"></p>
 <p>回顾</p>
 <p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260412154222006.png" alt="image-20260412154222006"></p>
-<h3 id="死锁的处理策略②-–-避免死锁"><a href="#死锁的处理策略②-–-避免死锁" class="headerlink" title="死锁的处理策略② – 避免死锁"></a>死锁的处理策略② – 避免死锁</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260412181530583.png" alt="image-20260412181530583"></p>
+<h3 id="死锁的处理策略②-–-避免死锁"><a href="#死锁的处理策略②-–-避免死锁" class="headerlink" title="死锁的处理策略② – 避免死锁"></a>死锁的处理策略② – 避免死锁</h3><p>避免策略：用某种方法防止系统进入不安全状态，从而避免死锁。</p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260412181530583.png" alt="image-20260412181530583"></p>
 <p><strong>安全序列，不安全状态，死锁</strong></p>
 <p>不安全状态不一定发生死锁，死锁一定是不安全状态。安全状态一定不发生死锁。</p>
-<p>安全系列不是固定的，不是唯一的，不是必须遵循的法则，只是一种可能的分配方案。</p>
+<p>安全序列不是固定的，不是唯一的，不是必须遵循的法则，只是一种可能的分配方案。</p>
 <p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260412182258483.png" alt="image-20260412182258483"></p>
 <p>&#x3D;&#x3D;<strong>银行家算法</strong>&#x3D;&#x3D;</p>
 <p>在进程提出资源申请的时候，先预算一下此次分配是否会导致系统进入不安全状态。</p>
@@ -259,7 +262,7 @@ btf.addGlobalFn('pjaxComplete', () => {
 <p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260412184811683.png" alt="image-20260412184811683"></p>
 <p>②提供一种算法，利用上述信息来<strong>检测（当前）系统是否进入死锁状态</strong></p>
 <p>算法简单来说就是，把 没发生阻塞的 进程，所有相连的边都消去，</p>
-<p>如果最终消除所有边，就是可完全简化的，一定没有发生死锁。（死锁定理）</p>
+<p>如果最终消除所有边，就是可完全简化的，一定没有发生死锁。<strong>（死锁定理）</strong></p>
 <p>（没发生阻塞：进程能申请到资源）</p>
 <p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260412185311389.png" alt="image-20260412185311389"></p>
 <p><strong>死锁的解除</strong></p>

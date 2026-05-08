@@ -1,13 +1,13 @@
-<!DOCTYPE html><html class="hide-aside" lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>OS-2.3 同步和互斥 | LKK の blog</title><meta name="author" content="KKL"><meta name="copyright" content="KKL"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="同步和互斥进程同步，进程互斥①进程同步：解决进程的异步问题，协调工作顺序。 ②进程互斥：对于临界资源，必须互斥地进行访问。（or结果就像两个文档打印混一起了）  互斥是，不同线程，对同一个进程，内部的 共享变量 的访问，可能需要的操作。  临界资源：互斥，共享 – 资源。 临界区：访问临界资源的那一个 代码段。 临界区是为了保护临界资源而存在的。 实现互斥的四个逻辑部分： 进入区。临界区。退出区。">
+<!DOCTYPE html><html class="hide-aside" lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>OS-2.3 同步和互斥 | LKK の blog</title><meta name="author" content="KKL"><meta name="copyright" content="KKL"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="同步和互斥进程同步，进程互斥①进程同步：解决进程的异步问题，协调工作顺序。 ②进程互斥：对于临界资源 &#x2F; 共享资源，必须互斥地进行访问。（or结果就像两个文档打印混一起了）  不同线程 对 同一个进程  的共享变量 的访问才可能需要互斥，不同进程的不同线程不存在互斥访问。  临界资源：互斥，共享 – 资源。 临界区：访问临界资源的那一个 代码段。  临界区是为了保护临界资源而存在的。（所">
 <meta property="og:type" content="article">
 <meta property="og:title" content="OS-2.3 同步和互斥">
 <meta property="og:url" content="http://example.com/2026/04/09/OS/os-2.3%20%E5%90%8C%E6%AD%A5%E5%92%8C%E4%BA%92%E6%96%A5/index.html">
 <meta property="og:site_name" content="LKK の blog">
-<meta property="og:description" content="同步和互斥进程同步，进程互斥①进程同步：解决进程的异步问题，协调工作顺序。 ②进程互斥：对于临界资源，必须互斥地进行访问。（or结果就像两个文档打印混一起了）  互斥是，不同线程，对同一个进程，内部的 共享变量 的访问，可能需要的操作。  临界资源：互斥，共享 – 资源。 临界区：访问临界资源的那一个 代码段。 临界区是为了保护临界资源而存在的。 实现互斥的四个逻辑部分： 进入区。临界区。退出区。">
+<meta property="og:description" content="同步和互斥进程同步，进程互斥①进程同步：解决进程的异步问题，协调工作顺序。 ②进程互斥：对于临界资源 &#x2F; 共享资源，必须互斥地进行访问。（or结果就像两个文档打印混一起了）  不同线程 对 同一个进程  的共享变量 的访问才可能需要互斥，不同进程的不同线程不存在互斥访问。  临界资源：互斥，共享 – 资源。 临界区：访问临界资源的那一个 代码段。  临界区是为了保护临界资源而存在的。（所">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png">
 <meta property="article:published_time" content="2026-04-08T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-04-11T07:32:42.628Z">
+<meta property="article:modified_time" content="2026-05-01T04:05:35.064Z">
 <meta property="article:author" content="KKL">
 <meta property="article:tag" content="博客,lkk">
 <meta name="twitter:card" content="summary">
@@ -18,7 +18,7 @@
   "url": "http://example.com/2026/04/09/OS/os-2.3%20%E5%90%8C%E6%AD%A5%E5%92%8C%E4%BA%92%E6%96%A5/",
   "image": "https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png",
   "datePublished": "2026-04-08T16:00:00.000Z",
-  "dateModified": "2026-04-11T07:32:42.628Z",
+  "dateModified": "2026-05-01T04:05:35.064Z",
   "author": [
     {
       "@type": "Person",
@@ -169,22 +169,24 @@ btf.addGlobalFn('pjaxComplete', () => {
   isHighlightShrink: false,
   isToc: true,
   pageType: 'post'
-}</script><link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/css/main.css"><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/./img/001.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">36</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">18</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 文章</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/movies/"><i class="fa-fw fas fa-movie"></i><span> Movie</span></a></div><div class="menus_item"><a class="site-page" href="/game/"><i class="fa-fw fas fa-gamepad"></i><span> 游戏</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://picsum.photos/200/300);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">LKK の blog</span></a><a class="nav-page-title" href="/"><span class="site-name">OS-2.3 同步和互斥</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 文章</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/movies/"><i class="fa-fw fas fa-movie"></i><span> Movie</span></a></div><div class="menus_item"><a class="site-page" href="/game/"><i class="fa-fw fas fa-gamepad"></i><span> 游戏</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">OS-2.3 同步和互斥</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-04-08T16:00:00.000Z" title="发表于 2026-04-09 00:00:00">2026-04-09</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-04-11T07:32:42.628Z" title="更新于 2026-04-11 15:32:42">2026-04-11</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/OS/">OS</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h2 id="同步和互斥"><a href="#同步和互斥" class="headerlink" title="同步和互斥"></a>同步和互斥</h2><h3 id="进程同步，进程互斥"><a href="#进程同步，进程互斥" class="headerlink" title="进程同步，进程互斥"></a>进程同步，进程互斥</h3><p>①进程同步：解决进程的异步问题，协调工作顺序。</p>
-<p>②进程互斥：对于临界资源，必须互斥地进行访问。（or结果就像两个文档打印混一起了）</p>
+}</script><link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/css/main.css"><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/./img/001.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">37</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">18</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 文章</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/movies/"><i class="fa-fw fas fa-movie"></i><span> Movie</span></a></div><div class="menus_item"><a class="site-page" href="/game/"><i class="fa-fw fas fa-gamepad"></i><span> 游戏</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://picsum.photos/200/300);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">LKK の blog</span></a><a class="nav-page-title" href="/"><span class="site-name">OS-2.3 同步和互斥</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 文章</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/movies/"><i class="fa-fw fas fa-movie"></i><span> Movie</span></a></div><div class="menus_item"><a class="site-page" href="/game/"><i class="fa-fw fas fa-gamepad"></i><span> 游戏</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">OS-2.3 同步和互斥</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-04-08T16:00:00.000Z" title="发表于 2026-04-09 00:00:00">2026-04-09</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-05-01T04:05:35.064Z" title="更新于 2026-05-01 12:05:35">2026-05-01</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/OS/">OS</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h2 id="同步和互斥"><a href="#同步和互斥" class="headerlink" title="同步和互斥"></a>同步和互斥</h2><h3 id="进程同步，进程互斥"><a href="#进程同步，进程互斥" class="headerlink" title="进程同步，进程互斥"></a>进程同步，进程互斥</h3><p>①进程同步：解决进程的异步问题，协调工作顺序。</p>
+<p>②进程互斥：对于临界资源 &#x2F; 共享资源，必须互斥地进行访问。（or结果就像两个文档打印混一起了）</p>
 <ul>
-<li>互斥是，<em>不同线程，对同一个进程</em>，内部的 <em><strong>共享变量</strong></em> 的访问，可能需要的操作。</li>
+<li><em>不同线程 对 同一个进程  的共享变量 的访问才可能需要互斥</em>，不同进程的不同线程不存在互斥访问。</li>
 </ul>
 <p><strong>临界资源</strong>：互斥，共享 – 资源。</p>
 <p><strong>临界区</strong>：访问临界资源的那一个 代码段。</p>
-<p>临界区是为了保护临界资源而存在的。</p>
-<p>实现互斥的四个逻辑部分：</p>
+<ul>
+<li>临界区是为了保护临界资源而存在的。（所以5个并发进程就有5个共享操作变量X的代码段）</li>
+</ul>
+<p>实现互斥的四个代码段：</p>
 <p>进入区。<strong>临界区</strong>。退出区。剩余区。</p>
 <p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260407115928870.png" alt="image-20260407115928870"></p>
-<p>实现同步遵循的四个原则：</p>
+<p>&#x3D;&#x3D;实现同步遵循的四个原则：&#x3D;&#x3D;</p>
 <p>空闲让进。忙则等待。有限等待。让权等待。</p>
 <p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260407120115888.png" alt="image-20260407120115888"></p>
 <p>note：</p>
-<p>可重入代码：纯代码，不允许被修改的代码。</p>
+<p>可重入代码：不允许被修改的代码，又叫纯代码。</p>
 <ul>
 <li>所以这种代码能在多个时刻被任意进程共享，无需互斥。（EG：进程映像中的程序（段））</li>
 </ul>
@@ -199,11 +201,10 @@ btf.addGlobalFn('pjaxComplete', () => {
 </ul>
 <p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260407121033219.png" alt="image-20260407121033219"></p>
 <p>缺点：当允许进入临界区的进程A不访问临界区（或者是并发时时间片到期了），造成临界区空闲，而别的进程如B使用不了临界区。</p>
-<p>违背原则：“空闲让进”</p>
+<p>违背原则：“空闲让进”。</p>
 <h4 id="②双标志先检查法"><a href="#②双标志先检查法" class="headerlink" title="②双标志先检查法"></a>②双标志先检查法</h4><p>先“检查”后“上锁”</p>
 <p>先检查对方想不想使用（检查）</p>
-<p>自己要用（表达意愿，上锁）</p>
-<p>flag[0]，flag[1]标记各进程的意愿，T&#x2F;F。</p>
+<p>自己要用（表达意愿，上锁）。	flag[0]，flag[1]标记各进程的意愿，T&#x2F;F。</p>
 <p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260407121408670.png" alt="image-20260407121408670"></p>
 <p>缺点：如果两个进程是，并发的运行时，时间片切换，【1[false]（time out）-5[false]-6-7（time out）,2-3】会造成两个进程P1 P2同时使用临界区。</p>
 <p>违反原则：“忙则等待”</p>
@@ -230,7 +231,7 @@ btf.addGlobalFn('pjaxComplete', () => {
 <p>缺点：</p>
 <p>①不适合多处理机。（一个cpu关中断不能阻止其他cpu的进程访问同一共享资源）</p>
 <p>②限制了CPU的并发执行能力。（屏蔽期间”冻结”当前CPU，无法响应中断、无法进程调度、无法处理I&#x2F;O。）</p>
-<p>③只适用于OS内核进程。（开&#x2F;关中断指令只能运行在内核态，如果用户上锁忘记解锁了，很危险）</p>
+<p>③只适用于OS内核进程。（开&#x2F;关中断指令只能运行在内核态，因为如果用户上锁忘记解锁了，很危险）</p>
 <h4 id="②TestAndSet指令"><a href="#②TestAndSet指令" class="headerlink" title="②TestAndSet指令"></a>②TestAndSet指令</h4><p>“检查”与“上锁是一体的。</p>
 <p><strong>一体的原因是：TSL（TS）指令是一条硬件指令，CPU执行这条指令时不会被打断。</strong></p>
 <p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260408195122907.png" alt="image-20260408195122907"></p>
@@ -265,6 +266,7 @@ btf.addGlobalFn('pjaxComplete', () => {
 <blockquote>
 <p>P操作判断 <code>if (S.value &lt; 0)</code> → 阻塞（等于0时不阻塞是因为刚才拿了一个资源来用，现在才变成0的）</p>
 <p>V操作判断 <code>if (S.value &lt;= 0)</code> → 唤醒（等于0时唤醒是因为刚才释放了一个资源，正好给等待队列里的第一个线程用）</p>
+<p>（说明刚刚起码是-1，有进程需要资源）</p>
 </blockquote>
 <h5 id="整型信号量"><a href="#整型信号量" class="headerlink" title="整型信号量"></a>整型信号量</h5><p>原理：和双标志先检查后上锁相同。但是实现了 检查和上锁 一气呵成。（避免进程同时在临界区的问题）</p>
 <p>缺点：不满足“让权等待”，会发生忙等。</p>
@@ -299,7 +301,7 @@ btf.addGlobalFn('pjaxComplete', () => {
 <p>回顾</p>
 <p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260407195308479.png"></p>
 <h4 id="管程"><a href="#管程" class="headerlink" title="管程"></a>管程</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260409145326232.png" alt="image-20260409145326232"></p>
-<p>信号量机制存在的问题，编写程序困难，易出错。</p>
+<p>信号量机制的缺点：编写程序困难，易出错，大量同步操作分散。</p>
 <p>管程：不易出错，易编写。</p>
 <p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260411150921800.png" alt="image-20260411150921800"></p>
 <p>管程 VS 进程</p>
@@ -316,7 +318,7 @@ btf.addGlobalFn('pjaxComplete', () => {
 <ul>
 <li><p>信号量具有整数值，反映可用资源数量。条件变量不维护数值，仅用于线程排队和通知。</p>
 </li>
-<li><p>资源数量由共享变量如S显示记录。条件变量只负责同步。（<em>条件是否满足应该由共享数据判断</em> ，而不是依赖信号次数。）</p>
+<li><p>资源数量由共享变量如S显示记录（PV操作一定会改变信号量的<strong>值</strong>）。条件变量只负责同步。（<em>条件是否满足应该由共享数据判断</em> ，而不是依赖信号次数。）</p>
 </li>
 </ul>
 <p>相当于封装，自己调函数就行</p>
@@ -326,8 +328,8 @@ btf.addGlobalFn('pjaxComplete', () => {
 <p>回顾</p>
 <p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260409151338758.png" alt="image-20260409151338758"></p>
 <h3 id="进程同步互斥问题"><a href="#进程同步互斥问题" class="headerlink" title="进程同步互斥问题"></a>进程同步互斥问题</h3><h4 id="生产者消费问题"><a href="#生产者消费问题" class="headerlink" title="生产者消费问题"></a>生产者消费问题</h4><p>名词解释：</p>
-<p>没有空缓冲区&#x3D; 缓冲区全满</p>
-<p>没有满缓冲区 &#x3D; 缓冲区全空</p>
+<p>​	没有空缓冲区 &#x3D; 缓冲区全满</p>
+<p>​	没有满缓冲区 &#x3D; 缓冲区全空</p>
 <p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260407200124695.png" alt="image-20260407200124695"></p>
 <p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260407200559910.png" alt="image-20260407200559910"></p>
 <p>①不能改变相邻<strong>P</strong>操作的顺序：会造成<strong>死锁</strong>。</p>
@@ -378,7 +380,7 @@ btf.addGlobalFn('pjaxComplete', () => {
 <ul>
 <li><p>就绪队列中进程的个数最多有n-1个。（不会出现cpu空闲的）</p>
 </li>
-<li><p>阻塞队列中进程的个数最多有n个（死锁了）</p>
+<li><p>阻塞队列中进程的个数最多有n个（死锁）</p>
 </li>
 </ul>
 <p>原语的实现：</p>
