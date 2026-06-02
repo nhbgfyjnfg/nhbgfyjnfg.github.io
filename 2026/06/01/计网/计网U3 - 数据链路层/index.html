@@ -1,0 +1,478 @@
+<!DOCTYPE html><html class="hide-aside" lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>计网-U3 数据链路层 | LKK の blog</title><meta name="author" content="KKL"><meta name="copyright" content="KKL"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="3.1 数据链路层的功能向上层下层要做的事情 物理链路：传输介质（0层）+ 物理层（1层）实现了相邻节点之间的“物理链路” 逻辑链路：数据链路层基于“物理链路”，添加了实现通信协议的软硬件，实现相邻节点之间逻辑上无差错的“数据链路&#x2F;逻辑链路”  **&#x3D;&#x3D;数据链路层向下（使用服务）&#x3D;&#x3D;**：使用物理层提供的 “比特传输” 服务。 &#x3D;&amp;#x3">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计网-U3 数据链路层">
+<meta property="og:url" content="http://example.com/2026/06/01/%E8%AE%A1%E7%BD%91/%E8%AE%A1%E7%BD%91U3%20-%20%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/index.html">
+<meta property="og:site_name" content="LKK の blog">
+<meta property="og:description" content="3.1 数据链路层的功能向上层下层要做的事情 物理链路：传输介质（0层）+ 物理层（1层）实现了相邻节点之间的“物理链路” 逻辑链路：数据链路层基于“物理链路”，添加了实现通信协议的软硬件，实现相邻节点之间逻辑上无差错的“数据链路&#x2F;逻辑链路”  **&#x3D;&#x3D;数据链路层向下（使用服务）&#x3D;&#x3D;**：使用物理层提供的 “比特传输” 服务。 &#x3D;&amp;#x3">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png">
+<meta property="article:published_time" content="2026-05-31T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-06-02T06:03:48.182Z">
+<meta property="article:author" content="KKL">
+<meta property="article:tag" content="博客,lkk">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "计网-U3 数据链路层",
+  "url": "http://example.com/2026/06/01/%E8%AE%A1%E7%BD%91/%E8%AE%A1%E7%BD%91U3%20-%20%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/",
+  "image": "https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png",
+  "datePublished": "2026-05-31T16:00:00.000Z",
+  "dateModified": "2026-06-02T06:03:48.182Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "KKL",
+      "url": "http://example.com/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2026/06/01/%E8%AE%A1%E7%BD%91/%E8%AE%A1%E7%BD%91U3%20-%20%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!true && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?61208d72ee755d3d238bfecf1e0a2afe";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+btf.addGlobalFn('pjaxComplete', () => {
+  _hmt.push(['_trackPageview',window.location.pathname])
+}, 'baidu_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":true,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":150,"languages":{"author":"作者: KKL","link":"链接: ","source":"来源: LKK の blog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: true,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '计网-U3 数据链路层',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/css/main.css"><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/./img/001.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">47</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">18</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 文章</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/movies/"><i class="fa-fw fas fa-movie"></i><span> Movie</span></a></div><div class="menus_item"><a class="site-page" href="/game/"><i class="fa-fw fas fa-gamepad"></i><span> 游戏</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://picsum.photos/200/300);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">LKK の blog</span></a><a class="nav-page-title" href="/"><span class="site-name">计网-U3 数据链路层</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 文章</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/movies/"><i class="fa-fw fas fa-movie"></i><span> Movie</span></a></div><div class="menus_item"><a class="site-page" href="/game/"><i class="fa-fw fas fa-gamepad"></i><span> 游戏</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">计网-U3 数据链路层</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-05-31T16:00:00.000Z" title="发表于 2026-06-01 00:00:00">2026-06-01</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-06-02T06:03:48.182Z" title="更新于 2026-06-02 14:03:48">2026-06-02</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%AE%A1%E7%BD%91/">计网</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h3 id="3-1-数据链路层的功能"><a href="#3-1-数据链路层的功能" class="headerlink" title="3.1 数据链路层的功能"></a>3.1 数据链路层的功能</h3><h4 id="向上层下层要做的事情"><a href="#向上层下层要做的事情" class="headerlink" title="向上层下层要做的事情"></a>向上层下层要做的事情</h4><blockquote>
+<p>物理链路：传输介质（0层）+ 物理层（1层）实现了相邻节点之间的“物理链路”</p>
+<p>逻辑链路：数据链路层基于“物理链路”，<strong>添加了实现通信协议的软硬件</strong>，实现相邻节点之间逻辑上无差错的“数据链路&#x2F;逻辑链路”</p>
+</blockquote>
+<p>**&#x3D;&#x3D;数据链路层向下（使用服务）&#x3D;&#x3D;**：使用物理层提供的 <strong>“比特传输”</strong> 服务。</p>
+<p><strong>&#x3D;&#x3D;数据链路层向上（提供服务）&#x3D;&#x3D;<strong>：为网络层提供服务，将网络层的 <strong>分组（IP数据报）</strong> 封装成</strong>帧</strong>，传输给下一个相邻节点。</p>
+<ul>
+<li><strong>帧 &#x3D; 首部 + 数据 + 尾部</strong></li>
+<li>首部和尾部包含<strong>各种控制信息</strong>。</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260601114905419.png" alt="image-20260601114905419"></p>
+<h4 id="数据链路层实现的功能-5"><a href="#数据链路层实现的功能-5" class="headerlink" title="数据链路层实现的功能(5)"></a>数据链路层实现的功能(5)</h4><blockquote>
+<p>之后一小节就是跟一个功能相关。</p>
+</blockquote>
+<p><strong>①封装成帧（组帧）</strong>：⭐</p>
+<blockquote>
+<p>组帧即：定义数据格式。</p>
+</blockquote>
+<ul>
+<li>帧定界：即如何让 <em>接收方</em>（对面的数据链路层） 能够 确定帧的界限。</li>
+<li>透明传输：接收方 要能从收到的帧内恢复原始SDU，让网络层“感受不到”将分组封装成帧的过程。（即把帧定阶的附加信息去除，把帧“恢复原貌”）<ul>
+<li>（透明性的拓展，其实数据链路层对上层是透明的。）</li>
+</ul>
+</li>
+</ul>
+<p><strong>②差错控制</strong>：发现并解决一个帧内部的 “位错误”。</p>
+<ul>
+<li>sol1：接收方 发现比特错后 丢弃帧，发送方 重传帧。（仅需采用 检错编码）</li>
+<li>sol2：接收方 发现并纠正比特错误。（需采用 纠错编码）</li>
+</ul>
+<p><strong>③可靠传输</strong>：发现并解决“帧错误”。</p>
+<ul>
+<li>eg 帧丢失，帧重复，帧失序。</li>
+</ul>
+<p><strong>④流量控制</strong>：控制 发送方 发送帧的速率别太快，让 接收方 有时间接收。（or会导致帧丢失）</p>
+<p><strong>⑤介质访问控制</strong>：</p>
+<blockquote>
+<p>数据链路层使用的信道主要有两种</p>
+</blockquote>
+<ul>
+<li>“广播信道” 需要实现此功能。因为广播信道在逻辑上是总线型拓扑，多个节点需争抢传输介质的使用权。</li>
+<li>“点对点信道” 不需要实现此功能。点对点信道意味着两个节点之间有专属的传输介质，不用争抢。</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260601120331680.png" alt="image-20260601120331680"></p>
+<h3 id="3-2-组帧（的方法）-4"><a href="#3-2-组帧（的方法）-4" class="headerlink" title="3.2 组帧（的方法）(4)"></a>3.2 组帧（的方法）(4)</h3><p>把 网络层 交给的数据打包成帧的过程。</p>
+<p>组帧的好处：数据出错，也只需重发出错的帧，无需重发全部数据。</p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260601120756552.png" alt="image-20260601120756552"></p>
+<h4 id="①-字符计数法"><a href="#①-字符计数法" class="headerlink" title="① 字符计数法"></a>① 字符计数法</h4><p>在每一个帧的开头，用一个 定长计数字段 ，<strong>记录一下帧长</strong>。</p>
+<ul>
+<li>帧长是包括首部分的计数字段的段长度的。即  <strong>帧长 &#x3D; 定长计数字段长度 + 帧的数据部分的长度</strong>。</li>
+</ul>
+<p>超级无敌大的缺点：任何一个计数字段出错，会导致后续 所有帧 无法定界。（健壮性差）</p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260601121527561.png" alt="image-20260601121527561"></p>
+<h4 id="②-字节填充法"><a href="#②-字节填充法" class="headerlink" title="② 字节填充法"></a>② 字节填充法</h4><p>控制字符SOH表示帧的开始，控制字符EOT表示帧的结束。</p>
+<p>插入转义字符ESC，防止SOH&#x2F;EOT和某些数据段歧义。（接收方做的是逆处理）</p>
+<p>再次插入一个转义字符，防止转义字符和某些数据段歧义。（接收方做的是逆处理）</p>
+<blockquote>
+<p>原理：（接收方的逆处理）发现转义字符，会把转义字符去除，后面部分就是数据，以此类推。</p>
+</blockquote>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260601122057272.png" alt="image-20260601122057272"></p>
+<h4 id="③-零比特填充法"><a href="#③-零比特填充法" class="headerlink" title="③ 零比特填充法"></a>③ 零比特填充法</h4><blockquote>
+<p>HDLC协议和PPP协议使用的组帧方法就是零比特填充法。</p>
+</blockquote>
+<p>以一串特殊比特串（01111110，连续有6个1）表示帧的开始和结束。</p>
+<p>解决和上个方法一样的问题：</p>
+<ul>
+<li>发送方需要对帧的数据部分进行处理：每当遇到了连续的5个1，就填充一个0</li>
+<li>接收方需要对帧的数据部分进行处理：每当遇到了连续的5个1，就删去后面的0</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260601122712751.png" alt="image-20260601122712751"></p>
+<h4 id="④-违规编码法"><a href="#④-违规编码法" class="headerlink" title="④ 违规编码法"></a>④ 违规编码法</h4><p>eg看曼切斯特编码（中间不跳变作为违规信号） </p>
+<p>用违规信号，表示帧的开始&#x2F;结束。（需要网络层的配合，因为涉及到了编码）</p>
+<p>适用：仅适用于冗余编码？的编码环境。</p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260601122918248.png" alt="image-20260601122918248"></p>
+<p>回顾</p>
+<p>（字节填充法太复杂，字符计数法缺陷大，采用的组帧方法是零比特填充法和违规编码法）</p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260601123732828.png" alt="image-20260601123732828"></p>
+<h3 id="other"><a href="#other" class="headerlink" title="other"></a>other</h3><p>无确认的无连接服务：指的是主机发送帧时不需要先建立逻辑连接，目的主机收到帧时也不需要发回确认。</p>
+<ul>
+<li>如果是帧丢失，也不检测也不回复。</li>
+<li>适合：①错误率很低的时候。②实时通信（毕竟数据迟到才是最糟的）</li>
+</ul>
+<h3 id="3-3-差错控制-2-1"><a href="#3-3-差错控制-2-1" class="headerlink" title="3.3 差错控制(2+1)"></a>3.3 差错控制(2+1)</h3><p>&#x3D;&#x3D;发现并解决帧内部的位错误。&#x3D;&#x3D;</p>
+<p><strong>sol1：</strong>接收方 发现比特错后 丢弃帧，发送方 重传帧。（仅需采用 检错编码）</p>
+<ul>
+<li>奇偶校验码</li>
+<li>ORC校验码</li>
+</ul>
+<p><strong>sol2：</strong>接收方 发现并纠正 比特错误。（需采用 纠错编码）</p>
+<ul>
+<li>海明校验码</li>
+</ul>
+<p><img src="C:\Users\99512\AppData\Roaming\Typora\typora-user-images\image-20260602115007037.png" alt="image-20260602115007037"></p>
+<h4 id="①奇偶校验码（检错编码）"><a href="#①奇偶校验码（检错编码）" class="headerlink" title="①奇偶校验码（检错编码）"></a>①奇偶校验码（检错编码）</h4><p>奇校验码：确保整个校验码【（最高一位）校验位+有效信息位】中1的个数为奇数。</p>
+<p>偶校验码：确保整个校验码【（最高一位）校验位+有效信息位】中1的个数为偶数。</p>
+<p>（校验位首部或者尾部都行）</p>
+<ul>
+<li>偶校验的实现如下：<ul>
+<li>逐个信息位进行<strong>异或运算</strong>（相异为1），最终的结果即为偶校验位。</li>
+</ul>
+</li>
+</ul>
+<p>奇偶校验缺点：</p>
+<ul>
+<li>如果<strong>偶数个</strong>比特发生错误，数据检测方<strong>无法检测出</strong>错误。</li>
+<li>无纠错能力。</li>
+</ul>
+<p><img src="C:\Users\99512\AppData\Roaming\Typora\typora-user-images\image-20260602115700978.png" alt="image-20260602115700978"></p>
+<p><img src="C:\Users\99512\AppData\Roaming\Typora\typora-user-images\image-20260602120344143.png" alt="image-20260602120344143"></p>
+<p>回顾</p>
+<p><img src="C:\Users\99512\AppData\Roaming\Typora\typora-user-images\image-20260602120640875.png" alt="image-20260602120640875"></p>
+<h4 id="②循环冗余校验码（CRC校验码）（检错编码）"><a href="#②循环冗余校验码（CRC校验码）（检错编码）" class="headerlink" title="②循环冗余校验码（CRC校验码）（检错编码）"></a>②循环冗余校验码（CRC校验码）（检错编码）</h4><p><img src="C:\Users\99512\AppData\Roaming\Typora\typora-user-images\image-20260602120743489.png" alt="image-20260602120743489"></p>
+<p><strong>原理</strong></p>
+<p>数据发送、接收方   约定一个 <strong>除数</strong>。</p>
+<p>（K个信息位+R个校验位）作为 <strong>被除数</strong>，添加的校验位是为了保证除法的 <strong>余数</strong> 为0。</p>
+<p>收到数据后，进行除法检查看余数是否为0。</p>
+<p>若余数非0说明出错，则进行重传或者纠错。</p>
+<p><img src="C:\Users\99512\AppData\Roaming\Typora\typora-user-images\image-20260602124323969.png" alt="image-20260602124323969"></p>
+<p><strong>例题</strong></p>
+<p><img src="C:\Users\99512\AppData\Roaming\Typora\typora-user-images\image-20260602124511194.png" alt="image-20260602124511194"></p>
+<p><img src="C:\Users\99512\AppData\Roaming\Typora\typora-user-images\image-20260602124843899.png" alt="image-20260602124843899"></p>
+<p>除数位数 &#x3D; 生成多项式的最高次幂+1（因为x的0次方也有常数c哈哈哈）</p>
+<p>除数内容的确定：由生成多项式确定。</p>
+<p>校验位的位数R &#x3D; 生成多项式的最高次幂</p>
+<p>校验位的内容的确定：</p>
+<ul>
+<li>对移位后的信息码做被除数，用生成多项式做除数，进行模2除，模2减，得到的 R位余数 就是校验位。（模2减，等同于异或运算）</li>
+<li><img src="C:\Users\99512\AppData\Roaming\Typora\typora-user-images\image-20260602124722340.png" alt="image-20260602124722340" style="zoom: 50%;" /></li>
+</ul>
+<p>&#x3D;&#x3D;拓展：出错位置和余数之间的关系：&#x3D;&#x3D;</p>
+<ul>
+<li><p>检验算得的 余数（<strong>n+1位</strong>）和  <strong>n</strong>进制的数，一定没有对应关系！</p>
+</li>
+<li><p>检验算得的 <strong>余数（n位）</strong>和  <strong>n进制的数</strong>可能相对应(因为之后有循环）。</p>
+<ul>
+<li>（eg余数三位）</li>
+<li>000-正确。001-出错位1(从后往前数)。110-出错位置8。001-出错位置9，形成一个循环…</li>
+</ul>
+</li>
+<li><p>如果CRC码很短（位数没有超过余数所能表示的范围，即没到一轮循环），就真的是一一对应了！</p>
+</li>
+<li><p><strong>因此循环冗余校验码是可以有纠错能力的（if信息位不多）</strong></p>
+<ul>
+<li><img src="C:\Users\99512\AppData\Roaming\Typora\typora-user-images\image-20260602124149073.png" alt="image-20260602124149073"></li>
+</ul>
+</li>
+</ul>
+<p><strong>检错纠错能力</strong></p>
+<ul>
+<li>可以检测出 所有奇数个错误</li>
+<li>可以检测出 所有双比特的错误</li>
+<li>可以检测出 所有小于等于校验位长度的连续错误</li>
+<li>若选择合适的生成多项式，且2^R ≥ K+R-1，则可以纠正单比特错误。</li>
+</ul>
+<h4 id="③海明校验码（纠错编码）"><a href="#③海明校验码（纠错编码）" class="headerlink" title="③海明校验码（纠错编码）"></a>③海明校验码（纠错编码）</h4><p><strong>基本思想</strong></p>
+<blockquote>
+<p>奇偶校验（单个校验位）只能发现奇数位错误，无法发现是哪一位错误。且无法重传。</p>
+<p>&#x3D;&#x3D;海明码思路&#x3D;&#x3D;：将信息位分成k个分组，每个分组分别进行偶校验→多个校验位→多个校验位可以标记出错位置。</p>
+</blockquote>
+<p>需要多少校验位：2^k ≥ n+k+1</p>
+<p><img src="C:\Users\99512\AppData\Roaming\Typora\typora-user-images\image-20260602132456356.png" alt="image-20260602132456356"></p>
+<p><strong>海明码求解步骤</strong> </p>
+<p>1.确定海明码的位数。 </p>
+<ul>
+<li>n+k，其中（2^k ≥ n+k+1）</li>
+</ul>
+<p>2.确定校验位的分布。</p>
+<ul>
+<li>校验位Pi放在海明位号为2^(i-1)的位置上。（P1，P2，P3…在1，2，4，8..位置）</li>
+<li>信息位Di按顺序放到其余位置。</li>
+</ul>
+<p>3.求校验位Pi的值。</p>
+<ul>
+<li><p>将信息位的位置序号用 k位二进制 表示出来。（十进制→二进制）</p>
+</li>
+<li><p>将校验位的位置序号Pi 与 位置序号第i位为1的信息位归为一组，进行偶校验。</p>
+</li>
+</ul>
+<p><img src="C:\Users\99512\AppData\Roaming\Typora\typora-user-images\image-20260602133406458.png" alt="image-20260602133406458"></p>
+<p>4.纠错</p>
+<ul>
+<li><p>对P1,P2,P3…所属各分组进行异或&#x3D;&#x3D;（相当于分组偶校验）&#x3D;&#x3D;。</p>
+</li>
+<li><p>求得S1,S2,S3。</p>
+</li>
+<li><p>S1,S2,S3 &#x3D; 000，说明无错误。</p>
+</li>
+<li><p>S1,S2,S3 ≠ 000，<strong>其值反映出出错位置。</strong></p>
+</li>
+</ul>
+<p><img src="C:\Users\99512\AppData\Roaming\Typora\typora-user-images\image-20260602133718791.png" alt="image-20260602133718791"></p>
+<p>5.补充</p>
+<p>海明码有&#x3D;&#x3D;1&#x3D;&#x3D;位纠错能力，&#x3D;&#x3D;2&#x3D;&#x3D;位检错能力。</p>
+<p>为了区分1位错还是2位错，可以在首部加上一个“全 校验位”，对整体进行偶校验。</p>
+<p><img src="C:\Users\99512\AppData\Roaming\Typora\typora-user-images\image-20260602134259076.png" alt="image-20260602134259076"></p>
+<p>回顾</p>
+<p><img src="C:\Users\99512\AppData\Roaming\Typora\typora-user-images\image-20260602135156223.png" alt="image-20260602135156223"></p>
+</article><div class="tag_share"><div class="post-share"><div class="social-share" data-image="https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="lv-container" data-id="city" data-uid="MTAyMC82MDU3Mi8zNzA0Mw=="></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82%E7%9A%84%E5%8A%9F%E8%83%BD"><span class="toc-text">3.1 数据链路层的功能</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%91%E4%B8%8A%E5%B1%82%E4%B8%8B%E5%B1%82%E8%A6%81%E5%81%9A%E7%9A%84%E4%BA%8B%E6%83%85"><span class="toc-text">向上层下层要做的事情</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%8A%9F%E8%83%BD-5"><span class="toc-text">数据链路层实现的功能(5)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E7%BB%84%E5%B8%A7%EF%BC%88%E7%9A%84%E6%96%B9%E6%B3%95%EF%BC%89-4"><span class="toc-text">3.2 组帧（的方法）(4)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E2%91%A0-%E5%AD%97%E7%AC%A6%E8%AE%A1%E6%95%B0%E6%B3%95"><span class="toc-text">① 字符计数法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E2%91%A1-%E5%AD%97%E8%8A%82%E5%A1%AB%E5%85%85%E6%B3%95"><span class="toc-text">② 字节填充法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E2%91%A2-%E9%9B%B6%E6%AF%94%E7%89%B9%E5%A1%AB%E5%85%85%E6%B3%95"><span class="toc-text">③ 零比特填充法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E2%91%A3-%E8%BF%9D%E8%A7%84%E7%BC%96%E7%A0%81%E6%B3%95"><span class="toc-text">④ 违规编码法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#other"><span class="toc-text">other</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-%E5%B7%AE%E9%94%99%E6%8E%A7%E5%88%B6-2-1"><span class="toc-text">3.3 差错控制(2+1)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E2%91%A0%E5%A5%87%E5%81%B6%E6%A0%A1%E9%AA%8C%E7%A0%81%EF%BC%88%E6%A3%80%E9%94%99%E7%BC%96%E7%A0%81%EF%BC%89"><span class="toc-text">①奇偶校验码（检错编码）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E2%91%A1%E5%BE%AA%E7%8E%AF%E5%86%97%E4%BD%99%E6%A0%A1%E9%AA%8C%E7%A0%81%EF%BC%88CRC%E6%A0%A1%E9%AA%8C%E7%A0%81%EF%BC%89%EF%BC%88%E6%A3%80%E9%94%99%E7%BC%96%E7%A0%81%EF%BC%89"><span class="toc-text">②循环冗余校验码（CRC校验码）（检错编码）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E2%91%A2%E6%B5%B7%E6%98%8E%E6%A0%A1%E9%AA%8C%E7%A0%81%EF%BC%88%E7%BA%A0%E9%94%99%E7%BC%96%E7%A0%81%EF%BC%89"><span class="toc-text">③海明校验码（纠错编码）</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer" style="background: white;"><div id="footer-wrap"><div class="copyright">&copy;2025 - 2026 By KKL</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.5</a></div><div class="footer_custom_text">Nice to meet you ! 😜</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/true" type="module"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+
+  const loadLivere = (el, path) => {
+    window.livereOptions = {
+      refer: path || location.pathname
+    }
+
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyLivere = () => {
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+
+    if (typeof LivereTower === 'object') window.LivereTower.init()
+    else {
+      (function(d, s) {
+          var j, e = d.getElementsByTagName(s)[0];
+          if (typeof LivereTower === 'function') { return; }
+          j = d.createElement(s);
+          j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+          j.async = true;
+          e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    }
+  }
+
+  if (isShuoshuo) {
+    'Livere' === 'Livere'
+      ? window.shuoshuoComment = { loadComment: loadLivere }
+      : window.loadOtherComment = loadLivere
+    return
+  }
+
+  if ('Livere' === 'Livere' || !false) {
+    if (false) btf.loadComment(document.getElementById('lv-container'), loadLivere)
+    else loadLivere()
+  } else {
+    window.loadOtherComment = loadLivere
+  }
+})()</script></div><script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script><script src="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/js/main.js"></script><div class="aplayer no-destroy" data-id="2690846376" data-server="netease" data-type="song" data-fixed="true" data-mini="true" data-lrctype="0" data-mutex="true" data-order="random" data-loop="all" data-listFolded="true" data-preload="none" data-autoplay="false" data-volume="0.3" data-listmaxheight="265px" data-theme="#2980b1"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script>(() => {
+  const destroyAplayer = () => {
+    if (window.aplayers) {
+      for (let i = 0; i < window.aplayers.length; i++) {
+        if (!window.aplayers[i].options.fixed) {
+          window.aplayers[i].destroy()
+        }
+      }
+    }
+  }
+
+  const runMetingJS = () => {
+    typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+  }
+
+  btf.addGlobalFn('pjaxSend', destroyAplayer, 'destroyAplayer')
+  btf.addGlobalFn('pjaxComplete', loadMeting, 'runMetingJS')
+})()</script><script src="/%5Bobject%20Object%5D"></script><script>(() => {
+  const pjaxSelectors = ["meta[property=\"og:image\"]","meta[property=\"og:title\"]","meta[property=\"og:url\"]","meta[property=\"og:description\"]","link[rel=\"canonical\"]","head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+  window.pjax = new Pjax({
+    elements: 'a:not([target="_blank"]):not([href="/movies/"]):not([href="/about/"]):not([href="/link/"]):not([href="/categories/"]):not([href="/tags/"]):not([href="/archives/"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  const triggerPjaxFn = (val) => {
+    if (!val) return
+    Object.values(val).forEach(fn => fn())
+  }
+
+  document.addEventListener('pjax:send', () => {
+    // removeEventListener
+    btf.removeGlobalFnEvent('pjaxSendOnce')
+    btf.removeGlobalFnEvent('themeChange')
+
+    // reset readmode
+    const $bodyClassList = document.body.classList
+    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
+
+    triggerPjaxFn(window.globalFn.pjaxSend)
+  })
+
+  document.addEventListener('pjax:complete', () => {
+    btf.removeGlobalFnEvent('pjaxCompleteOnce')
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+
+    triggerPjaxFn(window.globalFn.pjaxComplete)
+  })
+
+  document.addEventListener('pjax:error', e => {
+    if (e.request.status === 404) {
+      const usePjax = true
+      true 
+        ? (usePjax ? pjax.loadUrl('/404.html') : window.location.href = '/404.html')
+        : window.location.href = e.request.responseURL
+    }
+  })
+})()</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
