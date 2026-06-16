@@ -1,0 +1,399 @@
+<!DOCTYPE html><html class="hide-aside" lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>LKK の blog | LKK の blog</title><meta name="author" content="KKL"><meta name="copyright" content="KKL"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="4.1 网络层的功能（16） 4.2 IPv4（300） 4.3 IPv6（36） 4.4 路由算法与路由协议（240） 4.5 IP多播（18） 4.6 移动IP（26） 4.7 网络层设备（20）  前言  4.1 网络层的功能 异构互连网络 路由与转发 拥塞控制   4.2  IPv4①IPv4分组 IP：网络协议 v4，v6：版本号  IP协议（网际层协议）  IP数据报（IP分组）的格式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LKK の blog">
+<meta property="og:url" content="http://example.com/2026/06/15/%E8%AE%A1%E7%BD%91/%E8%AE%A1%E7%BD%91U4%20-%20%E7%BD%91%E7%BB%9C%E5%B1%82/index.html">
+<meta property="og:site_name" content="LKK の blog">
+<meta property="og:description" content="4.1 网络层的功能（16） 4.2 IPv4（300） 4.3 IPv6（36） 4.4 路由算法与路由协议（240） 4.5 IP多播（18） 4.6 移动IP（26） 4.7 网络层设备（20）  前言  4.1 网络层的功能 异构互连网络 路由与转发 拥塞控制   4.2  IPv4①IPv4分组 IP：网络协议 v4，v6：版本号  IP协议（网际层协议）  IP数据报（IP分组）的格式">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png">
+<meta property="article:published_time" content="2026-06-15T01:11:36.953Z">
+<meta property="article:modified_time" content="2026-06-16T04:34:43.290Z">
+<meta property="article:author" content="KKL">
+<meta property="article:tag" content="博客,lkk">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "",
+  "url": "http://example.com/2026/06/15/%E8%AE%A1%E7%BD%91/%E8%AE%A1%E7%BD%91U4%20-%20%E7%BD%91%E7%BB%9C%E5%B1%82/",
+  "image": "https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png",
+  "datePublished": "2026-06-15T01:11:36.953Z",
+  "dateModified": "2026-06-16T04:34:43.290Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "KKL",
+      "url": "http://example.com/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2026/06/15/%E8%AE%A1%E7%BD%91/%E8%AE%A1%E7%BD%91U4%20-%20%E7%BD%91%E7%BB%9C%E5%B1%82/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!true && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?61208d72ee755d3d238bfecf1e0a2afe";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+btf.addGlobalFn('pjaxComplete', () => {
+  _hmt.push(['_trackPageview',window.location.pathname])
+}, 'baidu_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":true,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":150,"languages":{"author":"作者: KKL","link":"链接: ","source":"来源: LKK の blog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: true,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'LKK の blog',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/css/main.css"><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/./img/001.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">48</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">18</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 文章</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/movies/"><i class="fa-fw fas fa-movie"></i><span> Movie</span></a></div><div class="menus_item"><a class="site-page" href="/game/"><i class="fa-fw fas fa-gamepad"></i><span> 游戏</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">LKK の blog</span></a><a class="nav-page-title" href="/"><span class="site-name">LKK の blog</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 文章</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/movies/"><i class="fa-fw fas fa-movie"></i><span> Movie</span></a></div><div class="menus_item"><a class="site-page" href="/game/"><i class="fa-fw fas fa-gamepad"></i><span> 游戏</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">无标题</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-06-15T01:11:36.953Z" title="发表于 2026-06-15 09:11:36">2026-06-15</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-06-16T04:34:43.290Z" title="更新于 2026-06-16 12:34:43">2026-06-16</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p>4.1 网络层的功能（16）</p>
+<p><strong>4.2 IPv4（300）</strong></p>
+<p>4.3 IPv6（36）</p>
+<p><strong>4.4 路由算法与路由协议（240）</strong></p>
+<p>4.5 IP多播（18）</p>
+<p>4.6 移动IP（26）</p>
+<p><strong>4.7 网络层设备（20）</strong></p>
+<p><img src="C:\Users\99512\AppData\Roaming\Typora\typora-user-images\image-20260615092347030.png" alt="image-20260615092347030"></p>
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p><img src="C:\Users\99512\AppData\Roaming\Typora\typora-user-images\image-20260615091953867.png" alt="image-20260615091953867"></p>
+<p><img src="C:\Users\99512\AppData\Roaming\Typora\typora-user-images\image-20260615092118048.png" alt="image-20260615092118048"></p>
+<h3 id="4-1-网络层的功能"><a href="#4-1-网络层的功能" class="headerlink" title="4.1 网络层的功能"></a>4.1 网络层的功能</h3><ul>
+<li>异构互连网络</li>
+<li>路由与转发</li>
+<li>拥塞控制</li>
+</ul>
+<p><img src="C:\Users\99512\AppData\Roaming\Typora\typora-user-images\image-20260615092606181.png" alt="image-20260615092606181"></p>
+<h3 id="4-2-IPv4"><a href="#4-2-IPv4" class="headerlink" title="4.2  IPv4"></a>4.2  IPv4</h3><h4 id="①IPv4分组"><a href="#①IPv4分组" class="headerlink" title="①IPv4分组"></a>①IPv4分组</h4><blockquote>
+<p>IP：网络协议</p>
+<p>v4，v6：版本号</p>
+</blockquote>
+<p>IP协议（网际层协议）</p>
+<p><img src="C:\Users\99512\AppData\Roaming\Typora\typora-user-images\image-20260615093704742.png" alt="image-20260615093704742"></p>
+<p><strong>IP数据报（IP分组）的格式</strong></p>
+<p>&#x3D;&#x3D;<em>首部（固定部分20B+可变部分0-40B） + 数据部分</em>&#x3D;&#x3D;</p>
+<p><strong>首部固定部分第一行</strong></p>
+<p>【版本+首部长度+区分服务+总长度(指的是整个IP数据报的总长度)】</p>
+<p><img src="C:\Users\99512\AppData\Roaming\Typora\typora-user-images\image-20260615094305596.png" alt="image-20260615094305596"></p>
+<p><img src="C:\Users\99512\AppData\Roaming\Typora\typora-user-images\image-20260615095809655.png" alt="image-20260615095809655"></p>
+<p><strong>首部固定部分第二行</strong></p>
+<p><strong>（发送方）分片</strong></p>
+<p>实际传输过程中，<strong>“数据部分”的长度</strong>会受到下一段链路的最短&#x2F;最长帧长限制，46-1500。</p>
+<ul>
+<li><strong>MTU</strong>：一个链路层数据帧承载的最大数据量称为<strong>最大传送单元</strong>MTU。eg以太网的MTU&#x3D;1500</li>
+<li>所以：如果一个IP数据报的总长度超出了下一段链路的MTU，就需要<strong>分片</strong>。（之后接收方再“重组”。</li>
+<li>分片可能在：源主机，或者任何一个路由器中发生。</li>
+</ul>
+<p><img src="C:\Users\99512\AppData\Roaming\Typora\typora-user-images\image-20260615100501501.png" alt="image-20260615100501501"></p>
+<p><img src="C:\Users\99512\AppData\Roaming\Typora\typora-user-images\image-20260615100705894.png" alt="image-20260615100705894"></p>
+<p><strong>（接收方）分片整理</strong></p>
+<p>目的主机接收到的分片可能是乱序的，需要整理排序（**&#x3D;&#x3D;通过“标识”，“标志”，“片偏移”字段&#x3D;&#x3D;**）</p>
+<ul>
+<li>只有<strong>目的主机</strong>才能<strong>对分片重组</strong>（路由器不行）</li>
+<li>因为首部的 “片偏移” 字段是以 <em>8B 为单位，因此，*<em>除了最后一个分片外，其他每个分片的数据部分必须是8B的整数倍。</em></em></li>
+</ul>
+<p><img src="C:\Users\99512\AppData\Roaming\Typora\typora-user-images\image-20260615101853822.png" alt="image-20260615101853822"></p>
+<p><img src="C:\Users\99512\AppData\Roaming\Typora\typora-user-images\image-20260615101733351.png" alt="image-20260615101733351"></p>
+<p><strong>首部固定部分的第三行</strong></p>
+<p>生存时间<strong>TTL</strong>：IP数据报的生存时间TTL。每经过一个路由器，TTL-1。如果TTL&#x3D;0，就丢弃分组，并向源主机发送ICMP报文。</p>
+<p>协议</p>
+<p>首部检验和：每个路由器仅校验首部，不校验数据部分。</p>
+<p><img src="C:\Users\99512\AppData\Roaming\Typora\typora-user-images\image-20260615102823021.png" alt="image-20260615102823021"></p>
+<p><strong>首部固定部分的第四五行</strong></p>
+<p>源地址，目的地址</p>
+<p><img src="C:\Users\99512\AppData\Roaming\Typora\typora-user-images\image-20260615102856396.png" alt="image-20260615102856396"></p>
+<p>回顾</p>
+<p><img src="C:\Users\99512\AppData\Roaming\Typora\typora-user-images\image-20260615103144792.png" alt="image-20260615103144792"></p>
+<h4 id="②IP地址"><a href="#②IP地址" class="headerlink" title="②IP地址"></a>②IP地址</h4><p>&#x3D;&#x3D;32位（bit） 【&#x3D;网络号+主机号】&#x3D;&#x3D;</p>
+<p>（为方便阅读）&#x3D;&#x3D;用十进制表示为4个部分，每个部分表示8bit。&#x3D;&#x3D;</p>
+<p><img src="C:\Users\99512\AppData\Roaming\Typora\typora-user-images\image-20260615102856396.png" alt="image-20260615102856396"></p>
+<p><strong>最初的IP地址分类方案</strong></p>
+<p>&#x3D;&#x3D;网络号不定长，但【前面的数字+网络号】定长为8位&#x3D;&#x3D;</p>
+<p>A类（1-126）</p>
+<ul>
+<li>（前八位可表示的：网络号数量是2^7-1&#x3D;127，减了全0的0情况）</li>
+<li>【前面8bit，主机号32-8bit】</li>
+</ul>
+<p>B类（128-191）</p>
+<ul>
+<li>（前八位可表示的：网络号数量是2^6&#x3D;64）（从128开始而不是127，全1的127是另外的情况）</li>
+<li>【前面16bit，主机号32-16bit】</li>
+</ul>
+<p>C类（192-223）</p>
+<ul>
+<li>（前八位可表示的：网络号数量是2^5&#x3D;32）</li>
+<li>【前面24bit，后面32-24bit】</li>
+</ul>
+<p>D类（224-239）</p>
+<ul>
+<li>（前八位可表示的：网络号数量是2^4&#x3D;16）</li>
+</ul>
+<p>E类（240-255）</p>
+<ul>
+<li>（前八位可表示的：网络号数量是2^3&#x3D;8）（</li>
+<li>（0到7一共八位是编码范围，8是主机号的编码开始，所以网络号一共有2^8-2种编码）</li>
+</ul>
+<p>IP地址资源由ICANN进行有偿分配，32位的地址最多可以分配2^32个。</p>
+<p>多播地址和单播地址：单播地址分配给一个主机，多播地址分配给一组。（就像是qq号和qq群号的关系）</p>
+<p>重点内容：</p>
+<ul>
+<li>① 在那个年代，要求每台主机，每个路由器接口被分配的<strong>IP地址</strong>都是<strong>全球唯一</strong>的。</li>
+<li>② 路由器和路由器连接的接口可以不分配IP地址，但<strong>路由器和其他节点连接的接口</strong> <strong>必须分配IP地址</strong>。</li>
+<li>③ 从属于&#x3D;&#x3D;同一个网络的所有主机，路由器接口的IP地址 “网络号” 都相同。&#x3D;&#x3D;</li>
+<li>④ 当一台新主机接入网络时，需要给分配一个IP地址，并配置 &#x3D;&#x3D;“默认网关”&#x3D;&#x3D; 。</li>
+</ul>
+<p><img src="C:\Users\99512\AppData\Roaming\Typora\typora-user-images\image-20260615112610966.png" alt="image-20260615112610966"></p>
+<p><strong>IP地址传输过程</strong></p>
+<p>通过根据默认网关的地址 + ARP协议可以查询到数据链路层的MAC地址，</p>
+<p>在数据链路层，有了MAC地址就可以把数据传输到下一个路由器&#x2F;交换机&#x2F;。</p>
+<p><img src="C:\Users\99512\AppData\Roaming\Typora\typora-user-images\image-20260615113956778.png" alt="image-20260615113956778"></p>
+<p><img src="C:\Users\99512\AppData\Roaming\Typora\typora-user-images\image-20260615114019932.png" alt="image-20260615114019932"></p>
+<p><img src="C:\Users\99512\AppData\Roaming\Typora\typora-user-images\image-20260615114118890.png" alt="image-20260615114118890"></p>
+<p><strong>一些特殊用途的IP地址</strong></p>
+<p>（全0 IP地址是，一台主机刚接入网络还没IP地址的时候向DHCP请求地址的时候使用的。）</p>
+<p><img src="C:\Users\99512\AppData\Roaming\Typora\typora-user-images\image-20260615125946898.png" alt="image-20260615125946898"></p>
+<h4 id="③子网划分，子网验码"><a href="#③子网划分，子网验码" class="headerlink" title="③子网划分，子网验码"></a>③子网划分，子网验码</h4><blockquote>
+</blockquote>
+<p><img src="C:\Users\99512\AppData\Roaming\Typora\typora-user-images\image-20260616115235355.png" alt="image-20260616115235355"></p>
+<p>画图训练</p>
+<p><img src="C:\Users\99512\AppData\Roaming\Typora\typora-user-images\image-20260616115250584.png" alt="image-20260616115250584"></p>
+<p><strong>子网划分</strong></p>
+<p>&#x3D;&#x3D;主机号分成：子网号+主机号&#x3D;&#x3D;</p>
+<p>（like一个学校多个校区，一个校区一个子网）</p>
+<p><strong>子网掩码</strong></p>
+<blockquote>
+<p>前提：网络号和子网号完全相同的IP地址才属于同一个网络</p>
+</blockquote>
+<p><strong>子网掩码 和 IP地址</strong>（自己的&#x2F;对面的） <strong>相与</strong>（11&#x3D;1，别的都是0），</p>
+<p>​	得到：网络号+子网号<strong>（call：网络前缀）</strong></p>
+</article><div class="tag_share"><div class="post-share"><div class="social-share" data-image="https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="lv-container" data-id="city" data-uid="MTAyMC82MDU3Mi8zNzA0Mw=="></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-%E7%BD%91%E7%BB%9C%E5%B1%82%E7%9A%84%E5%8A%9F%E8%83%BD"><span class="toc-text">4.1 网络层的功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-IPv4"><span class="toc-text">4.2  IPv4</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E2%91%A0IPv4%E5%88%86%E7%BB%84"><span class="toc-text">①IPv4分组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E2%91%A1IP%E5%9C%B0%E5%9D%80"><span class="toc-text">②IP地址</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E2%91%A2%E5%AD%90%E7%BD%91%E5%88%92%E5%88%86%EF%BC%8C%E5%AD%90%E7%BD%91%E9%AA%8C%E7%A0%81"><span class="toc-text">③子网划分，子网验码</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer" style="background: white;"><div id="footer-wrap"><div class="copyright">&copy;2025 - 2026 By KKL</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.5</a></div><div class="footer_custom_text">Nice to meet you ! 😜</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/true" type="module"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+
+  const loadLivere = (el, path) => {
+    window.livereOptions = {
+      refer: path || location.pathname
+    }
+
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyLivere = () => {
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+
+    if (typeof LivereTower === 'object') window.LivereTower.init()
+    else {
+      (function(d, s) {
+          var j, e = d.getElementsByTagName(s)[0];
+          if (typeof LivereTower === 'function') { return; }
+          j = d.createElement(s);
+          j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+          j.async = true;
+          e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    }
+  }
+
+  if (isShuoshuo) {
+    'Livere' === 'Livere'
+      ? window.shuoshuoComment = { loadComment: loadLivere }
+      : window.loadOtherComment = loadLivere
+    return
+  }
+
+  if ('Livere' === 'Livere' || !false) {
+    if (false) btf.loadComment(document.getElementById('lv-container'), loadLivere)
+    else loadLivere()
+  } else {
+    window.loadOtherComment = loadLivere
+  }
+})()</script></div><script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script><script src="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/js/main.js"></script><div class="aplayer no-destroy" data-id="2690846376" data-server="netease" data-type="song" data-fixed="true" data-mini="true" data-lrctype="0" data-mutex="true" data-order="random" data-loop="all" data-listFolded="true" data-preload="none" data-autoplay="false" data-volume="0.3" data-listmaxheight="265px" data-theme="#2980b1"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script>(() => {
+  const destroyAplayer = () => {
+    if (window.aplayers) {
+      for (let i = 0; i < window.aplayers.length; i++) {
+        if (!window.aplayers[i].options.fixed) {
+          window.aplayers[i].destroy()
+        }
+      }
+    }
+  }
+
+  const runMetingJS = () => {
+    typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+  }
+
+  btf.addGlobalFn('pjaxSend', destroyAplayer, 'destroyAplayer')
+  btf.addGlobalFn('pjaxComplete', loadMeting, 'runMetingJS')
+})()</script><script src="/%5Bobject%20Object%5D"></script><script>(() => {
+  const pjaxSelectors = ["meta[property=\"og:image\"]","meta[property=\"og:title\"]","meta[property=\"og:url\"]","meta[property=\"og:description\"]","link[rel=\"canonical\"]","head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+  window.pjax = new Pjax({
+    elements: 'a:not([target="_blank"]):not([href="/movies/"]):not([href="/about/"]):not([href="/link/"]):not([href="/categories/"]):not([href="/tags/"]):not([href="/archives/"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  const triggerPjaxFn = (val) => {
+    if (!val) return
+    Object.values(val).forEach(fn => fn())
+  }
+
+  document.addEventListener('pjax:send', () => {
+    // removeEventListener
+    btf.removeGlobalFnEvent('pjaxSendOnce')
+    btf.removeGlobalFnEvent('themeChange')
+
+    // reset readmode
+    const $bodyClassList = document.body.classList
+    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
+
+    triggerPjaxFn(window.globalFn.pjaxSend)
+  })
+
+  document.addEventListener('pjax:complete', () => {
+    btf.removeGlobalFnEvent('pjaxCompleteOnce')
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+
+    triggerPjaxFn(window.globalFn.pjaxComplete)
+  })
+
+  document.addEventListener('pjax:error', e => {
+    if (e.request.status === 404) {
+      const usePjax = true
+      true 
+        ? (usePjax ? pjax.loadUrl('/404.html') : window.location.href = '/404.html')
+        : window.location.href = e.request.responseURL
+    }
+  })
+})()</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
