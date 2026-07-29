@@ -429,33 +429,6 @@
     
     
     <entry>
-      <title>计组-7.1 I/O系统</title>
-      <link href="/2026/03/14/%E8%AE%A1%E7%BB%84/%E8%AE%A1%E7%BB%84-7.1%20IO%E7%B3%BB%E7%BB%9F/"/>
-      <url>/2026/03/14/%E8%AE%A1%E7%BB%84/%E8%AE%A1%E7%BB%84-7.1%20IO%E7%B3%BB%E7%BB%9F/</url>
-      
-        <content type="html"><![CDATA[<h2 id="7-1-I-O系统基本概念"><a href="#7-1-I-O系统基本概念" class="headerlink" title="7.1 I&#x2F;O系统基本概念"></a>7.1 I&#x2F;O系统基本概念</h2><p>&#x3D;&#x3D;<strong>I&#x2F;O接口 &#x3D;&#x3D; I&#x2F;O控制器</strong> &#x3D;&#x3D; <strong>设备控制器</strong>&#x3D;&#x3D;</p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260314112853122.png" alt="image-20260314112853122" style="zoom:67%;" /><h3 id="IO方式（CPU如何和I-O设备交互）"><a href="#IO方式（CPU如何和I-O设备交互）" class="headerlink" title="IO方式（CPU如何和I&#x2F;O设备交互）"></a>IO方式（CPU如何和I&#x2F;O设备交互）</h3><h4 id="a-程序查询方式"><a href="#a-程序查询方式" class="headerlink" title="a.程序查询方式"></a><strong>a.程序查询方式</strong></h4><ul><li>CPU等待，直到I&#x2F;O设备数据准备完成。</li></ul><h4 id="b-程序中断方式"><a href="#b-程序中断方式" class="headerlink" title="b.程序中断方式"></a><strong>b.程序中断方式</strong></h4><ul><li>CPU忙别的，I&#x2F;O设备准备好数据 再向CPU发送中断请求。</li></ul><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260314114121734.png" alt="image-20260314114121734" style="zoom:67%;" /><h4 id="c-DMA方式"><a href="#c-DMA方式" class="headerlink" title="c. DMA方式"></a><strong>c. DMA方式</strong></h4><ul><li>前言：对于快速的I&#x2F;O设备（eg磁盘），每准备好<strong>一个字</strong>就给CPU发送一次中断请求，这样子会降低CPU的利用率。（DMA是<strong>块</strong>传输）</li><li><strong>DMA接口</strong>是特殊的I&#x2F;O控制器，<strong>负责管理高速外设</strong>。<ul><li>原理是：①<strong>主存和高速I&#x2F;O设备</strong>之间有一条<strong>直接数据通路</strong>（DMA总线）。②每传<strong>一个块</strong>才给CPU发送中断请求 </li><li>特点：<strong>无需打扰CPU</strong>，无需调用中断服务程序（不像程序中断方式）</li></ul></li></ul><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260314113626382.png" alt="image-20260314113626382" style="zoom:50%;" /><h4 id="d-通道"><a href="#d-通道" class="headerlink" title="d.通道"></a><strong>d.通道</strong></h4><ul><li>前言：大型机需要接上超级多IO，如果都让CPU管理，CPU就太累了。</li><li>&#x3D;&#x3D; <strong>小小的CPU</strong>。负责处理CPU发来的I&#x2F;O指令。</li></ul><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260314114704734.png" alt="image-20260314114704734" style="zoom:50%;" /><hr><h3 id="IO系统组成"><a href="#IO系统组成" class="headerlink" title="IO系统组成"></a>IO系统组成</h3><h4 id="IO硬件"><a href="#IO硬件" class="headerlink" title="IO硬件"></a><strong>IO硬件</strong></h4><ul><li>包括外部设备，I&#x2F;O接口（IO控制器），I&#x2F;O总线等</li></ul><h4 id="IO软件"><a href="#IO软件" class="headerlink" title="IO软件"></a><strong>IO软件</strong></h4><ul><li><p>包括 <strong>IO指令</strong> 和 <strong>通道指令</strong>。</p></li><li><p>IO指令的<strong>操作码</strong>说的是CPU要对IO接口做什么。IO指令的<strong>命令码</strong>说的是IO接口要对设备做什么。</p></li><li><p>通道指令不同于机器指令，是通道自己能识别的指令。</p></li></ul><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260314115208844.png" alt="image-20260314115208844" style="zoom: 67%;" /><h3 id="外部设备"><a href="#外部设备" class="headerlink" title="外部设备"></a>外部设备</h3><p>I&#x2F;O设备又可以称为外部设备</p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260314115941275.png" alt="image-20260314115941275" style="zoom: 25%;" /><h4 id="输入设备"><a href="#输入设备" class="headerlink" title="输入设备"></a><strong>输入设备</strong></h4><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260314120231530.png" alt="image-20260314120231530" style="zoom: 25%;" /><h4 id="输出设备"><a href="#输出设备" class="headerlink" title="输出设备"></a><strong>输出设备</strong></h4><ul><li>重点内容是**&#x3D;&#x3D;显存&#x3D;&#x3D;**（显示存储器VRAM）<ul><li>VRAM容量 &#x3D; 分辨率 * 灰度级位数 （这是理论最小显存容量，再小显示器就不能正常工作了）</li><li>VRAM带宽是写入速度。</li><li>集成显卡一般从内存分出一块当显存。独显就不用。</li></ul></li></ul><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260314120953043.png" alt="image-20260314120953043" style="zoom:25%;" /><p>⭐字符点阵存储</p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260314122425101.png" alt="image-20260314122425101" style="zoom:25%;" /><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260314122918759.png" alt="image-20260314122918759" style="zoom:25%;" /><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260314123037412.png" alt="image-20260314123037412" style="zoom:25%;" /><h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260314123105631.png" alt="image-20260314123105631" style="zoom: 33%;" />]]></content>
-      
-      
-      <categories>
-          
-          <category> 计组 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> I/O </tag>
-            
-            <tag> I/O系统 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>计组-7.2 I/O接口</title>
       <link href="/2026/03/14/%E8%AE%A1%E7%BB%84/%E8%AE%A1%E7%BB%84-7.2%20IO%E6%8E%A5%E5%8F%A3/"/>
       <url>/2026/03/14/%E8%AE%A1%E7%BB%84/%E8%AE%A1%E7%BB%84-7.2%20IO%E6%8E%A5%E5%8F%A3/</url>
@@ -475,6 +448,33 @@
             <tag> I/O </tag>
             
             <tag> I/O接口 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>计组-7.1 I/O系统</title>
+      <link href="/2026/03/14/%E8%AE%A1%E7%BB%84/%E8%AE%A1%E7%BB%84-7.1%20IO%E7%B3%BB%E7%BB%9F/"/>
+      <url>/2026/03/14/%E8%AE%A1%E7%BB%84/%E8%AE%A1%E7%BB%84-7.1%20IO%E7%B3%BB%E7%BB%9F/</url>
+      
+        <content type="html"><![CDATA[<h2 id="7-1-I-O系统基本概念"><a href="#7-1-I-O系统基本概念" class="headerlink" title="7.1 I&#x2F;O系统基本概念"></a>7.1 I&#x2F;O系统基本概念</h2><p>&#x3D;&#x3D;<strong>I&#x2F;O接口 &#x3D;&#x3D; I&#x2F;O控制器</strong> &#x3D;&#x3D; <strong>设备控制器</strong>&#x3D;&#x3D;</p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260314112853122.png" alt="image-20260314112853122" style="zoom:67%;" /><h3 id="IO方式（CPU如何和I-O设备交互）"><a href="#IO方式（CPU如何和I-O设备交互）" class="headerlink" title="IO方式（CPU如何和I&#x2F;O设备交互）"></a>IO方式（CPU如何和I&#x2F;O设备交互）</h3><h4 id="a-程序查询方式"><a href="#a-程序查询方式" class="headerlink" title="a.程序查询方式"></a><strong>a.程序查询方式</strong></h4><ul><li>CPU等待，直到I&#x2F;O设备数据准备完成。</li></ul><h4 id="b-程序中断方式"><a href="#b-程序中断方式" class="headerlink" title="b.程序中断方式"></a><strong>b.程序中断方式</strong></h4><ul><li>CPU忙别的，I&#x2F;O设备准备好数据 再向CPU发送中断请求。</li></ul><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260314114121734.png" alt="image-20260314114121734" style="zoom:67%;" /><h4 id="c-DMA方式"><a href="#c-DMA方式" class="headerlink" title="c. DMA方式"></a><strong>c. DMA方式</strong></h4><ul><li>前言：对于快速的I&#x2F;O设备（eg磁盘），每准备好<strong>一个字</strong>就给CPU发送一次中断请求，这样子会降低CPU的利用率。（DMA是<strong>块</strong>传输）</li><li><strong>DMA接口</strong>是特殊的I&#x2F;O控制器，<strong>负责管理高速外设</strong>。<ul><li>原理是：①<strong>主存和高速I&#x2F;O设备</strong>之间有一条<strong>直接数据通路</strong>（DMA总线）。②每传<strong>一个块</strong>才给CPU发送中断请求 </li><li>特点：<strong>无需打扰CPU</strong>，无需调用中断服务程序（不像程序中断方式）</li></ul></li></ul><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260314113626382.png" alt="image-20260314113626382" style="zoom:50%;" /><h4 id="d-通道"><a href="#d-通道" class="headerlink" title="d.通道"></a><strong>d.通道</strong></h4><ul><li>前言：大型机需要接上超级多IO，如果都让CPU管理，CPU就太累了。</li><li>&#x3D;&#x3D; <strong>小小的CPU</strong>。负责处理CPU发来的I&#x2F;O指令。</li></ul><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260314114704734.png" alt="image-20260314114704734" style="zoom:50%;" /><hr><h3 id="IO系统组成"><a href="#IO系统组成" class="headerlink" title="IO系统组成"></a>IO系统组成</h3><h4 id="IO硬件"><a href="#IO硬件" class="headerlink" title="IO硬件"></a><strong>IO硬件</strong></h4><ul><li>包括外部设备，I&#x2F;O接口（IO控制器），I&#x2F;O总线等</li></ul><h4 id="IO软件"><a href="#IO软件" class="headerlink" title="IO软件"></a><strong>IO软件</strong></h4><ul><li><p>包括 <strong>IO指令</strong> 和 <strong>通道指令</strong>。</p></li><li><p>IO指令的<strong>操作码</strong>说的是CPU要对IO接口做什么。IO指令的<strong>命令码</strong>说的是IO接口要对设备做什么。</p></li><li><p>通道指令不同于机器指令，是通道自己能识别的指令。</p></li></ul><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260314115208844.png" alt="image-20260314115208844" style="zoom: 67%;" /><h3 id="外部设备"><a href="#外部设备" class="headerlink" title="外部设备"></a>外部设备</h3><p>I&#x2F;O设备又可以称为外部设备</p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260314115941275.png" alt="image-20260314115941275" style="zoom: 25%;" /><h4 id="输入设备"><a href="#输入设备" class="headerlink" title="输入设备"></a><strong>输入设备</strong></h4><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260314120231530.png" alt="image-20260314120231530" style="zoom: 25%;" /><h4 id="输出设备"><a href="#输出设备" class="headerlink" title="输出设备"></a><strong>输出设备</strong></h4><ul><li>重点内容是**&#x3D;&#x3D;显存&#x3D;&#x3D;**（显示存储器VRAM）<ul><li>VRAM容量 &#x3D; 分辨率 * 灰度级位数 （这是理论最小显存容量，再小显示器就不能正常工作了）</li><li>VRAM带宽是写入速度。</li><li>集成显卡一般从内存分出一块当显存。独显就不用。</li></ul></li></ul><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260314120953043.png" alt="image-20260314120953043" style="zoom:25%;" /><p>⭐字符点阵存储</p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260314122425101.png" alt="image-20260314122425101" style="zoom:25%;" /><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260314122918759.png" alt="image-20260314122918759" style="zoom:25%;" /><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260314123037412.png" alt="image-20260314123037412" style="zoom:25%;" /><h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260314123105631.png" alt="image-20260314123105631" style="zoom: 33%;" />]]></content>
+      
+      
+      <categories>
+          
+          <category> 计组 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> I/O </tag>
+            
+            <tag> I/O系统 </tag>
             
         </tags>
       
@@ -720,6 +720,31 @@
     
     
     <entry>
+      <title>计组-5.1 CPU的功能和基本结构</title>
+      <link href="/2026/03/02/%E8%AE%A1%E7%BB%84/%E8%AE%A1%E7%BB%84-5.1%20CPU%E7%9A%84%E5%8A%9F%E8%83%BD%E5%92%8C%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84/"/>
+      <url>/2026/03/02/%E8%AE%A1%E7%BB%84/%E8%AE%A1%E7%BB%84-5.1%20CPU%E7%9A%84%E5%8A%9F%E8%83%BD%E5%92%8C%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84/</url>
+      
+        <content type="html"><![CDATA[<h3 id="运算器"><a href="#运算器" class="headerlink" title="运算器"></a>运算器</h3><ul><li><strong>专用数据通路方式：</strong>根据指令执行过程中的数据和地址流动方向安排连接线路</li></ul><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260301201803081.png" alt="image-20260301201803081" style="zoom:50%;" /><ul><li><strong>内部单总线方式：</strong>将所有寄存器的输入端和输出端都连接到一条公共的通路上。</li></ul><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260301201834464.png" alt="image-20260301201834464" style="zoom:50%;" /><hr><h3 id="控制器"><a href="#控制器" class="headerlink" title="控制器"></a>控制器</h3><ul><li><strong>PC的位数取决于</strong> 存储器容量和指令字长（用字节编址和字编址）<ul><li>字编址： &#x3D;&#x3D; 存储器位数-log₂（指令字长字节数）</li></ul></li></ul><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260301191139018.png" alt="image-20260301191139018"></p><h3 id="CPU"><a href="#CPU" class="headerlink" title="&#x3D;&#x3D;CPU&#x3D;&#x3D;"></a>&#x3D;&#x3D;CPU&#x3D;&#x3D;</h3><ul><li><p>&#x3D;&#x3D;四大部分：ALU,寄存器，中断系统，CU控制单元&#x3D;&#x3D;</p></li><li><p>&#x3D;&#x3D;本章重点：CU&#x3D;&#x3D;</p></li><li><p><strong>用户可见寄存器：</strong>PSW，ACC，PC，通用寄存器</p></li><li><p><strong>用户不可见寄存器：</strong>IR，MAR，MDR，暂存寄存器，累加寄存器，移位寄存器</p></li></ul><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260301191456870.png" alt="image-20260301191456870"></p><h3 id="CPU（运算器-控制器）的功能"><a href="#CPU（运算器-控制器）的功能" class="headerlink" title="CPU（运算器+控制器）的功能"></a>CPU（运算器+控制器）的功能</h3><table><thead><tr><th>CPU</th><th>运算器</th><th>控制器</th></tr></thead><tbody><tr><td>指令控制</td><td>对数据进行加工</td><td>取指令</td></tr><tr><td>操作控制</td><td></td><td>分析指令</td></tr><tr><td>时间控制</td><td></td><td>执行指令</td></tr><tr><td>数据加工</td><td></td><td>中断处理</td></tr><tr><td>中断处理</td><td></td><td></td></tr></tbody></table>]]></content>
+      
+      
+      <categories>
+          
+          <category> 计组 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> CPU </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>计组-5.2 指令执行过程</title>
       <link href="/2026/03/02/%E8%AE%A1%E7%BB%84/%E8%AE%A1%E7%BB%84-5.2%20%E6%8C%87%E4%BB%A4%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B/"/>
       <url>/2026/03/02/%E8%AE%A1%E7%BB%84/%E8%AE%A1%E7%BB%84-5.2%20%E6%8C%87%E4%BB%A4%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B/</url>
@@ -737,31 +762,6 @@
         <tags>
             
             <tag> 指令 </tag>
-            
-            <tag> CPU </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>计组-5.1 CPU的功能和基本结构</title>
-      <link href="/2026/03/02/%E8%AE%A1%E7%BB%84/%E8%AE%A1%E7%BB%84-5.1%20CPU%E7%9A%84%E5%8A%9F%E8%83%BD%E5%92%8C%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84/"/>
-      <url>/2026/03/02/%E8%AE%A1%E7%BB%84/%E8%AE%A1%E7%BB%84-5.1%20CPU%E7%9A%84%E5%8A%9F%E8%83%BD%E5%92%8C%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84/</url>
-      
-        <content type="html"><![CDATA[<h3 id="运算器"><a href="#运算器" class="headerlink" title="运算器"></a>运算器</h3><ul><li><strong>专用数据通路方式：</strong>根据指令执行过程中的数据和地址流动方向安排连接线路</li></ul><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260301201803081.png" alt="image-20260301201803081" style="zoom:50%;" /><ul><li><strong>内部单总线方式：</strong>将所有寄存器的输入端和输出端都连接到一条公共的通路上。</li></ul><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260301201834464.png" alt="image-20260301201834464" style="zoom:50%;" /><hr><h3 id="控制器"><a href="#控制器" class="headerlink" title="控制器"></a>控制器</h3><ul><li><strong>PC的位数取决于</strong> 存储器容量和指令字长（用字节编址和字编址）<ul><li>字编址： &#x3D;&#x3D; 存储器位数-log₂（指令字长字节数）</li></ul></li></ul><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260301191139018.png" alt="image-20260301191139018"></p><h3 id="CPU"><a href="#CPU" class="headerlink" title="&#x3D;&#x3D;CPU&#x3D;&#x3D;"></a>&#x3D;&#x3D;CPU&#x3D;&#x3D;</h3><ul><li><p>&#x3D;&#x3D;四大部分：ALU,寄存器，中断系统，CU控制单元&#x3D;&#x3D;</p></li><li><p>&#x3D;&#x3D;本章重点：CU&#x3D;&#x3D;</p></li><li><p><strong>用户可见寄存器：</strong>PSW，ACC，PC，通用寄存器</p></li><li><p><strong>用户不可见寄存器：</strong>IR，MAR，MDR，暂存寄存器，累加寄存器，移位寄存器</p></li></ul><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260301191456870.png" alt="image-20260301191456870"></p><h3 id="CPU（运算器-控制器）的功能"><a href="#CPU（运算器-控制器）的功能" class="headerlink" title="CPU（运算器+控制器）的功能"></a>CPU（运算器+控制器）的功能</h3><table><thead><tr><th>CPU</th><th>运算器</th><th>控制器</th></tr></thead><tbody><tr><td>指令控制</td><td>对数据进行加工</td><td>取指令</td></tr><tr><td>操作控制</td><td></td><td>分析指令</td></tr><tr><td>时间控制</td><td></td><td>执行指令</td></tr><tr><td>数据加工</td><td></td><td>中断处理</td></tr><tr><td>中断处理</td><td></td><td></td></tr></tbody></table>]]></content>
-      
-      
-      <categories>
-          
-          <category> 计组 </category>
-          
-      </categories>
-      
-      
-        <tags>
             
             <tag> CPU </tag>
             
