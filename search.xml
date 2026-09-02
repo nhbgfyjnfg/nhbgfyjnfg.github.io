@@ -7703,25 +7703,32 @@ categories: ins
   <entry>
     <title>计组-4.1 指令系统</title>
     <url>/2026/02/24/%E8%AE%A1%E7%BB%84/%E8%AE%A1%E7%BB%84-4.1%20%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F/</url>
-    <content><![CDATA[<h2 id="4-1-指令系统"><a href="#4-1-指令系统" class="headerlink" title="4.1 指令系统"></a>4.1 指令系统</h2><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260220183411571.png" alt="image-20260220183411571"></p>
-<p>指令系统是<strong>控制器</strong>部分的内容。</p>
-<p>控制器和运算器组成了CPU。</p>
+    <content><![CDATA[<h2 id="4-1-指令系统"><a href="#4-1-指令系统" class="headerlink" title="4.1 指令系统"></a>4.1 指令系统</h2><h3 id="0-前言"><a href="#0-前言" class="headerlink" title="0.前言"></a>0.前言</h3><p>指令系统是 <strong>控制器</strong> 部分的内容。</p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260220183411571.png" alt="image-20260220183411571"></p>
 <p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260220183511003.png" alt="image-20260220183511003"></p>
+<blockquote>
+<p>从上面可以看出：</p>
+<p>​	PC保存的是：当前执行指令的地址</p>
+<p>​	指令的地址码字段保存的是；操作数的地址</p>
+</blockquote>
 <p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260220183537805.png" alt="image-20260220183537805"></p>
-<h3 id="指令集体系结构（ISA）"><a href="#指令集体系结构（ISA）" class="headerlink" title="指令集体系结构（ISA）"></a>指令集体系结构（<strong>ISA</strong>）</h3><ul>
+<hr>
+<h3 id="1-指令集体系结构（ISA）"><a href="#1-指令集体系结构（ISA）" class="headerlink" title="1.指令集体系结构（ISA）"></a>1.指令集体系结构（<strong>ISA</strong>）</h3><ul>
 <li><p><strong>ISA</strong>是软件和硬件之间接口的完整定义，包含了：基本数据类型，<strong>指令集</strong>，寄存器，寻址模式，储存体系，中断和异常处理及外部I&#x2F;O</p>
 </li>
 <li><p><strong>一台计算机所有的指令的集合构成该机的指令系统，由叫指令集。</strong></p>
 </li>
-<li><p>一台计算机只能执行自己指令系统的指令，不能执行其他系统的指令。eg  PC的x86架构，手机的ARM架构</p>
+<li><p>一台计算机只能执行自己指令系统的指令，不能执行其他系统的指令。eg：PC的x86架构，手机的ARM架构。</p>
 </li>
 </ul>
-<h3 id="指令的基本格式"><a href="#指令的基本格式" class="headerlink" title="&#x3D;&#x3D;指令的基本格式&#x3D;&#x3D;"></a>&#x3D;&#x3D;指令的基本格式&#x3D;&#x3D;</h3><ul>
+<h3 id="2-指令的基本格式"><a href="#2-指令的基本格式" class="headerlink" title="&#x3D;&#x3D;2.指令的基本格式&#x3D;&#x3D;"></a>&#x3D;&#x3D;2.指令的基本格式&#x3D;&#x3D;</h3><ul>
 <li><p><strong>操作码+地址码</strong></p>
-</li>
+<ul>
 <li><p>操作码 ：<strong>给出指令&#x2F;操作</strong></p>
 </li>
 <li><p>地址码 ：对谁操作&#x2F;操作对象（给出<strong>被操作</strong>数据&#x2F;指令<strong>的地址）</strong></p>
+</li>
+</ul>
 </li>
 <li><p>指令字长 – 指令长度</p>
 <ul>
@@ -7729,7 +7736,7 @@ categories: ins
 </ul>
 </li>
 </ul>
-<h3 id="指令分类"><a href="#指令分类" class="headerlink" title="指令分类"></a>指令分类</h3><p>&#x3D;&#x3D;**A. ** 按地址码数目（需要几个操作数）不同：&#x3D;&#x3D;</p>
+<h3 id="3-指令分类"><a href="#3-指令分类" class="headerlink" title="3.指令分类"></a>3.指令分类</h3><p>&#x3D;&#x3D;**A. ** 按地址码数目（需要几个操作数）不同：&#x3D;&#x3D;</p>
 <ul>
 <li><p>零地址指令</p>
 <ul>
@@ -7745,9 +7752,9 @@ categories: ins
 <ul>
 <li><p>when:</p>
 <ul>
-<li>OP(A₁)→A₁【只需要一个操作数，eg加1，求反…】（3次访存，取指，读A1，写A1）</li>
-<li>(ACC)OP(A₁)→ACC【两个操作数，但隐含另一个操作数由ACC累加器提供】（2次访存，取指，读A1）</li>
-<li>【A₁表示主存地址，(A₁)表示A₁所指向的地址的内容】</li>
+<li>OP(A₁)→A₁【只需要一个操作数，eg加1，求反…】	（⭐3次访存，取指，读A1，写A1）</li>
+<li>(ACC)OP(A₁)→ACC【两个操作数，但隐含另一个操作数由ACC累加器提供】（⭐2次访存，取指，读A1，注意写入ACC不用访存的）</li>
+<li>【注：A₁表示主存地址，(A₁)表示A₁所指向的地址的内容】</li>
 </ul>
 </li>
 </ul>
@@ -7775,7 +7782,7 @@ categories: ins
 </ul>
 </li>
 <li>若指令字长32位，<strong>操作码占8位</strong>，<strong>4个地址码字段各占6位。</strong></li>
-<li>则<strong>每个操作数</strong>的<strong>直接寻址范围</strong>为2^6&#x3D;64。若地址码均为主存地址，则完成一条四地址指令需要<strong>4次访存</strong>（取指令1，取两个操作数2，存结果1）</li>
+<li>则<strong>每个操作数</strong>的<strong>直接寻址范围</strong>为2^6&#x3D;64。若地址码均为主存地址，则完成一条四地址指令需要⭐<strong>4次访存</strong>（取指令1，取两个操作数2，存结果1）</li>
 </ul>
 </li>
 </ul>
@@ -7796,8 +7803,8 @@ categories: ins
 <p>&#x3D;&#x3D;D. 按功能分类&#x3D;&#x3D;</p>
 <ul>
 <li>数据传送<ul>
-<li>LOAD  把<strong>存储器</strong>中的数据放到<strong>寄存器</strong>中</li>
-<li>STORE 把<strong>寄存器</strong>中的数据放到<strong>存储器</strong>中</li>
+<li>LOAD 【把<strong>存储器</strong>中的数据放到<strong>寄存器</strong>中】</li>
+<li>STORE 【把<strong>寄存器</strong>中的数据放到<strong>存储器</strong>中】</li>
 </ul>
 </li>
 <li>算术和逻辑运算<ul>
@@ -7809,22 +7816,28 @@ categories: ins
 <li>转移操作：无条件转移（JMP），有条件转移，调用（CALL），返回（RET)，陷阱（Trap）…</li>
 <li>输出输入操作</li>
 </ul>
-<h3 id="扩展操作码"><a href="#扩展操作码" class="headerlink" title="扩展操作码"></a>扩展操作码</h3><p>&#x3D;&#x3D;B+C→扩展操作码&#x3D;&#x3D;</p>
+<h3 id="4-扩展操作码"><a href="#4-扩展操作码" class="headerlink" title="4.扩展操作码"></a>4.扩展操作码</h3><p>&#x3D;&#x3D;B+C→扩展操作码&#x3D;&#x3D;</p>
 <ul>
-<li><p><strong>定长指令字结构+可变长操作码！</strong></p>
+<li><p><strong>定长指令字结构 + 可变长操作码</strong></p>
 </li>
-<li><p>指令长度不变，<strong>操作码长度 由地址码↓而↑</strong></p>
+<li><p>指令长度不变，<strong>地址码越↓，操作码长度越↑</strong></p>
 </li>
 <li><p>优点：丰富指令种类</p>
 </li>
+<li><p><strong>实现方式：</strong>A1-A3，每个里面留出1111做扩展码扩展&#x2F;标记。可有15条三地址指令，15条二地址指令，15条一地址指令，和16条零地址指令。</p>
+</li>
 </ul>
 <p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260220224526187.png" alt="image-20260220224526187"></p>
-<p>attention：</p>
+<p>Attention：</p>
 <ul>
+<li>各指令的 操作码 ，一定不能重复</li>
 <li>不允许短码是长码的前缀</li>
-<li>各指令的操作码一定不能重复</li>
 </ul>
 <p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260220225514999.png" alt="image-20260220225514999"></p>
+<p>补充：</p>
+<p>中断隐指令，是由硬件实现的。并不是指令系统中存在的指令。</p>
+<p>特权指令，用于保护OS&#x2F;软件的，不提供给用户使用。</p>
+<p>隐含条件：计算机按字节编址，地址需要是8的倍数（Eg：指令字长23bit→24bit）</p>
 ]]></content>
       <categories>
         <category>计组</category>
@@ -7836,20 +7849,20 @@ categories: ins
   <entry>
     <title>计组-4.2 指令的寻址方式</title>
     <url>/2026/02/25/%E8%AE%A1%E7%BB%84/%E8%AE%A1%E7%BB%84-4.2%20%E6%8C%87%E4%BB%A4%E7%9A%84%E5%AF%BB%E5%9D%80%E6%96%B9%E5%BC%8F/</url>
-    <content><![CDATA[<h2 id="4-2-指令的寻址方式"><a href="#4-2-指令的寻址方式" class="headerlink" title="4.2 指令的寻址方式"></a>4.2 指令的寻址方式</h2><h3 id="指令寻址（先）"><a href="#指令寻址（先）" class="headerlink" title="指令寻址（先）"></a>指令寻址（先）</h3><p>指令寻址：寻找 下一条 将要执行 &#x3D;&#x3D;指令&#x3D;&#x3D; 的 &#x3D;&#x3D;指令地址&#x3D;&#x3D;</p>
+    <content><![CDATA[<h1 id="4-2-指令的寻址方式"><a href="#4-2-指令的寻址方式" class="headerlink" title="4.2 指令的寻址方式"></a>4.2 指令的寻址方式</h1><h2 id="1-指令寻址（先）"><a href="#1-指令寻址（先）" class="headerlink" title="1.指令寻址（先）"></a>1.指令寻址（先）</h2><p>指令寻址：寻找 下一条 将要执行 &#x3D;&#x3D;指令&#x3D;&#x3D; 的 &#x3D;&#x3D;指令地址&#x3D;&#x3D;。</p>
 <ul>
-<li><p><strong>程序总是根据 PC的内容 去主存取指令的。</strong></p>
+<li><p>程序总是 **根据PC的内容 **去主存取指令的。</p>
 <ul>
-<li>PC的位数 取决于存储器总字数 <em>N</em>，按字寻址时，位数 &#x3D;log2<em>N</em></li>
-<li>PC可表示的范围 N</li>
+<li>PC的位数 取决于存储器总字数 <em>N</em> 。按字寻址时，位数 &#x3D;log2<em>N</em></li>
+<li>（PC可表示的范围 N）</li>
 </ul>
 </li>
 <li><p><strong>每一条指令的执行都分为：&#x3D;&#x3D;“取指令”&#x3D;&#x3D;，“执行指令”两个阶段</strong>。</p>
 <ul>
-<li>&#x3D;&#x3D;PC+1是发生在 取指令 之后！&#x3D;&#x3D;</li>
+<li>&#x3D;&#x3D;PC+1是发生在 取指令 之后！执行指令之前！&#x3D;&#x3D;</li>
 </ul>
 </li>
-<li><p>顺序寻址：<strong>PC（程序计数器） &#x3D;&#x3D;+ “1”&#x3D;&#x3D;<strong>（1指的是</strong>指令字长</strong>）【定长】</p>
+<li><p>顺序寻址：<strong>PC（程序计数器） &#x3D;&#x3D;+ “1”&#x3D;&#x3D;<strong>（1指的是</strong>指令字长</strong>）【定长指令字】&#x3D;&#x3D;？&#x3D;&#x3D;</p>
 </li>
 </ul>
 <img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260224115835279.png" alt="image-20260224115835279" style="zoom:50%;" />
@@ -7857,75 +7870,82 @@ categories: ins
 <ul>
 <li>跳跃寻址：通过<strong>转移类指令</strong>实现。</li>
 </ul>
-<p>​</p>
-<h3 id="数据寻址（后）"><a href="#数据寻址（后）" class="headerlink" title="数据寻址（后）"></a>数据寻址（后）</h3><p>&#x3D;&#x3D;数据寻址：寻找 <strong>本条指令</strong> 的地址码指明的 <strong>真实地址</strong>&#x3D;&#x3D;</p>
+<hr>
+<h2 id="2-数据寻址（后）"><a href="#2-数据寻址（后）" class="headerlink" title="2.数据寻址（后）"></a>2.数据寻址（后）</h2><p>&#x3D;&#x3D;数据寻址：寻找 <strong>本条指令</strong> 的地址码指明的 <strong>真实地址</strong>&#x3D;&#x3D;</p>
 <ul>
-<li>&#x3D;&#x3D;数据寻址既是在找地址，也是在找操作数——找地址是手段，获取操作数是目的。&#x3D;&#x3D;</li>
+<li><strong>（数据寻址既是在找地址，也是在找操作数——找地址是手段，获取操作数是目的。）</strong></li>
 </ul>
-<p>方式：10种。故通常在指令字段中设置<strong>寻址特征字段</strong>来标记是哪种寻址方式。</p>
+<p>数据寻址方式：10种。故通常在指令字段中设置<strong>寻址特征字段</strong>来标记是哪种寻址方式。</p>
 <ul>
-<li><p>&#x3D;&#x3D;<strong>通用格式：| 操作码 | 寻址特征 | 形式地址A |</strong>&#x3D;&#x3D;   （<strong>为了简便此处都是用单地址</strong>而非多地址的形式）</p>
+<li><p>&#x3D;&#x3D;<strong>指令通用格式：| 操作码 | 寻址特征 | 形式地址A |</strong>&#x3D;&#x3D;   （<strong>为了简便此处都是用单地址</strong>而非多地址的形式）</p>
 <ul>
 <li>（操作码位数看有多少操作。寻址特征位数看有几种寻址方式）</li>
 </ul>
 </li>
 <li><p>形式地址&#x3D;&#x3D;A&#x3D;&#x3D;，有效（真实）地址&#x3D;&#x3D;EA&#x3D;&#x3D;（effective address）</p>
 </li>
-<li><p><strong>(<strong>A</strong>)<strong>表示地址A的</strong>数值</strong>，A既可以是寄存器编号，也可以是内存地址。</p>
+<li><p><strong>(A)<strong>表示地址A的</strong>数值</strong>。（A既可以是寄存器编号，也可以是内存地址）</p>
 </li>
 </ul>
 <h4 id="直接寻址"><a href="#直接寻址" class="headerlink" title="直接寻址"></a>直接寻址</h4><ul>
 <li>| LDA | 直接寻址特征 | A |</li>
-<li>最直接的。操作数的<strong>真实地址</strong>就是<strong>形式地址</strong> A 。即 <strong>EA &#x3D; A</strong></li>
+<li>最直接的。**&#x3D;&#x3D;操作数的真实地址就是形式地址A&#x3D;&#x3D;** 。即 <strong>&#x3D;&#x3D;EA &#x3D; A&#x3D;&#x3D;</strong></li>
 <li>优缺：最简单，指令执行阶段只访存一次。A的位数限制了操作数的寻址范围，且操作数的地址不易更改。</li>
-<li>适合：指令放置位置是 从内存0开始的？</li>
+<li>访存次数2：取指令1次，执行指令1次。（暂不考虑存结果）</li>
 </ul>
 <img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260224124950754.png" alt="image-20260224124950754" style="zoom:50%;" />
 
 <img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260224132727635.png" alt="image-20260224132727635" style="zoom:50%;" />
 
 <h4 id="间接寻址"><a href="#间接寻址" class="headerlink" title="间接寻址"></a>间接寻址</h4><ul>
-<li>| OP | 间接寻址特征位 | A |</li>
-<li>指令的字段给出的不是操作数真实地址，而是真实（有效）地址所在的主存单元的地址。 即 <strong>EA &#x3D; (A)</strong></li>
+<li>| OP | 间接寻址特征位 | A |	（OP可以放任意指令（LDA、ADD、SUB等））</li>
+<li>&#x3D;&#x3D;指令的字段给出的&#x3D;&#x3D;不是操作数真实地址，而&#x3D;&#x3D;是真实(有效)地址所在的  主存单元的地址&#x3D;&#x3D;。 即 <strong>&#x3D;&#x3D;EA &#x3D; (A)&#x3D;&#x3D;</strong></li>
 <li>优缺：可扩大寻址范围（EA可能存放的单元范围），且便于编制程序（多次间接 ）。指令执行阶段要多次访存，慢。</li>
+<li>访存次数3：取指令1次，执行指令2次。（暂不考虑存结果）</li>
 </ul>
 <img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260224125324320.png" alt="image-20260224125324320" style="zoom:50%;" />
 
 <h4 id="寄存器寻址"><a href="#寄存器寻址" class="headerlink" title="寄存器寻址"></a>寄存器寻址</h4><ul>
 <li><p>| OP | 寻址特征 | Rī |</p>
 </li>
-<li><p>指令字段给出的是操作数所在的寄存器编号。 即 <strong>EA &#x3D; Rī</strong></p>
+<li><p>&#x3D;&#x3D;指令字段给出的是  操作数所在的寄存器编号&#x3D;&#x3D;。 即 <strong>&#x3D;&#x3D;EA &#x3D; Rī&#x3D;&#x3D;</strong></p>
 </li>
-<li><p>优缺：指令执行阶段不用访存，访问寄存器，fast，且地址码位数更少，指令字长短。寄存器贵，数量有限。</p>
+<li><p>优缺：指令执行阶段不用访存，仅需访问寄存器，fast，且地址码位数更少，指令字长短。寄存器贵，数量有限。</p>
+</li>
+<li><p>访存次数1：取指令1次，执行指令0次。（暂不考虑存结果）</p>
 </li>
 </ul>
 <img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260224125712241.png" alt="image-20260224125712241" style="zoom:50%;" />
 
 <h4 id="寄存器间接寻址"><a href="#寄存器间接寻址" class="headerlink" title="寄存器间接寻址"></a>寄存器间接寻址</h4><ul>
-<li>间接寻址+寄存器寻址。 即 <strong>EA &#x3D; （Rī）</strong></li>
+<li>&#x3D;&#x3D;间接寻址的优化&#x3D;&#x3D;。 即 &#x3D;&#x3D;EA  &#x3D; (Rī）&#x3D;&#x3D;</li>
 <li>优缺：相比于间接，减少了访存次数（only 1）。相比于寄存器，多了内存访存。</li>
+<li>访存次数2：取指令1次。执行指令1次。（暂不考虑存结果）</li>
 </ul>
 <img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260224125853142.png" alt="image-20260224125853142" style="zoom:50%;" />
 
 <h4 id="隐含寻址"><a href="#隐含寻址" class="headerlink" title="隐含寻址"></a>隐含寻址</h4><ul>
-<li>不直接而是隐含 <strong>操作数的地址</strong>。（eg单地址的指令割术就隐含约定<strong>第二个操作数</strong>由累加器（ACC）提供）</li>
+<li>不直接而是&#x3D;&#x3D;隐含 <strong>操作数的地址</strong>&#x3D;&#x3D;。（eg单地址的指令割术就隐含约定<strong>第二个操作数由累加器（ACC）提供</strong>）</li>
 <li>优缺：利于缩短指令字长。需增加存储操作数或隐含地址的硬件。</li>
+<li>访存次数：如果地址由ACC提供，0次。如果地址在内存中，1次。</li>
 </ul>
 <img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260224125953042.png" alt="image-20260224125953042" style="zoom:50%;" />
 
 <h4 id="立即（数）寻址"><a href="#立即（数）寻址" class="headerlink" title="立即（数）寻址"></a>立即（数）寻址</h4><ul>
-<li><p>| OP | <strong>#</strong> | A |</p>
+<li><p>&#x3D;&#x3D;| OP | # | A |&#x3D;&#x3D;</p>
 </li>
-<li><p><strong>指令字的地址字段给出的</strong>不是操作数的地址，而<strong>是操作数本身</strong>（也称立即数，补码形式出现）！（全过程只在取指令访存一次）</p>
+<li><p><strong>指令字的地址字段给出的</strong>不是操作数的地址，而<strong>是操作数本身</strong>（也称立即数，以补码形式出现！）</p>
 </li>
 <li><p>优缺：指令<strong>执行阶段</strong>不访存，fast。A的位数限制了立即数的范围。</p>
+</li>
+<li><p>访存次数1：取指令1次。</p>
 </li>
 </ul>
 <h4 id="偏移寻址"><a href="#偏移寻址" class="headerlink" title="偏移寻址"></a>偏移寻址</h4><h5 id="0-补充内容"><a href="#0-补充内容" class="headerlink" title="0.补充内容"></a><strong>0.补充内容</strong></h5><ul>
 <li>以某个地址作为起点，另外一个作为<strong>偏移量</strong></li>
-<li>&#x3D;&#x3D;补码：&#x3D;&#x3D;<ul>
-<li>6位<strong>补码表示范围</strong>是-32～+31</li>
-<li><strong>补码扩充问题</strong>，因为数相加减时得同位数，正数前面添0，负数前面添1（FFF）</li>
+<li><strong>补码：</strong><ul>
+<li>&#x3D;&#x3D;6位补码表示范围是：-32～+31（注意是得少一位哦）&#x3D;&#x3D;</li>
+<li>补码扩充问题，正数前面添0，负数前面添1（FFF）</li>
 <li>Imm8 – 8位补码</li>
 </ul>
 </li>
@@ -7936,25 +7956,29 @@ categories: ins
 <li>CF：无符号数运算是否产生借位</li>
 </ul>
 </li>
-<li>sizeof(double)&#x3D;8</li>
+<li>sizeof(double)&#x3D;8 （单位B）</li>
 </ul>
 <h5 id="a-相对寻址"><a href="#a-相对寻址" class="headerlink" title="a.相对寻址"></a>a.相对寻址</h5><ul>
-<li>以**程序计数器PC ** &#x3D;&#x3D;<strong>所指的地址</strong>&#x3D;&#x3D;作为“起点”</li>
-<li><strong>EA &#x3D; (PC) + A</strong> 。</li>
-<li>【A是相对PC所指地址的<strong>偏移量</strong>，可正可负，补码表示】【寻址范围：2^A的位数】</li>
-<li>（ACC加法指令的地址码，可以采用“分段”的方式将程序段数据段分开，eg可解决M行的问题） </li>
-<li>优 ：便于<strong>程序的浮动</strong>（一段代码在程序中的浮动），用于<strong>转移指令。</strong></li>
+<li><p>&#x3D;&#x3D;以 程序计数器<strong>PC所指的地址</strong> 作为“起点”&#x3D;&#x3D;</p>
+</li>
+<li><p>&#x3D;&#x3D;<strong>EA &#x3D; (PC) + A</strong>&#x3D;&#x3D;  ，&#x3D;&#x3D;【偏移的是A】&#x3D;&#x3D;</p>
+</li>
+<li><p>优点：<strong>代码段 在程序内浮动时 不用更改&#x3D;&#x3D;跳转指令&#x3D;&#x3D;的地址码。</strong></p>
+</li>
+<li><p>缺点：偏移量（形式地址A）的位数较短。</p>
+</li>
+<li><p>（<strong>A可正可负</strong>，以补码表示）（寻址范围：2^A的位数）</p>
+</li>
+<li><p>（ACC加法指令的地址码，可以采用“分段”的方式将程序段数据段分开，eg可解决M行的问题&#x3D;&#x3D;？&#x3D;&#x3D;）</p>
+</li>
 </ul>
 <p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260224201550545.png" alt="image-20260224201550545"></p>
 <h5 id="b-基址寻址"><a href="#b-基址寻址" class="headerlink" title="b.基址寻址"></a>b.基址寻址</h5><ul>
-<li><p>以<strong>程序</strong>的起始存放地址作为“起点”</p>
-</li>
-<li><p>有效地址 &#x3D; 形式地址 A + 基址寄存器BR（base address register）的内容 。 即 <strong>EA &#x3D; (BR) + A</strong>。</p>
-</li>
-<li><p>其中BR既可以用专属寄存器，也可用某个通用寄存器</p>
-</li>
-<li><p>优缺：扩大寻址范围，便于<strong>程序“浮动”</strong>，实现多道程序并发运行。<strong>偏移量（形式地址A）</strong>的位数较短。</p>
-</li>
+<li>&#x3D;&#x3D;以<strong>程序的</strong>起始存放地址作为“起点”&#x3D;&#x3D;</li>
+<li>有效地址 &#x3D; 形式地址 A + 基址寄存器BR（base address register）的内容 。 即 &#x3D;&#x3D;<strong>EA &#x3D; (BR) + A</strong>&#x3D;&#x3D;，&#x3D;&#x3D;【偏移的是A】&#x3D;&#x3D;</li>
+<li>优缺：扩大寻址范围，&#x3D;&#x3D;便于<strong>程序的数据浮动</strong>&#x3D;&#x3D;，实现多道程序并发运行。</li>
+<li>缺点：偏移量（形式地址A）的位数较短。</li>
+<li>（BR既可以用专属寄存器，也可用某个通用寄存器）</li>
 </ul>
 <img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260224131226141.png" alt="image-20260224131226141" style="zoom:50%;" />
 
@@ -7963,18 +7987,24 @@ categories: ins
 
 
 <h5 id="c-变址寻址"><a href="#c-变址寻址" class="headerlink" title="c.变址寻址"></a>c.变址寻址</h5><ul>
-<li>有效地址 &#x3D; 形式地址A + 变址寄存器（IX）的内容。 即 <strong>EA &#x3D; (IX) + A</strong></li>
-<li>IX（index register）（作为偏移量）可以用专用的，也可以用通用的。<strong>形式地址A不变（作为基地址）</strong></li>
-<li>优缺：   扩大寻址范围，且<strong>适合编址循环程序。</strong></li>
-<li><strong>基址寻址VS变址寻址</strong><ul>
-<li>基址寻址<strong>面向操作系统</strong>，主要用于<strong>为多道程序或数据分配存储空间</strong>。<ul>
-<li>BR的内容由OS确定且不可变，<strong>A可变</strong>。</li>
+<li>有效地址 &#x3D; 形式地址A + 变址寄存器（IX）的内容。 即 **&#x3D;&#x3D;EA &#x3D; (IX) + A&#x3D;&#x3D;**，&#x3D;&#x3D;【偏移的是(IX)】&#x3D;&#x3D;</li>
+<li>优缺：   扩大寻址范围，且&#x3D;&#x3D;适合编址循环程序&#x3D;&#x3D;。</li>
+<li>（IX，index register，可以用专用的，也可以用通用的)</li>
+</ul>
+<h5 id="d-对比⭐"><a href="#d-对比⭐" class="headerlink" title="d.对比⭐"></a>d.对比⭐</h5><p>相对寻址 VS 基址寻址：</p>
+<ul>
+<li>&#x3D;&#x3D;相对寻址用 PC 决定“跳到哪里”（代码跳转），基址寻址用寄存器决定“数据在哪”（内存访问）&#x3D;&#x3D;</li>
+</ul>
+<p>基址寻址 VS 变址寻址：</p>
+<ul>
+<li>基址寻址<ul>
+<li>&#x3D;&#x3D;BR 决定“数据在哪一段”（BR是基地址）&#x3D;&#x3D;</li>
+<li>（面向操作系统，主要用于为多道程序或数据分配存储空间）</li>
 </ul>
 </li>
-<li>变址寻址<strong>面向用户</strong>，主要用于<strong>处理数组问题</strong>。<ul>
-<li>IX的内容由用户设定且可变，而指令字中的<strong>A是不可变的</strong>。</li>
-</ul>
-</li>
+<li>变址寻址<ul>
+<li>&#x3D;&#x3D;IX 决定“数据在数组中的哪个位置”（IX是下标）&#x3D;&#x3D;</li>
+<li>（面向用户，主要用于处理数组问题）</li>
 </ul>
 </li>
 </ul>
@@ -7987,26 +8017,22 @@ categories: ins
 
 
 <h4 id="堆栈寻址"><a href="#堆栈寻址" class="headerlink" title="堆栈寻址"></a>堆栈寻址</h4><ul>
-<li><p>堆栈是主存（或寄存器）中一块特定的，按FILO原则管理的存储区</p>
+<li><p>堆栈是<strong>主存（或寄存器）</strong>中一块特定的，按FILO原则管理的存储区。</p>
 <ul>
-<li>硬堆栈：寄存器堆栈</li>
+<li>硬堆栈：寄存器堆栈（速度快，成本高）</li>
 <li>软堆栈：主存中划分出区域</li>
 </ul>
 </li>
-<li><p>操作数存放在<strong>堆栈</strong>中，隐含使用<strong>堆栈指针（SP</strong>，Stack Pointer）作为操作数地址</p>
+<li><p>操作数存放在<strong>堆栈</strong>中，隐含使用<strong>堆栈指针（SP</strong>，Stack Pointer）作为操作数地址。</p>
 </li>
 </ul>
 <p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260224203141085.png" alt="image-20260224203141085"></p>
-<ul>
-<li>软堆栈</li>
-<li>硬堆栈，速度快，成本高。</li>
-</ul>
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><table>
 <thead>
 <tr>
 <th>寻址方式</th>
 <th>有效地址</th>
-<th>（指令执行阶段）访存次数</th>
+<th>（指令执行阶段）访存次数（不含取值阶段和存结果）</th>
 </tr>
 </thead>
 <tbody><tr>
@@ -8071,7 +8097,43 @@ categories: ins
 </tr>
 </tbody></table>
 <hr>
-<p>大题T 7-8留着有时间做</p>
+<p>&#x3D;&#x3D;补充&#x3D;&#x3D;：</p>
+<p><strong>变址 间址</strong>寻址方式：先变址，再间值</p>
+<p>指令3B，PC指向240。指令取出后：<strong>PC &#x3D; 243</strong></p>
+<p><strong>以低字节地址为字地址</strong>：小端存储，从末尾开始存储。</p>
+<p>&#x3D;&#x3D;bgt（大于零转移）&#x3D;&#x3D;</p>
+<ul>
+<li><p>若bgt指令是无符号数比较：跳转条件(即A-B＞0)是	ZF + CF &#x3D; 0</p>
+<ul>
+<li>ZF一定为0（表示结果不是0）。</li>
+<li>CF也一定为0（表示A-B无进位&#x2F;错位）</li>
+</ul>
+</li>
+<li><p>若bgt指令是有符号数比较：跳转条件是      ZF  +  (SF⊕OF)&#x3D; 0</p>
+<ul>
+<li><p>ZF一定为0。</p>
+</li>
+<li><p>要么未发生溢出（7-1&#x3D;6），SF&#x3D;OF&#x3D;0</p>
+</li>
+<li><p>要么已发生溢出（127 -  -1），SF&#x3D;OF&#x3D;1</p>
+<ul>
+<li><p>&#x3D;&#x3D;（SF&#x3D;0，结果的最高位（即符号位）为正数）&#x3D;&#x3D;</p>
+</li>
+<li><p>&#x3D;&#x3D;（SF&#x3D;1，结果的最高位（即符号位）为负数）&#x3D;&#x3D;</p>
+</li>
+<li><pre><code>  0111 1111  （127）
++ 0000 0001  （1）
+= 1000 0000  （-128）
+</code></pre>
+</li>
+<li><p><strong>⊕：两个操作数相同则为 0，不同则为 1。</strong></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>注意内存是无符号数，如果要和形式地址（用补码表示，可能为负数，比如基址然后负偏移时候）加一起时候，要注意转换为正数再相减（加一个负数等于减它的正数嘛）</strong></p>
 ]]></content>
       <categories>
         <category>计组</category>
@@ -8103,27 +8165,31 @@ categories: ins
 
 
 
-<h4 id="关于寄存器"><a href="#关于寄存器" class="headerlink" title="关于寄存器"></a>关于寄存器</h4><ul>
-<li>三类常见寄存器：通用寄存器，变址寄存器，堆栈寄存器</li>
+<h3 id="寄存器"><a href="#寄存器" class="headerlink" title="寄存器"></a>寄存器</h3><ul>
+<li><p>寄存器都是&#x3D;&#x3D;32bit&#x3D;&#x3D;。（特殊的：通用寄存器可以把E去掉，用低16bit，甚至用低8bit。）</p>
+</li>
+<li><p>三类常见寄存器：通用寄存器，变址寄存器，堆栈寄存器</p>
+<ul>
+<li>通用寄存器  &#x3D;&#x3D;..X&#x3D;&#x3D;【Extended】（EAX,EBX,ECX,EDX）</li>
+<li>变址寄存器  &#x3D;&#x3D;..I&#x3D;&#x3D;【Index】（ESI,EDI）</li>
+<li>堆栈寄存器  &#x3D;&#x3D;..P&#x3D;&#x3D;【Pointer】（EBP，ESP）</li>
+</ul>
+</li>
+<li><p>&#x3D;&#x3D;abc&#x3D;&#x3D; 指的是寄存器abc里面的内容</p>
+</li>
+<li><p>&#x3D;&#x3D;【abc】&#x3D;&#x3D;指的是寄存器abc所指的主存地址</p>
+</li>
 </ul>
 <img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226100718663.png" alt="image-20260226100718663" style="zoom: 50%;" />
 
-<p>（少见的情况）</p>
-<ul>
-<li><strong>通用寄存器 可以把E去掉</strong>，用低16bit，甚至用某个低8bit。</li>
-<li><strong>其他寄存器固定32bit</strong></li>
-</ul>
+
+
 <p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226101035949.png" alt="image-20260226101035949" style="zoom: 18%;" /><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226101011430.png" alt="image-20260226101011430" style="zoom: 18%;" /></p>
-<p>（补充）</p>
-<ul>
-<li>【ebx】指的是ebx所指的主存地址</li>
-<li>&#x3D;&#x3D;未指明默认32bit&#x3D;&#x3D;</li>
-</ul>
 <img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226101454284.png" alt="image-20260226101454284" style="zoom:20%;" />
 
 
 
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>一表概括</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>&#x3D;&#x3D;地址码的内容可以放在：寄存器，主存，或者指令里面。&#x3D;&#x3D;</p>
 <p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226101604146.png" alt="image-20260226101604146"></p>
 <hr>
 <h2 id="4-3-1-2-汇编语言中的-操作码"><a href="#4-3-1-2-汇编语言中的-操作码" class="headerlink" title="4.3.1-2 汇编语言中的 操作码"></a>4.3.1-2 汇编语言中的 操作码</h2><p>&#x3D;&#x3D;这一节：汇编语言指令可以对数据进行哪些处理。（关注于操作码）&#x3D;&#x3D;</p>
@@ -8140,26 +8206,33 @@ categories: ins
 <h3 id="逻辑运算"><a href="#逻辑运算" class="headerlink" title="逻辑运算"></a>逻辑运算</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226113038595.png" alt="image-20260226113038595"></p>
 <h3 id="其他指令"><a href="#其他指令" class="headerlink" title="其他指令"></a>其他指令</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226113310667.png" alt="image-20260226113310667"></p>
 <hr>
-<h2 id="4-3-1-3-AT-T-格式-（v-s-intel-格式）"><a href="#4-3-1-3-AT-T-格式-（v-s-intel-格式）" class="headerlink" title="4.3.1-3 AT&amp;T 格式  （v.s.  intel 格式）"></a>4.3.1-3 AT&amp;T 格式  （v.s.  intel 格式）</h2><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226114251144.png" alt="image-20260226114251144"></p>
+<h2 id="4-3-1-3-AT-T-格式-（v-s-intel-格式）"><a href="#4-3-1-3-AT-T-格式-（v-s-intel-格式）" class="headerlink" title="4.3.1-3 AT&amp;T 格式  （v.s.  intel 格式）"></a>4.3.1-3 AT&amp;T 格式  （v.s.  intel 格式）</h2><p>我们现在使用的是intel格式的汇编语言。</p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226114251144.png" alt="image-20260226114251144"></p>
 <p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226114449792.png" alt="image-20260226114449792"></p>
 <hr>
 <h2 id="4-3-2-选择语句的机器级表示"><a href="#4-3-2-选择语句的机器级表示" class="headerlink" title="4.3.2 选择语句的机器级表示"></a>4.3.2 选择语句的机器级表示</h2><ul>
 <li><strong>PC</strong> (program counter)也被称为 <strong>IP</strong>（instruction pointer)</li>
 </ul>
-<h3 id="无条件转移指令jmp"><a href="#无条件转移指令jmp" class="headerlink" title="无条件转移指令jmp"></a>无条件转移指令jmp</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226130627276.png" alt="image-20260226130627276"></p>
-<h3 id="条件转移指令jxxx"><a href="#条件转移指令jxxx" class="headerlink" title="条件转移指令jxxx"></a>条件转移指令jxxx</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226131300659.png" alt="image-20260226131300659"></p>
+<h3 id="无条件转移指令jmp"><a href="#无条件转移指令jmp" class="headerlink" title="无条件转移指令jmp"></a>无条件转移指令jmp</h3><p>无条件转移：前面&#x3D;&#x3D;jump NEXT&#x3D;&#x3D;，转移到后面的单独一行&#x3D;&#x3D;NEXT：&#x3D;&#x3D;</p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226130627276.png" alt="image-20260226130627276"></p>
+<h3 id="条件转移指令jxxx"><a href="#条件转移指令jxxx" class="headerlink" title="条件转移指令jxxx"></a>条件转移指令jxxx</h3><p>有条件转移：前面&#x3D;&#x3D;cmp 寄存器1，寄存器2&#x3D;&#x3D;	后面&#x3D;&#x3D;jg&#x2F;je之类 NEXT&#x3D;&#x3D;</p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226131300659.png" alt="image-20260226131300659"></p>
 <p>（简单例子）</p>
 <p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226131711931.png" alt="image-20260226131711931" style="zoom:20%;" /><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226132102625.png" alt="image-20260226132102625" style="zoom:18%;" /></p>
-<h3 id="（扩展：cmp指令底层原理）"><a href="#（扩展：cmp指令底层原理）" class="headerlink" title="（扩展：cmp指令底层原理）"></a>（扩展：cmp指令底层原理）</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226132729951.png" alt="image-20260226132729951"></p>
+<h3 id="扩展：cmp指令底层原理"><a href="#扩展：cmp指令底层原理" class="headerlink" title="扩展：cmp指令底层原理"></a>扩展：cmp指令底层原理</h3><p>本质是a-b减法运算，根据PSW生成的标志位（ZF,OF,SF,CF），得到不同的情况。</p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226132729951.png" alt="image-20260226132729951"></p>
 <hr>
 <h2 id="4-3-3-循环语句的机器级表示"><a href="#4-3-3-循环语句的机器级表示" class="headerlink" title="4.3.3 循环语句的机器级表示"></a>4.3.3 循环语句的机器级表示</h2><h3 id="用-条件转移指令-实现循环"><a href="#用-条件转移指令-实现循环" class="headerlink" title="用 条件转移指令 实现循环"></a>用 条件转移指令 实现循环</h3><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226132931532.png" alt="image-20260226132931532"></p>
 <h3 id="用-loop指令-实现循环"><a href="#用-loop指令-实现循环" class="headerlink" title="用 loop指令 实现循环"></a>用 loop指令 实现循环</h3><ul>
-<li>（<strong>ecx是专门用于循环计数器的</strong>，eax ebx edx都不行）</li>
-<li>理论上只要能用loop指令实现的功能，都可以用条件转移指令实现。（只是 loop指令更简洁，且jxxx第一印象可能是分支而不是循环（但并非如此哈哈哈））</li>
+<li>（<strong>ecx是专门用于循环计数器的寄存器</strong>，eax ebx edx都不行）</li>
+<li>理论上只要能用loop指令实现的功能，都可以用条件转移指令实现。<ul>
+<li>（只是 loop指令更简洁，且jxxx第一印象可能是分支而不是循环（但并非如此哈哈哈））</li>
+</ul>
+</li>
 </ul>
 <p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226133511948.png" alt="image-20260226133511948"></p>
 <hr>
-<h2 id="4-3-4-函数调用的机器级表示"><a href="#4-3-4-函数调用的机器级表示" class="headerlink" title="4.3.4 函数调用的机器级表示"></a>4.3.4 函数调用的机器级表示</h2><p>待解决的：</p>
+<h2 id="4-3-4-函数调用的机器级表示⭐"><a href="#4-3-4-函数调用的机器级表示⭐" class="headerlink" title="4.3.4 函数调用的机器级表示⭐"></a>4.3.4 函数调用的机器级表示⭐</h2><p>待解决的：</p>
 <ul>
 <li><p>函数调用过去和回来的过程 – 1</p>
 </li>
@@ -8179,8 +8252,8 @@ categories: ins
 <p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226140709521.png" alt="image-20260226140709521"></p>
 <p>&#x3D;&#x3D;栈帧：&#x3D;&#x3D;</p>
 <ul>
-<li><strong>ebp</strong>寄存器 指向栈帧“底部”（extend base pointer)</li>
-<li><strong>esp</strong>寄存器 指向栈帧“顶部  （extend stack pointer）</li>
+<li><strong>ebp</strong>寄存器 指向 <strong>当前栈帧的“底部”</strong>（extend base pointer)</li>
+<li><strong>esp</strong>寄存器 指向 <strong>当前栈帧的“顶部</strong>  （extend stack pointer）</li>
 <li>ebp和esp之间的内容就是<strong>栈帧的范围</strong></li>
 </ul>
 <p>其他：</p>
@@ -8190,29 +8263,36 @@ categories: ins
 <li>出栈不能pop+元素，原因同destination</li>
 </ul>
 <h4 id="访问栈帧数据的方式①：push，pop指令"><a href="#访问栈帧数据的方式①：push，pop指令" class="headerlink" title="访问栈帧数据的方式①：push，pop指令"></a>访问栈帧数据的方式①：push，pop指令</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226141447650.png" alt="image-20260226141447650"></p>
-<h4 id="访问栈帧数据的方式②：mov指令"><a href="#访问栈帧数据的方式②：mov指令" class="headerlink" title="访问栈帧数据的方式②：mov指令"></a>访问栈帧数据的方式②：mov指令</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226141918737.png" alt="image-20260226141918737"></p>
+<h4 id="访问栈帧数据的方式②：mov-复制指令-？"><a href="#访问栈帧数据的方式②：mov-复制指令-？" class="headerlink" title="访问栈帧数据的方式②：mov 复制指令 &#x3D;&#x3D;？&#x3D;&#x3D;"></a>访问栈帧数据的方式②：mov 复制指令 &#x3D;&#x3D;？&#x3D;&#x3D;</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226141918737.png" alt="image-20260226141918737"></p>
 <h3 id="如何切换栈帧"><a href="#如何切换栈帧" class="headerlink" title="如何切换栈帧"></a>如何切换栈帧</h3><p><strong>（栈指针怎么变）</strong></p>
-<h4 id="函数调用时，栈指针的变化"><a href="#函数调用时，栈指针的变化" class="headerlink" title="函数调用时，栈指针的变化"></a>函数调用时，栈指针的变化</h4><p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226172951049.png" alt="image-20260226172951049"></p>
+<h4 id="函数调用时，栈指针的变化"><a href="#函数调用时，栈指针的变化" class="headerlink" title="函数调用时，栈指针的变化"></a>函数调用时，栈指针的变化</h4><ul>
+<li>⭐</li>
+</ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226172951049.png" alt="image-20260226172951049"></p>
 <p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226183721505.png" alt="image-20260226183721505"></p>
 <h4 id="函数返回时，栈指针的变化"><a href="#函数返回时，栈指针的变化" class="headerlink" title="函数返回时，栈指针的变化"></a>函数返回时，栈指针的变化</h4><ul>
 <li>⭐</li>
 </ul>
 <p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226183915571.png" alt="image-20260226183915571"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260902194225485.png" alt="image-20260902194225485"></p>
 <p>（注：<strong>每一个栈帧的底部</strong>，用于保存上一层栈帧的基址）</p>
+<p>leave指令，是例行处理</p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260902194323370.png" alt="image-20260902194323370"></p>
 <p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226184109023.png" alt="image-20260226184109023"></p>
-<p>ret的作用</p>
+<p>ret的作用 </p>
 <p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226184200050.png" alt="image-20260226184200050"></p>
-<h4 id="函数调用时栈指针的变化（总）"><a href="#函数调用时栈指针的变化（总）" class="headerlink" title="函数调用时栈指针的变化（总）"></a>函数调用时栈指针的变化（总）</h4><ul>
+<h4 id="函数调用时栈指针的变化（总）⭐"><a href="#函数调用时栈指针的变化（总）⭐" class="headerlink" title="函数调用时栈指针的变化（总）⭐"></a>函数调用时栈指针的变化（总）⭐</h4><ul>
 <li>除了main函数，其他的函数都有调用和被调用</li>
 </ul>
 <p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226184318481.png" alt="（"></p>
 <p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226184649617.png" alt="image-20260226184649617"></p>
 <h3 id="如何传递参数和返回值-指针包含的内容"><a href="#如何传递参数和返回值-指针包含的内容" class="headerlink" title="如何传递参数和返回值+指针包含的内容"></a>如何传递参数和返回值+指针包含的内容</h3><h4 id="指针包含的内容"><a href="#指针包含的内容" class="headerlink" title="指针包含的内容"></a>指针包含的内容</h4><ul>
-<li>（like [ebp&#x3D;&#x3D;-&#x3D;&#x3D;4]这类就是指<strong>局部变量</strong>）</li>
+<li>（像  &#x3D;&#x3D;[ebp - 4]&#x3D;&#x3D; 这类就是指函数内部定义的某个 <strong>局部变量</strong>）</li>
 </ul>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260902195111473.png" alt="image-20260902195111473"></p>
 <p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226192036882.png" alt="image-20260226192036882"></p>
 <ul>
-<li>（此处是add函数，[ebp&#x3D;&#x3D;+&#x3D;&#x3D;8]这类指的是<strong>调用参数</strong>）</li>
+<li>（此处是add函数，&#x3D;&#x3D;[ebp + 8]&#x3D;&#x3D; 这类指的是<strong>调用参数</strong>）</li>
 </ul>
 <p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226192332054.png" alt="image-20260226192332054"></p>
 <ul>
@@ -8220,7 +8300,7 @@ categories: ins
 </ul>
 <p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226192633373.png" alt="image-20260226192633373"></p>
 <ul>
-<li><strong>调用参数发生在call（下一fuc）指令之前</strong></li>
+<li>调用参数发生在call（下一fuc）指令之前</li>
 </ul>
 <p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226194506993.png" alt="image-20260226194506993"></p>
 <h4 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h4><ul>
@@ -8235,10 +8315,11 @@ categories: ins
 <li>局部变量的初始化</li>
 </ul>
 <p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226195512328.png" alt="image-20260226195512328"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260902200315600.png" alt="image-20260902200315600"></p>
 <ul>
 <li><p>调用add的参数发生在add函数call之前</p>
 </li>
-<li><p>（mov指令是不能两个操作数都来自主存的，所以此处需两步）</p>
+<li><p>（mov指令是不支持两个操作数都来自主存的，所以此处需两步，其中一步就是把值放到寄存器里面去）</p>
 </li>
 <li><p>（x的参数调用同y）</p>
 </li>
@@ -8280,22 +8361,21 @@ categories: ins
 <p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226201905123.png" alt="image-20260226201905123"></p>
 <p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226202018379.png" alt="image-20260226202018379"></p>
 <p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260226202811025.png" alt="image-20260226202811025"></p>
-<h2 id="4-3-5-补充内容"><a href="#4-3-5-补充内容" class="headerlink" title="4.3.5 补充内容"></a>4.3.5 补充内容</h2><ul>
-<li><p>&#x3D;&#x3D;CF值（有无进位）判断方法&#x3D;&#x3D;：sub位 <strong>⊕</strong> Cout 位  （异或）</p>
-</li>
-<li><p><strong>指令序列</strong>（左边为指令地址，中间为机器代码，右边为汇编指令）</p>
+<h2 id="4-3-5-补充内容"><a href="#4-3-5-补充内容" class="headerlink" title="4.3.5 补充内容"></a>4.3.5 补充内容</h2><p>&#x3D;&#x3D;CF值（有无进位）判断方法&#x3D;&#x3D;：sub位（是否是减法） <strong>⊕</strong> Cout 位（最高位是否进位）	  （⊕：异或）</p>
 <ul>
-<li>【机器代码和汇编指令表达的同个东西，表示方法不同而已】</li>
-<li>【指令地址不是地址码，是从地址码找到的指令地址】</li>
+<li>无论有无符号数，都会有cf值，只不过有符号时没意义而已。</li>
 </ul>
-</li>
-<li><p><strong>使程序跳转执行的指令</strong>：jmp，jxxx，call，ret</p>
-</li>
-<li><p>有符号乘法溢出判断：高33位不全为1或0，此时OF&#x3D;1</p>
-</li>
-<li><p>指令都是虚拟地址。虚拟地址和物理地址低xx位相同（虚拟地址&#x3D;虚拟页号+页内地址）</p>
-</li>
+<p><strong>读图：指令序列</strong>（左边为指令地址，中间为机器代码，右边为汇编指令）</p>
+<ul>
+<li>机器代码和汇编指令表达的同个东西，表示方法不同而已</li>
+<li>指令地址不是地址码，是从地址码找到的指令地址</li>
+<li>指令长度：看两个指令地址相邻的距离</li>
 </ul>
+<p><strong>使程序跳转执行的指令</strong>：jmp，jxxx，call，ret</p>
+<p>有符号乘法溢出判断：高33位不全为1或0，此时OF&#x3D;1</p>
+<p>指令都是虚拟地址！【虚拟地址和物理地址低xx位相同（虚拟地址&#x3D;虚拟页号+页内地址）】</p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/image-20260902204520663.png" alt="image-20260902204520663"></p>
+<p><img src="https://dbddbdbdbd.oss-cn-qingdao.aliyuncs.com/c37b77dc7bdec84f739501d5ca34e5ce.jpg" alt="c37b77dc7bdec84f739501d5ca34e5ce"></p>
 ]]></content>
       <categories>
         <category>计组</category>
@@ -8308,11 +8388,11 @@ categories: ins
   <entry>
     <title>计组-4.4 CISC和RISC</title>
     <url>/2026/02/28/%E8%AE%A1%E7%BB%84/%E8%AE%A1%E7%BB%84-4.4%20CISC%E5%92%8CRISC/</url>
-    <content><![CDATA[<p>相比于CISC,RISC的特点是：（Complex &#x2F; Reduced）</p>
+    <content><![CDATA[<p>相比于CISC&#x3D;&#x3D;,RISC的特点&#x3D;&#x3D;是：（Complex &#x2F; Reduced）</p>
 <ul>
 <li>&#x3D;&#x3D;极简&#x3D;&#x3D;，速度快。</li>
 <li><strong>指令条数少</strong>；</li>
-<li>&#x3D;&#x3D;<strong>指令长度固定</strong>&#x3D;&#x3D;，指令格式和寻址种类少；<strong>（功能性不强）</strong>（编程不方便）</li>
+<li>&#x3D;&#x3D;<strong>指令长度固定</strong>&#x3D;&#x3D;，指令格式和寻址种类少；**&#x3D;&#x3D;（功能性不强）&#x3D;&#x3D;**（编程不方便）</li>
 <li>只有取数&#x2F;存数（LOAD&#x2F;STORE）指令访问<strong>存储器</strong>，其余指令的操作均在<strong>寄存器</strong>进行；</li>
 <li>CPU中<strong>通用寄存器多</strong>；</li>
 <li>大部分指令在一个时钟周期内完成；（指令执行时间）</li>
